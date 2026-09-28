@@ -1,6 +1,12 @@
 # CLEMI · Contexto de diseño local
 
-## Etapa vigente · Trayectoria completa y encuadre ampliado
+## Etapa vigente · Acentos azul SCCOT en Conexiones
+
+La petición añade azul SCCOT únicamente a Conexiones: título metalizado azul, franjas inferiores de las tres tarjetas con texto blanco, insignias de Instagram azules y fondo perla con un matiz azul suave. Se conservan las imágenes, adornos dorados y animaciones existentes. `--sccot-blue: #04157F` procede del token `--e-global-color-accent` de la [CSS oficial de SCCOT](https://sccot.org/wp-content/uploads/elementor/css/post-1110.css?ver=1790099331); es una referencia verificada de su web, no una afirmación sobre un manual de marca.
+
+`npm run verify` y `npm run export:preview` aprobados. Revisión a 1280/320 px sin desbordamiento, con etiquetas completas; móvil sin imágenes rotas ni errores/advertencias de consola. Exportación actualizada. JavaScript, enlaces y recursos gráficos no cambian.
+
+## Etapa anterior · Trayectoria completa y encuadre ampliado
 
 La corrección solicitada recupera dentro de Trayectoria «Dra. Claudia Reyes», «Cirujana de pie y tobillo» y «@draclaudiajreyes» como texto HTML. El nombre tiene acabado dorado y el usuario de Instagram conserva su enlace. Se mantienen el título de sección y la biografía profesional; la cita «La cirugía es ciencia, arte y responsabilidad…» continúa retirada.
 

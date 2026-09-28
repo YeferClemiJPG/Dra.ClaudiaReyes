@@ -1,8 +1,14 @@
 # Continuidad del proyecto · 28 de septiembre de 2026
 
-La etapa vigente corrige el encuadre de Trayectoria y recupera la identidad que se había retirado de la imagen. Los resultados anteriores se conservan por etapa y no sustituyen la comprobación del nuevo banner.
+La etapa vigente añade los acentos azul SCCOT solicitados en Conexiones. Los resultados anteriores se conservan por etapa.
 
-## Etapa vigente · Identidad recuperada y segundo relleno generativo
+## Etapa vigente · Azul SCCOT en Conexiones
+
+`--sccot-blue: #04157F` en `src/tokens.css` se aplica localmente desde `src/editorial-banner.css`: título metalizado azul, franjas de las tres tarjetas con texto blanco, insignias de Instagram azules y fondo perla azulado. Se mantienen las imágenes, el dorado y los efectos existentes. Color extraído de `--e-global-color-accent` en la [CSS oficial](https://sccot.org/wp-content/uploads/elementor/css/post-1110.css?ver=1790099331), sin atribuirlo a un manual de marca.
+
+`npm run verify` y `npm run export:preview` pasaron. Revisión administrada en desarrollo a 1280/320 px sin desbordamiento; las tres etiquetas caben y son blancas. Móvil sin imágenes rotas ni errores/advertencias de consola. HTML autónomo actualizado en outputs. No cambia JavaScript ni se repiten pruebas de interacción históricas.
+
+## Etapa anterior · Identidad recuperada y segundo relleno generativo
 
 El usuario señaló que el banner anterior había eliminado el nombre y otros textos necesarios y que el retrato se recortaba abruptamente. Se generó `public/assets/claudia-trayectoria-banner-v2.png` (1774 × 887) desde el retrato editorial original, ampliando fondo y márgenes alrededor de cabeza y hombros. El original y la primera versión se conservan intactos; la nueva versión es una edición generativa autorizada, sin afirmar identidad de píxeles. `docs/RECURSOS_ACTIVOS.md` registra el prompt y la procedencia.
 

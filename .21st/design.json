@@ -3,11 +3,19 @@
   "status": "approved_direction_checked_with_limits",
   "assistantRecommendation": null,
   "userSelection": "Dirección editorial fotográfica aprobada",
-  "implementedForReview": "Trayectoria completa y encuadre ampliado con banner v2",
+  "implementedForReview": "Acentos azul SCCOT en Conexiones, conservando el banner v2",
   "updatedAt": "2026-09-28",
   "stack": "Static HTML, CSS and JavaScript with Vite",
-  "currentInstruction": "Corregir el recorte del banner de Trayectoria mediante relleno generativo desde el original y recuperar Dra. Claudia Reyes, Cirujana de pie y tobillo y @draclaudiajreyes como HTML. Mantener biografía y título dentro del panel morado, con márgenes alrededor de cabeza y hombros. La cita anterior continúa retirada; Contacto, Conexiones y lema conservan la composición aprobada.",
+  "currentInstruction": "Añadir partes de azul SCCOT en Conexiones conservando el diseño aprobado. Se aplica #04157F del sitio oficial a título, franjas de tarjetas e insignias; se mantienen fotografías, dorado, banner v2 completo, contacto y lema.",
+  "connectionsColorValidation": "npm run verify y export:preview correctos. Desarrollo revisado a 1280 y 320 px, sin desbordamiento; tres etiquetas blancas legibles y sin recorte. A 320 px no hay imágenes rotas ni errores/advertencias de consola. Vista autónoma actualizada. Sin cambios de JavaScript ni nuevas pruebas funcionales.",
   "sharedConstraints": {
+    "sccotAccent": {
+      "hex": "#04157F",
+      "token": "--sccot-blue",
+      "scope": "Conexiones: título, franjas de tarjetas e insignias de Instagram",
+      "source": "https://sccot.org/wp-content/uploads/elementor/css/post-1110.css?ver=1790099331",
+      "sourceType": "Acento CSS del sitio oficial; no manual de marca"
+    },
     "typography": "Times New Roman; Times, Georgia y Cormorant Garamond local como respaldos",
     "colors": [
       "#F6F5F1",
@@ -58,7 +66,7 @@
     "biography": "Banner v2 morado 2:1 con margen sobre cabeza y hombros; retrato aproximadamente en el 8–44 % izquierdo. Título, Dra. Claudia Reyes, Cirujana de pie y tobillo, biografía de 48 palabras y enlace @draclaudiajreyes como HTML. La cita sigue ausente.",
     "biographyResponsive": "Escritorio: imagen a anchura completa y altura automática dentro de la cuadrícula, sin ampliación según el texto. Hasta 900 px: ventana 1:1 alineada arriba a la izquierda, máximo 440 px, que muestra la mitad izquierda; texto debajo dentro del mismo panel y máscaras con mask-composite: intersect para una transición suave también lateral.",
     "gallery": "Retirada junto al visor; originales conservados como históricos",
-    "connections": "Tres tarjetas con imagen superior y títulos breves; sin reclamos ni nombres de usuario adicionales",
+    "connections": "Tres tarjetas con fotografías intactas, franjas inferiores azul SCCOT y texto blanco; título e insignias de Instagram azules, fondo perla azulado y dorado CLEMI conservado",
     "contact": "Cuatro tarjetas: Guardar contacto, WhatsApp, Correo y Llamar. Guardar abre el diálogo QR con descarga y compartir; sin tarjeta QR separada.",
     "contactWavesIntegration": "Imagen decorativa contact-waves con alt vacío y loading lazy, integrada en el HTML autónomo",
     "footer": "Solo lema exacto centrado, dorado y animado finitamente; sin fuentes/créditos, control de movimiento ni volver arriba",
