@@ -149,66 +149,6 @@
   object-fit: contain;
 }
 
-/* SCCOT accents stay local to Connections and preserve CLEMI gold. */
-.connections::before {
-  border-color: #04157f20;
-  background: linear-gradient(135deg, #fffdf8b8, #edf1fc88 58%, #dce4fa80);
-}
-.connections .section-heading [data-reveal-type="title"] {
-  --metal-base: linear-gradient(
-    176deg,
-    var(--sccot-blue),
-    #31449e 48%,
-    var(--sccot-blue) 56%
-  );
-  --metal-glint: linear-gradient(
-    108deg,
-    transparent 35%,
-    #5369bf 48%,
-    transparent 61%
-  );
-}
-.connections .connection-tile {
-  padding-bottom: 0;
-  border-radius: 14px;
-  background: var(--sccot-blue);
-  box-shadow: 0 15px 35px -28px #04157f88;
-}
-.connections :is(.portfolio-image, .instagram-profile, .foundation-art) {
-  border-radius: 14px 14px 0 0;
-}
-.connections .portfolio-image {
-  background: linear-gradient(140deg, #f3f5ff, #dce5f9);
-}
-.connections .tile-content {
-  display: flex;
-  align-items: center;
-  flex: 1;
-  min-height: 92px;
-  padding: 20px 24px;
-  border-top: 1px solid #d8bd7c99;
-}
-.connections .tile-content h3 {
-  color: #fff;
-}
-.connections .connection-tile.is-featured .tile-content h3 {
-  color: #f1dfbb;
-}
-.connections .app-mark {
-  color: #fff;
-  background: var(--sccot-blue);
-  border-color: #d8bd7c99;
-}
-.connections .connection-tile:focus-visible {
-  outline-color: var(--sccot-blue);
-  outline-offset: 5px;
-}
-@supports not ((background-clip: text) or (-webkit-background-clip: text)) {
-  .connections .section-heading [data-reveal-type="title"] {
-    color: var(--sccot-blue);
-  }
-}
-
 /* Two principal actions above two compact contact methods. */
 .contact-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));

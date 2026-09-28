@@ -67,7 +67,7 @@ for (const asset of [
   "contact-whatsapp-sculpture-v2.png",
   "contact-mail-sculpture.png",
   "contact-phone-sculpture-v2.png",
-  "contact-gold-waves.png",
+  "contact-blue-waves.png",
 ]) {
   await access(path.join(root, "public/assets", asset));
 }

@@ -1,12 +1,16 @@
 # Continuidad del proyecto · 28 de septiembre de 2026
 
-La etapa vigente añade los acentos azul SCCOT solicitados en Conexiones. Los resultados anteriores se conservan por etapa.
+La etapa vigente corrige el alcance del azul SCCOT: ondas de Contacto, con Conexiones restaurada. Los resultados anteriores se conservan por etapa.
 
-## Etapa vigente · Azul SCCOT en Conexiones
+## Etapa vigente · Azul SCCOT en las ondas de Contacto
 
-`--sccot-blue: #04157F` en `src/tokens.css` se aplica localmente desde `src/editorial-banner.css`: título metalizado azul, franjas de las tres tarjetas con texto blanco, insignias de Instagram azules y fondo perla azulado. Se mantienen las imágenes, el dorado y los efectos existentes. Color extraído de `--e-global-color-accent` en la [CSS oficial](https://sccot.org/wp-content/uploads/elementor/css/post-1110.css?ver=1790099331), sin atribuirlo a un manual de marca.
+El usuario corrigió la sección: el azul SCCOT debe aparecer en las ondas de la imagen de Contacto. Conexiones recupera exactamente el diseño anterior a los acentos azules (commit `1729671`), con sus colores CLEMI. `assets/contact-blue-waves.png` sustituye al fondo dorado mediante edición generativa; el original `contact-gold-waves.png` queda como histórico. Las tarjetas conservan el cristal y sus iconos dorados; no cambian contenido ni interacción. Se retiran los acentos añadidos en `df9d071`.
 
-`npm run verify` y `npm run export:preview` pasaron. Revisión administrada en desarrollo a 1280/320 px sin desbordamiento; las tres etiquetas caben y son blancas. Móvil sin imágenes rotas ni errores/advertencias de consola. HTML autónomo actualizado en outputs. No cambia JavaScript ni se repiten pruebas de interacción históricas.
+`#04157F` procede del token `--e-global-color-accent` de la [CSS oficial de SCCOT](https://sccot.org/wp-content/uploads/elementor/css/post-1110.css?ver=1790099331); es una referencia cromática de su web, no una afirmación sobre un manual de marca. Prompt y procedencia en `docs/RECURSOS_ACTIVOS.md`.
+
+El PNG opaco mide 1672 × 941 px y ocupa 2.088.185 bytes. SHA-256: `1eec18cc257be3702e1ce86153beb0ab2595eb2326aa0ad97ea492b83ef63b69`. El original dorado permanece intacto.
+
+`npm run verify` (lint, formato y build) y `npm run export:preview` pasaron. La copia de entrega es exacta y el nuevo PNG integrado coincide con el activo. Desarrollo revisado a 1280/320 px sin desbordamiento, con las cuatro tarjetas y el fondo azul cargado; móvil sin imágenes rotas ni errores o advertencias de consola. Las capturas confirman Conexiones sin franjas azules y Contacto azul con cristal y dorado legibles. `src/editorial-banner.css` y `src/tokens.css` coinciden con `1729671`. JavaScript no cambia; las pruebas VCF anteriores no se repitieron. La revisión visual corresponde a desarrollo; el HTML autónomo se comprobó por integridad de la copia y del recurso integrado. Las comprobaciones de las etapas siguientes son históricas; no hay publicación.
 
 ## Etapa anterior · Identidad recuperada y segundo relleno generativo
 

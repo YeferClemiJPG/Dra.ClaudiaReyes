@@ -2,9 +2,9 @@
 
 Landing estática para la tarjeta NFC de la Dra. Claudia Reyes, primera de siete. HTML, CSS y JavaScript con Vite; Times New Roman, crema/perla, azul marino y oro, con banner morado de Trayectoria.
 
-La corrección actual amplía el retrato de Trayectoria mediante relleno generativo y recupera «Dra. Claudia Reyes», «Cirujana de pie y tobillo» y «@draclaudiajreyes» como HTML, junto al título y la biografía. La cita anterior continúa retirada. El retrato tiene margen sobre la cabeza y alrededor de los hombros; la imagen y los textos permanecen dentro de un banner morado redondeado.
+La corrección actual aplica azul SCCOT a las ondas del fondo de Contacto mediante edición generativa y restaura Conexiones al diseño anterior a los acentos azules. El cristal, los iconos dorados y las acciones de Contacto se conservan. Verificación y exportación aprobadas; revisión de desarrollo a 1280/320 px sin desbordamiento, con Contacto azul legible y Conexiones restaurada. El HTML autónomo integra el PNG exacto.
 
-`npm run verify` y `npm run export:preview` pasaron con la versión v2. Se revisó el encuadre en desarrollo a 1440, 1280, 1000, 768 y 320 px, con nombre, especialidad e Instagram recuperados y retrato completo. La exportación se comprobó por contenido e integridad; el navegador bloqueó su apertura visual mediante `file:`. Detalle y límites en `docs/CONTINUIDAD.md`. No se publica el sitio.
+La etapa anterior recuperó nombre, especialidad e Instagram como HTML dentro del banner morado v2 y amplió el retrato mediante relleno generativo. Su encuadre se revisó a 1440, 1280, 1000, 768 y 320 px; verificación y exportación pasaron entonces. Detalle y límites por etapa en `docs/CONTINUIDAD.md`. No se publica el sitio.
 
 ## Editar y revisar
 
@@ -26,13 +26,13 @@ scienceIllustration permanece solo en portada; institutionalPhoto conserva la fo
 
 Contacto reúne Guardar contacto, WhatsApp, Correo y Llamar. Guardar abre el diálogo claro con QR real, descarga vCard y compartir cuando lo admite el navegador. Mantener Escape, cierre y retorno de foco. La descarga alternativa permanece disponible sin JavaScript. Importar y compartir dependen del dispositivo; no se han probado físicamente en iOS/Android.
 
-Las tarjetas de cristal conservan desenfoque de fondo de 19 px, saturación 1,35 y reflejos; las ondas son una imagen decorativa contact-waves, alt vacío y carga diferida. Copiar correo muestra confirmación. No quedan tarjeta QR separada ni flechas. Navegación y enlace de salto llevan a Contacto.
+Las tarjetas de cristal conservan desenfoque de fondo de 19 px, saturación 1,35 y reflejos; las ondas azul SCCOT son la imagen decorativa `assets/contact-blue-waves.png`, con clase contact-waves, alt vacío y carga diferida. El original dorado se conserva como histórico. Copiar correo muestra confirmación. No quedan tarjeta QR separada ni flechas. Navegación y enlace de salto llevan a Contacto.
 
 Los títulos entran durante 950 ms, el brillo de texto dura 1150 ms y el resplandor de secciones 850 ms; paneles y retrato usan 620 y 900 ms. Selección por teclado o ratón fino, foco visible y movimiento reducido se conservan. Los enlaces internos usan RAF de 460–1100 ms, foco e historial, con cancelación manual y rueda nativa. motion-preference.js permanece activo sin botón visible: aplica la preferencia local guardada en clemi-motion o, por defecto, la del sistema. No se cambian ajustes del sistema. Todas las animaciones son finitas y se conserva movimiento reducido.
 
 ## Comprobar y exportar
 
-La compilación, lint, formato y exportación de esta corrección pasaron. Desarrollo revisado a 1440/1280/1000/768/320 px: identidad accesible correcta, sin desbordamiento en 1280/1000/768/320 px y sin imágenes rotas en 1280/320 px; consola limpia a 768 px. A 1000 px, la imagen conserva ratio 2:1 aunque el texto ocupe más altura. La copia autónoma, su PNG integrado y los tres textos se comprobaron por contenido; no hubo revisión visual de `file:` por bloqueo del navegador. Las catorce pruebas de diálogo y las descargas VCF exactas son históricas y no se repitieron porque el JavaScript de interacción no cambia. NFC físico, cámara e importación móvil siguen pendientes.
+La compilación, lint, formato y exportación de la corrección anterior del banner v2 pasaron. Desarrollo revisado a 1440/1280/1000/768/320 px: identidad accesible correcta, sin desbordamiento en 1280/1000/768/320 px y sin imágenes rotas en 1280/320 px; consola limpia a 768 px. A 1000 px, la imagen conserva ratio 2:1 aunque el texto ocupe más altura. La copia autónoma, su PNG integrado y los tres textos se comprobaron por contenido; no hubo revisión visual de `file:` por bloqueo del navegador. Las catorce pruebas de diálogo y las descargas VCF exactas son históricas y no se repitieron porque el JavaScript de interacción no cambia. NFC físico, cámara e importación móvil siguen pendientes.
 
 Ejecutar npm run verify y npm run export:preview. dist/ contiene la distribución estática; artifacts/Claudia_Reyes_Vista_Previa.html es el HTML autónomo con estilos, fuentes locales, imágenes, scripts, QR y vCard integrados. Algunos visores limitan descargas; la web utiliza contacto.vcf como archivo normal.
 

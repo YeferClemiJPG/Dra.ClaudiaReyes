@@ -3,16 +3,14 @@
   "status": "approved_direction_checked_with_limits",
   "assistantRecommendation": null,
   "userSelection": "Dirección editorial fotográfica aprobada",
-  "implementedForReview": "Acentos azul SCCOT en Conexiones, conservando el banner v2",
+  "implementedForReview": "Ondas azul SCCOT en Contacto y Conexiones restaurada",
   "updatedAt": "2026-09-28",
   "stack": "Static HTML, CSS and JavaScript with Vite",
-  "currentInstruction": "Añadir partes de azul SCCOT en Conexiones conservando el diseño aprobado. Se aplica #04157F del sitio oficial a título, franjas de tarjetas e insignias; se mantienen fotografías, dorado, banner v2 completo, contacto y lema.",
-  "connectionsColorValidation": "npm run verify y export:preview correctos. Desarrollo revisado a 1280 y 320 px, sin desbordamiento; tres etiquetas blancas legibles y sin recorte. A 320 px no hay imágenes rotas ni errores/advertencias de consola. Vista autónoma actualizada. Sin cambios de JavaScript ni nuevas pruebas funcionales.",
+  "currentInstruction": "Corregir el alcance del azul SCCOT: editar la imagen de ondas doradas de Contacto a azul con referencia #04157F, conservar cristal e iconos dorados y restablecer Conexiones al diseño anterior de 1729671. Mantener banner v2, contenido e interacción.",
   "sharedConstraints": {
     "sccotAccent": {
       "hex": "#04157F",
-      "token": "--sccot-blue",
-      "scope": "Conexiones: título, franjas de tarjetas e insignias de Instagram",
+      "scope": "Solo ondas de la imagen de Contacto; Conexiones vuelve al diseño CLEMI anterior",
       "source": "https://sccot.org/wp-content/uploads/elementor/css/post-1110.css?ver=1790099331",
       "sourceType": "Acento CSS del sitio oficial; no manual de marca"
     },
@@ -34,10 +32,10 @@
     "preserveOfficialLogoAndOriginalPhotos": "Logo y originales archivados intactos; banner derivado mediante edición generativa autorizada, sin afirmar preservación de píxeles",
     "instagramArtwork": "assets/claudia-reyes-instagram.png",
     "newAiGeneration": {
-      "authorizedScope": "Ilustraciones decorativas autorizadas, carpeta y burbuja única; permiso expreso para relleno generativo del retrato editorial morado, ampliación de márgenes y retirada de textos impresos en un banner derivado. Nombre, especialidad e Instagram se recuperan como HTML; cita retirada. Sin logos ni QR ficticios.",
+      "authorizedScope": "Ilustraciones decorativas autorizadas, carpeta y burbuja única; permiso expreso para relleno generativo del retrato editorial morado, ampliación de márgenes y retirada de textos impresos en un banner derivado. Nombre, especialidad e Instagram se recuperan como HTML; cita retirada. Sin logos ni QR ficticios. La corrección actual autoriza editar a azul SCCOT las ondas de Contacto, conservando su original dorado.",
       "assets": [
         "assets/clemi-science-illustration.png",
-        "assets/contact-gold-waves.png",
+        "assets/contact-blue-waves.png",
         "assets/contact-save-sculpture.png",
         "assets/contact-mail-sculpture.png",
         "assets/contact-phone-sculpture-v2.png",
@@ -66,9 +64,9 @@
     "biography": "Banner v2 morado 2:1 con margen sobre cabeza y hombros; retrato aproximadamente en el 8–44 % izquierdo. Título, Dra. Claudia Reyes, Cirujana de pie y tobillo, biografía de 48 palabras y enlace @draclaudiajreyes como HTML. La cita sigue ausente.",
     "biographyResponsive": "Escritorio: imagen a anchura completa y altura automática dentro de la cuadrícula, sin ampliación según el texto. Hasta 900 px: ventana 1:1 alineada arriba a la izquierda, máximo 440 px, que muestra la mitad izquierda; texto debajo dentro del mismo panel y máscaras con mask-composite: intersect para una transición suave también lateral.",
     "gallery": "Retirada junto al visor; originales conservados como históricos",
-    "connections": "Tres tarjetas con fotografías intactas, franjas inferiores azul SCCOT y texto blanco; título e insignias de Instagram azules, fondo perla azulado y dorado CLEMI conservado",
+    "connections": "Tres tarjetas: Portafolio, Instagram y Fundación CLEMI; diseño CLEMI restaurado al estado 1729671, sin los acentos SCCOT de df9d071",
     "contact": "Cuatro tarjetas: Guardar contacto, WhatsApp, Correo y Llamar. Guardar abre el diálogo QR con descarga y compartir; sin tarjeta QR separada.",
-    "contactWavesIntegration": "Imagen decorativa contact-waves con alt vacío y loading lazy, integrada en el HTML autónomo",
+    "contactWavesIntegration": "assets/contact-blue-waves.png: ondas editadas a azul SCCOT como imagen decorativa contact-waves con alt vacío y loading lazy, integrada en el HTML autónomo; cristal e iconos dorados conservados",
     "footer": "Solo lema exacto centrado, dorado y animado finitamente; sin fuentes/créditos, control de movimiento ni volver arriba",
     "background": "Gradientes perla, marfil y azul marino con editorial-contours.svg original; paneles translúcidos de borde fino en Trayectoria y Contacto",
     "headings": "Gradientes metalizados navy/oro y cintas satinadas de title-metalwork.svg original sin IA; conservar jerarquía semántica",
@@ -119,7 +117,6 @@
     "scienceIllustration": "assets/clemi-science-illustration.png",
     "editorialContours": "assets/editorial-contours.svg",
     "titleMetalwork": "assets/title-metalwork.svg",
-    "contactGoldWaves": "assets/contact-gold-waves.png",
     "contactSculptures": [
       "assets/contact-save-sculpture.png",
       "assets/contact-mail-sculpture.png",
@@ -127,7 +124,8 @@
       "assets/contact-whatsapp-sculpture-v2.png"
     ],
     "biographyBanner": "assets/claudia-trayectoria-banner-v2.png",
-    "portfolioIllustration": "assets/clemi-portfolio-sculpture.png"
+    "portfolioIllustration": "assets/clemi-portfolio-sculpture.png",
+    "contactBlueWaves": "assets/contact-blue-waves.png"
   },
   "illustrationPlacement": {
     "scienceIllustration": "Solo portada",
@@ -146,20 +144,31 @@
     "assets/claudia-reyes-sccot.jpeg",
     "assets/clemi-research-illustration.png",
     "assets/contact-chat-sculpture.png",
-    "assets/contact-qr-sculpture.png"
+    "assets/contact-qr-sculpture.png",
+    "assets/contact-gold-waves.png"
   ],
   "validation": {
     "status": "checked_with_limits",
-    "completed": "npm run verify y npm run export:preview pasaron tras integrar el banner v2, la identidad HTML y el nuevo encuadre responsive.",
-    "developmentBrowserWidthsPx": [1440, 1280, 1000, 768, 320],
-    "browserFindings": "Nombre, especialidad e Instagram presentes y accesibles. Composición revisada visualmente a 1440 px; sin desbordamiento en 1280/1000/768/320 px ni imágenes rotas en 1280/320 px. A 1000 px, ratio DOM 2:1 aunque el texto crezca; a 768 px, cabello/mano/hombros completos, unión lateral sin línea y consola limpia.",
-    "standaloneExport": "Contenido validado: copia de entrega exacta, PNG base64 idéntico al activo y tres textos recuperados presentes. Sin revisión visual del archivo autónomo porque el navegador bloqueó file:.",
+    "completed": "npm run verify pasó tras normalizar el formato CRLF de los archivos restaurados; lint, Prettier, build y export:preview correctos.",
+    "developmentBrowserWidthsPx": [1280, 320],
+    "browserFindings": "Conexiones sin franjas azules y Contacto azul con cristal e iconos dorados legibles. Sin desbordamiento; fondo local de 1672 px cargado y cuatro tarjetas. Móvil sin imágenes rotas ni errores/advertencias de consola.",
+    "connectionsRestoration": "git diff 1729671 de src/editorial-banner.css y src/tokens.css vacío.",
+    "standaloneExport": "Copia outputs exacta; PNG integrado idéntico al activo. Validación de integridad, sin atribuir una nueva revisión visual al archivo autónomo.",
+    "activeBackground": {
+      "path": "assets/contact-blue-waves.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2088185,
+      "opaque": true,
+      "sha256": "1eec18cc257be3702e1ce86153beb0ab2595eb2326aa0ad97ea492b83ef63b69",
+      "originalPreserved": "assets/contact-gold-waves.png"
+    },
+    "unchangedInteractionChecks": "JavaScript no cambia; las pruebas VCF anteriores son históricas y no se repitieron.",
     "pending": [
       "NFC físico, escaneo por cámara e importación vCard en iOS/Android"
     ],
-    "unchangedInteractionChecks": "Las catorce pruebas de diálogo y las descargas VCF corresponden a la etapa anterior; no se han repetido porque el JavaScript de interacción no cambia.",
     "historicalResults": "docs/CONTINUIDAD.md",
-    "limits": "Corrección de imagen, contenido y composición; no hay publicación."
+    "limits": "Corrección cromática de imagen y restitución de estilos; sin cambios de JavaScript ni publicación."
   },
   "previousValidation": {
     "status": "checked_with_limits",
@@ -239,5 +248,19 @@
     "syncStatus": "not_synced",
     "historicalDirection": "dark"
   },
-  "sourcesAndLicenses": "docs/THIRD_PARTY_NOTICES.md; sin créditos visibles en el pie"
+  "sourcesAndLicenses": "docs/THIRD_PARTY_NOTICES.md; sin créditos visibles en el pie",
+  "contactColorValidation": "npm run verify y npm run export:preview pasaron. Copia de entrega exacta y PNG integrado idéntico. Desarrollo a 1280/320 px sin desbordamiento, cuatro tarjetas y fondo azul cargado; móvil sin imágenes rotas ni errores/advertencias de consola. Conexiones restaurada: editorial-banner.css y tokens.css coinciden con 1729671.",
+  "bannerV2Validation": {
+    "status": "checked_with_limits",
+    "completed": "npm run verify y npm run export:preview pasaron tras integrar el banner v2, la identidad HTML y el nuevo encuadre responsive.",
+    "developmentBrowserWidthsPx": [1440, 1280, 1000, 768, 320],
+    "browserFindings": "Nombre, especialidad e Instagram presentes y accesibles. Composición revisada visualmente a 1440 px; sin desbordamiento en 1280/1000/768/320 px ni imágenes rotas en 1280/320 px. A 1000 px, ratio DOM 2:1 aunque el texto crezca; a 768 px, cabello/mano/hombros completos, unión lateral sin línea y consola limpia.",
+    "standaloneExport": "Contenido validado: copia de entrega exacta, PNG base64 idéntico al activo y tres textos recuperados presentes. Sin revisión visual del archivo autónomo porque el navegador bloqueó file:.",
+    "pending": [
+      "NFC físico, escaneo por cámara e importación vCard en iOS/Android"
+    ],
+    "unchangedInteractionChecks": "Las catorce pruebas de diálogo y las descargas VCF corresponden a la etapa anterior; no se han repetido porque el JavaScript de interacción no cambia.",
+    "historicalResults": "docs/CONTINUIDAD.md",
+    "limits": "Corrección de imagen, contenido y composición; no hay publicación."
+  }
 }

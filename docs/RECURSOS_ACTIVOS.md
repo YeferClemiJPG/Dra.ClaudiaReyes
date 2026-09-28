@@ -1,6 +1,22 @@
 # Recursos visuales activos
 
-## Etapa vigente · Trayectoria corregida, identidad y encuadre
+## Etapa vigente · Contacto con ondas azul SCCOT
+
+El usuario corrigió el destino del color: Conexiones vuelve exactamente al estilo anterior a df9d071 y el azul se aplica a la imagen de ondas de Contacto. `assets/contact-blue-waves.png` reemplaza a `assets/contact-gold-waves.png`, conservada como histórico. Editada con image_gen integrado, desde el fondo dorado; sin nuevos iconos, logos ni personas. Se mantiene el centro perla, la composición y la textura metálica. El color #04157F fue la referencia azul del prompt, con reflejos y sombras naturales; no es una recoloración plana.
+
+PNG opaco 1672 × 941, 2.088.185 bytes. SHA-256: `1eec18cc257be3702e1ce86153beb0ab2595eb2326aa0ad97ea492b83ef63b69`. Copia intacta del archivo generado `exec-7ab9f5fd-22f3-49cd-b7ff-5d35c53c8434.png`. Se integra como imagen decorativa `contact-waves` con `alt=""` y carga diferida. Cristal, iconos dorados, QR y acciones se conservan.
+
+Entregables: CLEMI_Contacto_Ondas_Azules.png y CLEMI_Contacto_Ondas_Azules_Procedencia.md.
+
+### Prompt exacto
+
+```text
+Use case: precise-object-edit.
+Edit target: the attached existing abstract metallic wave background used behind the Contact section of a luxury medical landing page.
+Primary request: recolor the GOLD METALLIC RIBBONS/WAVES to SCCOT BLUE, using deep institutional royal blue #04157F as the dominant metal body color, with natural lighter blue highlights, rich blue shadows and fine silver-white reflections. Keep the same wave geometry, arrangement, satin brushed metal detail, translucent glass edges, lighting, smooth curves and 16:9 horizontal composition. The blue must be visibly blue, not violet, teal or neutral grey. All large gold/champagne metallic surfaces should become blue metal. Retain the bright pearl/ivory open central area for legible contact cards; only add subtle cool pale-blue reflected light there. Preserve sophisticated photorealistic polish and the generous calm center. Do not introduce any people, icons, logos, letters, cards, buttons, extra decorations or borders. This is a color correction of this specific background, not a new composition. Full-bleed opaque output, same wide landscape proportions.
+```
+
+## Etapa anterior · Trayectoria corregida, identidad y encuadre
 
 Activo: `assets/claudia-trayectoria-banner-v2.png`, PNG opaco de 1774 × 887. Relleno generativo mediante la herramienta integrada image_gen a partir de `assets/claudia-reyes-editorial.png`; el original y el banner v1 se conservan. Salida copiada intacta desde `exec-ea93c69b-aee1-4835-87b1-379cb38a99c5.png`, sin posprocesado de imagen. La edición amplía el marco, deja margen por encima del cabello y alrededor de los hombros y suaviza la parte inferior sobre el fondo morado. No es una copia píxel a píxel de la fotografía.
 

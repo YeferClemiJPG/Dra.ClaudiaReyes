@@ -1,10 +1,12 @@
 # CLEMI · Contexto de diseño local
 
-## Etapa vigente · Acentos azul SCCOT en Conexiones
+## Etapa vigente · Ondas azul SCCOT en Contacto
 
-La petición añade azul SCCOT únicamente a Conexiones: título metalizado azul, franjas inferiores de las tres tarjetas con texto blanco, insignias de Instagram azules y fondo perla con un matiz azul suave. Se conservan las imágenes, adornos dorados y animaciones existentes. `--sccot-blue: #04157F` procede del token `--e-global-color-accent` de la [CSS oficial de SCCOT](https://sccot.org/wp-content/uploads/elementor/css/post-1110.css?ver=1790099331); es una referencia verificada de su web, no una afirmación sobre un manual de marca.
+El usuario corrigió la sección: el azul SCCOT debe aparecer en las ondas de la imagen de Contacto. Conexiones recupera exactamente el diseño anterior a los acentos azules (commit `1729671`), con sus colores CLEMI. `assets/contact-blue-waves.png` sustituye al fondo dorado mediante edición generativa; el original `contact-gold-waves.png` queda como histórico. Las tarjetas conservan el cristal y sus iconos dorados; no cambian contenido ni interacción.
 
-`npm run verify` y `npm run export:preview` aprobados. Revisión a 1280/320 px sin desbordamiento, con etiquetas completas; móvil sin imágenes rotas ni errores/advertencias de consola. Exportación actualizada. JavaScript, enlaces y recursos gráficos no cambian.
+`#04157F` procede del token `--e-global-color-accent` de la [CSS oficial de SCCOT](https://sccot.org/wp-content/uploads/elementor/css/post-1110.css?ver=1790099331); es una referencia cromática de su web, no una afirmación sobre un manual de marca. Prompt y procedencia en `docs/RECURSOS_ACTIVOS.md`.
+
+`npm run verify` (lint, formato y build) y `npm run export:preview` pasaron. La copia de entrega es exacta y el nuevo PNG integrado coincide con el activo. Desarrollo revisado a 1280/320 px sin desbordamiento, con las cuatro tarjetas y el fondo azul cargado; móvil sin imágenes rotas ni errores o advertencias de consola. Las capturas confirman Conexiones sin franjas azules y Contacto azul con cristal y dorado legibles. `src/editorial-banner.css` y `src/tokens.css` coinciden con `1729671`. JavaScript no cambia; las pruebas VCF anteriores no se repitieron.
 
 ## Etapa anterior · Trayectoria completa y encuadre ampliado
 
