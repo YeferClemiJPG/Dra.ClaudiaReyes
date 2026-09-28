@@ -1,5 +1,7 @@
 # Continuidad del proyecto · 28 de septiembre de 2026
 
+La etapa vigente es la composición editorial fotográfica descrita al final de este documento, con sus comprobaciones actuales de navegador y exportación y sus límites. Los resultados anteriores se conservan por etapa y no certifican automáticamente la implementación actual.
+
 ## Base recuperada
 
 El usuario suministró `CLEMI_NFC_Claudia_Reyes_Codigo.zip` y eligió el repositorio privado `YeferClemiJPG/Dra.ClaudiaReyes`. Se importaron sus 51 archivos en la copia local conectada a ese remoto, conservando el diseño, la fotografía, el logo y los datos originales. No se incorporaron nuevos componentes ni se generaron imágenes o diseños con IA durante esta recuperación.
@@ -63,3 +65,28 @@ Validación disponible al redactar esta actualización:
 - Once diagnósticos con DOM/reloj simulado cubren transiciones y movimiento reducido. No equivalen a cambiar la preferencia de un sistema operativo físico.
 - `npm run verify` y la exportación autónoma de esta etapa completados correctamente: lint, formato y compilación correctos. La exportación se abrió mediante HTTP; imagen de Instagram y vCard integradas, sin imágenes rotas, diálogo operativo y registros del navegador vacíos.
 - NFC físico, escaneo QR con cámara e importación vCard en iOS/Android siguen pendientes. No se realizaron envíos externos ni publicación en producción.
+
+## Etapa actual: composición editorial fotográfica
+
+El usuario pidió una landing más visual inspirada en la referencia de nutricionista adjunta, con menos texto, una biografía real breve y más fotografías auténticas. La implementación conserva la paleta clara, Times New Roman y el lema institucional. La portada combina el retrato original con una ilustración decorativa; siguen contacto, biografía de 48 palabras, galería editorial y tres tarjetas con imagen arriba y texto debajo. Las tarjetas ocupan tres columnas en escritorio y una en móvil.
+
+Las cuatro imágenes auténticas de Claudia son el JPEG principal, el adjunto de Instagram, el nuevo adjunto editorial y el retrato con bata publicado por SCCOT. Los archivos se mantienen intactos y los adjuntos conservan completos sus textos y marcas impresas. La fotografía oficial de formación de CLEMI aporta contexto institucional; no se identifica a Claudia entre sus asistentes. Las rutas y dimensiones se centralizan en `content/profile.json` mediante `portrait`, `instagramPortrait`, `editorialPortrait`, `professionalPortrait` e `institutionalPhoto`.
+
+La nueva autorización del usuario permite una ilustración decorativa con IA para esta etapa. `scienceIllustration` apunta a `assets/clemi-science-illustration.png`, usada en portada y portafolio, sin personas ni logos generados. El arte metálico anterior de `portfolioArtwork` queda como histórico y no se muestra. `docs/RECURSOS_ACTIVOS.md` conserva procedencia, integridad y prompt. La biografía enlaza [AAOT](https://congresoaaot.org.ar/invitados/claudia-reyes/) y la [hoja de vida publicada por SCCOT](https://sccot.org/wp-content/uploads/2025/01/Hoja-de-Vida-Claudia-Reyes.doc.pdf), usando únicamente información profesional.
+
+Se conservan el QR flotante, el diálogo claro y las transiciones de títulos, paneles y retrato de 700, 620 y 900 ms, con movimiento reducido. Las tres maquetas del comparador y el Figma oscuro son antecedentes históricos; no representan esta implementación ni una elección del usuario entre aquellas opciones.
+
+Validación actual comunicada al actualizar esta etapa:
+
+- `npm run verify` y `npm run export:preview` completados correctamente: lint, formato, compilación y generación del HTML autónomo.
+- Navegador en 320, 390, 768 y 1440 px: sin desbordamiento horizontal ni imágenes rotas. Se revisaron visualmente portada, galería con los adjuntos completos y tarjetas.
+- QR en móvil de 320 px: abre, cierra con Escape y devuelve el foco al control de origen.
+- Copia de correo con confirmación visible; no se leyó el portapapeles del sistema de forma independiente.
+- Navegación de Trayectoria y Conexiones con sección activa comprobada.
+- El adjunto editorial incorpora transcripción de su cita en un `figcaption` accesible, asociado mediante `aria-describedby`.
+
+El HTML autónomo exportado integra catorce imágenes y la vCard, sin depender de un CDN. Todas las imágenes cargaron, no hubo desbordamiento y el diálogo abrió desde la fotografía. Escape lo cerró y devolvió el foco a «Contacto digital: ver QR». Los registros de la vista previa normal y de la exportación no mostraron advertencias ni errores. Se guardaron las capturas `Claudia_Reyes_Editorial_Escritorio.png`, `Claudia_Reyes_Editorial_Movil.png`, `Claudia_Reyes_Editorial_Trayectoria.png` y `Claudia_Reyes_Editorial_Conexiones.png`.
+
+No se emuló la preferencia de movimiento reducido del sistema operativo en esta etapa; las comprobaciones anteriores con DOM/reloj simulado conservan su carácter histórico. NFC físico, escaneo por cámara e importación vCard en iOS/Android continúan pendientes.
+
+No se ha publicado el sitio. `publicUrl` sigue en `null` y se mantiene `noindex, nofollow`. Hostinger, URL permanente y publicación requieren definición y autorización específica; esta actualización de documentación no los configura.

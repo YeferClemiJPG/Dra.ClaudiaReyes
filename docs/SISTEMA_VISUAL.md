@@ -1,14 +1,16 @@
 # Dirección visual CLEMI
 
-## Dirección vigente · propuesta clara del 28 de septiembre de 2026
+## Dirección vigente · composición editorial fotográfica
 
-La nueva instrucción explícita del usuario pide una landing clara, elegante, formal y con detalles futuristas discretos. Sustituye la regla histórica de fondo azul oscuro continuo: crema y perla pasan a las superficies principales; azul marino al texto y acciones; dorado a los acentos. No añadir cifras o contenido ajeno.
+La última instrucción explícita del usuario toma como referencia una landing de nutricionista adjunta y pide más fotografías auténticas, menos texto y una biografía profesional breve. La composición mantiene la dirección clara: crema y perla en las superficies, azul marino en texto y acciones, dorado en acentos y Times New Roman. La antigua regla de fondo oscuro continuo ya no rige esta etapa.
 
-La composición implementada para revisión es «Editorial luminosa», recomendada por el asistente entre tres exploraciones; no existe todavía una selección del usuario. El retrato ocupa aproximadamente el 56 % a la derecha en escritorio y abre la portada antes del nombre en móvil. Mantiene banda de contacto, tres destinos gráficos, lema exacto, acceso QR flotante sobre la fotografía y diálogo claro.
+La portada conserva la fotografía protagonista a la derecha en escritorio y antes del nombre en móvil, acompañada de una ilustración científica decorativa. Después aparecen banda de contacto, biografía de 48 palabras con fuentes AAOT/SCCOT, galería editorial y tres tarjetas de conexiones. Las tarjetas muestran imagen arriba y texto debajo, en tres columnas en escritorio y una en móvil. El lema exacto, el acceso QR flotante y el diálogo claro permanecen.
 
-El JPEG principal y el SVG oficial permanecen intactos. El adjunto de Instagram se incorpora íntegro como `public/assets/claudia-reyes-instagram.png`, con su marca personal impresa. Títulos, paneles y retrato usan entradas de 700, 620 y 900 ms, respectivamente, una sola vez y con cancelación ante movimiento reducido.
+Las cuatro imágenes auténticas de Claudia son el JPEG principal, el adjunto de Instagram, el nuevo adjunto editorial y el retrato con bata publicado por SCCOT. Sus archivos permanecen intactos y los adjuntos mantienen completos sus textos y marcas impresas. La fotografía institucional oficial de formación se configura con `institutionalPhoto`; no se identifica a Claudia entre sus asistentes. El SVG oficial conserva su forma y sus colores.
 
-La comparación autónoma `Claudia_Reyes_Exploracion.html` presenta también «Retrato inmersivo» y «Galería modular». Las decisiones y referencias están en `.21st/DESIGN.md`. El archivo Figma documentado más abajo corresponde a la etapa oscura: no se ha sincronizado ni se presenta como representación del diseño claro.
+La petición actual autoriza la ilustración decorativa generada de `scienceIllustration`, usada en portada y portafolio. No contiene personas ni logos generados y no se presenta como material clínico o de enseñanza anatómica. `docs/RECURSOS_ACTIVOS.md` conserva el prompt, procedencia e integridad de los recursos. El antiguo `portfolioArtwork` metálico queda como histórico y no aparece en la composición actual.
+
+Títulos, paneles y retrato usan entradas de 700, 620 y 900 ms, respectivamente, una sola vez y con cancelación ante movimiento reducido. Esta etapa pasó `npm run verify` y `npm run export:preview`, y se revisó en navegador a 320, 390, 768 y 1440 px sin desbordamiento horizontal ni imágenes rotas. La exportación autónoma carga sus imágenes y vCard integradas, con apertura del QR, Escape y retorno de foco comprobados. Los detalles y límites están en `docs/CONTINUIDAD.md`. Las maquetas de `Claudia_Reyes_Exploracion.html` y el Figma oscuro documentado más abajo son antecedentes; no están sincronizados con esta composición. Las decisiones y referencias están en `.21st/DESIGN.md`.
 
 ## Paleta vigente y colores institucionales
 
@@ -30,7 +32,7 @@ Superficies crema/perla protagonistas; azul marino para texto y acciones; dorado
 - Espaciado consistente y contenido con margen suficiente; bordes finos de 1 px; radios compartidos mediante los tokens activos, reflejos discretos y sombras ligeras.
 - Portada de dos columnas en escritorio, con fotografía protagonista a la derecha; en móvil, una columna con fotografía antes del nombre. Los accesos se adaptan al ancho y conservan texto en flujo, sin alturas que recorten al ampliar.
 - Acciones principales con altura de 49–52 px y barra móvil con controles de al menos 44 px; subrayado al pasar por enlaces, foco de 2 px, estados comprensibles más allá del color.
-- No añadir formas decorativas, arcos, órbitas ni ondas repetidas a la composición principal. La credencial alternativa sin fotografía conserva su diseño anterior y se organiza en `src/card.css`.
+- La ilustración decorativa autorizada aporta el detalle científico de la composición. No añadir arcos, órbitas ni ondas repetidas. La credencial alternativa sin fotografía conserva su diseño anterior y se organiza en `src/card.css`.
 - Logo activo: `public/assets/logo-clemi-oficial-sin-texto.svg`, exportado del AI oficial suministrado. Se muestra únicamente el símbolo sin texto; no agregar una palabra CLEMI redibujada. El original intacto está en `design/source/Logo_CLEMI_Oficial_Sin_Texto.ai`; los JPEG/PNG anteriores quedan como archivos históricos. El retrato suministrado está en `public/assets/dra-claudia-reyes.jpeg`; se conserva byte por byte. No recrear el logo ni usar otras personas como sustitutos.
 
 Motion se usa para las apariciones al desplazarse y apertura del diálogo. El contenido es visible antes de JavaScript; la preferencia de movimiento reducido desactiva animaciones CSS y evita las de Motion. La tarjeta gira por una acción explícita, sin movimiento perpetuo.
@@ -87,7 +89,7 @@ WhatsApp e Instagram: paths originales de Simple Icons 16.32.0, licencia CC0-1.0
 
 `.metal-surface` centraliza borde, brillo interior, sombra moderada y capas de fondo, todas de la paleta. La banda de contacto, los accesos y el lema la reutilizan. El botón principal usa una franja metálica crema/dorada; los iconos de aplicaciones conservan dorado plano para ser reconocibles. No añadir círculos, órbitas ni figuras geométricas ornamentales.
 
-La composición de tres accesos está solicitada por la referencia reafirmada; cada uno usa un recurso distinto y una acción real. La imagen generada `clemi-metallic-portfolio.png` (1536 × 1024) es decorativa y se carga de forma diferida. Prompt resumido: láminas fluidas de metal cepillado azul marino, reflejos dorados, composición superior/derecha y espacio limpio para texto HTML, sin personas ni logos. Método: image_gen, una generación.
+La composición histórica de tres accesos utilizaba recursos distintos y acciones reales. La imagen generada `clemi-metallic-portfolio.png` (1536 × 1024) era decorativa; ahora se conserva como histórico y no se muestra. Prompt resumido: láminas fluidas de metal cepillado azul marino, reflejos dorados, composición superior/derecha y espacio limpio para texto HTML, sin personas ni logos. Método: image_gen, una generación.
 
 El retrato JPEG conserva sus bytes. La transición de borde emplea máscaras CSS y no equivale a retirar el fondo. Una edición automática de fondo se descartó por diferencias faciales; se necesita un PNG fiel para cerrar esa diferencia con la referencia.
 

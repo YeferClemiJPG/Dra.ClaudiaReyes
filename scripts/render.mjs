@@ -31,10 +31,26 @@ if (new URL(profile.portfolio).protocol !== "https:")
   throw new Error("El portafolio debe usar HTTPS.");
 if (profile.publicUrl && new URL(profile.publicUrl).protocol !== "https:")
   throw new Error("La URL pública debe usar HTTPS.");
+const biographySources = profile.biographySources ?? [];
+if (!Array.isArray(biographySources))
+  throw new Error("Las fuentes de la biografía deben ser una lista.");
+for (const source of biographySources) {
+  if (typeof source?.label !== "string" || !source.label.trim())
+    throw new Error("Cada fuente de la biografía debe tener un nombre.");
+  if (
+    typeof source.url !== "string" ||
+    new URL(source.url).protocol !== "https:"
+  )
+    throw new Error("Las fuentes de la biografía deben usar HTTPS.");
+}
 for (const key of [
   "logo",
   "portrait",
   "instagramPortrait",
+  "editorialPortrait",
+  "professionalPortrait",
+  "institutionalPhoto",
+  "scienceIllustration",
   "portfolioArtwork",
 ]) {
   if (profile[key]) {
@@ -56,6 +72,12 @@ Object.assign(values, {
     "utf8",
   ),
   fullName: escape(fullName),
+  biographySources: biographySources
+    .map(
+      ({ label, url }) =>
+        `<a class="biography-source" href="${escape(url)}" target="_blank" rel="noopener noreferrer">${escape(label)}</a>`,
+    )
+    .join("\n"),
   description: escape(
     `${fullName}. ${profile.roles.join(" · ")}. Datos de contacto, redes sociales y portafolio CLEMI.`,
   ),
@@ -83,6 +105,12 @@ Object.assign(values, {
     : "",
   instagramPortrait: profile.instagramPortrait
     ? `<img class="instagram-profile-image" src="./${escape(profile.instagramPortrait)}" alt="${escape(fullName)} · perfil personal de Instagram" width="${Number(profile.instagramPortraitWidth) || 1080}" height="${Number(profile.instagramPortraitHeight) || 1080}" loading="lazy" />`
+    : "",
+  editorialPortrait: profile.editorialPortrait
+    ? `<img class="editorial-portrait-image" src="./${escape(profile.editorialPortrait)}" alt="Retrato editorial de ${escape(fullName)}" aria-describedby="editorial-quote" width="${Number(profile.editorialPortraitWidth) || 715}" height="${Number(profile.editorialPortraitHeight) || 786}" loading="lazy" />`
+    : "",
+  professionalPortrait: profile.professionalPortrait
+    ? `<img class="professional-portrait-image" src="./${escape(profile.professionalPortrait)}" alt="${escape(fullName)} con bata médica, retrato publicado por SCCOT" width="${Number(profile.professionalPortraitWidth) || 853}" height="${Number(profile.professionalPortraitHeight) || 1280}" loading="lazy" />`
     : "",
   mottoLines: String(profile.motto ?? "")
     .split(/,\s*/)

@@ -29,7 +29,7 @@
         <div class="header-navigation">
           <nav aria-label="Navegación principal">
             <a href="#perfil">Perfil</a>
-            <a href="#contacto">Contacto</a>
+            <a href="#trayectoria">Trayectoria</a>
             <a href="#conexiones">Conexiones</a>
           </nav>
           <button
@@ -46,6 +46,7 @@
     <main>
       <section class="hero shell" id="perfil" aria-labelledby="profile-name">
         <div class="hero-copy">
+          <p class="hero-specialty eyebrow reveal">Cirugía de pie y tobillo</p>
           <h1 id="profile-name">
             <span class="honorific reveal" data-reveal-delay="0">Dra.</span>
             <span class="title-mask"
@@ -100,8 +101,8 @@
           <a
             class="hero-explore reveal"
             data-reveal-delay="420"
-            href="#conexiones"
-            ><span>Explorar conexiones</span><i data-lucide="arrow-down"></i
+            href="#trayectoria"
+            ><span>Conozca mi trayectoria</span><i data-lucide="arrow-down"></i
           ></a>
         </div>
         <div
@@ -119,6 +120,15 @@
               fetchpriority="high"
             />
           </div>
+          <img
+            class="hero-study reveal"
+            data-reveal-type="panel"
+            data-reveal-delay="360"
+            src="./assets/clemi-science-illustration.png"
+            alt=""
+            width="1536"
+            height="1024"
+          />
           <button
             class="portrait-contact"
             type="button"
@@ -256,16 +266,119 @@
         </button>
       </section>
       <section
+        class="biography shell"
+        id="trayectoria"
+        aria-labelledby="biography-title"
+      >
+        <div class="biography-copy">
+          <p class="eyebrow reveal">Conozca a la doctora</p>
+          <h2 class="section-label title-mask" id="biography-title">
+            <span class="reveal" data-reveal-type="title"
+              >Ciencia, vocación<br />y <em>movimiento.</em></span
+            >
+          </h2>
+          <p class="biography-text reveal">
+            Médica y ortopedista formada en la Pontificia Universidad Javeriana,
+            con especialización en cirugía de pie y tobillo en la Universidad
+            Militar Nueva Granada y fellowship en el Institute for Foot and
+            Ankle Reconstruction at Mercy, en Baltimore. Su trayectoria combina
+            práctica clínica, docencia y formación quirúrgica en CLEMI.
+          </p>
+          <div class="biography-credentials reveal">
+            <div>
+              <i data-lucide="graduation-cap"></i
+              ><span
+                >Pontificia Universidad Javeriana<small
+                  >Medicina · Ortopedia</small
+                ></span
+              >
+            </div>
+            <div>
+              <i data-lucide="footprints"></i
+              ><span
+                >Cirugía de pie y tobillo<small
+                  >Universidad Militar Nueva Granada</small
+                ></span
+              >
+            </div>
+          </div>
+          <p class="biography-sources reveal">
+            <span>Fuentes de la trayectoria</span>
+            <a
+              class="biography-source"
+              href="https://congresoaaot.org.ar/invitados/claudia-reyes/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >AAOT</a
+            >
+            <a
+              class="biography-source"
+              href="https://sccot.org/wp-content/uploads/2025/01/Hoja-de-Vida-Claudia-Reyes.doc.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              >SCCOT</a
+            >
+          </p>
+        </div>
+        <div class="biography-gallery">
+          <figure class="editorial-portrait reveal" data-reveal-type="portrait">
+            <img
+              class="editorial-portrait-image"
+              src="./assets/claudia-reyes-editorial.png"
+              alt="Retrato editorial de Dra. Claudia Reyes"
+              aria-describedby="editorial-quote"
+              width="715"
+              height="786"
+              loading="lazy"
+            />
+            <figcaption class="sr-only" id="editorial-quote">
+              En el retrato facilitado de la Dra. Claudia Reyes: «La cirugía es
+              ciencia, arte y responsabilidad: mi compromiso es ejercerla con
+              excelencia, ética y precisión.» Cirujana de pie y tobillo.
+              Instagram: @draclaudiajreyes.
+            </figcaption>
+          </figure>
+          <figure
+            class="professional-portrait reveal"
+            data-reveal-type="panel"
+            data-reveal-delay="150"
+          >
+            <img
+              class="professional-portrait-image"
+              src="./assets/claudia-reyes-sccot.jpeg"
+              alt="Dra. Claudia Reyes con bata médica, retrato publicado por SCCOT"
+              width="853"
+              height="1280"
+              loading="lazy"
+            />
+            <figcaption>
+              <span>Una mirada cercana.</span
+              ><a
+                href="https://sccot.org/wp-content/uploads/2020/04/Dra.-Claudia-Juliana-Reyes-Reyes.jpeg"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Fotografía · SCCOT<i data-lucide="arrow-up-right"></i
+              ></a>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+      <section
         class="connections shell"
         id="conexiones"
         aria-labelledby="connections-title"
       >
         <div class="section-heading">
           <h2 class="section-label title-mask" id="connections-title">
-            <span class="reveal" data-reveal-type="title">Conexiones</span>
+            <span class="reveal" data-reveal-type="title"
+              >Sigamos <em>conectados.</em></span
+            >
           </h2>
           <span class="section-index" aria-hidden="true">01 — 03</span>
         </div>
+        <p class="connections-intro reveal">
+          Mi práctica, nuestra comunidad y nuevas formas de aprender.
+        </p>
         <div class="connection-grid">
           <a
             id="portafolio"
@@ -278,15 +391,15 @@
           >
             <img
               class="tile-image portfolio-image"
-              src="./assets/clemi-metallic-portfolio.png"
+              src="./assets/clemi-science-illustration.png"
               alt=""
               width="1536"
               height="1024"
               loading="lazy"
             />
             <div class="tile-content">
-              <span class="eyebrow">CLEMI</span>
-              <h3>Portafolio</h3>
+              <span class="eyebrow">Formación & investigación</span>
+              <h3>Explore CLEMI</h3>
               <span class="tile-action"
                 >Explorar <i data-lucide="arrow-up-right"></i
               ></span>
@@ -327,7 +440,8 @@
               </svg>
             </span>
             <div class="tile-content">
-              <h3>Instagram<br />personal</h3>
+              <span class="eyebrow">La doctora</span>
+              <h3>Mi Instagram</h3>
               <span class="tile-handle">@DRACLAUDIAJREYES</span>
             </div>
             <i class="tile-arrow" data-lucide="arrow-up-right"></i>
@@ -342,14 +456,27 @@
             aria-label="Instagram de Fundación CLEMI"
             data-interactive-surface
           >
-            <div class="foundation-logo" aria-hidden="true">
+            <div class="foundation-art">
               <img
-                class="card-logo"
-                src="./assets/logo-clemi-oficial-sin-texto.svg"
-                alt="Logo oficial de CLEMI"
-                width="156"
-                height="170"
+                class="foundation-photo"
+                src="./assets/clemi-formacion.jpeg"
+                alt="Jornada de formación en Fundación CLEMI"
+                width="1280"
+                height="960"
+                loading="lazy"
               />
+              <div class="foundation-logo">
+                <img
+                  class="card-logo"
+                  src="./assets/logo-clemi-oficial-sin-texto.svg"
+                  alt="Logo oficial de CLEMI"
+                  width="156"
+                  height="170"
+                />
+              </div>
+              <span class="foundation-caption"
+                >Una comunidad<br />que transforma.</span
+              >
             </div>
             <span class="app-mark"
               ><svg
@@ -365,7 +492,8 @@
               </svg>
             </span>
             <div class="tile-content">
-              <h3>Fundación<br />CLEMI</h3>
+              <span class="eyebrow">Nuestra comunidad</span>
+              <h3>Fundación CLEMI</h3>
               <span class="tile-handle">@FUNDACIONCLEMI</span>
             </div>
             <i class="tile-arrow" data-lucide="arrow-up-right"></i>
@@ -393,6 +521,13 @@
       </section>
     </main>
     <footer class="site-footer shell">
+      <a
+        class="photo-source"
+        href="https://new.clemi.edu.co/nosotros/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Fotografía institucional · CLEMI</a
+      >
       <a href="#perfil">Volver arriba<i data-lucide="arrow-up-right"></i></a>
     </footer>
     <div class="mobile-dock" role="group" aria-label="Acciones de contacto">

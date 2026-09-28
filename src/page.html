@@ -21,7 +21,7 @@
         <div class="header-navigation">
           <nav aria-label="Navegación principal">
             <a href="#perfil">Perfil</a>
-            <a href="#contacto">Contacto</a>
+            <a href="#trayectoria">Trayectoria</a>
             <a href="#conexiones">Conexiones</a>
           </nav>
           <button
@@ -38,6 +38,7 @@
     <main>
       <section class="hero shell" id="perfil" aria-labelledby="profile-name">
         <div class="hero-copy">
+          <p class="hero-specialty eyebrow reveal">{{specialty}}</p>
           <h1 id="profile-name">
             <span class="honorific reveal" data-reveal-delay="0"
               >{{honorific}}</span
@@ -83,8 +84,8 @@
           <a
             class="hero-explore reveal"
             data-reveal-delay="420"
-            href="#conexiones"
-            ><span>Explorar conexiones</span><i data-lucide="arrow-down"></i
+            href="#trayectoria"
+            ><span>Conozca mi trayectoria</span><i data-lucide="arrow-down"></i
           ></a>
         </div>
         <div
@@ -93,6 +94,15 @@
           data-reveal-delay="120"
         >
           {{portrait}}
+          <img
+            class="hero-study reveal"
+            data-reveal-type="panel"
+            data-reveal-delay="360"
+            src="./{{scienceIllustration}}"
+            alt=""
+            width="1536"
+            height="1024"
+          />
           <button
             class="portrait-contact"
             type="button"
@@ -220,16 +230,84 @@
         </button>
       </section>
       <section
+        class="biography shell"
+        id="trayectoria"
+        aria-labelledby="biography-title"
+      >
+        <div class="biography-copy">
+          <p class="eyebrow reveal">Conozca a la doctora</p>
+          <h2 class="section-label title-mask" id="biography-title">
+            <span class="reveal" data-reveal-type="title"
+              >Ciencia, vocación<br />y <em>movimiento.</em></span
+            >
+          </h2>
+          <p class="biography-text reveal">{{biography}}</p>
+          <div class="biography-credentials reveal">
+            <div>
+              <i data-lucide="graduation-cap"></i
+              ><span
+                >Pontificia Universidad Javeriana<small
+                  >Medicina · Ortopedia</small
+                ></span
+              >
+            </div>
+            <div>
+              <i data-lucide="footprints"></i
+              ><span
+                >Cirugía de pie y tobillo<small
+                  >Universidad Militar Nueva Granada</small
+                ></span
+              >
+            </div>
+          </div>
+          <p class="biography-sources reveal">
+            <span>Fuentes de la trayectoria</span> {{biographySources}}
+          </p>
+        </div>
+        <div class="biography-gallery">
+          <figure class="editorial-portrait reveal" data-reveal-type="portrait">
+            {{editorialPortrait}}
+            <figcaption class="sr-only" id="editorial-quote">
+              En el retrato facilitado de la Dra. Claudia Reyes: «La cirugía es
+              ciencia, arte y responsabilidad: mi compromiso es ejercerla con
+              excelencia, ética y precisión.» Cirujana de pie y tobillo.
+              Instagram: @draclaudiajreyes.
+            </figcaption>
+          </figure>
+          <figure
+            class="professional-portrait reveal"
+            data-reveal-type="panel"
+            data-reveal-delay="150"
+          >
+            {{professionalPortrait}}
+            <figcaption>
+              <span>Una mirada cercana.</span
+              ><a
+                href="https://sccot.org/wp-content/uploads/2020/04/Dra.-Claudia-Juliana-Reyes-Reyes.jpeg"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Fotografía · SCCOT<i data-lucide="arrow-up-right"></i
+              ></a>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+      <section
         class="connections shell"
         id="conexiones"
         aria-labelledby="connections-title"
       >
         <div class="section-heading">
           <h2 class="section-label title-mask" id="connections-title">
-            <span class="reveal" data-reveal-type="title">Conexiones</span>
+            <span class="reveal" data-reveal-type="title"
+              >Sigamos <em>conectados.</em></span
+            >
           </h2>
           <span class="section-index" aria-hidden="true">01 — 03</span>
         </div>
+        <p class="connections-intro reveal">
+          Mi práctica, nuestra comunidad y nuevas formas de aprender.
+        </p>
         <div class="connection-grid">
           <a
             id="portafolio"
@@ -242,15 +320,15 @@
           >
             <img
               class="tile-image portfolio-image"
-              src="./{{portfolioArtwork}}"
+              src="./{{scienceIllustration}}"
               alt=""
               width="1536"
               height="1024"
               loading="lazy"
             />
             <div class="tile-content">
-              <span class="eyebrow">CLEMI</span>
-              <h3>Portafolio</h3>
+              <span class="eyebrow">Formación & investigación</span>
+              <h3>Explore CLEMI</h3>
               <span class="tile-action"
                 >Explorar <i data-lucide="arrow-up-right"></i
               ></span>
@@ -270,7 +348,8 @@
             <div class="instagram-profile">{{instagramPortrait}}</div>
             <span class="app-mark">{{instagramIcon}}</span>
             <div class="tile-content">
-              <h3>Instagram<br />personal</h3>
+              <span class="eyebrow">La doctora</span>
+              <h3>Mi Instagram</h3>
               <span class="tile-handle">@{{instagramPersonal}}</span>
             </div>
             <i class="tile-arrow" data-lucide="arrow-up-right"></i>
@@ -285,10 +364,24 @@
             aria-label="Instagram de Fundación CLEMI"
             data-interactive-surface
           >
-            <div class="foundation-logo" aria-hidden="true">{{cardLogo}}</div>
+            <div class="foundation-art">
+              <img
+                class="foundation-photo"
+                src="./{{institutionalPhoto}}"
+                alt="Jornada de formación en Fundación CLEMI"
+                width="1280"
+                height="960"
+                loading="lazy"
+              />
+              <div class="foundation-logo">{{cardLogo}}</div>
+              <span class="foundation-caption"
+                >Una comunidad<br />que transforma.</span
+              >
+            </div>
             <span class="app-mark">{{instagramIcon}}</span>
             <div class="tile-content">
-              <h3>Fundación<br />CLEMI</h3>
+              <span class="eyebrow">Nuestra comunidad</span>
+              <h3>Fundación CLEMI</h3>
               <span class="tile-handle">@{{instagramInstitutional}}</span>
             </div>
             <i class="tile-arrow" data-lucide="arrow-up-right"></i>
@@ -305,6 +398,13 @@
       </section>
     </main>
     <footer class="site-footer shell">
+      <a
+        class="photo-source"
+        href="https://new.clemi.edu.co/nosotros/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Fotografía institucional · CLEMI</a
+      >
       <a href="#perfil">Volver arriba<i data-lucide="arrow-up-right"></i></a>
     </footer>
     <div class="mobile-dock" role="group" aria-label="Acciones de contacto">

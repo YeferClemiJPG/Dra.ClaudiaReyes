@@ -1,10 +1,22 @@
 # CLEMI · Contexto de diseño local
 
-## Dirección vigente en revisión · exploración clara
+## Dirección vigente en revisión · editorial fotográfica
+
+La última petición del usuario toma como referencia la landing de nutricionista adjunta: más fotografías auténticas, menos texto y una biografía breve basada en fuentes profesionales públicas. La implementación conserva Times New Roman, crema/perla, azul marino y dorado. El retrato abre la portada desde la derecha en escritorio y precede al nombre en móvil; siguen la banda de contacto, una sección de trayectoria con galería editorial, tres tarjetas con imagen superior y texto debajo y el lema institucional exacto. Las tarjetas se distribuyen en tres columnas en escritorio y se apilan en móvil.
+
+Se utilizan cuatro imágenes auténticas de Claudia: JPEG principal, adjunto de Instagram, nuevo adjunto editorial y retrato con bata publicado por SCCOT. Se conservan los archivos y los textos integrados en los adjuntos. La tarjeta de Fundación CLEMI incorpora una fotografía oficial de formación, sin identificar a sus asistentes como Claudia. La biografía tiene 48 palabras y enlaza AAOT y la hoja de vida profesional publicada por SCCOT.
+
+El usuario autorizó una ilustración decorativa nueva con IA, sin personas ni logos generados. `scienceIllustration` apunta a `assets/clemi-science-illustration.png`; aparece en portada y portafolio. `institutionalPhoto` apunta a `assets/clemi-formacion.jpeg`. Las rutas `editorialPortrait` y `professionalPortrait` configuran la galería. El antiguo arte metálico de `portfolioArtwork` es histórico y no está activo en la composición. La procedencia, integridad y el prompt completo están en `docs/RECURSOS_ACTIVOS.md`.
+
+Se conservan QR flotante, diálogo claro, foco visible y movimiento reducido, con títulos de 700 ms, paneles de 620 ms y retrato de 900 ms. La etapa pasó `npm run verify` y `npm run export:preview`; el navegador se comprobó en 320, 390, 768 y 1440 px sin desbordamiento ni imágenes rotas. La exportación autónoma carga sus catorce imágenes integradas y la vCard; se comprobaron apertura del QR, Escape y retorno de foco, con registros del navegador vacíos. El alcance completo y sus límites están en `docs/CONTINUIDAD.md`. Se mantiene `noindex, nofollow`; Hostinger y publicación continúan pendientes de un destino confirmado y autorización específica.
+
+Las tres exploraciones siguientes y el Figma oscuro son antecedentes históricos. No representan la implementación actual ni acreditan una selección del usuario entre aquellas maquetas.
+
+## Exploración histórica · tres propuestas claras
 
 La nueva petición explícita del usuario sustituye el fondo oscuro histórico por una landing clara, elegante, formal y con detalles futuristas discretos. Se conservan Times New Roman, crema/perla institucionales, azul marino, acentos dorados, los datos reales y los recursos originales. El estado de las tres alternativas es **propuesto**: «Editorial luminosa» es la recomendación del asistente y la base implementada para revisión, no una elección ya realizada por el usuario.
 
-La propuesta actual sitúa la fotografía principal a la derecha con aproximadamente el 56 % de la portada; en móvil la fotografía precede al nombre. Incluye QR flotante sobre el retrato, diálogo claro, entradas de títulos de 700 ms, paneles de 620 ms y retrato de 900 ms, con movimiento reducido. El adjunto de Instagram se usa íntegro desde `assets/claudia-reyes-instagram.png`, sin regeneración.
+Aquella propuesta situaba la fotografía principal a la derecha con aproximadamente el 56 % de la portada; en móvil la fotografía precedía al nombre. Incluía QR flotante sobre el retrato, diálogo claro, entradas de títulos de 700 ms, paneles de 620 ms y retrato de 900 ms, con movimiento reducido. El adjunto de Instagram se incorporó íntegro desde `assets/claudia-reyes-instagram.png`, sin regeneración.
 
 ### Tres direcciones comparables
 
@@ -21,7 +33,7 @@ Cambian composición, jerarquía y ubicación de acciones; no son variaciones ex
 - [BentoGrid](https://21st.dev/@kokonutd/components/bento-grid): organización modular y asimétrica; referencia de Galería modular y accesos de Editorial luminosa.
 - [TextReveal](https://21st.dev/@cnippet-dev/components/text-reveal): orientación para revelado de títulos.
 
-Se consultaron metadatos reales del catálogo: no se instaló código, no se añadieron dependencias y no se utilizaron generación de IA ni créditos nuevos. La exploración y su contexto se mantienen manualmente. Las secciones siguientes documentan las iteraciones históricas.
+En aquella exploración se consultaron metadatos reales del catálogo: no se instaló código, no se añadieron dependencias y no se utilizaron generación de IA ni créditos nuevos. Esta afirmación describe esa etapa anterior; la ilustración decorativa de la composición fotográfica actual sí fue generada con autorización. El contexto se mantiene manualmente.
 
 ## Identidad y restricciones
 

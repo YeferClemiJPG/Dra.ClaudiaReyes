@@ -15,6 +15,8 @@ import {
   Copy,
   Check,
   Share2,
+  GraduationCap,
+  Footprints,
 } from "lucide";
 import { inView } from "motion";
 import { animate } from "motion/mini";
@@ -36,6 +38,8 @@ createIcons({
     Copy,
     Check,
     Share2,
+    GraduationCap,
+    Footprints,
   },
   attrs: { "aria-hidden": "true", focusable: "false" },
 });
@@ -123,10 +127,10 @@ const stopReveals =
 const header = document.querySelector(".site-header");
 const navigationLinks = [
   ...document.querySelectorAll(
-    '.site-header nav a[href="#perfil"], .site-header nav a[href="#contacto"], .site-header nav a[href="#conexiones"]',
+    '.site-header nav a[href="#perfil"], .site-header nav a[href="#trayectoria"], .site-header nav a[href="#conexiones"]',
   ),
 ];
-const sections = ["perfil", "contacto", "conexiones"]
+const sections = ["perfil", "trayectoria", "conexiones"]
   .map((id) => document.getElementById(id))
   .filter(Boolean);
 let scrollFrame = 0;

@@ -1,12 +1,12 @@
 {
   "maintainedManually": true,
-  "status": "proposed",
-  "assistantRecommendation": "Editorial luminosa",
+  "status": "implemented_for_review",
+  "assistantRecommendation": null,
   "userSelection": null,
-  "implementedForReview": "Editorial luminosa",
+  "implementedForReview": "Editorial fotográfica",
   "updatedAt": "2026-09-28",
   "stack": "Static HTML, CSS and JavaScript with Vite",
-  "currentInstruction": "Landing clara, elegante, formal y con detalles futuristas discretos; sustituye el fondo oscuro histórico.",
+  "currentInstruction": "Landing editorial fotográfica inspirada en la referencia de nutricionista adjunta: menos texto, biografía profesional breve y más fotografías auténticas, con paleta clara y una ilustración decorativa con IA expresamente autorizada.",
   "sharedConstraints": {
     "typography": "Times New Roman; Times, Georgia y Cormorant Garamond local como respaldos",
     "colors": [
@@ -25,7 +25,12 @@
     ],
     "preserveOfficialLogoAndOriginalPhotos": true,
     "instagramArtwork": "assets/claudia-reyes-instagram.png",
-    "newAiGeneration": false,
+    "newAiGeneration": {
+      "authorizedScope": "Una ilustración científica decorativa con transparencia, sin personas ni logos generados",
+      "asset": "assets/clemi-science-illustration.png",
+      "provenanceAndPrompt": "docs/RECURSOS_ACTIVOS.md"
+    },
+    "publicProfessionalSourcesAllowed": true,
     "componentInstallation": false
   },
   "motionDurationMs": {
@@ -33,10 +38,46 @@
     "panel": 620,
     "portrait": 900
   },
+  "currentComposition": {
+    "hero": "Retrato protagonista a la derecha en escritorio y antes del nombre en móvil; ilustración decorativa y QR flotante",
+    "biography": "48 palabras basadas en AAOT y hoja de vida publicada por SCCOT",
+    "gallery": "Adjunto editorial y retrato profesional con bata; preservar textos integrados en los adjuntos",
+    "connections": "Tres tarjetas con imagen superior y texto debajo; tres columnas en escritorio y una en móvil",
+    "dialog": "Claro, con foco visible, Escape y retorno al control de origen"
+  },
+  "activeAssets": {
+    "portrait": "assets/dra-claudia-reyes.jpeg",
+    "instagramPortrait": "assets/claudia-reyes-instagram.png",
+    "editorialPortrait": "assets/claudia-reyes-editorial.png",
+    "professionalPortrait": "assets/claudia-reyes-sccot.jpeg",
+    "institutionalPhoto": "assets/clemi-formacion.jpeg",
+    "scienceIllustration": "assets/clemi-science-illustration.png"
+  },
+  "historicalAssets": ["assets/clemi-metallic-portfolio.png"],
+  "validation": {
+    "status": "checked_with_limits",
+    "commands": ["npm run verify", "npm run export:preview"],
+    "browserWidthsPx": [320, 390, 768, 1440],
+    "browserFindings": "Sin desbordamiento horizontal ni imágenes rotas; portada, galería y tarjetas revisadas; QR a 320 px con Escape y retorno de foco; confirmación de copia y navegación activa comprobadas",
+    "pending": [
+      "NFC físico, escaneo por cámara e importación vCard en iOS/Android"
+    ],
+    "standaloneExport": "Catorce imágenes y vCard integradas; imágenes cargadas, sin desbordamiento, apertura desde fotografía, cierre por Escape y retorno de foco comprobados; sin dependencia de CDN",
+    "browserLogs": "Vista previa normal y exportación sin advertencias ni errores",
+    "limits": "Sin lectura independiente del portapapeles ni emulación de movimiento reducido del sistema operativo; diagnósticos DOM/reloj anteriores conservados como históricos"
+  },
+  "publication": {
+    "robots": "noindex, nofollow",
+    "publicUrl": null,
+    "hostinger": "pending",
+    "requiresSpecificAuthorization": true
+  },
+  "historicalAssistantRecommendation": "Editorial luminosa",
+  "directionsStatus": "historical_exploration",
   "directions": [
     {
       "name": "Editorial luminosa",
-      "status": "proposed",
+      "status": "historical_proposal",
       "axes": [
         "Nombre izquierda y fotografía 56 % derecha",
         "Banda de contacto y accesos posteriores",
@@ -45,7 +86,7 @@
     },
     {
       "name": "Retrato inmersivo",
-      "status": "proposed",
+      "status": "historical_proposal",
       "axes": [
         "Fotografía ancha y nombre superpuesto",
         "Navegación compacta",
@@ -54,7 +95,7 @@
     },
     {
       "name": "Galería modular",
-      "status": "proposed",
+      "status": "historical_proposal",
       "axes": [
         "Nombre y retrato centrales",
         "Contacto lateral y paneles asimétricos",

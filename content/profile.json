@@ -5,6 +5,18 @@
   "familyName": "Reyes",
   "roles": ["Vicepresidenta SCCOT", "Directora CLEMI"],
   "organization": "CLEMI",
+  "specialty": "Cirugía de pie y tobillo",
+  "biography": "Médica y ortopedista formada en la Pontificia Universidad Javeriana, con especialización en cirugía de pie y tobillo en la Universidad Militar Nueva Granada y fellowship en el Institute for Foot and Ankle Reconstruction at Mercy, en Baltimore. Su trayectoria combina práctica clínica, docencia y formación quirúrgica en CLEMI.",
+  "biographySources": [
+    {
+      "label": "AAOT",
+      "url": "https://congresoaaot.org.ar/invitados/claudia-reyes/"
+    },
+    {
+      "label": "SCCOT",
+      "url": "https://sccot.org/wp-content/uploads/2025/01/Hoja-de-Vida-Claudia-Reyes.doc.pdf"
+    }
+  ],
   "email": "directoracientifica@clemi.edu.co",
   "phone": "+573103242215",
   "phoneDisplay": "+57 310 324 2215",
@@ -19,6 +31,14 @@
   "instagramPortrait": "assets/claudia-reyes-instagram.png",
   "instagramPortraitWidth": 1080,
   "instagramPortraitHeight": 1080,
+  "editorialPortrait": "assets/claudia-reyes-editorial.png",
+  "editorialPortraitWidth": 715,
+  "editorialPortraitHeight": 786,
+  "professionalPortrait": "assets/claudia-reyes-sccot.jpeg",
+  "professionalPortraitWidth": 853,
+  "professionalPortraitHeight": 1280,
+  "institutionalPhoto": "assets/clemi-formacion.jpeg",
+  "scienceIllustration": "assets/clemi-science-illustration.png",
   "motto": "Entrenamos hoy, investigamos para el mañana, transformamos vidas",
   "publicUrl": null,
   "logoWidth": 156,
