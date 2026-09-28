@@ -26,9 +26,21 @@
             width="156"
             height="170"
         /></a>
-        <nav aria-label="Navegación principal">
-          <a href="#conexiones">Conexiones</a><a href="#contacto">Contacto</a>
-        </nav>
+        <div class="header-navigation">
+          <nav aria-label="Navegación principal">
+            <a href="#perfil">Perfil</a>
+            <a href="#contacto">Contacto</a>
+            <a href="#conexiones">Conexiones</a>
+          </nav>
+          <button
+            class="header-qr"
+            type="button"
+            data-open-contact
+            aria-label="Mostrar QR de contacto"
+          >
+            <i data-lucide="qr-code"></i>
+          </button>
+        </div>
       </div>
     </header>
     <main>
@@ -47,6 +59,7 @@
               class="button button-primary"
               href="./contacto.vcf"
               download="claudia-reyes.vcf"
+              data-contact-download
               ><i data-lucide="contact-round"></i>Guardar contacto</a
             >
             <a
@@ -186,8 +199,9 @@
             data-copy-email="directoracientifica@clemi.edu.co"
             aria-label="Copiar correo electrónico"
           >
-            <i data-lucide="copy"></i
-            ><span class="sr-only" data-copy-label>Copiar</span>
+            <i data-lucide="copy" data-copy-icon></i>
+            <i data-lucide="check" data-copy-check></i>
+            <span data-copy-label>Copiar</span>
           </button>
         </div>
         <a class="band-item phone-link" href="tel:+573103242215"
@@ -217,6 +231,7 @@
             href="https://clemi.pro/portafolio"
             target="_blank"
             rel="noopener noreferrer"
+            data-interactive-surface
           >
             <img
               class="tile-image portfolio-image"
@@ -229,6 +244,9 @@
             <div class="tile-content">
               <span class="eyebrow">CLEMI</span>
               <h3>Portafolio</h3>
+              <span class="tile-action"
+                >Explorar <i data-lucide="arrow-up-right"></i
+              ></span>
             </div>
             <i class="tile-arrow" data-lucide="arrow-up-right"></i>
           </a>
@@ -238,6 +256,7 @@
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram personal de Dra. Claudia Reyes"
+            data-interactive-surface
           >
             <img
               class="tile-image personal-image"
@@ -262,6 +281,7 @@
             </span>
             <div class="tile-content">
               <h3>Instagram<br />personal</h3>
+              <span class="tile-handle">@DRACLAUDIAJREYES</span>
             </div>
             <i class="tile-arrow" data-lucide="arrow-up-right"></i>
           </a>
@@ -271,6 +291,7 @@
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram de Fundación CLEMI"
+            data-interactive-surface
           >
             <div class="foundation-logo" aria-hidden="true">
               <img
@@ -296,6 +317,7 @@
             </span>
             <div class="tile-content">
               <h3>Fundación<br />CLEMI</h3>
+              <span class="tile-handle">@FUNDACIONCLEMI</span>
             </div>
             <i class="tile-arrow" data-lucide="arrow-up-right"></i>
           </a>
@@ -323,7 +345,7 @@
     <footer class="site-footer shell">
       <a href="#perfil">Volver arriba<i data-lucide="arrow-up-right"></i></a>
     </footer>
-    <div class="mobile-dock">
+    <div class="mobile-dock" role="group" aria-label="Acciones de contacto">
       <a href="./contacto.vcf" download="claudia-reyes.vcf"
         ><i data-lucide="contact-round"></i><span>Guardar</span></a
       >
@@ -358,7 +380,15 @@
       aria-describedby="dialog-description"
     >
       <div class="dialog-top">
-        <p class="eyebrow">Compartir contacto</p>
+        <span class="dialog-brand" aria-hidden="true"
+          ><img
+            class="card-logo"
+            src="./assets/logo-clemi-oficial-sin-texto.svg"
+            alt="Logo oficial de CLEMI"
+            width="156"
+            height="170"
+        /></span>
+        <p class="eyebrow">Contacto directo</p>
         <button
           class="icon-button"
           type="button"
@@ -368,22 +398,40 @@
           <i data-lucide="x"></i>
         </button>
       </div>
-      <h2 id="dialog-title">Claudia Reyes</h2>
+      <h2 id="dialog-title">Dra. Claudia Reyes</h2>
       <p id="dialog-description">
         Escanee este código para guardar el contacto en otro dispositivo.
       </p>
-      <img
-        class="dialog-qr"
-        src="./assets/contacto-qr.svg"
-        alt="QR de contacto de Dra. Claudia Reyes"
-        width="320"
-        height="320"
-      /><a
+      <div class="qr-paper">
+        <img
+          class="dialog-qr"
+          src="./assets/contacto-qr.svg"
+          alt="QR de contacto de Dra. Claudia Reyes"
+          width="320"
+          height="320"
+        />
+      </div>
+      <a
         class="button button-primary"
         href="./contacto.vcf"
         download="claudia-reyes.vcf"
-        >Descargar contacto<i data-lucide="download"></i
+        >Guardar contacto<i data-lucide="download"></i
       ></a>
+      <button
+        class="button button-secondary"
+        type="button"
+        data-share-contact
+        hidden
+      >
+        <i data-lucide="share-2"></i
+        ><span data-share-label>Compartir contacto</span>
+      </button>
+      <p
+        class="dialog-status"
+        data-contact-status
+        role="status"
+        aria-live="polite"
+      ></p>
     </dialog>
     <div
       class="toast"

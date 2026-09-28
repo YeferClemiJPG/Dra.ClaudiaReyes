@@ -28,3 +28,11 @@ Los documentos anteriores conservan información histórica. En particular, Figm
 Pendientes: revisión visual del usuario, posible PNG transparente fiel al retrato original y definición de la URL permanente. `publicUrl` sigue siendo `null` y la página mantiene `noindex`.
 
 Hostinger es el destino previsto para una etapa posterior. No se han configurado alojamiento, dominio, rama de distribución ni publicación en producción. El contenido de `dist/` es la salida estática que se utilizará cuando se defina ese destino.
+
+## Mejora de interacción y gráficos
+
+Tras recuperar la base, el usuario pidió mejorar ambas áreas. La propuesta se desarrolla en `refine/interaction-visual`: nombre en Times con apellido cursivo, retrato íntegro con nuevo encuadre, superficies más discretas, tres accesos con jerarquía diferenciada, tarjetas compactas que crecen con el contenido, cabecera fija y barra móvil flotante. Se documenta la dirección en `.21st/DESIGN.md`.
+
+La navegación refleja la sección actual. La copia presenta «Copiado» e icono de confirmación. El diálogo ofrece QR, descarga y compartir el archivo vCard solo si `navigator.canShare` lo permite. Se conservan Escape, retorno del foco, alternativas cuando falla la copia y movimiento reducido; las apariciones no se repiten al volver a desplazar la página.
+
+Revisión de navegador en 320, 390, 768 y 1440 píxeles: sin desbordamiento horizontal ni imágenes rotas; comprobados navegación activa, confirmación de copia, apertura/cierre del diálogo y retorno del foco. La precarga habilita compartir en este navegador; no se realizó ningún envío externo. La revisión de movimiento reducido se realizó sobre el código, sin emulación del sistema operativo. La prueba física de NFC, cámara e importación móvil continúa pendiente.

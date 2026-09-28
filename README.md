@@ -25,6 +25,8 @@ Composición oscura continua con Times New Roman y respaldo serif; retrato prota
 
 Motion anima apariciones y apertura del diálogo con respeto por movimiento reducido. El giro usa CSS. Los enlaces y la descarga siguen disponibles si JavaScript falla. Lucide aporta los iconos funcionales; WhatsApp e Instagram usan SVG de Simple Icons 16.32.0 (CC0), incorporados como recursos locales y coloreados en dorado; no hay React ni bibliotecas duplicadas de diálogos.
 
+El refinamiento de septiembre de 2026 añade navegación fija con sección activa, confirmación visible al copiar, tarjetas con respuesta al puntero y foco, accesos más compactos en móvil y un panel QR coherente con la identidad. Las apariciones ocurren una sola vez. Cuando el navegador permite compartir archivos vCard, el panel ofrece «Compartir contacto»: el archivo se prepara antes del clic para conservar la activación del usuario. Si no es compatible, la descarga sigue disponible. No se comparte una dirección local ni una URL provisional. Las fuentes, el retrato, el logo y los datos originales se conservan.
+
 ## Comprobar y exportar
 
 ```sh
