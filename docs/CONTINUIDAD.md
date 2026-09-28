@@ -1,8 +1,16 @@
 # Continuidad del proyecto · 28 de septiembre de 2026
 
-La etapa vigente repara las animaciones de la landing publicada en GitHub Pages. Los resultados anteriores se conservan por etapa; sus referencias a repositorio privado, `publicUrl: null`, `noindex`, preferencia del sistema por defecto o ausencia de publicación describen el estado de aquel momento y no son restricciones vigentes.
+La etapa vigente convierte Guardar contacto en un acceso directo a la vCard. Los resultados anteriores se conservan por etapa; sus referencias al diálogo QR, repositorio privado, `publicUrl: null`, `noindex`, preferencia del sistema por defecto o ausencia de publicación describen el estado de aquel momento y no son restricciones vigentes.
 
-## Etapa vigente · Animaciones en el origen público
+## Etapa vigente · Guardar contacto sin paso QR
+
+El usuario pidió que Guardar contacto abra el contacto directamente en lugar de mostrar un QR para escanear. La tarjeta conserva su aspecto y sus efectos, pero pasa a ser un enlace nativo a `./contacto.vcf`, con `type="text/vcard"`, `data-contact-download` y `download="{{slug}}.vcf"`. Inicia la descarga en un clic, funciona sin JavaScript y no depende de mostrar un diálogo. La comprobación en Vite mostró que, sin download, el navegador presentaba la vCard como texto; por ello se conserva el atributo tanto en la web como en la exportación.
+
+Se retiran el diálogo QR, su controlador de apertura/cierre, la función de compartir y la alternativa noscript duplicada. La copia de correo conserva su notificación. El archivo QR real y su generador permanecen como históricos. La exportación autónoma integra la vCard como data URL y hereda el atributo download de la plantilla, cuyo nombre procede del slug del perfil. El diseño aprobado y el modo de movimiento full se conservan.
+
+La descarga no confirma una escritura automática en la agenda: abrir e importar el archivo dependen del dispositivo y el sistema puede solicitar confirmación. Las pruebas y la compilación iniciales pasaron; la comprobación final de descarga con download, exportación y despliegue de esta corrección sigue pendiente al redactar la etapa. No se atribuyen a ella los resultados históricos. NFC físico e importación vCard en iOS/Android siguen pendientes.
+
+## Etapa anterior · Animaciones en el origen público
 
 El usuario señaló que las animaciones dejaron de funcionar en la página pública y pidió repararlas. Ya había autorizado «Habilitar animaciones en esta landing». La preferencia `clemi-motion: full` guardada durante la revisión local pertenece al origen de localhost y no se transfiere a GitHub Pages. En el origen público, sin una elección local guardada, el seguimiento predeterminado de `prefers-reduced-motion: reduce` volvía a desactivar las animaciones.
 

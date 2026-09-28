@@ -3,10 +3,10 @@
   "status": "approved_direction_checked_with_limits",
   "assistantRecommendation": null,
   "userSelection": "Dirección editorial fotográfica aprobada",
-  "implementedForReview": "Reparación de animaciones en el origen público de GitHub Pages",
+  "implementedForReview": "Guardar contacto mediante enlace directo a la vCard, sin diálogo QR",
   "updatedAt": "2026-09-28",
   "stack": "Static HTML, CSS and JavaScript with Vite",
-  "currentInstruction": "Recuperar las animaciones de la página publicada, según la autorización expresa de habilitarlas en esta landing. Configurar full como preferencia inicial de la landing y conservar la prioridad de una elección local válida full o reduce, sin modificar ajustes del sistema ni añadir un botón visible. Mantener el diseño aprobado.",
+  "currentInstruction": "Guardar contacto debe descargar directamente la vCard mediante un enlace nativo con download, sin mostrar QR ni texto crudo del archivo. Conservar diseño, cuatro acciones y animaciones full con prioridad de una elección local válida full o reduce. Abrir e importar dependen del dispositivo: no afirmar guardado automático en la agenda.",
   "sharedConstraints": {
     "sccotAccent": {
       "hex": "#04157F",
@@ -65,7 +65,7 @@
     "biographyResponsive": "Escritorio: imagen a anchura completa y altura automática dentro de la cuadrícula, sin ampliación según el texto. Hasta 900 px: ventana 1:1 alineada arriba a la izquierda, máximo 440 px, que muestra la mitad izquierda; texto debajo dentro del mismo panel y máscaras con mask-composite: intersect para una transición suave también lateral.",
     "gallery": "Retirada junto al visor; originales conservados como históricos",
     "connections": "Tres tarjetas: Portafolio, Instagram y Fundación CLEMI; diseño CLEMI restaurado al estado 1729671, sin los acentos SCCOT de df9d071",
-    "contact": "Cuatro tarjetas: Guardar contacto, WhatsApp, Correo y Llamar. Guardar abre el diálogo QR con descarga y compartir; sin tarjeta QR separada.",
+    "contact": "Cuatro tarjetas: Guardar contacto, WhatsApp, Correo y Llamar. Guardar enlaza directamente a ./contacto.vcf con type text/vcard, data-contact-download y download según el slug del perfil. Funciona sin JavaScript e inicia la descarga en un clic. La exportación autónoma integra la vCard como data URL y conserva el mismo atributo download.",
     "contactWavesIntegration": "assets/contact-blue-waves.png: ondas editadas a azul SCCOT como imagen decorativa contact-waves con alt vacío y loading lazy, integrada en el HTML autónomo; cristal e iconos dorados conservados",
     "footer": "Solo lema exacto centrado, dorado y animado finitamente; sin fuentes/créditos, control de movimiento ni volver arriba",
     "background": "Gradientes perla, marfil y azul marino con editorial-contours.svg original; paneles translúcidos de borde fino en Trayectoria y Contacto",
@@ -77,11 +77,13 @@
       "Todas las flechas de la interfaz",
       "Galería y visor de fotografías",
       "Tarjeta QR separada",
+      "Diálogo QR y compartir contacto",
+      "Enlace noscript duplicado de Guardar contacto",
       "Fuentes y créditos visibles en el pie",
       "Botón visible Activar/Pausar animaciones",
       "Volver arriba"
     ],
-    "dialog": "Diálogo QR claro abierto desde Guardar contacto, descarga y compartir dentro, foco visible, Escape y retorno al control de origen"
+    "dialog": "Retirado por petición expresa del usuario; Guardar contacto inicia directamente la descarga de la vCard. Apertura e importación dependen del dispositivo. QR y generador conservados como históricos."
   },
   "interaction": {
     "focusGroups": ["Contacto", "Conexiones"],
@@ -133,6 +135,7 @@
     "portfolioIllustration": "Solo portafolio"
   },
   "historicalAssets": [
+    "assets/contacto-qr.svg",
     "assets/claudia-trayectoria-banner.png",
     "assets/title-flourish.svg",
     "assets/contact-phone-sculpture.png",
@@ -192,6 +195,18 @@
     "limits": "Navegador administrado y pruebas de código; sin NFC físico ni importación móvil. No hay publicación."
   },
   "contactResourceDeliverable": "CLEMI_Banner_Portafolio_WhatsApp.md",
+  "directContactValidation": {
+    "status": "pending",
+    "scope": "Enlace nativo, retirada del diálogo y compartir, exportación con vCard integrada; diseño y movimiento conservados",
+    "pending": [
+      "npm run verify y npm run export:preview",
+      "Enlace directo y vCard en la vista previa y el sitio público",
+      "Despliegue de la corrección en GitHub Pages",
+      "NFC físico e importación vCard en iOS/Android"
+    ],
+    "limits": "Abrir o descargar la vCard no confirma su importación en la agenda; el dispositivo puede pedir confirmación.",
+    "historicalResults": "docs/CONTINUIDAD.md"
+  },
   "publication": {
     "robots": "index, follow",
     "publicUrl": "https://yeferclemijpg.github.io/Dra.ClaudiaReyes/",

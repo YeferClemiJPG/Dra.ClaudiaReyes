@@ -2,7 +2,9 @@
 
 Landing estática para la tarjeta NFC de la Dra. Claudia Reyes, primera de siete. HTML, CSS y JavaScript con Vite; Times New Roman, crema/perla, azul marino y oro, con banner morado de Trayectoria.
 
-La corrección actual recupera las animaciones en GitHub Pages. La elección guardada en la vista previa local no se comparte con el origen público; al faltar allí, la preferencia reducida del sistema las desactivaba. Esta landing establece movimiento completo por defecto conforme a la autorización expresa del usuario, conservando la prioridad de una elección local guardada. Pasaron siete pruebas nuevas de preferencia, quince de navegación y catorce de diálogo, además de verificación y exportación. La reparación está publicada y comprobada en la URL pública: navegación progresiva, brillo de textos, resplandor de secciones y transición del diálogo activos, con modo full mientras el sistema mantiene movimiento reducido. Detalles y límites en `docs/CONTINUIDAD.md`.
+La corrección actual cambia Guardar contacto por una descarga directa de la vCard y retira el diálogo QR. El diseño y las animaciones se conservan. Comprobación final de descarga y publicación pendientes al redactar esta actualización; resultados y límites por etapa en `docs/CONTINUIDAD.md`.
+
+La corrección anterior recuperó las animaciones en GitHub Pages. La elección guardada en la vista previa local no se comparte con el origen público; al faltar allí, la preferencia reducida del sistema las desactivaba. Esta landing establece movimiento completo por defecto conforme a la autorización expresa del usuario, conservando la prioridad de una elección local guardada. En aquella etapa pasaron siete pruebas nuevas de preferencia, quince de navegación y catorce de diálogo, además de verificación y exportación. La reparación se publicó y comprobó en la URL pública.
 
 La corrección visual anterior aplicó azul SCCOT a las ondas del fondo de Contacto mediante edición generativa y restauró Conexiones al diseño anterior a los acentos azules. El cristal, los iconos dorados y las acciones de Contacto se conservan. Verificación y exportación aprobadas en aquella etapa; revisión de desarrollo a 1280/320 px sin desbordamiento, con Contacto azul legible y Conexiones restaurada. El HTML autónomo integra el PNG exacto.
 
@@ -26,7 +28,7 @@ scienceIllustration permanece solo en portada; institutionalPhoto conserva la fo
 
 ## Contacto y movimiento
 
-Contacto reúne Guardar contacto, WhatsApp, Correo y Llamar. Guardar abre el diálogo claro con QR real, descarga vCard y compartir cuando lo admite el navegador. Mantener Escape, cierre y retorno de foco. La descarga alternativa permanece disponible sin JavaScript. Importar y compartir dependen del dispositivo; no se han probado físicamente en iOS/Android.
+Contacto reúne Guardar contacto, WhatsApp, Correo y Llamar. Guardar es un enlace directo a `./contacto.vcf`, con tipo `text/vcard` y download con el slug del perfil para iniciar la descarga en un clic. Funciona sin JavaScript, sin QR ni diálogo intermedio. La exportación autónoma integra la vCard y conserva el mismo atributo download. Abrir e importar el archivo depende del dispositivo y puede requerir confirmación: no se afirma guardado automático ni se ha probado físicamente en iOS/Android. El QR y su generador se conservan como históricos.
 
 Las tarjetas de cristal conservan desenfoque de fondo de 19 px, saturación 1,35 y reflejos; las ondas azul SCCOT son la imagen decorativa `assets/contact-blue-waves.png`, con clase contact-waves, alt vacío y carga diferida. El original dorado se conserva como histórico. Copiar correo muestra confirmación. No quedan tarjeta QR separada ni flechas. Navegación y enlace de salto llevan a Contacto.
 
@@ -36,9 +38,9 @@ motion-preference.js permanece activo sin botón visible. La función admite def
 
 ## Comprobar y exportar
 
-La compilación, lint, formato y exportación de la corrección anterior del banner v2 pasaron. Desarrollo revisado a 1440/1280/1000/768/320 px: identidad accesible correcta, sin desbordamiento en 1280/1000/768/320 px y sin imágenes rotas en 1280/320 px; consola limpia a 768 px. A 1000 px, la imagen conserva ratio 2:1 aunque el texto ocupe más altura. La copia autónoma, su PNG integrado y los tres textos se comprobaron por contenido; no hubo revisión visual de `file:` por bloqueo del navegador. Las catorce pruebas de diálogo y las descargas VCF exactas son históricas y no se repitieron porque el JavaScript de interacción no cambia. NFC físico, cámara e importación móvil siguen pendientes.
+Las comprobaciones anteriores del banner, publicación y animaciones permanecen documentadas por etapa. Las pruebas del antiguo diálogo son históricas; el acceso directo a la vCard requiere una nueva comprobación de enlace, exportación y sitio público. NFC físico e importación móvil siguen pendientes.
 
-Ejecutar npm run verify y npm run export:preview. dist/ contiene la distribución estática; artifacts/Claudia_Reyes_Vista_Previa.html es el HTML autónomo con estilos, fuentes locales, imágenes, scripts, QR y vCard integrados. Algunos visores limitan descargas; la web utiliza contacto.vcf como archivo normal.
+Ejecutar npm run verify y npm run export:preview. dist/ contiene la distribución estática; artifacts/Claudia_Reyes_Vista_Previa.html es el HTML autónomo con estilos, fuentes locales, imágenes, scripts y vCard integrados. Algunos visores limitan descargas; la web utiliza contacto.vcf como archivo normal.
 
 Las validaciones por etapa están en docs/CONTINUIDAD.md; las tres maquetas y el Figma oscuro son históricos.
 

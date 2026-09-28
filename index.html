@@ -271,15 +271,15 @@
           >
         </h2>
         <div class="contact-grid focus-group" data-focus-group>
-          <button
+          <a
             class="contact-card contact-save focus-card reveal"
             data-interactive-surface
             data-focus-card
             data-reveal-type="panel"
-            type="button"
-            data-open-contact
-            aria-haspopup="dialog"
-            aria-controls="contact-dialog"
+            href="./contacto.vcf"
+            download="claudia-reyes.vcf"
+            type="text/vcard"
+            data-contact-download
           >
             <img
               class="contact-art contact-art-save"
@@ -289,7 +289,7 @@
               height="1254"
               loading="lazy"
             /><span class="contact-card-title">Guardar contacto</span>
-          </button>
+          </a>
           <a
             class="contact-card contact-whatsapp focus-card reveal"
             data-interactive-surface
@@ -377,14 +377,6 @@
             >
           </a>
         </div>
-        <noscript
-          ><a
-            class="button button-primary"
-            href="./contacto.vcf"
-            download="claudia-reyes.vcf"
-            >Guardar contacto</a
-          ></noscript
-        >
       </section>
     </main>
     <footer class="site-footer shell">
@@ -393,67 +385,6 @@
         <span>transformamos vidas</span>
       </p>
     </footer>
-    <dialog
-      id="contact-dialog"
-      aria-labelledby="dialog-title"
-      aria-describedby="dialog-description"
-    >
-      <div class="dialog-top">
-        <span class="dialog-brand" aria-hidden="true"
-          ><img
-            class="card-logo"
-            src="./assets/logo-clemi-oficial-sin-texto.svg"
-            alt="Logo oficial de CLEMI"
-            width="156"
-            height="170"
-        /></span>
-        <p class="eyebrow">Contacto directo</p>
-        <button
-          class="icon-button"
-          type="button"
-          data-close-contact
-          aria-label="Cerrar contacto"
-        >
-          <i data-lucide="x"></i>
-        </button>
-      </div>
-      <h2 id="dialog-title">Dra. Claudia Reyes</h2>
-      <p id="dialog-description">
-        Guarde el contacto en este dispositivo o escanee el código QR desde
-        otro.
-      </p>
-      <div class="qr-paper">
-        <img
-          class="dialog-qr"
-          src="./assets/contacto-qr.svg"
-          alt="QR de contacto de Dra. Claudia Reyes"
-          width="320"
-          height="320"
-        />
-      </div>
-      <a
-        class="button button-primary"
-        href="./contacto.vcf"
-        download="claudia-reyes.vcf"
-        data-contact-download
-        >Guardar contacto</a
-      >
-      <button
-        class="button button-secondary"
-        type="button"
-        data-share-contact
-        hidden
-      >
-        <i data-lucide="share-2"></i
-        ><span data-share-label>Compartir contacto</span>
-      </button>
-      <p
-        class="dialog-status"
-        data-contact-status
-        role="status"
-        aria-live="polite"
-      ></p>
-    </dialog>
     <div
       class="toast"
       role="status"
@@ -462,8 +393,7 @@
     ></div>
     <noscript
       ><style>
-        .copy-control,
-        [data-open-contact] {
+        .copy-control {
           display: none !important;
         }
       </style></noscript

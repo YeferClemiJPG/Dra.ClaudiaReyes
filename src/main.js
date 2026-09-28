@@ -1,4 +1,4 @@
-import { createIcons, X, Copy, Check, Share2 } from "lucide";
+import { createIcons, Copy, Check } from "lucide";
 import { inView } from "motion";
 import { animate } from "motion/mini";
 import { initializeFocusSurfaces } from "./focus-surfaces.js";
@@ -7,10 +7,8 @@ import { initializeSectionNavigation } from "./section-navigation.js";
 
 createIcons({
   icons: {
-    X,
     Copy,
     Check,
-    Share2,
   },
   attrs: { "aria-hidden": "true", focusable: "false" },
 });
@@ -236,9 +234,7 @@ finePointer.addEventListener("change", () => {
   if (!finePointer.matches) interactiveSurfaces.forEach(resetPointer);
 });
 
-const dialog = document.getElementById("contact-dialog");
 const toast = document.querySelector(".toast");
-const contactStatus = document.querySelector("[data-contact-status]");
 let announcementTimer;
 function clearAnnouncement() {
   clearTimeout(announcementTimer);
@@ -246,126 +242,14 @@ function clearAnnouncement() {
     toast.classList.remove("visible");
     toast.textContent = "";
   }
-  if (contactStatus) contactStatus.textContent = "";
 }
 function announce(message) {
   clearAnnouncement();
-  const target = dialog?.open && contactStatus ? contactStatus : toast;
-  if (!target) return;
-  target.textContent = message;
-  if (target === toast) target.classList.add("visible");
+  if (!toast) return;
+  toast.textContent = message;
+  toast.classList.add("visible");
   announcementTimer = setTimeout(clearAnnouncement, 6000);
 }
-let opener = null;
-let dialogState = "closed";
-let dialogTransition = null;
-function stopDialogAnimation(clearStyles = true) {
-  if (dialogTransition) {
-    clearTimeout(dialogTransition.timer);
-    dialogTransition.animation.stop();
-    dialogTransition = null;
-  }
-  if (dialog && clearStyles) clearMotionStyles(dialog);
-}
-function animateDialog(keyframes, duration, ease, onComplete) {
-  const transition = {
-    animation: animate(dialog, keyframes, { duration, ease }),
-    timer: null,
-  };
-  dialogTransition = transition;
-  // An explicit cancellable completion avoids waiting on stopped animations.
-  transition.timer = setTimeout(() => {
-    if (dialogTransition === transition) onComplete();
-  }, duration * 1000);
-}
-function finishDialogClose() {
-  stopDialogAnimation();
-  dialogState = "closed";
-  dialog?.classList.remove("is-closing");
-  if (dialog?.open) dialog.close();
-}
-function requestDialogClose() {
-  if (!dialog?.open || dialogState === "closing") return;
-  stopDialogAnimation(false);
-  if (reducedMotion.matches) {
-    finishDialogClose();
-    return;
-  }
-  dialogState = "closing";
-  dialog.classList.add("is-closing");
-  animateDialog(
-    { opacity: [null, 0], transform: [null, "translateY(10px) scale(0.99)"] },
-    0.18,
-    [0.4, 0, 1, 1],
-    finishDialogClose,
-  );
-}
-if (dialog && typeof dialog.showModal === "function") {
-  document.querySelectorAll("[data-open-contact]").forEach((button) => {
-    button.addEventListener("click", () => {
-      if (dialog.open && dialogState !== "closing") return;
-      const reversingClose = dialog.open && dialogState === "closing";
-      stopDialogAnimation(!reversingClose);
-      opener = button;
-      clearAnnouncement();
-      dialog.classList.remove("is-closing");
-      if (!dialog.open) dialog.showModal();
-      document.body.classList.add("dialog-open");
-      dialog.querySelector("[data-close-contact]")?.focus();
-      if (reducedMotion.matches) {
-        dialogState = "open";
-        clearMotionStyles(dialog);
-        return;
-      }
-      dialogState = "opening";
-      animateDialog(
-        {
-          opacity: [reversingClose ? null : 0, 1],
-          transform: [
-            reversingClose ? null : "translateY(18px) scale(0.985)",
-            "translateY(0px) scale(1)",
-          ],
-        },
-        0.32,
-        [0.16, 1, 0.3, 1],
-        () => {
-          stopDialogAnimation();
-          dialogState = "open";
-        },
-      );
-    });
-  });
-  dialog
-    .querySelector("[data-close-contact]")
-    ?.addEventListener("click", requestDialogClose);
-  dialog.addEventListener("click", (event) => {
-    if (event.target !== dialog) return;
-    const rect = dialog.getBoundingClientRect();
-    if (
-      event.clientX < rect.left ||
-      event.clientX > rect.right ||
-      event.clientY < rect.top ||
-      event.clientY > rect.bottom
-    )
-      requestDialogClose();
-  });
-  dialog.addEventListener("cancel", (event) => {
-    event.preventDefault();
-    requestDialogClose();
-  });
-  dialog.addEventListener("close", () => {
-    // A queued close event from the previous opening must not close a new one.
-    if (dialog.open) return;
-    stopDialogAnimation();
-    dialogState = "closed";
-    dialog.classList.remove("is-closing");
-    clearAnnouncement();
-    document.body.classList.remove("dialog-open");
-    if (opener?.isConnected) opener.focus({ preventScroll: true });
-    opener = null;
-  });
-}
-
 function respectReducedMotion() {
   if (!reducedMotion.matches) {
     observeReveals(true);
@@ -383,11 +267,6 @@ function respectReducedMotion() {
       revealed.add(element);
     clearMotionStyles(element);
   });
-  if (dialogState === "closing") finishDialogClose();
-  else {
-    stopDialogAnimation();
-    if (dialog?.open) dialogState = "open";
-  }
   interactiveSurfaces.forEach(resetPointer);
 }
 reducedMotion.addEventListener("change", respectReducedMotion);
@@ -473,58 +352,3 @@ if (copyButton) {
     }
   });
 }
-
-const shareButton = document.querySelector("[data-share-contact]");
-const contactDownload = document.querySelector("[data-contact-download]");
-async function prepareContactSharing() {
-  if (!shareButton) return;
-  shareButton.hidden = true;
-  shareButton.disabled = true;
-  if (
-    !contactDownload ||
-    typeof navigator.share !== "function" ||
-    typeof navigator.canShare !== "function" ||
-    typeof File !== "function"
-  )
-    return;
-  try {
-    const response = await fetch(contactDownload.href);
-    if (!response.ok) return;
-    const vcard = await response.blob();
-    const contents = await vcard.text();
-    if (!contents.trimStart().startsWith("BEGIN:VCARD")) return;
-    const contactFile = new File(
-      [vcard],
-      contactDownload.download || "contacto.vcf",
-      { type: "text/vcard" },
-    );
-    if (!navigator.canShare({ files: [contactFile] })) return;
-    const label = shareButton.querySelector("[data-share-label]");
-    const defaultLabel = label?.textContent || "Compartir contacto";
-    shareButton.addEventListener("click", async () => {
-      if (shareButton.disabled) return;
-      shareButton.disabled = true;
-      shareButton.setAttribute("aria-busy", "true");
-      if (label) label.textContent = "Abriendo…";
-      clearAnnouncement();
-      try {
-        // The file is ready before this click: keep transient user activation.
-        await navigator.share({ files: [contactFile] });
-      } catch (error) {
-        if (error.name !== "AbortError")
-          announce(
-            "No se pudo compartir. Puede descargar el contacto e intentarlo de nuevo.",
-          );
-      } finally {
-        shareButton.disabled = false;
-        shareButton.removeAttribute("aria-busy");
-        if (label) label.textContent = defaultLabel;
-      }
-    });
-    shareButton.disabled = false;
-    shareButton.hidden = false;
-  } catch {
-    // Unsupported file sharing never removes the regular download link.
-  }
-}
-prepareContactSharing();
