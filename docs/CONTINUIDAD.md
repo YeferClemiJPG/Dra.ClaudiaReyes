@@ -1,6 +1,6 @@
 # Continuidad del proyecto · 28 de septiembre de 2026
 
-La etapa vigente prepara la publicación autorizada en GitHub Pages. Los resultados anteriores se conservan por etapa; sus referencias a repositorio privado, `publicUrl: null`, `noindex` o ausencia de publicación describen el estado de aquel momento y no son restricciones vigentes.
+La etapa vigente completa la publicación autorizada en GitHub Pages. Los resultados anteriores se conservan por etapa; sus referencias a repositorio privado, `publicUrl: null`, `noindex` o ausencia de publicación describen el estado de aquel momento y no son restricciones vigentes.
 
 ## Etapa vigente · Publicación autorizada en GitHub Pages
 
@@ -8,7 +8,9 @@ El usuario pidió expresamente hacer pública la página dentro de GitHub. El re
 
 La rama de publicación es `refine/interaction-visual`; no se necesita fusionar el PR con `main`. `.github/workflows/pages.yml` ejecuta `npm ci` y `npm run verify`, sube únicamente la salida `dist/` y despliega con GitHub Pages. El perfil establece esa URL en `publicUrl`, con canonical y `index, follow` generados; Vite conserva la base relativa `"./"`.
 
-La revisión previa de la distribución comprobó que sus referencias locales de HTML y CSS resuelven dentro de la ruta del proyecto. La salida contiene recursos estáticos, vCard y licencias; no contiene mapas de código ni archivos de entorno. Esta revisión de archivos no sustituye la comprobación del despliegue: faltan confirmar el resultado del flujo y la disponibilidad e interacción de la URL pública. No se declara todavía validado el sitio en producción.
+La revisión previa de la distribución comprobó que sus referencias locales de HTML y CSS resuelven dentro de la ruta del proyecto. La salida contiene recursos estáticos, vCard y licencias; no contiene mapas de código ni archivos de entorno.
+
+Publicación verificada el 28 de septiembre de 2026: el flujo [36484618787](https://github.com/YeferClemiJPG/Dra.ClaudiaReyes/actions/runs/36484618787) finalizó con éxito para el commit `af36e9e`. `npm run verify` y `npm run export:preview` pasaron localmente; GitHub repitió la verificación durante el build. La URL pública responde 200 y su HTML coincide exactamente con `dist/index.html`, con canonical e indexación correctos. Los 24 recursos comprobados de HTML y CSS responden 200; vCard y QR coinciden por SHA-256 con la distribución local. La navegación a Contacto, apertura del diálogo, descarga real de la vCard, cierre con Escape y retorno del foco se comprobaron en el sitio público. Sin imágenes rotas, desbordamiento horizontal ni advertencias o errores de consola en la revisión de escritorio. La descarga coincide con `public/contacto.vcf`. El enlace público también quedó en el campo Website del repositorio.
 
 Esta autorización reemplaza las restricciones anteriores de vista previa sin publicación. No autoriza cambios de dominio, facturación ni despliegues sobre otros sitios. NFC físico, cámara e importación vCard en iOS/Android siguen pendientes.
 
