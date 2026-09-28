@@ -1,6 +1,6 @@
 # Continuidad del proyecto · 28 de septiembre de 2026
 
-La etapa vigente es la composición editorial fotográfica descrita al final de este documento, con sus comprobaciones actuales de navegador y exportación y sus límites. Los resultados anteriores se conservan por etapa y no certifican automáticamente la implementación actual.
+La etapa vigente es la depuración de la dirección editorial aprobada, descrita al final de este documento con su validación de navegador y exportación terminada y sus límites. Los resultados anteriores, incluidos los de `afb2f47`, se conservan por etapa y no certifican automáticamente la implementación actual.
 
 ## Base recuperada
 
@@ -66,7 +66,7 @@ Validación disponible al redactar esta actualización:
 - `npm run verify` y la exportación autónoma de esta etapa completados correctamente: lint, formato y compilación correctos. La exportación se abrió mediante HTTP; imagen de Instagram y vCard integradas, sin imágenes rotas, diálogo operativo y registros del navegador vacíos.
 - NFC físico, escaneo QR con cámara e importación vCard en iOS/Android siguen pendientes. No se realizaron envíos externos ni publicación en producción.
 
-## Etapa actual: composición editorial fotográfica
+## Etapa anterior: composición editorial fotográfica · afb2f47
 
 El usuario pidió una landing más visual inspirada en la referencia de nutricionista adjunta, con menos texto, una biografía real breve y más fotografías auténticas. La implementación conserva la paleta clara, Times New Roman y el lema institucional. La portada combina el retrato original con una ilustración decorativa; siguen contacto, biografía de 48 palabras, galería editorial y tres tarjetas con imagen arriba y texto debajo. Las tarjetas ocupan tres columnas en escritorio y una en móvil.
 
@@ -90,3 +90,21 @@ El HTML autónomo exportado integra catorce imágenes y la vCard, sin depender d
 No se emuló la preferencia de movimiento reducido del sistema operativo en esta etapa; las comprobaciones anteriores con DOM/reloj simulado conservan su carácter histórico. NFC físico, escaneo por cámara e importación vCard en iOS/Android continúan pendientes.
 
 No se ha publicado el sitio. `publicUrl` sigue en `null` y se mantiene `noindex, nofollow`. Hostinger, URL permanente y publicación requieren definición y autorización específica; esta actualización de documentación no los configura.
+
+## Etapa actual: dirección aprobada y depuración
+
+El usuario aprobó la dirección editorial fotográfica y pidió menos redundancia y una interacción más cuidada. La portada queda limitada a nombre, cargos, retrato e ilustración. Se retiraron la especialidad separada, los botones de portada, los QR de fotografía y cabecera, la barra móvil fija y la credencial giratoria alternativa. Trayectoria conserva biografía y galería sin credenciales repetidas; Conexiones utiliza títulos breves sin reclamos ni nombres de usuario adicionales. Los textos integrados en los adjuntos y su transcripción accesible se mantienen.
+
+Contacto es ahora la última sección y reúne guardar, WhatsApp, QR, correo y teléfono. La navegación incluye Contacto y el enlace de salto lleva a ella. El lema institucional se presenta una sola vez en el pie, donde un `details` nativo reúne fuentes de trayectoria y créditos fotográficos. Se mantienen el diálogo claro, los enlaces reales y los nombres accesibles de los controles.
+
+La ilustración de pie y libro, `scienceIllustration`, se usa únicamente en portada. El nuevo microscopio decorativo, `researchIllustration`, se usa únicamente en portafolio; su archivo es `assets/clemi-research-illustration.png`. Ambas generaciones están autorizadas, sin personas ni logos generados. Cuatro SVG originales de dos tonos forman la familia de contacto, sin instalar dependencias. La procedencia, integridad y prompts están en `docs/RECURSOS_ACTIVOS.md`.
+
+Los títulos aparecen una vez durante 750 ms, de `translateY(100%)` a `0` y desenfoque de 3 a 0 px; paneles y retrato mantienen 620 y 900 ms. En los grupos Contacto y Conexiones se eleva la tarjeta seleccionada y sus hermanas usan desenfoque de 1,6 px y opacidad 0,6. Funciona con ratón de puntero fino y teclado, con prioridad del teclado; el toque no deja selección persistente. Movimiento reducido limpia estados y elimina desplazamientos y desenfoque. Se consultó realmente [Focus Cards](https://21st.dev/@manuarora700/components/focus-cards) por MCP como referencia de metadatos, sin instalar componentes. El CLI 21st sigue sin estar instalado.
+
+Las dos fotografías de Trayectoria incorporan ampliación mediante un diálogo nativo con fondo difuminado y descripción accesible. Se conservan sus archivos intactos. En navegador se comprobaron ambas imágenes con proporción correcta y fondo difuminado, bloqueo del desplazamiento al abrir, cierre por Escape, botón y clic exterior, y retorno de foco a la fotografía de origen.
+
+`npm run verify` y `npm run export:preview` completaron correctamente. El navegador real se revisó a 320, 390, 768 y 1440 px sin desbordamiento horizontal ni imágenes con `src` rotas. La portada conserva nombre y cargos sin acciones. El QR abre, cierra y restaura el foco, copiar correo muestra confirmación y las fuentes desplegables funcionan. Se mantienen catorce diagnósticos de selección y doce del diálogo de contacto correctos, ejecutados fuera del repositorio.
+
+La exportación autónoma se abrió y comprobó: imagen ampliada embebida y cargada, vCard integrada como datos y QR cargado con apertura y cierre operativos. La consola no mostró errores ni advertencias. Se actualizaron la vista previa autónoma y las capturas `Claudia_Reyes_Depurada_Escritorio.png`, `Claudia_Reyes_Depurada_Conexiones.png`, `Claudia_Reyes_Depurada_Contacto.png` y `Claudia_Reyes_Depurada_Movil.png`.
+
+El navegador tiene `prefers-reduced-motion: reduce` activo y la interfaz lo respeta, desactivando entradas y selección animadas. El movimiento normal se validó por arnés, sin observarlo en ese navegador. Las comprobaciones de `afb2f47` documentadas arriba son históricas. Las simulaciones no equivalen a pruebas físicas del sistema operativo; NFC, cámara e importación vCard en iOS/Android siguen pendientes. No hay publicación y se mantiene `noindex, nofollow`.

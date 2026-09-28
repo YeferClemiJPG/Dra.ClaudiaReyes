@@ -56,7 +56,7 @@ La especialidad «Cirugía de pie y tobillo» también figura en las imágenes e
 
 - **Archivo:** `public/assets/clemi-science-illustration.png`.
 - **Procedencia:** generación nueva con `image_gen__imagegen` el 28 de septiembre de 2026, autorizada por el usuario para ilustraciones. Se utilizó `transparent_background: true`, sin imágenes de referencia.
-- **Destino:** ilustración editorial decorativa mediante la ruta `scienceIllustration` y el marcador `{{scienceIllustration}}`.
+- **Destino vigente:** ilustración editorial decorativa únicamente en la portada, mediante la ruta `scienceIllustration` y el marcador `{{scienceIllustration}}`.
 - **Formato y dimensiones verificados:** PNG de 32 bits ARGB, 1536 × 1024 píxeles, 2 164 053 bytes. La copia conserva el canal alfa del archivo generado.
 - **SHA-256:** `26c543ac4faf4afac1d251efeb22cfdf968693d70aa84c6708d246093e5e766d`.
 - **Alcance:** composición artística alusiva a cirugía de pie y tobillo y educación; no es material de enseñanza anatómica ni evidencia clínica. No contiene rostros ni logos. No se editó ni regeneró ninguna fotografía de la doctora ni ninguna marca.
@@ -74,3 +74,17 @@ Color palette: soft warm ivory #f6f5f1, porcelain white, muted antique gold #a89
 Scene/backdrop: genuinely transparent background with preserved alpha, designed to sit seamlessly on a light warm ivory web page. No horizon or room.
 Constraints: no text, no letters, no numbers, no logos, no watermarks, no people, no hands, no human portraits, no blood, no injury, no surgical tools. Do not copy any existing logo. No generic floating spheres, no abstract rings, no neon, no clipart, no basic flat geometry. Do not present this as medical instructional imagery.
 ```
+
+## Familia vectorial de contacto
+
+`public/assets/icons/contact-mail.svg`, `contact-phone.svg`, `contact-save.svg` y `contact-qr.svg` forman una familia original de pictogramas vectoriales dibujados para esta interfaz el 28 de septiembre de 2026. Representan correo, llamada, libreta de contacto y acceso al QR con papel facetado, detalles de grabado y colores institucionales navy y dorado. Utilizan `viewBox="0 0 64 64"`, trazo de 1,5 unidades y clase `contact-glyph`; su tamaño final lo controla CSS.
+
+Son recursos decorativos junto a etiquetas de acción, con `aria-hidden="true"` y `focusable="false"`. No incorporan texto, IDs, filtros, marcas ni dependencias nuevas. El pictograma QR es simbólico y no escaneable; el QR de contacto real se mantiene en `public/assets/contacto-qr.svg`. Los iconos oficiales de WhatsApp e Instagram se conservan intactos.
+
+## Ilustración de investigación para el portafolio
+
+- **Archivo y uso:** `public/assets/clemi-research-illustration.png`, mediante `researchIllustration`, solo en la tarjeta del portafolio. La composición de pie y libro permanece únicamente en la portada.
+- **Procedencia:** generación nueva autorizada por el usuario con `image_gen__imagegen` el 28 de septiembre de 2026, `transparent_background: true`, sin referencias. Microscopio escultórico en marfil, vidrio, azul marino y bronce, acompañado por una rama de laurel. No se utilizaron fotografías ni logos como material de generación.
+- **Integridad verificada:** PNG ARGB de 32 bits, 1536 × 1024 píxeles, 1 931 910 bytes; copia intacta del original, conservando transparencia. SHA-256: `02f4667be9941cfcff7d2e3d75bce2a1acbb64f7eb7633ac272077d6d3301bae`.
+- **Alcance:** recurso decorativo; no representa equipamiento institucional verificado ni material técnico educativo. No contiene texto, rostros ni marcas, y no altera retratos.
+- **Registro y prompt exacto:** [research-illustration-provenance.md](../../research-illustration-provenance.md), conservado en el directorio de trabajo de este proyecto. Solicita una composición editorial 3D de un microscopio completo y una rama de laurel, con materiales marfil, vidrio y bronce, fondo transparente, sin personas, anatomía, libros, letras ni logos.

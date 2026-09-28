@@ -43,5 +43,6 @@
   "publicUrl": null,
   "logoWidth": 156,
   "logoHeight": 170,
-  "portfolioArtwork": "assets/clemi-metallic-portfolio.png"
+  "portfolioArtwork": "assets/clemi-metallic-portfolio.png",
+  "researchIllustration": "assets/clemi-research-illustration.png"
 }

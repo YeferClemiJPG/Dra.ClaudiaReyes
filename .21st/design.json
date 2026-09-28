@@ -1,12 +1,12 @@
 {
   "maintainedManually": true,
-  "status": "implemented_for_review",
+  "status": "approved_direction_refinements_for_review",
   "assistantRecommendation": null,
-  "userSelection": null,
-  "implementedForReview": "Editorial fotográfica",
+  "userSelection": "Dirección editorial fotográfica aprobada",
+  "implementedForReview": "Depuración editorial y movimiento",
   "updatedAt": "2026-09-28",
   "stack": "Static HTML, CSS and JavaScript with Vite",
-  "currentInstruction": "Landing editorial fotográfica inspirada en la referencia de nutricionista adjunta: menos texto, biografía profesional breve y más fotografías auténticas, con paleta clara y una ilustración decorativa con IA expresamente autorizada.",
+  "currentInstruction": "El usuario aprobó la dirección editorial fotográfica y pidió depurar contenido y profesionalizar movimiento: portada de nombre y cargos, contacto al final, fuentes unificadas y selección visual en tarjetas.",
   "sharedConstraints": {
     "typography": "Times New Roman; Times, Georgia y Cormorant Garamond local como respaldos",
     "colors": [
@@ -26,24 +26,42 @@
     "preserveOfficialLogoAndOriginalPhotos": true,
     "instagramArtwork": "assets/claudia-reyes-instagram.png",
     "newAiGeneration": {
-      "authorizedScope": "Una ilustración científica decorativa con transparencia, sin personas ni logos generados",
-      "asset": "assets/clemi-science-illustration.png",
+      "authorizedScope": "Ilustraciones decorativas transparentes de pie y libro para portada y microscopio para portafolio, sin personas ni logos generados",
+      "assets": [
+        "assets/clemi-science-illustration.png",
+        "assets/clemi-research-illustration.png"
+      ],
       "provenanceAndPrompt": "docs/RECURSOS_ACTIVOS.md"
     },
     "publicProfessionalSourcesAllowed": true,
     "componentInstallation": false
   },
   "motionDurationMs": {
-    "title": 700,
+    "title": 750,
     "panel": 620,
     "portrait": 900
   },
   "currentComposition": {
-    "hero": "Retrato protagonista a la derecha en escritorio y antes del nombre en móvil; ilustración decorativa y QR flotante",
-    "biography": "48 palabras basadas en AAOT y hoja de vida publicada por SCCOT",
-    "gallery": "Adjunto editorial y retrato profesional con bata; preservar textos integrados en los adjuntos",
-    "connections": "Tres tarjetas con imagen superior y texto debajo; tres columnas en escritorio y una en móvil",
-    "dialog": "Claro, con foco visible, Escape y retorno al control de origen"
+    "hero": "Nombre, cargos, fotografía e ilustración de pie y libro; retrato a la derecha en escritorio y antes del nombre en móvil; sin CTA, QR ni especialidad separada",
+    "biography": "48 palabras basadas en AAOT y hoja de vida publicada por SCCOT; sin credenciales duplicadas",
+    "gallery": "Adjunto editorial y retrato profesional con bata; preservar textos integrados; ambos ampliables mediante diálogo nativo con fondo difuminado, descripción accesible, cierre por Escape, botón o clic exterior y retorno de foco",
+    "connections": "Tres tarjetas con imagen superior y títulos breves; sin reclamos ni nombres de usuario adicionales",
+    "contact": "Última sección: guardar contacto, WhatsApp, QR, correo y teléfono; acceso desde navegación y enlace de salto",
+    "footer": "Lema exacto una vez y details nativo Fuentes y créditos",
+    "removed": [
+      "QR de portada y cabecera",
+      "Barra móvil fija",
+      "Credencial giratoria alternativa"
+    ],
+    "dialog": "Claro, abierto desde Contacto, con foco visible, Escape y retorno al control de origen"
+  },
+  "interaction": {
+    "focusGroups": ["Contacto", "Conexiones"],
+    "selected": "Elevación y escala sutil de una tarjeta por grupo",
+    "siblings": { "blurPx": 1.6, "opacity": 0.6 },
+    "input": "Ratón de puntero fino y teclado, con prioridad de foco del teclado; toque sin selección persistente",
+    "reducedMotion": "Limpia estados y elimina desplazamientos y desenfoque",
+    "titleReveal": "Desplazamiento vertical 100 % a 0 y desenfoque 3 a 0 px durante 750 ms, una sola vez"
   },
   "activeAssets": {
     "portrait": "assets/dra-claudia-reyes.jpeg",
@@ -51,20 +69,41 @@
     "editorialPortrait": "assets/claudia-reyes-editorial.png",
     "professionalPortrait": "assets/claudia-reyes-sccot.jpeg",
     "institutionalPhoto": "assets/clemi-formacion.jpeg",
-    "scienceIllustration": "assets/clemi-science-illustration.png"
+    "scienceIllustration": "assets/clemi-science-illustration.png",
+    "researchIllustration": "assets/clemi-research-illustration.png",
+    "contactIcons": [
+      "assets/icons/contact-save.svg",
+      "assets/icons/contact-qr.svg",
+      "assets/icons/contact-mail.svg",
+      "assets/icons/contact-phone.svg"
+    ]
+  },
+  "illustrationPlacement": {
+    "scienceIllustration": "Solo portada",
+    "researchIllustration": "Solo portafolio"
   },
   "historicalAssets": ["assets/clemi-metallic-portfolio.png"],
   "validation": {
     "status": "checked_with_limits",
+    "diagnostics": {
+      "focus": 14,
+      "dialog": 12,
+      "location": "Scratch fuera del repositorio",
+      "result": "passed"
+    },
+    "javascriptAndFormat": "passed",
     "commands": ["npm run verify", "npm run export:preview"],
     "browserWidthsPx": [320, 390, 768, 1440],
-    "browserFindings": "Sin desbordamiento horizontal ni imágenes rotas; portada, galería y tarjetas revisadas; QR a 320 px con Escape y retorno de foco; confirmación de copia y navegación activa comprobadas",
+    "browserFindings": "Sin desbordamiento ni imágenes con src rotas; portada de nombre y cargos sin acciones; ambas fotos amplían con proporción, fondo difuminado y bloqueo de desplazamiento; Escape, botón y clic exterior cierran y devuelven foco; QR, copia de correo y fuentes operativos",
+    "standaloneExport": "Imagen ampliada integrada y cargada, vCard data embebida, QR cargado con apertura y cierre comprobados; sin errores ni advertencias de consola",
+    "browserMotionPreference": "prefers-reduced-motion: reduce activo y respetado; entradas y selección animadas desactivadas",
+    "normalMotionValidation": "Validado por arnés; no observado en navegador",
     "pending": [
       "NFC físico, escaneo por cámara e importación vCard en iOS/Android"
     ],
-    "standaloneExport": "Catorce imágenes y vCard integradas; imágenes cargadas, sin desbordamiento, apertura desde fotografía, cierre por Escape y retorno de foco comprobados; sin dependencia de CDN",
-    "browserLogs": "Vista previa normal y exportación sin advertencias ni errores",
-    "limits": "Sin lectura independiente del portapapeles ni emulación de movimiento reducido del sistema operativo; diagnósticos DOM/reloj anteriores conservados como históricos"
+    "historicalBaselineCommit": "afb2f47",
+    "historicalResults": "docs/CONTINUIDAD.md",
+    "limits": "Diagnósticos simulados no equivalen a una prueba física de preferencias del sistema, NFC, cámara o importación de contactos"
   },
   "publication": {
     "robots": "noindex, nofollow",
@@ -107,8 +146,10 @@
     "https://21st.dev/@felipemenezes098/components/hero-04",
     "https://21st.dev/@felipemenezes098/components/hero-07",
     "https://21st.dev/@kokonutd/components/bento-grid",
-    "https://21st.dev/@cnippet-dev/components/text-reveal"
+    "https://21st.dev/@cnippet-dev/components/text-reveal",
+    "https://21st.dev/@manuarora700/components/focus-cards"
   ],
+  "catalogAccess": "Consulta MCP real de metadatos; sin instalar componentes. CLI 21st no instalado",
   "comparisonDeliverable": "Claudia_Reyes_Exploracion.html",
   "figma": {
     "syncStatus": "not_synced",

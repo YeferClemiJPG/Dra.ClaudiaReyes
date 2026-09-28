@@ -2,7 +2,6 @@
 @import "@fontsource/cormorant-garamond/latin-400.css";
 @import "@fontsource/cormorant-garamond/latin-600.css";
 @import "@fontsource/cormorant-garamond/latin-700.css";
-@import url("./card.css");
 
 *,
 ::before,
@@ -145,13 +144,6 @@ img {
   height: auto;
   object-fit: contain;
 }
-.header-navigation {
-  display: flex;
-  align-items: center;
-  gap: 38px;
-  min-width: 0;
-  max-width: 100%;
-}
 .site-header nav {
   display: flex;
   flex-wrap: wrap;
@@ -185,30 +177,6 @@ img {
 .site-header nav a:is(:hover, :focus-visible, .is-active)::after {
   transform: scaleX(1);
 }
-.header-qr {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  min-height: 46px;
-  padding: 10px 17px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-control);
-  background: #ffffff70;
-  font-size: 0.875rem;
-  transition:
-    border-color var(--motion-fast),
-    background var(--motion-fast);
-}
-.header-qr svg {
-  width: 18px;
-  height: 18px;
-  color: var(--accent);
-}
-.header-qr:is(:hover, :focus-visible) {
-  background: var(--surface);
-  border-color: var(--accent);
-}
 
 /* A photographic cover with an original, transparent scientific illustration. */
 .hero {
@@ -224,10 +192,6 @@ img {
   z-index: 2;
   min-width: 0;
   padding: 18px 0 35px;
-}
-.hero-specialty {
-  color: var(--accent);
-  margin-bottom: 27px;
 }
 h1 {
   font-family: var(--font-display);
@@ -269,13 +233,6 @@ h1 .name-accent,
   margin-top: 28px;
   font-size: 1.0625rem;
 }
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 26px;
-  margin-top: 30px;
-}
 .button {
   display: inline-flex;
   align-items: center;
@@ -312,55 +269,6 @@ h1 .name-accent,
 .button:active {
   transform: translateY(1px);
 }
-.whatsapp-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  min-height: 48px;
-  padding: 10px 0;
-  font-size: 1rem;
-}
-.whatsapp-link > svg:first-child {
-  width: 23px;
-  height: 23px;
-  color: var(--accent);
-}
-.whatsapp-link > span {
-  text-decoration: underline;
-  text-decoration-color: #977a4e66;
-  text-underline-offset: 7px;
-  transition: text-decoration-color var(--motion-fast);
-}
-.whatsapp-link:is(:hover, :focus-visible) > span {
-  text-decoration-color: var(--navy);
-}
-.link-arrow {
-  width: 17px;
-  height: 17px;
-  color: var(--accent);
-  transition: transform var(--motion-base) var(--ease-out);
-}
-a:is(:hover, :focus-visible) .link-arrow {
-  transform: translate(3px, -3px);
-}
-.hero-explore {
-  display: inline-flex;
-  align-items: center;
-  gap: 18px;
-  min-height: 44px;
-  margin-top: 34px;
-  color: var(--muted);
-  font-size: 0.875rem;
-}
-.hero-explore svg {
-  width: 17px;
-  height: 17px;
-  color: var(--accent);
-  transition: transform var(--motion-base) var(--ease-out);
-}
-.hero-explore:is(:hover, :focus-visible) svg {
-  transform: translateY(4px);
-}
 .hero-visual {
   position: relative;
   min-width: 0;
@@ -396,135 +304,8 @@ a:is(:hover, :focus-visible) .link-arrow {
   pointer-events: none;
   filter: drop-shadow(0 20px 20px #1a274412);
 }
-.has-portrait .hero-card {
-  display: none;
-}
-.portrait-contact {
-  display: none;
-}
-.has-portrait .portrait-contact {
-  position: absolute;
-  z-index: 3;
-  right: 22px;
-  bottom: 22px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 13px 16px;
-  border: 1px solid #ffffffb3;
-  border-radius: 12px;
-  background: #fffffff0;
-  backdrop-filter: blur(14px);
-  text-align: left;
-  box-shadow: 0 8px 26px #1a27441a;
-  font-size: 0.9375rem;
-  transition:
-    background var(--motion-base),
-    transform var(--motion-base) var(--ease-out);
-}
-.portrait-contact > svg:first-child {
-  width: 27px;
-  height: 27px;
-  color: var(--accent);
-}
-.portrait-contact small {
-  display: block;
-  margin-top: 2px;
-  font-size: 0.75rem;
-  color: var(--muted);
-}
-.has-portrait .portrait-contact:is(:hover, :focus-visible) {
-  background: var(--surface);
-  transform: translateY(-3px);
-}
-.hero-card {
-  justify-self: center;
-  align-self: center;
-  color: var(--cream);
-}
 
 /* Contact is a luminous, functional surface rather than an ornamental card. */
-.metal-surface {
-  border: 1px solid var(--line);
-  border-top-color: #ffffff;
-  border-radius: var(--radius-panel);
-  background: linear-gradient(120deg, #ffffffd9, #fffffff2 55%, #eeefecad);
-  box-shadow:
-    0 10px 32px -24px #1a274429,
-    inset 0 1px 0 #ffffff;
-}
-.contact-band {
-  position: relative;
-  z-index: 3;
-  display: grid;
-  grid-template-columns: 1.65fr 1fr 0.8fr;
-  padding: 14px 8px;
-}
-.band-item {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 15px;
-  min-width: 0;
-  min-height: 80px;
-  padding: 10px 24px;
-  font-size: 1.125rem;
-  text-align: left;
-  transition: background var(--motion-fast);
-}
-.band-item + .band-item {
-  border-left: 1px solid var(--line);
-}
-.band-item > span:not(.contact-icon) {
-  min-width: 0;
-  overflow-wrap: anywhere;
-}
-.contact-icon {
-  width: 42px;
-  height: 42px;
-  display: inline-grid;
-  place-items: center;
-  flex-shrink: 0;
-  border: 1px solid #a890653d;
-  border-radius: 12px;
-  color: var(--accent);
-  background: linear-gradient(145deg, #ffffff, #f0ece4);
-  box-shadow:
-    inset 1px 1px 0 #ffffff,
-    3px 4px 8px #1a274412;
-  transition:
-    border-color var(--motion-fast),
-    background var(--motion-fast);
-}
-.contact-icon svg {
-  width: 20px;
-  height: 20px;
-}
-.band-item:is(:hover, :focus-visible) .contact-icon,
-.email-link:focus-visible .contact-icon {
-  background: #a890651a;
-  border-color: var(--gold);
-}
-.band-label {
-  display: block;
-  font-size: 0.8125rem;
-  color: var(--muted);
-  margin-bottom: 3px;
-}
-.email-link {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  min-width: 0;
-}
-.email-link > span {
-  min-width: 0;
-}
-.email-value {
-  display: block;
-  overflow-wrap: anywhere;
-  font-size: 1rem;
-}
 .copy-control {
   min-height: 50px;
   min-width: 52px;
@@ -561,13 +342,6 @@ a:is(:hover, :focus-visible) .link-arrow {
 .copy-control:is(:hover, :focus-visible, .is-copied) {
   background: #a8906514;
   border-color: var(--gold);
-}
-.qr-link .link-arrow {
-  margin-left: auto;
-}
-.qr-link:is(:hover, :focus-visible),
-.phone-link:is(:hover, :focus-visible) {
-  background: #6888b80b;
 }
 
 /* A concise, sourced biography paired with two authentic photographs. */
@@ -606,40 +380,6 @@ figure {
   font-size: 1.0625rem;
   line-height: 1.7;
   max-width: 45ch;
-}
-.biography-credentials {
-  display: grid;
-  gap: 17px;
-  margin-top: 26px;
-  padding-top: 24px;
-  border-top: 1px solid var(--line);
-}
-.biography-credentials > div {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  font-size: 0.9375rem;
-}
-.biography-credentials svg {
-  width: 30px;
-  height: 30px;
-  color: var(--accent);
-  stroke-width: 1.2;
-}
-.biography-credentials small {
-  display: block;
-  color: var(--muted);
-  font-size: 0.8125rem;
-  margin-top: 1px;
-}
-.biography-sources {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0 12px;
-  margin-top: 20px;
-  color: var(--muted);
-  font-size: 0.75rem;
 }
 .biography-source {
   display: inline-flex;
@@ -685,51 +425,11 @@ figure {
   object-fit: cover;
   object-position: top;
 }
-.professional-portrait figcaption {
-  padding: 13px 6px 5px;
-  font-size: 0.875rem;
-  line-height: 1.3;
-}
-.professional-portrait figcaption > span {
-  display: block;
-}
-.professional-portrait figcaption a {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  min-height: 36px;
-  font-size: 0.6875rem;
-  color: var(--muted);
-}
-.professional-portrait figcaption svg {
-  width: 12px;
-  height: 12px;
-}
 
 /* Each destination is led by its image; captions remain concise. */
 .connections {
   padding-block: 65px 70px;
   border-top: 1px solid var(--line);
-}
-.section-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-}
-.section-index {
-  color: var(--muted);
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
-  border-top: 1px solid var(--gold);
-  padding-top: 10px;
-  align-self: flex-end;
-  white-space: nowrap;
-}
-.connections-intro {
-  color: var(--muted);
-  margin-top: 16px;
-  font-size: 1rem;
 }
 .connection-grid {
   display: grid;
@@ -806,25 +506,6 @@ figure {
   font-weight: 400;
   line-height: 1.15;
   letter-spacing: -0.035em;
-}
-.tile-action {
-  display: inline-flex;
-  gap: 12px;
-  align-items: center;
-  margin-top: 9px;
-  color: var(--muted);
-  font-size: 0.8125rem;
-}
-.tile-action svg {
-  display: none;
-}
-.tile-handle {
-  display: block;
-  margin-top: 9px;
-  font-size: 0.8125rem;
-  text-transform: lowercase;
-  color: var(--muted);
-  overflow-wrap: anywhere;
 }
 .tile-arrow {
   position: absolute;
@@ -904,51 +585,6 @@ figure {
   height: auto;
   object-fit: contain;
 }
-.foundation-caption {
-  position: absolute;
-  z-index: 1;
-  left: 24px;
-  bottom: 22px;
-  color: var(--cream);
-  font-size: clamp(1.35rem, 2.2vw, 2rem);
-  line-height: 1.1;
-  letter-spacing: -0.025em;
-}
-.institutional-statement {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 50px;
-  padding: 45px 0 55px;
-  border: 0;
-  border-top: 1px solid #a8906566;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-}
-.institutional-motto {
-  font-size: clamp(2rem, 3.5vw, 3.2rem);
-  font-weight: 400;
-  line-height: 1.18;
-  letter-spacing: -0.035em;
-}
-.institutional-motto > span {
-  display: block;
-}
-.institutional-motto > span:last-child {
-  color: var(--gold-dark);
-  font-style: italic;
-}
-.statement-signature {
-  flex-shrink: 0;
-  padding-right: 20px;
-}
-.statement-signature .card-logo {
-  width: 100px;
-  height: auto;
-  object-fit: contain;
-}
 .site-footer {
   display: flex;
   justify-content: space-between;
@@ -969,12 +605,6 @@ figure {
   color: var(--accent);
   width: 17px;
   height: 17px;
-}
-.site-footer .photo-source {
-  font-size: 0.75rem;
-}
-.mobile-dock {
-  display: none;
 }
 
 /* The light contact sheet keeps the high-contrast QR and all focus semantics. */
@@ -1143,26 +773,6 @@ dialog .button {
     width: 64%;
     bottom: -18px;
   }
-  .hero-actions {
-    gap: 17px;
-  }
-  .hero-actions .button {
-    padding-inline: 18px;
-  }
-  .hero-specialty {
-    font-size: 0.625rem;
-  }
-  .band-item {
-    padding-inline: 15px;
-    gap: 11px;
-    font-size: 1rem;
-  }
-  .email-link {
-    gap: 11px;
-  }
-  .email-value {
-    font-size: 0.9375rem;
-  }
   .biography {
     gap: 35px;
     padding-block: 80px 70px;
@@ -1172,16 +782,6 @@ dialog .button {
   }
 }
 @media (max-width: 900px) {
-  .header-navigation {
-    gap: 26px;
-  }
-  .header-qr span {
-    display: none;
-  }
-  .header-qr {
-    width: 46px;
-    padding: 10px;
-  }
   h1 {
     font-size: 5.5rem;
   }
@@ -1189,36 +789,9 @@ dialog .button {
     height: 520px;
     border-top-left-radius: 100px;
   }
-  .hero-actions {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
-  }
   .hero-study {
     width: 70%;
     left: -18%;
-  }
-  .has-portrait .portrait-contact {
-    right: 14px;
-    bottom: 14px;
-    padding: 10px;
-    gap: 8px;
-    font-size: 0.8125rem;
-  }
-  .contact-band {
-    grid-template-columns: 1.7fr 1fr;
-    padding: 5px;
-  }
-  .qr-link {
-    grid-column: 1/-1;
-    border-left: 0 !important;
-    border-top: 1px solid var(--line);
-    min-height: 60px;
-  }
-  .qr-link > span:not(.contact-icon) {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
   }
   .biography {
     grid-template-columns: 1fr 1.12fr;
@@ -1242,13 +815,6 @@ dialog .button {
   .biography-text {
     font-size: 1rem;
   }
-  .biography-credentials > div {
-    font-size: 0.875rem;
-    gap: 12px;
-  }
-  .biography-credentials small {
-    font-size: 0.75rem;
-  }
   .connection-grid {
     gap: 20px;
   }
@@ -1262,9 +828,6 @@ dialog .button {
     letter-spacing: 0.08em;
     font-size: 0.5625rem;
   }
-  .tile-handle {
-    font-size: 0.6875rem;
-  }
   .foundation-logo {
     top: 10px;
     left: 10px;
@@ -1272,10 +835,6 @@ dialog .button {
   }
   .foundation-logo .card-logo {
     width: 30px;
-  }
-  .foundation-caption {
-    left: 16px;
-    bottom: 17px;
   }
   .app-mark {
     top: 10px;
@@ -1301,17 +860,11 @@ dialog .button {
   .official-logo {
     width: 39px;
   }
-  .header-navigation {
-    gap: 0;
-  }
   .site-header nav {
     gap: 0 23px;
   }
   .site-header nav a {
     font-size: 0.875rem;
-  }
-  .header-qr {
-    display: none;
   }
   .hero {
     gap: 20px;
@@ -1322,10 +875,6 @@ dialog .button {
   }
   h1 {
     font-size: clamp(3.6rem, 9.5vw, 4.8rem);
-  }
-  .hero-specialty {
-    max-width: 22ch;
-    margin-bottom: 18px;
   }
   h1 .honorific {
     font-size: 0.9375rem;
@@ -1339,61 +888,10 @@ dialog .button {
     margin-top: 20px;
     font-size: 0.9375rem;
   }
-  .hero-actions {
-    margin-top: 23px;
-  }
-  .hero-actions .button {
-    min-height: 49px;
-    font-size: 0.9375rem;
-    padding: 12px 16px;
-  }
-  .whatsapp-link {
-    min-height: 44px;
-    font-size: 0.9375rem;
-  }
-  .hero-explore {
-    margin-top: 20px;
-    gap: 12px;
-    font-size: 0.8125rem;
-  }
   .hero-study {
     width: 78%;
     left: -25%;
     bottom: 30px;
-  }
-  .has-portrait .portrait-contact {
-    bottom: 10px;
-  }
-  .contact-band {
-    grid-template-columns: 1fr 1fr;
-    padding: 5px 10px;
-  }
-  .band-item {
-    padding: 12px 10px;
-    min-height: 74px;
-  }
-  .email-row {
-    grid-column: 1/-1;
-    border-bottom: 1px solid var(--line);
-  }
-  .email-link {
-    flex: 1;
-  }
-  .phone-link {
-    border-left: 0 !important;
-  }
-  .qr-link {
-    grid-column: auto;
-    border-top: 0;
-    border-left: 1px solid var(--line) !important;
-    padding-left: 16px;
-  }
-  .qr-link > span:not(.contact-icon) {
-    display: block;
-  }
-  .contact-icon {
-    width: 38px;
-    height: 40px;
   }
   .biography {
     padding-block: 65px;
@@ -1428,13 +926,6 @@ dialog .button {
   .connections {
     padding-block: 40px 48px;
   }
-  .connections-intro {
-    font-size: 0.9375rem;
-    max-width: 34ch;
-  }
-  .section-index {
-    font-size: 0.625rem;
-  }
   .connection-grid {
     grid-template-columns: 1fr;
     gap: 36px;
@@ -1455,9 +946,6 @@ dialog .button {
   .tile-content h3 {
     font-size: 2rem;
   }
-  .tile-handle {
-    font-size: 0.8125rem;
-  }
   .tile-content .eyebrow {
     font-size: 0.625rem;
   }
@@ -1467,80 +955,8 @@ dialog .button {
   .foundation-logo .card-logo {
     width: 42px;
   }
-  .foundation-caption {
-    font-size: 1.85rem;
-    left: 22px;
-    bottom: 22px;
-  }
-  .institutional-statement {
-    padding: 32px 0;
-    gap: 28px;
-  }
-  .institutional-motto {
-    font-size: 2rem;
-  }
-  .statement-signature {
-    padding: 0;
-  }
-  .statement-signature .card-logo {
-    width: 68px;
-  }
   .site-footer {
     padding-bottom: calc(118px + env(safe-area-inset-bottom));
-  }
-  .mobile-dock {
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.15fr) minmax(0, 0.8fr);
-    gap: 6px;
-    padding: 6px;
-    position: fixed;
-    z-index: 25;
-    left: 16px;
-    right: 16px;
-    bottom: calc(12px + env(safe-area-inset-bottom));
-    background: #fffffff2;
-    border: 1px solid #1a274424;
-    border-radius: 15px;
-    backdrop-filter: blur(16px);
-    box-shadow: 0 10px 35px #1a27441f;
-  }
-  .mobile-dock > a,
-  .mobile-dock > button {
-    display: flex;
-    flex-wrap: wrap;
-    min-width: 0;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
-    min-height: 48px;
-    padding: 9px 6px;
-    font-size: 0.875rem;
-    border-radius: 10px;
-    transition:
-      background var(--motion-fast),
-      transform var(--motion-fast);
-  }
-  .mobile-dock > a:first-child {
-    color: var(--cream);
-    background: var(--navy);
-  }
-  .mobile-dock > a:first-child svg {
-    color: var(--gold-light);
-  }
-  .mobile-dock > :is(a, button):active {
-    transform: scale(0.97);
-  }
-  .mobile-dock > :is(a, button):not(:first-child):is(:hover, :focus-visible) {
-    background: #a890651a;
-  }
-  .mobile-dock svg {
-    width: 20px;
-    height: 20px;
-    color: var(--accent);
-  }
-  .mobile-dock span {
-    max-width: 100%;
-    overflow-wrap: anywhere;
   }
   .toast {
     bottom: calc(96px + env(safe-area-inset-bottom));
@@ -1580,26 +996,8 @@ dialog .button {
     left: -15%;
     bottom: -22px;
   }
-  .has-portrait .portrait-contact {
-    right: 10px;
-    bottom: 12px;
-    padding: 10px 11px;
-    font-size: 0.8125rem;
-  }
-  .portrait-contact > svg:first-child {
-    width: 22px;
-    height: 22px;
-  }
-  .portrait-contact .link-arrow {
-    display: none;
-  }
   .hero-copy {
     padding: 2px 3px 0;
-  }
-  .hero-specialty {
-    max-width: none;
-    margin-bottom: 17px;
-    font-size: 0.625rem;
   }
   h1 {
     font-size: clamp(3.5rem, 15vw, 5rem);
@@ -1620,50 +1018,8 @@ dialog .button {
     gap: 2px 16px;
     font-size: 0.875rem;
   }
-  .hero-actions {
-    flex-direction: row;
-    align-items: center;
-    gap: 20px;
-    margin-top: 21px;
-  }
-  .hero-actions .button {
-    padding-inline: 17px;
-  }
-  .hero-explore {
-    display: none;
-  }
-  .contact-band {
-    padding-inline: 5px;
-    border-radius: 14px;
-  }
-  .band-item {
-    gap: 9px;
-    padding-inline: 10px;
-    font-size: 0.9375rem;
-  }
-  .contact-icon {
-    width: 34px;
-    height: 38px;
-    border-radius: 10px;
-  }
-  .contact-icon svg {
-    width: 18px;
-    height: 18px;
-  }
-  .email-value {
-    font-size: 0.875rem;
-  }
-  .band-label {
-    font-size: 0.75rem;
-  }
   .copy-control {
     min-width: 46px;
-  }
-  .qr-link {
-    padding-left: 13px;
-  }
-  .qr-link .link-arrow {
-    width: 15px;
   }
   .biography {
     padding-block: 55px;
@@ -1696,25 +1052,9 @@ dialog .button {
     margin: 0;
     padding-top: 18px;
   }
-  .professional-portrait figcaption {
-    font-size: 1rem;
-    padding: 0;
-  }
-  .professional-portrait figcaption a {
-    font-size: 0.75rem;
-  }
   .connections .section-label {
     font-size: 2.1rem;
     max-width: 10ch;
-  }
-  .section-index {
-    display: none;
-  }
-  .institutional-motto {
-    font-size: 1.65rem;
-  }
-  .statement-signature .card-logo {
-    width: 50px;
   }
   dialog {
     padding: 21px;
@@ -1737,48 +1077,8 @@ dialog .button {
   .hero-visual {
     margin-left: 24px;
   }
-  .hero-actions {
-    gap: 13px;
-  }
-  .hero-actions .button {
-    font-size: 0.875rem;
-    padding-inline: 12px;
-    gap: 8px;
-  }
-  .whatsapp-link {
-    font-size: 0.875rem;
-    gap: 7px;
-  }
-  .whatsapp-link .link-arrow {
-    display: none;
-  }
-  .contact-band .contact-icon {
-    width: 27px;
-    border: 0;
-    background: none;
-  }
-  .email-row {
-    gap: 6px;
-  }
-  .email-link {
-    gap: 8px;
-  }
   .copy-control {
     min-width: 44px;
-  }
-  .band-item {
-    padding-inline: 7px;
-  }
-  .qr-link {
-    padding-left: 10px;
-  }
-  .mobile-dock {
-    left: 10px;
-    right: 10px;
-  }
-  .mobile-dock > a,
-  .mobile-dock > button {
-    gap: 7px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1795,11 +1095,570 @@ dialog .button {
   .connection-portfolio:is(:hover, :focus-visible) .portfolio-image,
   .connection-foundation:is(:hover, :focus-visible) .foundation-photo,
   .connection-tile:is(:hover, :focus-visible) > .tile-arrow,
-  a:is(:hover, :focus-visible) .link-arrow,
-  .hero-explore:is(:hover, :focus-visible) svg,
-  .button:is(:hover, :focus-visible, :active),
-  .has-portrait .portrait-contact:is(:hover, :focus-visible),
-  .mobile-dock > :is(a, button):active {
+  .button:is(:hover, :focus-visible, :active) {
+    transform: none;
+  }
+}
+
+/* Focus is local to each choice group and never blocks adjacent actions. */
+.focus-group {
+  position: relative;
+  isolation: isolate;
+}
+.focus-card {
+  position: relative;
+  transform-origin: center;
+  transition:
+    transform 440ms var(--ease-out),
+    filter 360ms ease,
+    opacity 360ms ease,
+    box-shadow 440ms var(--ease-out),
+    border-color 300ms ease;
+}
+.focus-group.has-featured > .focus-card:not(.is-featured) {
+  filter: blur(1.6px);
+  opacity: 0.6;
+}
+.focus-group.has-featured > .focus-card.is-featured {
+  z-index: 4;
+  transform: translateY(-7px) scale(1.012);
+  filter: none;
+  opacity: 1;
+}
+.focus-card.is-featured .tile-content h3 {
+  color: var(--accent);
+}
+.tile-content h3 {
+  transition:
+    color 260ms ease,
+    transform 440ms var(--ease-out);
+}
+.focus-card.is-featured .tile-content h3 {
+  transform: translateX(5px);
+}
+.tile-arrow {
+  bottom: 6px;
+}
+.connection-tile {
+  padding-bottom: 8px;
+  border-radius: 5px;
+}
+.connection-tile.is-featured {
+  box-shadow: 0 25px 35px -30px #1a274445;
+}
+.biography {
+  border-top: 1px solid var(--line);
+  padding-block: 80px;
+}
+.biography-copy {
+  max-width: 410px;
+}
+.biography-gallery {
+  padding-bottom: 0;
+}
+.professional-portrait {
+  margin-bottom: 0;
+}
+.foundation-art::after {
+  background: linear-gradient(0deg, #1a274428, transparent 65%);
+}
+.site-footer {
+  display: block;
+  padding-block: 30px 36px;
+}
+.footer-motto {
+  max-width: 46ch;
+  color: var(--muted);
+  font-size: 1.0625rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+.footer-meta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  margin-top: 22px;
+}
+.source-notes {
+  color: var(--muted);
+  font-size: 0.75rem;
+  max-width: 600px;
+}
+.source-notes summary {
+  display: list-item;
+  width: fit-content;
+  min-height: 44px;
+  padding-block: 12px;
+  cursor: pointer;
+  text-underline-offset: 4px;
+}
+.source-notes summary:hover {
+  text-decoration: underline;
+}
+.source-notes summary:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 4px;
+}
+.source-notes > div {
+  padding: 2px 0 14px;
+}
+.site-footer .source-notes a {
+  font-size: inherit;
+  display: inline-flex;
+  min-height: 36px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.site-footer .source-notes .biography-source + .biography-source {
+  margin-left: 10px;
+}
+.source-notes p {
+  line-height: 1.8;
+}
+.contact-section {
+  padding-block: 65px 80px;
+  border-top: 1px solid var(--line);
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 36px;
+}
+.contact-card {
+  grid-column: span 2;
+  min-width: 0;
+  padding: 27px 28px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 21px;
+  background: linear-gradient(145deg, #ffffff, #f0ece440);
+  border: 1px solid #a8906538;
+  border-radius: 16px;
+  box-shadow:
+    inset 0 1px 0 #ffffff,
+    0 10px 28px -25px #1a274430;
+  text-align: left;
+}
+.contact-card.is-featured {
+  border-color: #977a4e8f;
+  box-shadow:
+    0 22px 32px -22px #1a27443f,
+    inset 0 1px 0 #ffffff;
+}
+.contact-glyph {
+  width: 58px;
+  height: 58px;
+  display: block;
+  flex-shrink: 0;
+  transition: transform 500ms var(--ease-out);
+}
+.contact-card.is-featured .contact-glyph,
+.contact-card.is-featured .whatsapp-emblem {
+  transform: translateY(-3px) rotate(-3deg);
+}
+.contact-card-title {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+.contact-arrow {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  right: 24px;
+  bottom: 28px;
+  color: var(--accent);
+  transition: transform 360ms var(--ease-out);
+}
+.contact-card.is-featured .contact-arrow {
+  transform: translate(2px, -2px);
+}
+.contact-email,
+.contact-phone {
+  grid-column: span 3;
+  flex-direction: row;
+  align-items: center;
+  gap: 19px;
+  padding-block: 23px;
+}
+.contact-email-link {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  flex: 1;
+  gap: 19px;
+}
+.contact-email-link > span {
+  min-width: 0;
+}
+.contact-detail {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.9375rem;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.contact-email .contact-card-title,
+.contact-phone .contact-card-title {
+  font-size: 1.125rem;
+}
+.contact-phone {
+  padding-right: 58px;
+}
+.contact-phone .contact-arrow {
+  top: 50%;
+  bottom: auto;
+  margin-top: -9px;
+}
+.copy-control {
+  margin-left: auto;
+  border: 0;
+  border-radius: 8px;
+}
+.copy-control [data-copy-label] {
+  font-size: 0.6875rem;
+}
+.whatsapp-emblem {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border: 1px solid #a89065a6;
+  border-radius: 16px 16px 16px 4px;
+  background: linear-gradient(135deg, #ffffff 15%, #f4efe4 65%, #a8906530);
+  box-shadow:
+    inset 3px 3px 0 #ffffff,
+    inset -3px -3px 0 #a8906524,
+    3px 4px 0 #1a27440c;
+  color: var(--accent);
+  transition: transform 500ms var(--ease-out);
+}
+.whatsapp-emblem svg {
+  width: 31px;
+  height: 31px;
+}
+
+@media (max-width: 900px) {
+  .contact-card {
+    padding: 22px;
+  }
+  .contact-card-title {
+    font-size: 1.125rem;
+  }
+  .contact-arrow {
+    right: 18px;
+    bottom: 24px;
+  }
+  .contact-email,
+  .contact-phone,
+  .contact-email-link {
+    gap: 12px;
+  }
+  .contact-email {
+    grid-column: span 4;
+  }
+  .contact-phone {
+    grid-column: span 2;
+    padding-right: 18px;
+  }
+  .contact-phone .contact-arrow {
+    display: none;
+  }
+  .contact-phone .contact-glyph {
+    width: 44px;
+    height: 44px;
+  }
+  .contact-detail {
+    font-size: 0.8125rem;
+  }
+  .professional-portrait {
+    display: block;
+    max-width: 44%;
+    justify-self: start;
+  }
+}
+@media (max-width: 760px) {
+  .contact-section {
+    padding-block: 45px 50px;
+  }
+  .contact-grid {
+    gap: 12px;
+    margin-top: 28px;
+  }
+  .contact-card {
+    padding: 20px;
+  }
+  .contact-card-title {
+    font-size: 1.0625rem;
+    padding-right: 20px;
+  }
+  .contact-glyph,
+  .whatsapp-emblem {
+    width: 54px;
+    height: 54px;
+  }
+  .contact-email {
+    grid-column: span 3;
+  }
+  .contact-phone {
+    grid-column: span 3;
+  }
+  .contact-email .contact-glyph {
+    display: none;
+  }
+  .contact-email .contact-card-title {
+    padding: 0;
+  }
+  .contact-detail {
+    font-size: 0.8125rem;
+  }
+  .contact-arrow {
+    right: 17px;
+    bottom: 21px;
+    width: 16px;
+    height: 16px;
+  }
+  .biography {
+    padding-block: 50px;
+  }
+  .biography-copy {
+    max-width: 570px;
+  }
+  .professional-portrait {
+    max-width: none;
+    margin-bottom: 0;
+  }
+  .site-footer {
+    padding-block: 28px;
+  }
+  .footer-motto {
+    font-size: 0.9375rem;
+  }
+  .toast {
+    bottom: 22px;
+  }
+  .focus-group.has-featured > .focus-card.is-featured {
+    transform: translateY(-4px);
+  }
+}
+@media (max-width: 520px) {
+  .hero {
+    padding-bottom: 38px;
+    gap: 28px;
+  }
+  .hero-copy {
+    padding-top: 5px;
+  }
+  .contact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .contact-card {
+    grid-column: span 1;
+    padding: 21px 18px;
+    min-height: 154px;
+    gap: 18px;
+  }
+  .contact-card-title {
+    font-size: 1.125rem;
+    padding-right: 14px;
+    max-width: 100%;
+  }
+  .contact-qr {
+    grid-column: 1/-1;
+    flex-direction: row;
+    align-items: center;
+    min-height: 102px;
+  }
+  .contact-qr .contact-arrow {
+    top: 50%;
+    margin-top: -8px;
+    bottom: auto;
+  }
+  .contact-email,
+  .contact-phone {
+    grid-column: 1/-1;
+    min-height: 102px;
+    flex-direction: row;
+    padding: 18px;
+  }
+  .contact-email .contact-glyph,
+  .contact-phone .contact-glyph {
+    display: block;
+    width: 47px;
+    height: 47px;
+  }
+  .contact-email-link {
+    gap: 11px;
+  }
+  .contact-email .contact-card-title,
+  .contact-phone .contact-card-title {
+    font-size: 1rem;
+  }
+  .contact-detail {
+    font-size: 0.8125rem;
+    margin-top: 5px;
+  }
+  .copy-control {
+    min-width: 38px;
+    padding: 5px 0;
+  }
+  .contact-email {
+    gap: 6px;
+  }
+  .professional-portrait {
+    width: 42%;
+    max-width: 160px;
+    display: block;
+  }
+  .biography-gallery {
+    grid-template-columns: 0.42fr 1fr;
+    gap: 12px;
+    align-items: end;
+  }
+  .editorial-portrait {
+    order: 2;
+  }
+  .professional-portrait {
+    order: 1;
+    width: 100%;
+    padding-top: 8px;
+  }
+  .source-notes {
+    width: 100%;
+  }
+  .footer-meta {
+    gap: 0;
+  }
+}
+@media (max-width: 359px) {
+  .contact-card {
+    padding-inline: 14px;
+  }
+  .contact-card-title {
+    font-size: 1rem;
+  }
+  .contact-email .contact-glyph {
+    width: 36px;
+    height: 36px;
+  }
+  .contact-email-link {
+    gap: 8px;
+  }
+  .contact-detail {
+    font-size: 0.75rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .focus-group.has-featured > .focus-card:not(.is-featured) {
+    filter: none;
+    opacity: 1;
+  }
+  .focus-group.has-featured > .focus-card.is-featured,
+  .contact-card.is-featured .contact-glyph,
+  .contact-card.is-featured .whatsapp-emblem,
+  .contact-card.is-featured .contact-arrow,
+  .focus-card.is-featured .tile-content h3 {
+    transform: none;
+  }
+}
+
+/* Original photographs can be inspected without leaving the profile. */
+.photo-trigger {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border-radius: inherit;
+  cursor: zoom-in;
+}
+.photo-zoom {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  color: var(--navy);
+  background: #ffffffe8;
+  border: 1px solid #ffffff;
+  border-radius: 9px;
+  box-shadow: 0 3px 12px #1a274414;
+  transition:
+    transform 300ms var(--ease-out),
+    background 200ms;
+}
+.photo-zoom svg {
+  width: 17px;
+  height: 17px;
+}
+.photo-trigger:is(:hover, :focus-visible) .photo-zoom {
+  transform: scale(1.08);
+  background: var(--surface);
+}
+.photo-dialog {
+  width: max-content;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  overflow: visible;
+  background: transparent;
+}
+.photo-dialog::backdrop {
+  background: #1a274485;
+  backdrop-filter: blur(14px);
+}
+.photo-stage {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.photo-dialog[open] .photo-stage {
+  animation: photo-enter 420ms var(--ease-out) both;
+}
+.photo-stage > img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100dvh - 32px);
+  object-fit: contain;
+}
+.photo-close {
+  position: absolute;
+  z-index: 2;
+  right: 12px;
+  top: 12px;
+  color: var(--navy);
+  background: #fffffff2;
+  box-shadow: 0 4px 15px #1a274426;
+}
+.photo-close:is(:hover, :focus-visible) {
+  background: var(--surface);
+}
+@keyframes photo-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .photo-trigger:is(:hover, :focus-visible) .photo-zoom {
     transform: none;
   }
 }

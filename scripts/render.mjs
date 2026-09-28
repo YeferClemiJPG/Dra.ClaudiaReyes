@@ -51,6 +51,7 @@ for (const key of [
   "professionalPortrait",
   "institutionalPhoto",
   "scienceIllustration",
+  "researchIllustration",
   "portfolioArtwork",
 ]) {
   if (profile[key]) {
@@ -63,6 +64,22 @@ const values = Object.fromEntries(
   Object.entries(profile).map(([k, v]) => [k, escape(v ?? "")]),
 );
 Object.assign(values, {
+  contactMailIcon: await readFile(
+    path.join(root, "public/assets/icons/contact-mail.svg"),
+    "utf8",
+  ),
+  contactPhoneIcon: await readFile(
+    path.join(root, "public/assets/icons/contact-phone.svg"),
+    "utf8",
+  ),
+  contactSaveIcon: await readFile(
+    path.join(root, "public/assets/icons/contact-save.svg"),
+    "utf8",
+  ),
+  contactQrIcon: await readFile(
+    path.join(root, "public/assets/icons/contact-qr.svg"),
+    "utf8",
+  ),
   whatsappIcon: await readFile(
     path.join(root, "public/assets/icons/whatsapp.svg"),
     "utf8",
@@ -72,6 +89,7 @@ Object.assign(values, {
     "utf8",
   ),
   fullName: escape(fullName),
+  emailDisplay: escape(profile.email).replace("@", "@<wbr>"),
   biographySources: biographySources
     .map(
       ({ label, url }) =>

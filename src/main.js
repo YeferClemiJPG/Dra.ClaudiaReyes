@@ -1,57 +1,40 @@
 import {
   createIcons,
   ArrowUpRight,
-  ArrowDown,
-  ContactRound,
   Download,
-  Camera,
-  Mail,
-  MessageCircle,
-  Phone,
-  QrCode,
-  Rotate3d,
-  Nfc,
+  Maximize2,
   X,
   Copy,
   Check,
   Share2,
-  GraduationCap,
-  Footprints,
 } from "lucide";
 import { inView } from "motion";
 import { animate } from "motion/mini";
+import { initializeFocusSurfaces } from "./focus-surfaces.js";
 
 createIcons({
   icons: {
     ArrowUpRight,
-    ArrowDown,
-    ContactRound,
     Download,
-    Camera,
-    Mail,
-    MessageCircle,
-    Phone,
-    QrCode,
-    Rotate3d,
-    Nfc,
+    Maximize2,
     X,
     Copy,
     Check,
     Share2,
-    GraduationCap,
-    Footprints,
   },
   attrs: { "aria-hidden": "true", focusable: "false" },
 });
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+initializeFocusSurfaces({ root: document, reducedMotion, finePointer });
 const revealElements = [...document.querySelectorAll(".reveal, [data-reveal]")];
 const revealed = new WeakSet();
 const revealAnimations = new Map();
 const clearMotionStyles = (element) => {
   element.style.removeProperty("opacity");
   element.style.removeProperty("transform");
+  element.style.removeProperty("filter");
 };
 function revealDelay(element) {
   const delay =
@@ -66,12 +49,13 @@ function revealDelay(element) {
 }
 const revealVariants = {
   title: {
-    duration: 0.7,
-    transform: ["translateY(105%)", "translateY(0%)"],
+    duration: 0.75,
+    transform: ["translateY(100%)", "translateY(0%)"],
+    filter: ["blur(3px)", "blur(0px)"],
   },
   panel: {
     duration: 0.62,
-    transform: ["translateY(24px) scale(0.985)", "translateY(0px) scale(1)"],
+    transform: ["translateY(20px) scale(0.99)", "translateY(0px) scale(1)"],
   },
   portrait: {
     duration: 0.9,
@@ -86,7 +70,7 @@ const reveal = (element) => {
   if (revealed.has(element)) return;
   revealed.add(element);
   if (reducedMotion.matches) return;
-  const { duration, transform } =
+  const { duration, transform, filter } =
     revealVariants[element.dataset.revealType] ?? revealVariants.default;
   const delay = revealDelay(element);
   const animation = animate(
@@ -94,6 +78,7 @@ const reveal = (element) => {
     {
       opacity: [0, 1],
       transform,
+      ...(filter ? { filter } : {}),
     },
     { duration, delay, ease: [0.16, 1, 0.3, 1] },
   );
@@ -126,13 +111,11 @@ const stopReveals =
 
 const header = document.querySelector(".site-header");
 const navigationLinks = [
-  ...document.querySelectorAll(
-    '.site-header nav a[href="#perfil"], .site-header nav a[href="#trayectoria"], .site-header nav a[href="#conexiones"]',
-  ),
-];
-const sections = ["perfil", "trayectoria", "conexiones"]
-  .map((id) => document.getElementById(id))
-  .filter(Boolean);
+  ...document.querySelectorAll('.site-header nav a[href^="#"]'),
+].filter((link) => document.getElementById(link.getAttribute("href").slice(1)));
+const sections = navigationLinks.map((link) =>
+  document.getElementById(link.getAttribute("href").slice(1)),
+);
 let scrollFrame = 0;
 function updateNavigation() {
   scrollFrame = 0;
@@ -212,26 +195,6 @@ for (const surface of interactiveSurfaces) {
 finePointer.addEventListener("change", () => {
   if (!finePointer.matches) interactiveSurfaces.forEach(resetPointer);
 });
-
-const card = document.getElementById("digital-card");
-const front = document.getElementById("card-front");
-const back = document.getElementById("card-back");
-const flipButton = document.querySelector("[data-flip]");
-if (card && front && back && flipButton) {
-  flipButton.addEventListener("click", () => {
-    const flipped = card.classList.toggle("is-flipped");
-    flipButton.setAttribute("aria-pressed", String(flipped));
-    const label = flipButton.querySelector("[data-flip-label]");
-    if (label)
-      label.textContent = flipped
-        ? "Volver a la tarjeta"
-        : "Girar para ver el QR";
-    front.setAttribute("aria-hidden", String(flipped));
-    back.setAttribute("aria-hidden", String(!flipped));
-    front.inert = flipped;
-    back.inert = !flipped;
-  });
-}
 
 const dialog = document.getElementById("contact-dialog");
 const toast = document.querySelector(".toast");
@@ -360,6 +323,76 @@ if (dialog && typeof dialog.showModal === "function") {
     document.body.classList.remove("dialog-open");
     if (opener?.isConnected) opener.focus({ preventScroll: true });
     opener = null;
+  });
+}
+
+const photoDialog = document.getElementById("photo-dialog");
+const photoPreview = photoDialog?.querySelector("[data-photo-preview]");
+if (photoPreview && typeof photoDialog.showModal === "function") {
+  const photoDescription = photoDialog.querySelector(
+    "[data-photo-description]",
+  );
+  const closePhoto = photoDialog.querySelector("[data-close-photo]");
+  let photoOpener = null;
+  let backdropPointer = null;
+
+  function outsidePhoto(event) {
+    if (event.target !== photoDialog) return false;
+    const bounds = photoDialog.getBoundingClientRect();
+    return (
+      event.clientX < bounds.left ||
+      event.clientX > bounds.right ||
+      event.clientY < bounds.top ||
+      event.clientY > bounds.bottom
+    );
+  }
+
+  for (const trigger of document.querySelectorAll("[data-zoom-image]")) {
+    trigger.addEventListener("click", () => {
+      const source = trigger.querySelector("img");
+      if (!source || photoDialog.open) return;
+      photoOpener = trigger;
+      backdropPointer = null;
+      photoPreview.src = source.currentSrc || source.src;
+      photoPreview.alt = source.alt;
+      photoPreview.width = source.naturalWidth || source.width;
+      photoPreview.height = source.naturalHeight || source.height;
+      if (photoDescription) {
+        photoDescription.textContent = (
+          source.getAttribute("aria-describedby") || ""
+        )
+          .split(/\s+/)
+          .filter(Boolean)
+          .map((id) => document.getElementById(id)?.textContent.trim() || "")
+          .filter(Boolean)
+          .join(" ");
+      }
+      photoDialog.showModal();
+      document.body.classList.add("dialog-open");
+      closePhoto?.focus();
+    });
+  }
+
+  closePhoto?.addEventListener("click", () => photoDialog.close());
+  photoDialog.addEventListener("pointerdown", (event) => {
+    backdropPointer = outsidePhoto(event) ? event.pointerId : null;
+  });
+  photoDialog.addEventListener("pointerup", (event) => {
+    const closeFromBackdrop =
+      backdropPointer === event.pointerId && outsidePhoto(event);
+    backdropPointer = null;
+    if (closeFromBackdrop) photoDialog.close();
+  });
+  photoDialog.addEventListener("pointercancel", () => {
+    backdropPointer = null;
+  });
+  // Escape uses the native dialog cancellation and the same focus cleanup.
+  photoDialog.addEventListener("close", () => {
+    if (photoDialog.open) return;
+    backdropPointer = null;
+    document.body.classList.toggle("dialog-open", Boolean(dialog?.open));
+    if (photoOpener?.isConnected) photoOpener.focus({ preventScroll: true });
+    photoOpener = null;
   });
 }
 

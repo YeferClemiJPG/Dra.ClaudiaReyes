@@ -13,36 +13,24 @@
   </head>
   <body class="{{portraitClass}}">
     <a class="skip-link" href="#contacto">Ir al contacto</a>
+
     <header class="site-header">
       <div class="header-inner shell">
         <a class="brand" href="#perfil" aria-label="CLEMI · {{fullName}}"
           >{{brand}}</a
         >
-        <div class="header-navigation">
-          <nav aria-label="Navegación principal">
-            <a href="#perfil">Perfil</a>
-            <a href="#trayectoria">Trayectoria</a>
-            <a href="#conexiones">Conexiones</a>
-          </nav>
-          <button
-            class="header-qr"
-            type="button"
-            data-open-contact
-            aria-label="Compartir contacto: mostrar QR"
-          >
-            <i data-lucide="qr-code"></i><span>Compartir contacto</span>
-          </button>
-        </div>
+        <nav aria-label="Navegación principal">
+          <a href="#perfil">Perfil</a>
+          <a href="#trayectoria">Trayectoria</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
       </div>
     </header>
     <main>
       <section class="hero shell" id="perfil" aria-labelledby="profile-name">
         <div class="hero-copy">
-          <p class="hero-specialty eyebrow reveal">{{specialty}}</p>
           <h1 id="profile-name">
-            <span class="honorific reveal" data-reveal-delay="0"
-              >{{honorific}}</span
-            >
+            <span class="honorific reveal">{{honorific}}</span>
             <span class="title-mask"
               ><span
                 class="reveal"
@@ -60,33 +48,10 @@
               ></span
             >
           </h1>
-          <div class="roles reveal" data-reveal-delay="260">
+          <div class="roles reveal" data-reveal-delay="280">
             <p>{{role2}}</p>
             <p>{{role1}}</p>
           </div>
-          <div class="hero-actions reveal" data-reveal-delay="340">
-            <a
-              class="button button-primary"
-              href="./contacto.vcf"
-              download="{{slug}}.vcf"
-              data-contact-download
-              ><i data-lucide="contact-round"></i>Guardar contacto</a
-            >
-            <a
-              class="whatsapp-link"
-              href="{{whatsapp}}"
-              target="_blank"
-              rel="noopener noreferrer"
-              >{{whatsappIcon}}<span>WhatsApp</span
-              ><i class="link-arrow" data-lucide="arrow-up-right"></i
-            ></a>
-          </div>
-          <a
-            class="hero-explore reveal"
-            data-reveal-delay="420"
-            href="#trayectoria"
-            ><span>Conozca mi trayectoria</span><i data-lucide="arrow-down"></i
-          ></a>
         </div>
         <div
           class="hero-visual reveal"
@@ -103,131 +68,7 @@
             width="1536"
             height="1024"
           />
-          <button
-            class="portrait-contact"
-            type="button"
-            data-open-contact
-            aria-label="Contacto digital: ver QR"
-          >
-            <i data-lucide="qr-code"></i
-            ><span>Contacto digital<small>Ver QR</small></span
-            ><i class="link-arrow" data-lucide="arrow-up-right"></i>
-          </button>
-          <div class="hero-card">
-            <div class="card-perspective">
-              <div class="digital-card" id="digital-card">
-                <div class="card-face card-front" id="card-front">
-                  <div class="card-top">
-                    <span>CLEMI</span
-                    ><i data-lucide="nfc" aria-hidden="true"></i>
-                  </div>
-                  <div class="card-brand-plaque">{{cardLogo}}</div>
-                  <div class="card-person">
-                    <span>{{honorific}}</span>
-                    <p>{{givenName}}<br />{{familyName}}</p>
-                    <span>{{role2}}</span>
-                  </div>
-                  <div class="card-bottom">
-                    <span>CONTACTO DIGITAL</span
-                    ><i data-lucide="qr-code" aria-hidden="true"></i>
-                  </div>
-                  <svg
-                    class="card-wave"
-                    viewBox="0 0 340 470"
-                    preserveAspectRatio="none"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M-50 470C210 320 85 310 400 185"
-                      fill="none"
-                      stroke="#A89065"
-                    />
-                    <path
-                      d="M-40 495C220 345 95 335 410 210"
-                      fill="none"
-                      stroke="#6888B8"
-                    />
-                  </svg>
-                </div>
-                <div
-                  class="card-face card-back"
-                  id="card-back"
-                  aria-hidden="true"
-                  inert
-                >
-                  <span class="eyebrow">Su contacto, más cerca</span
-                  ><img
-                    class="card-qr"
-                    src="./assets/contacto-qr.svg"
-                    alt="QR para guardar el contacto de {{fullName}}"
-                    width="280"
-                    height="280"
-                  />
-                  <p>{{fullName}}</p>
-                  <span>Escanee para guardar el contacto</span>
-                  <button
-                    class="card-qr-button"
-                    type="button"
-                    data-open-contact
-                  >
-                    Ampliar QR<i data-lucide="qr-code"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <button
-              class="flip-control"
-              type="button"
-              data-flip
-              aria-controls="digital-card"
-              aria-pressed="false"
-            >
-              <i data-lucide="rotate-3d" aria-hidden="true"></i
-              ><span data-flip-label>Girar para ver el QR</span>
-            </button>
-          </div>
         </div>
-      </section>
-      <section
-        class="contact-band metal-surface shell reveal"
-        data-reveal-type="panel"
-        data-reveal-delay="80"
-        id="contacto"
-        aria-labelledby="contact-title"
-      >
-        <h2 class="sr-only" id="contact-title">Contacto</h2>
-        <div class="band-item email-row">
-          <a class="email-link" href="mailto:{{email}}"
-            ><span class="contact-icon"><i data-lucide="mail"></i></span
-            ><span
-              ><span class="band-label">Correo</span
-              ><span class="email-value">{{email}}</span></span
-            ></a
-          >
-          <button
-            class="copy-control"
-            type="button"
-            data-copy-email="{{email}}"
-            aria-label="Copiar correo electrónico"
-          >
-            <i data-lucide="copy" data-copy-icon></i>
-            <i data-lucide="check" data-copy-check></i>
-            <span data-copy-label>Copiar</span>
-          </button>
-        </div>
-        <a class="band-item phone-link" href="tel:{{phone}}"
-          ><span class="contact-icon"><i data-lucide="phone"></i></span
-          ><span
-            ><span class="band-label">Llamar</span
-            ><span>{{phoneDisplay}}</span></span
-          ></a
-        >
-        <button class="band-item qr-link" type="button" data-open-contact>
-          <span class="contact-icon"><i data-lucide="qr-code"></i></span
-          ><span
-            ><span class="band-label">Compartir</span><span>Ver QR</span></span
-          ><i class="link-arrow" data-lucide="arrow-up-right"></i>
-        </button>
       </section>
       <section
         class="biography shell"
@@ -235,38 +76,23 @@
         aria-labelledby="biography-title"
       >
         <div class="biography-copy">
-          <p class="eyebrow reveal">Conozca a la doctora</p>
           <h2 class="section-label title-mask" id="biography-title">
-            <span class="reveal" data-reveal-type="title"
-              >Ciencia, vocación<br />y <em>movimiento.</em></span
-            >
+            <span class="reveal" data-reveal-type="title">Trayectoria</span>
           </h2>
           <p class="biography-text reveal">{{biography}}</p>
-          <div class="biography-credentials reveal">
-            <div>
-              <i data-lucide="graduation-cap"></i
-              ><span
-                >Pontificia Universidad Javeriana<small
-                  >Medicina · Ortopedia</small
-                ></span
-              >
-            </div>
-            <div>
-              <i data-lucide="footprints"></i
-              ><span
-                >Cirugía de pie y tobillo<small
-                  >Universidad Militar Nueva Granada</small
-                ></span
-              >
-            </div>
-          </div>
-          <p class="biography-sources reveal">
-            <span>Fuentes de la trayectoria</span> {{biographySources}}
-          </p>
         </div>
         <div class="biography-gallery">
           <figure class="editorial-portrait reveal" data-reveal-type="portrait">
-            {{editorialPortrait}}
+            <button
+              class="photo-trigger"
+              type="button"
+              data-zoom-image
+              aria-label="Ampliar retrato editorial de la doctora"
+            >
+              {{editorialPortrait}}<span class="photo-zoom" aria-hidden="true"
+                ><i data-lucide="maximize-2"></i
+              ></span>
+            </button>
             <figcaption class="sr-only" id="editorial-quote">
               En el retrato facilitado de la Dra. Claudia Reyes: «La cirugía es
               ciencia, arte y responsabilidad: mi compromiso es ejercerla con
@@ -279,16 +105,18 @@
             data-reveal-type="panel"
             data-reveal-delay="150"
           >
-            {{professionalPortrait}}
-            <figcaption>
-              <span>Una mirada cercana.</span
-              ><a
-                href="https://sccot.org/wp-content/uploads/2020/04/Dra.-Claudia-Juliana-Reyes-Reyes.jpeg"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Fotografía · SCCOT<i data-lucide="arrow-up-right"></i
-              ></a>
-            </figcaption>
+            <button
+              class="photo-trigger"
+              type="button"
+              data-zoom-image
+              aria-label="Ampliar fotografía profesional de la doctora"
+            >
+              {{professionalPortrait}}<span
+                class="photo-zoom"
+                aria-hidden="true"
+                ><i data-lucide="maximize-2"></i
+              ></span>
+            </button>
           </figure>
         </div>
       </section>
@@ -297,21 +125,14 @@
         id="conexiones"
         aria-labelledby="connections-title"
       >
-        <div class="section-heading">
-          <h2 class="section-label title-mask" id="connections-title">
-            <span class="reveal" data-reveal-type="title"
-              >Sigamos <em>conectados.</em></span
-            >
-          </h2>
-          <span class="section-index" aria-hidden="true">01 — 03</span>
-        </div>
-        <p class="connections-intro reveal">
-          Mi práctica, nuestra comunidad y nuevas formas de aprender.
-        </p>
-        <div class="connection-grid">
+        <h2 class="section-label title-mask" id="connections-title">
+          <span class="reveal" data-reveal-type="title">Conexiones</span>
+        </h2>
+        <div class="connection-grid focus-group" data-focus-group>
           <a
             id="portafolio"
-            class="connection-tile connection-portfolio metal-surface reveal"
+            class="connection-tile connection-portfolio focus-card reveal"
+            data-focus-card
             data-reveal-type="panel"
             href="{{portfolio}}"
             target="_blank"
@@ -319,24 +140,19 @@
             data-interactive-surface
           >
             <img
-              class="tile-image portfolio-image"
-              src="./{{scienceIllustration}}"
+              class="portfolio-image"
+              src="./{{researchIllustration}}"
               alt=""
               width="1536"
               height="1024"
               loading="lazy"
             />
-            <div class="tile-content">
-              <span class="eyebrow">Formación & investigación</span>
-              <h3>Explore CLEMI</h3>
-              <span class="tile-action"
-                >Explorar <i data-lucide="arrow-up-right"></i
-              ></span>
-            </div>
+            <div class="tile-content"><h3>Portafolio CLEMI</h3></div>
             <i class="tile-arrow" data-lucide="arrow-up-right"></i>
           </a>
           <a
-            class="connection-tile connection-personal metal-surface reveal"
+            class="connection-tile connection-personal focus-card reveal"
+            data-focus-card
             data-reveal-type="panel"
             data-reveal-delay="80"
             href="{{instagramPersonalUrl}}"
@@ -347,15 +163,12 @@
           >
             <div class="instagram-profile">{{instagramPortrait}}</div>
             <span class="app-mark">{{instagramIcon}}</span>
-            <div class="tile-content">
-              <span class="eyebrow">La doctora</span>
-              <h3>Mi Instagram</h3>
-              <span class="tile-handle">@{{instagramPersonal}}</span>
-            </div>
+            <div class="tile-content"><h3>Instagram</h3></div>
             <i class="tile-arrow" data-lucide="arrow-up-right"></i>
           </a>
           <a
-            class="connection-tile connection-foundation metal-surface reveal"
+            class="connection-tile connection-foundation focus-card reveal"
+            data-focus-card
             data-reveal-type="panel"
             data-reveal-delay="160"
             href="{{instagramInstitutionalUrl}}"
@@ -373,55 +186,148 @@
                 height="960"
                 loading="lazy"
               />
-              <div class="foundation-logo">{{cardLogo}}</div>
-              <span class="foundation-caption"
-                >Una comunidad<br />que transforma.</span
-              >
+              <div class="foundation-logo" aria-hidden="true">{{cardLogo}}</div>
             </div>
             <span class="app-mark">{{instagramIcon}}</span>
-            <div class="tile-content">
-              <span class="eyebrow">Nuestra comunidad</span>
-              <h3>Fundación CLEMI</h3>
-              <span class="tile-handle">@{{instagramInstitutional}}</span>
-            </div>
+            <div class="tile-content"><h3>Fundación CLEMI</h3></div>
             <i class="tile-arrow" data-lucide="arrow-up-right"></i>
           </a>
         </div>
       </section>
       <section
-        class="institutional-statement metal-surface shell reveal"
-        data-reveal-type="panel"
-        aria-label="Lema CLEMI"
+        class="contact-section shell"
+        id="contacto"
+        aria-labelledby="contact-title"
       >
-        <p class="institutional-motto">{{mottoLines}}</p>
-        <div class="statement-signature" aria-hidden="true">{{cardLogo}}</div>
+        <h2 class="section-label title-mask" id="contact-title">
+          <span class="reveal" data-reveal-type="title">Contacto</span>
+        </h2>
+        <div class="contact-grid focus-group" data-focus-group>
+          <a
+            class="contact-card focus-card reveal"
+            data-focus-card
+            data-reveal-type="panel"
+            href="./contacto.vcf"
+            download="{{slug}}.vcf"
+            data-contact-download
+          >
+            {{contactSaveIcon}}<span class="contact-card-title"
+              >Guardar contacto</span
+            ><i class="contact-arrow" data-lucide="download"></i>
+          </a>
+          <a
+            class="contact-card contact-whatsapp focus-card reveal"
+            data-focus-card
+            data-reveal-type="panel"
+            data-reveal-delay="60"
+            href="{{whatsapp}}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="whatsapp-emblem" aria-hidden="true"
+              >{{whatsappIcon}}</span
+            ><span class="contact-card-title">WhatsApp</span
+            ><i class="contact-arrow" data-lucide="arrow-up-right"></i>
+          </a>
+          <button
+            class="contact-card contact-qr focus-card reveal"
+            data-focus-card
+            data-reveal-type="panel"
+            data-reveal-delay="120"
+            type="button"
+            data-open-contact
+            aria-label="Mostrar código QR de contacto"
+          >
+            {{contactQrIcon}}<span class="contact-card-title">Código QR</span
+            ><i class="contact-arrow" data-lucide="maximize-2"></i>
+          </button>
+          <div
+            class="contact-card contact-email focus-card reveal"
+            data-focus-card
+            data-reveal-type="panel"
+            data-reveal-delay="180"
+          >
+            <a class="contact-email-link" href="mailto:{{email}}"
+              >{{contactMailIcon}}<span
+                ><span class="contact-card-title">Correo</span
+                ><span class="contact-detail email-value"
+                  >{{emailDisplay}}</span
+                ></span
+              ></a
+            >
+            <button
+              class="copy-control"
+              type="button"
+              data-copy-email="{{email}}"
+              aria-label="Copiar correo electrónico"
+            >
+              <i data-lucide="copy" data-copy-icon></i
+              ><i data-lucide="check" data-copy-check></i
+              ><span data-copy-label>Copiar</span>
+            </button>
+          </div>
+          <a
+            class="contact-card contact-phone focus-card reveal"
+            data-focus-card
+            data-reveal-type="panel"
+            data-reveal-delay="240"
+            href="tel:{{phone}}"
+          >
+            {{contactPhoneIcon}}<span
+              ><span class="contact-card-title">Llamar</span
+              ><span class="contact-detail">{{phoneDisplay}}</span></span
+            ><i class="contact-arrow" data-lucide="arrow-up-right"></i>
+          </a>
+        </div>
       </section>
     </main>
     <footer class="site-footer shell">
-      <a
-        class="photo-source"
-        href="https://new.clemi.edu.co/nosotros/"
-        target="_blank"
-        rel="noopener noreferrer"
-        >Fotografía institucional · CLEMI</a
-      >
-      <a href="#perfil">Volver arriba<i data-lucide="arrow-up-right"></i></a>
+      <p class="footer-motto">{{motto}}.</p>
+      <div class="footer-meta">
+        <details class="source-notes">
+          <summary>Fuentes y créditos</summary>
+          <div>
+            <p>Trayectoria: {{biographySources}}</p>
+            <p>
+              Fotografías:
+              <a
+                href="https://sccot.org/wp-content/uploads/2020/04/Dra.-Claudia-Juliana-Reyes-Reyes.jpeg"
+                target="_blank"
+                rel="noopener noreferrer"
+                >SCCOT</a
+              >
+              ·
+              <a
+                href="https://new.clemi.edu.co/nosotros/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >CLEMI</a
+              >
+              y material facilitado.
+            </p>
+          </div>
+        </details>
+        <a href="#perfil">Volver arriba<i data-lucide="arrow-up-right"></i></a>
+      </div>
     </footer>
-    <div class="mobile-dock" role="group" aria-label="Acciones de contacto">
-      <a href="./contacto.vcf" download="{{slug}}.vcf"
-        ><i data-lucide="contact-round"></i><span>Guardar</span></a
-      >
-      <a href="{{whatsapp}}" target="_blank" rel="noopener noreferrer"
-        >{{whatsappIcon}}<span>WhatsApp</span></a
-      >
-      <button
-        type="button"
-        data-open-contact
-        aria-label="Mostrar QR de contacto"
-      >
-        <i data-lucide="qr-code"></i><span>QR</span>
-      </button>
-    </div>
+    <dialog
+      id="photo-dialog"
+      class="photo-dialog"
+      aria-label="Fotografía ampliada"
+      aria-describedby="photo-description"
+    >
+      <div class="photo-stage">
+        <button
+          class="icon-button photo-close"
+          type="button"
+          data-close-photo
+          aria-label="Cerrar fotografía"
+        >
+          <i data-lucide="x"></i></button
+        ><img data-photo-preview alt="" />
+        <p class="sr-only" id="photo-description" data-photo-description></p>
+      </div>
+    </dialog>
     <dialog
       id="contact-dialog"
       aria-labelledby="dialog-title"
@@ -482,8 +388,8 @@
     ></div>
     <noscript
       ><style>
-        .flip-control,
         .copy-control,
+        .photo-zoom,
         [data-open-contact] {
           display: none !important;
         }
