@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1A2744" />
+    <meta name="description" content="{{description}}" />
+    <meta name="robots" content="{{robots}}" />
+    {{canonical}}
+    <title>{{fullName}} · CLEMI</title>
+    <link rel="stylesheet" href="/src/style.css" />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body class="{{portraitClass}}">
+    <a class="skip-link" href="#contacto">Ir al contacto</a>
+    <header class="site-header">
+      <div class="header-inner shell">
+        <a class="brand" href="#perfil" aria-label="CLEMI · {{fullName}}"
+          >{{brand}}</a
+        >
+        <nav aria-label="Navegación principal">
+          <a href="#conexiones">Conexiones</a><a href="#contacto">Contacto</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="hero shell" id="perfil" aria-labelledby="profile-name">
+        <div class="hero-copy">
+          <h1 id="profile-name" class="reveal">
+            <span class="honorific">{{honorific}}</span
+            ><span>{{givenName}}</span
+            ><span class="name-accent">{{familyName}}</span>
+          </h1>
+          <div class="roles reveal">
+            <p>{{role2}}</p>
+            <p>{{role1}}</p>
+          </div>
+          <div class="hero-actions reveal">
+            <a
+              class="button button-primary"
+              href="./contacto.vcf"
+              download="{{slug}}.vcf"
+              ><i data-lucide="contact-round"></i>Guardar contacto</a
+            >
+            <a
+              class="whatsapp-link"
+              href="{{whatsapp}}"
+              target="_blank"
+              rel="noopener noreferrer"
+              >{{whatsappIcon}}<span>WhatsApp</span
+              ><i class="link-arrow" data-lucide="arrow-up-right"></i
+            ></a>
+          </div>
+        </div>
+        <div class="hero-visual reveal">
+          {{portrait}}
+          <div class="hero-card">
+            <div class="card-perspective">
+              <div class="digital-card" id="digital-card">
+                <div class="card-face card-front" id="card-front">
+                  <div class="card-top">
+                    <span>CLEMI</span
+                    ><i data-lucide="nfc" aria-hidden="true"></i>
+                  </div>
+                  <div class="card-brand-plaque">{{cardLogo}}</div>
+                  <div class="card-person">
+                    <span>{{honorific}}</span>
+                    <p>{{givenName}}<br />{{familyName}}</p>
+                    <span>{{role2}}</span>
+                  </div>
+                  <div class="card-bottom">
+                    <span>CONTACTO DIGITAL</span
+                    ><i data-lucide="qr-code" aria-hidden="true"></i>
+                  </div>
+                  <svg
+                    class="card-wave"
+                    viewBox="0 0 340 470"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M-50 470C210 320 85 310 400 185"
+                      fill="none"
+                      stroke="#A89065"
+                    />
+                    <path
+                      d="M-40 495C220 345 95 335 410 210"
+                      fill="none"
+                      stroke="#6888B8"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="card-face card-back"
+                  id="card-back"
+                  aria-hidden="true"
+                  inert
+                >
+                  <span class="eyebrow">Su contacto, más cerca</span
+                  ><img
+                    class="card-qr"
+                    src="./assets/contacto-qr.svg"
+                    alt="QR para guardar el contacto de {{fullName}}"
+                    width="280"
+                    height="280"
+                  />
+                  <p>{{fullName}}</p>
+                  <span>Escanee para guardar el contacto</span>
+                  <button
+                    class="card-qr-button"
+                    type="button"
+                    data-open-contact
+                  >
+                    Ampliar QR<i data-lucide="qr-code"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <button
+              class="flip-control"
+              type="button"
+              data-flip
+              aria-controls="digital-card"
+              aria-pressed="false"
+            >
+              <i data-lucide="rotate-3d" aria-hidden="true"></i
+              ><span data-flip-label>Girar para ver el QR</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      <section
+        class="contact-band metal-surface shell reveal"
+        id="contacto"
+        aria-labelledby="contact-title"
+      >
+        <h2 class="sr-only" id="contact-title">Contacto</h2>
+        <div class="band-item email-row">
+          <a class="email-link" href="mailto:{{email}}"
+            ><i data-lucide="mail"></i
+            ><span
+              ><span class="band-label">Correo</span
+              ><span class="email-value">{{email}}</span></span
+            ></a
+          >
+          <button
+            class="copy-control"
+            type="button"
+            data-copy-email="{{email}}"
+            aria-label="Copiar correo electrónico"
+          >
+            <i data-lucide="copy"></i
+            ><span class="sr-only" data-copy-label>Copiar</span>
+          </button>
+        </div>
+        <a class="band-item phone-link" href="tel:{{phone}}"
+          ><i data-lucide="phone"></i
+          ><span
+            ><span class="band-label">Llamar</span
+            ><span>{{phoneDisplay}}</span></span
+          ></a
+        >
+        <button class="band-item qr-link" type="button" data-open-contact>
+          <i data-lucide="qr-code"></i
+          ><span
+            ><span class="band-label">Compartir</span><span>Ver QR</span></span
+          ><i class="link-arrow" data-lucide="arrow-up-right"></i>
+        </button>
+      </section>
+      <section
+        class="connections shell"
+        id="conexiones"
+        aria-labelledby="connections-title"
+      >
+        <h2 class="section-label" id="connections-title">Conexiones</h2>
+        <div class="connection-grid">
+          <a
+            id="portafolio"
+            class="connection-tile connection-portfolio metal-surface reveal"
+            href="{{portfolio}}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="tile-image portfolio-image"
+              src="./{{portfolioArtwork}}"
+              alt=""
+              width="1536"
+              height="1024"
+              loading="lazy"
+            />
+            <div class="tile-content">
+              <span class="eyebrow">CLEMI</span>
+              <h3>Portafolio</h3>
+            </div>
+            <i class="tile-arrow" data-lucide="arrow-up-right"></i>
+          </a>
+          <a
+            class="connection-tile connection-personal metal-surface reveal"
+            href="{{instagramPersonalUrl}}"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram personal de {{fullName}}"
+          >
+            {{portraitTile}}
+            <span class="app-mark">{{instagramIcon}}</span>
+            <div class="tile-content">
+              <h3>Instagram<br />personal</h3>
+            </div>
+            <i class="tile-arrow" data-lucide="arrow-up-right"></i>
+          </a>
+          <a
+            class="connection-tile connection-foundation metal-surface reveal"
+            href="{{instagramInstitutionalUrl}}"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram de Fundación CLEMI"
+          >
+            <div class="foundation-logo" aria-hidden="true">{{cardLogo}}</div>
+            <span class="app-mark">{{instagramIcon}}</span>
+            <div class="tile-content">
+              <h3>Fundación<br />CLEMI</h3>
+            </div>
+            <i class="tile-arrow" data-lucide="arrow-up-right"></i>
+          </a>
+        </div>
+      </section>
+      <section
+        class="institutional-statement metal-surface shell reveal"
+        aria-label="Lema CLEMI"
+      >
+        <p class="institutional-motto">{{mottoLines}}</p>
+        <div class="statement-signature" aria-hidden="true">{{cardLogo}}</div>
+      </section>
+    </main>
+    <footer class="site-footer shell">
+      <a href="#perfil">Volver arriba<i data-lucide="arrow-up-right"></i></a>
+    </footer>
+    <div class="mobile-dock">
+      <a href="./contacto.vcf" download="{{slug}}.vcf"
+        ><i data-lucide="contact-round"></i><span>Guardar</span></a
+      >
+      <a href="{{whatsapp}}" target="_blank" rel="noopener noreferrer"
+        >{{whatsappIcon}}<span>WhatsApp</span></a
+      >
+      <button
+        type="button"
+        data-open-contact
+        aria-label="Mostrar QR de contacto"
+      >
+        <i data-lucide="qr-code"></i><span>QR</span>
+      </button>
+    </div>
+    <dialog
+      id="contact-dialog"
+      aria-labelledby="dialog-title"
+      aria-describedby="dialog-description"
+    >
+      <div class="dialog-top">
+        <p class="eyebrow">Compartir contacto</p>
+        <button
+          class="icon-button"
+          type="button"
+          data-close-contact
+          aria-label="Cerrar contacto"
+        >
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <h2 id="dialog-title">{{givenName}} {{familyName}}</h2>
+      <p id="dialog-description">
+        Escanee este código para guardar el contacto en otro dispositivo.
+      </p>
+      <img
+        class="dialog-qr"
+        src="./assets/contacto-qr.svg"
+        alt="QR de contacto de {{fullName}}"
+        width="320"
+        height="320"
+      /><a
+        class="button button-primary"
+        href="./contacto.vcf"
+        download="{{slug}}.vcf"
+        >Descargar contacto<i data-lucide="download"></i
+      ></a>
+    </dialog>
+    <div
+      class="toast"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+    <noscript
+      ><style>
+        .flip-control,
+        .copy-control,
+        [data-open-contact] {
+          display: none;
+        }
+      </style></noscript
+    >
+  </body>
+</html>

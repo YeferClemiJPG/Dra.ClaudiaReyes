@@ -1,0 +1,12 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "### Stagger element animations with stagger in animateView\n\nSource: https://motion.dev/docs/animate-view\n\nStaggers enter, exit, or layout animations across multiple elements matched by a selector in .add(). Pass stagger() to the delay option to animate each element sequentially.\n\n```javascript\nimport { stagger } from \"motion\"\n\nanimateView(update)\n  .add(\".item\")\n  .enter(\n    { opacity: [0, 1], scale: [0.6, 1] },\n    { delay: stagger(0.05) }\n  )\n```\n\n--------------------------------\n\n### Animate elements entering viewport with inView\n\nSource: https://motion.dev/docs/inview\n\nDetects when elements matching a selector enter the viewport and animates them.\n\n```javascript\ninView(\"#carousel li\", (element) => {\n  animate(element, { opacity: 1 })\n})\n```\n\n--------------------------------\n\n### Import inView from motion\n\nSource: https://motion.dev/docs/inview\n\nImports the inView utility function from the Motion library.\n\n```javascript\nimport { inView } from \"motion\"\n```\n\n--------------------------------\n\n### Stagger animations across multiple elements\n\nSource: https://motion.dev/docs/animate\n\nPasses stagger to the delay option to space out animations across matched elements.\n\n```javascript\nimport { stagger, animate } from \"motion\"\n\nanimate(\".item\", { x: 300 }, { delay: stagger(0.1) })\n```\n\n### inView\n\nSource: https://motion.dev/docs/inview\n\ninView() runs callbacks when elements enter and leave the viewport, built on IntersectionObserver.\n\n`inView` detects when elements enter and leave the viewport.\n\nDetecting when an element is in view can help creating effects like:\n  * Animating elements when they scroll into and out of view.\n  * Deactivating animations when they're no longer visible.\n  * Lazy-loading content.\n  * Automatically start/stop videos.\n\n`inView` function is built on the browser's native Intersection Observer API for the best possible performance (all calculations happen off the main JavaScript thread) and a tiny filesize (just 0.5kb)."
+      }
+    ]
+  },
+  "jsonrpc": "2.0",
+  "id": 4
+}

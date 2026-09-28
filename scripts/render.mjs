@@ -1,0 +1,142 @@
+import { readFile, writeFile, access, mkdir } from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { format } from "prettier";
+import QRCode from "qrcode";
+
+const root = fileURLToPath(new URL("../", import.meta.url));
+const profile = JSON.parse(
+  await readFile(path.join(root, "content/profile.json"), "utf8"),
+);
+const escape = (value) =>
+  String(value).replace(
+    /[&<>"']/g,
+    (c) =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[
+        c
+      ],
+  );
+const fullName = `${profile.honorific} ${profile.givenName} ${profile.familyName}`;
+for (const key of ["givenName", "familyName", "email", "phone", "slug"]) {
+  if (!profile[key]) throw new Error(`Falta el dato obligatorio: ${key}`);
+}
+if (!/^\+[1-9]\d{6,14}$/.test(profile.phone))
+  throw new Error("El teléfono debe usar formato internacional E.164.");
+if (!/^[a-z0-9-]+$/.test(profile.slug)) throw new Error("Slug inválido.");
+for (const key of ["instagramPersonal", "instagramInstitutional"]) {
+  if (!/^[A-Za-z0-9._]+$/.test(profile[key]))
+    throw new Error(`Usuario de Instagram inválido: ${key}`);
+}
+if (new URL(profile.portfolio).protocol !== "https:")
+  throw new Error("El portafolio debe usar HTTPS.");
+if (profile.publicUrl && new URL(profile.publicUrl).protocol !== "https:")
+  throw new Error("La URL pública debe usar HTTPS.");
+for (const key of ["logo", "portrait", "portfolioArtwork"]) {
+  if (profile[key]) {
+    if (!/^assets\/[a-zA-Z0-9/_-]+\.(svg|png|webp|jpe?g)$/.test(profile[key]))
+      throw new Error(`Recurso local inválido: ${key}`);
+    await access(path.join(root, "public", profile[key]));
+  }
+}
+const values = Object.fromEntries(
+  Object.entries(profile).map(([k, v]) => [k, escape(v ?? "")]),
+);
+Object.assign(values, {
+  whatsappIcon: await readFile(
+    path.join(root, "public/assets/icons/whatsapp.svg"),
+    "utf8",
+  ),
+  instagramIcon: await readFile(
+    path.join(root, "public/assets/icons/instagram.svg"),
+    "utf8",
+  ),
+  fullName: escape(fullName),
+  description: escape(
+    `${fullName}. ${profile.roles.join(" · ")}. Datos de contacto, redes sociales y portafolio CLEMI.`,
+  ),
+  role1: escape(profile.roles[0]),
+  role2: escape(profile.roles[1]),
+  whatsapp: `https://wa.me/${profile.phone.slice(1)}`,
+  instagramPersonalUrl: `https://www.instagram.com/${profile.instagramPersonal.toLowerCase()}/`,
+  instagramInstitutionalUrl: `https://www.instagram.com/${profile.instagramInstitutional.toLowerCase()}/`,
+  robots: profile.publicUrl ? "index, follow" : "noindex, nofollow",
+  canonical: profile.publicUrl
+    ? `<link rel="canonical" href="${escape(profile.publicUrl)}" />`
+    : "",
+  brand: profile.logo
+    ? `<img class="official-logo" src="./${escape(profile.logo)}" alt="Logo oficial de CLEMI" width="${Number(profile.logoWidth) || 64}" height="${Number(profile.logoHeight) || 64}" />`
+    : "Perfil profesional",
+  cardLogo: profile.logo
+    ? `<img class="card-logo" src="./${escape(profile.logo)}" alt="Logo oficial de CLEMI" width="${Number(profile.logoWidth) || 64}" height="${Number(profile.logoHeight) || 64}" />`
+    : `<span>CLEMI</span>`,
+  portraitClass: profile.portrait ? "has-portrait" : "",
+  portrait: profile.portrait
+    ? `<div class="portrait-frame"><img class="portrait" src="./${escape(profile.portrait)}" alt="${escape(profile.portraitAlt)}" width="${Number(profile.portraitWidth) || 768}" height="${Number(profile.portraitHeight) || 1024}" fetchpriority="high" /></div>`
+    : "",
+  portraitTile: profile.portrait
+    ? `<img class="tile-image personal-image" src="./${escape(profile.portrait)}" alt="" width="${Number(profile.portraitWidth) || 768}" height="${Number(profile.portraitHeight) || 1024}" loading="lazy" />`
+    : "",
+  mottoLines: String(profile.motto ?? "")
+    .split(/,\s*/)
+    .map(
+      (line, index, lines) =>
+        `<span>${escape(line)}${index < lines.length - 1 ? "," : ""}</span>`,
+    )
+    .join(" "),
+});
+const template = await readFile(path.join(root, "src/page.html"), "utf8");
+const html = template.replace(/\{\{(\w+)\}\}/g, (_, key) => {
+  if (!(key in values)) throw new Error(`Marcador desconocido: ${key}`);
+  return values[key];
+});
+await writeFile(
+  path.join(root, "index.html"),
+  await format(html, { parser: "html" }),
+);
+const vEscape = (value) =>
+  String(value)
+    .replace(/\\/g, "\\\\")
+    .replace(/\r?\n/g, "\\n")
+    .replace(/;/g, "\\;")
+    .replace(/,/g, "\\,");
+const lines = [
+  "BEGIN:VCARD",
+  "VERSION:3.0",
+  `N:${vEscape(profile.familyName)};${vEscape(profile.givenName)};;${vEscape(profile.honorific)};`,
+  `FN:${vEscape(fullName)}`,
+  `ORG:${vEscape(profile.organization)}`,
+  `TITLE:${vEscape(profile.roles.join(" - "))}`,
+  `TEL;TYPE=CELL:${profile.phone}`,
+  `EMAIL;TYPE=INTERNET,WORK:${profile.email}`,
+  `URL:${profile.portfolio}`,
+  `X-SOCIALPROFILE;TYPE=instagram:https://www.instagram.com/${profile.instagramPersonal.toLowerCase()}/`,
+  "END:VCARD",
+];
+// RFC 2425: folded content lines are at most 75 UTF-8 octets, using CRLF + space.
+const fold = (line) => {
+  let output = "",
+    count = 0;
+  for (const character of line) {
+    const bytes = Buffer.byteLength(character);
+    if (count + bytes > 75) {
+      output += "\r\n ";
+      count = 1;
+    }
+    output += character;
+    count += bytes;
+  }
+  return output;
+};
+const vcard = lines.map(fold).join("\r\n") + "\r\n";
+await writeFile(path.join(root, "public/contacto.vcf"), vcard);
+await mkdir(path.join(root, "public/assets"), { recursive: true });
+await writeFile(
+  path.join(root, "public/assets/contacto-qr.svg"),
+  await QRCode.toString(vcard, {
+    type: "svg",
+    errorCorrectionLevel: "M",
+    margin: 4,
+    color: { dark: "#1A2744", light: "#F4EFE4" },
+  }),
+);
+console.log(`Contenido generado: ${fullName}.`);

@@ -1,0 +1,12 @@
+# Configuración limitada a este proyecto. No contiene credenciales.
+# Requiere abrir este proyecto con un cliente Codex compatible y de confianza.
+# No instala herramientas en ChatGPT web ni modifica VS Code por sí sola.
+[mcp_servers.context7]
+url = "https://mcp.context7.com/mcp"
+enabled_tools = ["resolve-library-id", "query-docs"]
+
+# Referencia pública verificada; consulta de componentes sin instalarlos.
+[mcp_servers.shadcn]
+command = "npx"
+args = ["-y", "shadcn@4.21.0", "mcp"]
+enabled_tools = ["view_items_in_registries"]

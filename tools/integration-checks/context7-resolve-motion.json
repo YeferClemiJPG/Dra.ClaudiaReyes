@@ -1,0 +1,12 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Available Libraries:\n\n- Title: Motion\n- Context7-compatible library ID: /websites/motion_dev\n- Description: Motion is an animation library for React, JavaScript, and Vue that provides powerful tools for creating animations with support for layout animations, SVG animations, and premium APIs.\n- Code Snippets: 1491\n- Source Reputation: High\n- Benchmark Score: 86.29\n----------\n- Title: Motion\n- Context7-compatible library ID: /doanhidm1/motion\n- Description: Motion is a simple and powerful JavaScript animation library for React that provides components, hooks, and utilities for building smooth animations, gestures, and interactive UI effects.\n- Code Snippets: 557\n- Source Reputation: Medium\n- Benchmark Score: 72.43\n----------\n- Title: Motion\n- Context7-compatible library ID: /websites/llms_motion_dev\n- Description: Motion is a library for creating smooth animations and transitions in web applications with declarative syntax.\n- Code Snippets: 29\n- Source Reputation: High\n- Benchmark Score: 40.47\n----------\n- Title: Motion-Primitives\n- Context7-compatible library ID: /websites/motion-primitives\n- Description: Motion-Primitives is a collection of reusable animated components built with Motion and Tailwind CSS for creating smooth, engaging animations in web projects.\n- Code Snippets: 153\n- Source Reputation: High\n- Benchmark Score: 66.36\n----------\n- Title: Motion Primitives\n- Context7-compatible library ID: /ibelick/motion-primitives\n- Description: UI kit to make beautiful, animated interfaces, faster. Customizable. Open Source.\n- Code Snippets: 319\n- Source Reputation: High\n- Benchmark Score: 66.44"
+      }
+    ]
+  },
+  "jsonrpc": "2.0",
+  "id": 3
+}

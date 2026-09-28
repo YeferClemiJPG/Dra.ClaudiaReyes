@@ -1,0 +1,191 @@
+/* Credencial alternativa cuando no se proporciona retrato. */
+.hero-card {
+  position: relative;
+  width: min(100%, 324px);
+  transform: rotate(7deg);
+  margin-top: 0;
+}
+.card-perspective {
+  perspective: 1400px;
+}
+.digital-card {
+  position: relative;
+  width: 100%;
+  height: 435px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.digital-card.is-flipped {
+  transform: rotateY(180deg);
+}
+.card-face {
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--gold);
+  border-radius: 14px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow:
+    7px 8px 0 -3px var(--medium),
+    10px 12px 0 -5px var(--gold-shadow);
+}
+.card-front {
+  padding: 22px 27px;
+  background: linear-gradient(
+    135deg,
+    var(--navy-soft),
+    var(--navy) 50%,
+    var(--medium)
+  );
+  isolation: isolate;
+}
+.card-front:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    125deg,
+    transparent 21%,
+    #f0ece412 42%,
+    transparent 49%,
+    #6888b814 80%
+  );
+  pointer-events: none;
+}
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--gold-light);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+}
+.card-top svg {
+  width: 26px;
+  height: 26px;
+}
+.card-brand-plaque {
+  align-self: flex-start;
+  border: 1px solid var(--gold);
+  padding: 5px;
+  margin-top: 23px;
+  background: transparent;
+  border-radius: 0;
+}
+.card-logo {
+  display: block;
+  width: 65px;
+  height: auto;
+  object-fit: contain;
+}
+.card-person {
+  margin-top: 23px;
+  position: relative;
+  z-index: 1;
+}
+.card-person > span {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--neutral);
+}
+.card-person > p {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  line-height: 1.02;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 5px 0 10px;
+  letter-spacing: 0.005em;
+}
+.card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #a8906570;
+  padding-top: 13px;
+  margin-top: auto;
+  letter-spacing: 0.12em;
+  font-size: 10px;
+  color: var(--neutral);
+}
+.card-bottom svg {
+  width: 18px;
+  height: 18px;
+}
+.card-wave {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.45;
+  pointer-events: none;
+}
+.card-back {
+  transform: rotateY(180deg);
+  background: var(--cream);
+  color: var(--navy);
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  text-align: center;
+  gap: 12px;
+}
+.card-back > .eyebrow {
+  font-size: 12px;
+  color: var(--green);
+}
+.card-qr {
+  width: 100%;
+  max-width: 220px;
+  flex-shrink: 0;
+  height: auto;
+  aspect-ratio: 1;
+}
+.card-back p {
+  font-size: 16px;
+  font-weight: 600;
+}
+.card-back > span:not(.eyebrow) {
+  font-size: 12px;
+  color: var(--green);
+}
+.card-qr-button {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 14px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  min-height: 40px;
+  padding: 5px;
+}
+.card-qr-button svg {
+  width: 16px;
+  height: 16px;
+}
+.flip-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  font-size: 0.8125rem;
+  color: var(--neutral);
+  margin-top: 21px;
+  min-height: 42px;
+  transform: rotate(-7deg);
+  padding: 8px 0;
+}
+.flip-control svg {
+  width: 18px;
+  height: 18px;
+  color: var(--gold);
+}
+.flip-control:hover {
+  color: var(--gold-light);
+}

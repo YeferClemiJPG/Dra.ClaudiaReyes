@@ -1,0 +1,18 @@
+# CLEMI · Landings de tarjetas NFC
+
+- Este proyecto contiene la primera landing, para la Dra. Claudia Reyes. Las seis siguientes requieren datos y direcciones visuales propias. No duplicar identidades ni inventar perfiles.
+- Revisar archivos, estado Git, rama y remoto antes de editar. No modificar los repositorios de Clemiverse.
+- Contenido editable en `content/profile.json`; interfaz en `src/page.html`; sistema visual en `src/tokens.css` y `src/style.css`. `index.html` y `public/contacto.vcf` son generados: no editarlos directamente.
+- Usar solo la paleta institucional documentada en la interfaz. No recrear logos ni inventar retratos; añadir solo recursos oficiales identificados por el usuario. Conservar los colores del logo oficial tal como vienen en el AI, sin recolorearlo para aproximarlo a los tokens CSS. Preservar piel, rasgos y proporciones de fotos originales.
+- Mantener HTML semántico, foco visible, contraste y movimiento reducido. Antes de entregar, revisar el resultado en navegador y capturas de escritorio y móvil.
+- El proyecto es estático. No necesita servidor Node al publicarse. Mantener `base: "./"` para permitir alojamiento en una subcarpeta de Hostinger.
+- Consultar Context7 para documentación técnica pública cuando esté disponible; usar documentación oficial como alternativa. No enviar código privado ni datos institucionales a servicios nuevos sin autorización para ese destino.
+- Usar herramientas existentes; no instalar shadcn, Motion o 21st por rutina. No consumir créditos de IA ni cambiar facturación. Lucide se utiliza para iconos; Motion para apariciones al desplazarse y apertura del diálogo, respetando movimiento reducido. Las fuentes se alojan localmente. shadcn MCP se usa para evaluar componentes; no introducir React en esta web estática solo para reutilizar un diálogo.
+- Ejecutar `npm run verify`; generar vista previa con `npm run export:preview`. No confundir pruebas del navegador administrado con Playwright MCP instalado, ni configuración local con una conexión de ChatGPT.
+- No publicar en producción, cambiar dominios o sobrescribir sitios sin autorización específica. Mantener secretos fuera de Git. No relajar permisos para completar una operación bloqueada.
+
+- Tipografía institucional solicitada: Times New Roman para títulos, nombres y texto. Respaldos Times, Georgia y Cormorant Garamond local. No volver a Anton/Manrope como apariencia principal sin indicación del usuario. Mantener jerarquía y legibilidad sin condensar artificialmente las letras.
+
+- Refinamiento solicitado: retirar texto redundante, tarjetas repetidas, arcos y formas decorativas simples de la vista principal. Usar `public/assets/logo-clemi-oficial-sin-texto.svg`, exportado del original intacto `design/source/Logo_CLEMI_Oficial_Sin_Texto.ai`. El símbolo oficial es sin texto: no añadir una palabra CLEMI redibujada ni regenerar la marca. El PNG previo de Canva queda archivado, no activo. Mantener la proporción del SVG en `content/profile.json` y las alturas CSS automáticas. Iconos de WhatsApp/Instagram de Simple Icons locales en dorado; no sustituir CLEMI por marcas buscadas. Mantener licencias y procedencia.
+
+- Referencia reafirmada después: priorizar fondo oscuro continuo y acabado metálico, título dominante, banda de contacto, tres accesos gráficos distintos y cierre con el lema. Esto permite los paneles funcionales de la referencia, manteniendo la eliminación de textos redundantes y adornos geométricos sin función. No inventar métricas ni usar el retrato de la referencia. La fotografía de Claudia no se regenerará: si el recorte automático cambia su identidad, descartarlo y solicitar PNG fiel.
