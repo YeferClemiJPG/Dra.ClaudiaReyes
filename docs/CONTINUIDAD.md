@@ -1,6 +1,6 @@
 # Continuidad del proyecto · 28 de septiembre de 2026
 
-La etapa vigente es la depuración de la dirección editorial aprobada, descrita al final de este documento con su validación de navegador y exportación terminada y sus límites. Los resultados anteriores, incluidos los de `afb2f47`, se conservan por etapa y no certifican automáticamente la implementación actual.
+La etapa vigente añade navegación animada, títulos decorados y fondo editorial; su validación de navegador y exportación está terminada con los límites indicados al final. El usuario confirmó activar animaciones solo en esta landing y el control local queda activo. Los resultados anteriores se conservan por etapa.
 
 ## Base recuperada
 
@@ -91,7 +91,7 @@ No se emuló la preferencia de movimiento reducido del sistema operativo en esta
 
 No se ha publicado el sitio. `publicUrl` sigue en `null` y se mantiene `noindex, nofollow`. Hostinger, URL permanente y publicación requieren definición y autorización específica; esta actualización de documentación no los configura.
 
-## Etapa actual: dirección aprobada y depuración
+## Etapa anterior: dirección aprobada y depuración
 
 El usuario aprobó la dirección editorial fotográfica y pidió menos redundancia y una interacción más cuidada. La portada queda limitada a nombre, cargos, retrato e ilustración. Se retiraron la especialidad separada, los botones de portada, los QR de fotografía y cabecera, la barra móvil fija y la credencial giratoria alternativa. Trayectoria conserva biografía y galería sin credenciales repetidas; Conexiones utiliza títulos breves sin reclamos ni nombres de usuario adicionales. Los textos integrados en los adjuntos y su transcripción accesible se mantienen.
 
@@ -108,3 +108,17 @@ Las dos fotografías de Trayectoria incorporan ampliación mediante un diálogo 
 La exportación autónoma se abrió y comprobó: imagen ampliada embebida y cargada, vCard integrada como datos y QR cargado con apertura y cierre operativos. La consola no mostró errores ni advertencias. Se actualizaron la vista previa autónoma y las capturas `Claudia_Reyes_Depurada_Escritorio.png`, `Claudia_Reyes_Depurada_Conexiones.png`, `Claudia_Reyes_Depurada_Contacto.png` y `Claudia_Reyes_Depurada_Movil.png`.
 
 El navegador tiene `prefers-reduced-motion: reduce` activo y la interfaz lo respeta, desactivando entradas y selección animadas. El movimiento normal se validó por arnés, sin observarlo en ese navegador. Las comprobaciones de `afb2f47` documentadas arriba son históricas. Las simulaciones no equivalen a pruebas físicas del sistema operativo; NFC, cámara e importación vCard en iOS/Android siguen pendientes. No hay publicación y se mantiene `noindex, nofollow`.
+
+## Etapa actual: navegación y decoración editorial
+
+El usuario pidió animación de desplazamiento entre secciones, títulos decorados y un fondo moderno y elegante, y confirmó activar animaciones solo en esta landing. Se añadieron gradientes perla/marfil/azul marino con contornos SVG originales, paneles translúcidos de borde fino en Trayectoria y Contacto e inicial dorada cursiva con floritura botánica en títulos y portada. `editorial-contours.svg` y `title-flourish.svg` no usan IA. Se mantienen fotografías, logo, contenido y jerarquía semántica.
+
+`section-navigation.js` anima enlaces internos mediante RAF y curva cúbica de 460–1100 ms, con cancelación, historial y foco, sin interceptar el desplazamiento libre con rueda. La llegada activa la floritura durante 850 ms y la cabecera muestra progreso. `motion-preference.js` respeta el sistema por defecto y guarda la elección explícita de «Activar/Pausar animaciones» en `clemi-motion`, limitada a este origen; `html[data-motion]` aplica el modo a CSS y JavaScript. No se cambia la preferencia del sistema. La autorización para activar corresponde solo a esta landing.
+
+La consulta MCP real `scroll reveal elegant heading background lines` devolvió Rectangular Text Reveal, TextReveal y DualWipeReveal, enlazados en `.21st/DESIGN.md`. Solo se consultaron metadatos, sin instalaciones, dependencias nuevas ni generación con IA.
+
+`npm run verify` y `npm run export:preview` pasaron. Se revisó el navegador a 320, 872 y 1440 px y la exportación autónoma a 768 px, sin desbordamiento. Los dos SVG decorativos están integrados en el CSS autónomo. Tras activar las animaciones mediante el control autorizado, el modo `full` persistió al recargar. Pausar dejó transiciones en 0 s y eliminó las tarjetas seleccionadas; se reactivó al finalizar y queda `full`.
+
+Se observó el recorrido animado intermedio y la llegada a posición correcta con foco en el título. Títulos y fondo se revisaron visualmente; el foco de teclado en WhatsApp mostró selección y desenfoque de hermanas con transición real. El QR autónomo abre, cierra con Escape y devuelve el foco; la consola de la exportación no mostró errores ni advertencias. Pasaron quince diagnósticos nuevos de navegación/preferencia, doce del diálogo y uno de reanudación de apariciones. Se actualizaron el HTML autónomo y las capturas `Claudia_Reyes_Acabado_Trayectoria.png` y `Claudia_Reyes_Acabado_Movil.png`.
+
+Esta etapa sí comprobó movimiento normal en navegador mediante la preferencia local autorizada; la limitación de la etapa anterior, validada solo por arnés, es histórica. No se modificaron preferencias del sistema. NFC físico, escaneo por cámara e importación vCard en iOS/Android siguen pendientes. No hay publicación y se mantiene `noindex, nofollow`.

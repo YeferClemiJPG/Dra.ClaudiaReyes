@@ -13,19 +13,26 @@ html {
   scroll-padding-top: 110px;
 }
 body {
+  isolation: isolate;
   margin: 0;
   color: var(--ink);
   background: var(--canvas);
-  background-image: linear-gradient(
-    125deg,
-    #6888b80a,
-    transparent 42%,
-    #a890650b
-  );
   font-family: var(--font-body);
   font-size: 1.125rem;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background:
+    url("/assets/editorial-contours.svg") center / cover no-repeat,
+    radial-gradient(ellipse at 100% 7%, #c5cfdf70, transparent 49%),
+    radial-gradient(ellipse at 3% 72%, #d9c9a650, transparent 50%),
+    linear-gradient(125deg, #fffefa 8%, #f6f5f1 47%, #e8edf2 100%);
 }
 body.dialog-open {
   overflow: hidden;
@@ -1081,21 +1088,49 @@ dialog .button {
     min-width: 44px;
   }
 }
+:root[data-motion="reduce"] {
+  scroll-behavior: auto;
+}
+:root[data-motion="reduce"] *,
+:root[data-motion="reduce"] ::before,
+:root[data-motion="reduce"] ::after {
+  animation: none !important;
+  transition: none !important;
+}
+:root[data-motion="reduce"] .connection-tile:is(:hover, :focus-visible),
+:root[data-motion="reduce"]
+  .connection-portfolio:is(:hover, :focus-visible)
+  .portfolio-image,
+:root[data-motion="reduce"]
+  .connection-foundation:is(:hover, :focus-visible)
+  .foundation-photo,
+:root[data-motion="reduce"]
+  .connection-tile:is(:hover, :focus-visible)
+  > .tile-arrow,
+:root[data-motion="reduce"] .button:is(:hover, :focus-visible, :active) {
+  transform: none;
+}
 @media (prefers-reduced-motion: reduce) {
-  html {
+  :root:not([data-motion="full"]) {
     scroll-behavior: auto;
   }
-  *,
-  ::before,
-  ::after {
+  :root:not([data-motion="full"]) *,
+  :root:not([data-motion="full"]) ::before,
+  :root:not([data-motion="full"]) ::after {
     animation: none !important;
     transition: none !important;
   }
-  .connection-tile:is(:hover, :focus-visible),
-  .connection-portfolio:is(:hover, :focus-visible) .portfolio-image,
-  .connection-foundation:is(:hover, :focus-visible) .foundation-photo,
-  .connection-tile:is(:hover, :focus-visible) > .tile-arrow,
-  .button:is(:hover, :focus-visible, :active) {
+  :root:not([data-motion="full"]) .connection-tile:is(:hover, :focus-visible),
+  :root:not([data-motion="full"])
+    .connection-portfolio:is(:hover, :focus-visible)
+    .portfolio-image,
+  :root:not([data-motion="full"])
+    .connection-foundation:is(:hover, :focus-visible)
+    .foundation-photo,
+  :root:not([data-motion="full"])
+    .connection-tile:is(:hover, :focus-visible)
+    > .tile-arrow,
+  :root:not([data-motion="full"]) .button:is(:hover, :focus-visible, :active) {
     transform: none;
   }
 }
@@ -1555,16 +1590,33 @@ dialog .button {
     font-size: 0.75rem;
   }
 }
+:root[data-motion="reduce"]
+  .focus-group.has-featured
+  > .focus-card:not(.is-featured) {
+  filter: none;
+  opacity: 1;
+}
+:root[data-motion="reduce"] .focus-group.has-featured > .focus-card.is-featured,
+:root[data-motion="reduce"] .contact-card.is-featured .contact-glyph,
+:root[data-motion="reduce"] .contact-card.is-featured .whatsapp-emblem,
+:root[data-motion="reduce"] .contact-card.is-featured .contact-arrow,
+:root[data-motion="reduce"] .focus-card.is-featured .tile-content h3 {
+  transform: none;
+}
 @media (prefers-reduced-motion: reduce) {
-  .focus-group.has-featured > .focus-card:not(.is-featured) {
+  :root:not([data-motion="full"])
+    .focus-group.has-featured
+    > .focus-card:not(.is-featured) {
     filter: none;
     opacity: 1;
   }
-  .focus-group.has-featured > .focus-card.is-featured,
-  .contact-card.is-featured .contact-glyph,
-  .contact-card.is-featured .whatsapp-emblem,
-  .contact-card.is-featured .contact-arrow,
-  .focus-card.is-featured .tile-content h3 {
+  :root:not([data-motion="full"])
+    .focus-group.has-featured
+    > .focus-card.is-featured,
+  :root:not([data-motion="full"]) .contact-card.is-featured .contact-glyph,
+  :root:not([data-motion="full"]) .contact-card.is-featured .whatsapp-emblem,
+  :root:not([data-motion="full"]) .contact-card.is-featured .contact-arrow,
+  :root:not([data-motion="full"]) .focus-card.is-featured .tile-content h3 {
     transform: none;
   }
 }
@@ -1657,8 +1709,180 @@ dialog .button {
     filter: none;
   }
 }
+:root[data-motion="reduce"]
+  .photo-trigger:is(:hover, :focus-visible)
+  .photo-zoom {
+  transform: none;
+}
 @media (prefers-reduced-motion: reduce) {
-  .photo-trigger:is(:hover, :focus-visible) .photo-zoom {
+  :root:not([data-motion="full"])
+    .photo-trigger:is(:hover, :focus-visible)
+    .photo-zoom {
     transform: none;
+  }
+}
+
+/* Pearl light and engraved botanical details continue the editorial identity. */
+.site-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--accent), var(--navy));
+  transform: scaleX(var(--page-progress, 0));
+  transform-origin: left;
+  pointer-events: none;
+}
+.site-header.is-scrolled {
+  background: #f6f5f1e8;
+}
+.biography,
+.connections,
+.contact-section {
+  position: relative;
+  isolation: isolate;
+  border-top-color: transparent;
+}
+.biography::before,
+.contact-section::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 14px -30px;
+  pointer-events: none;
+  border: 1px solid #ffffffb8;
+  border-radius: 34px;
+  background: linear-gradient(118deg, #ffffff88, #f4f5f438 62%, #e4eaf14d);
+  box-shadow:
+    0 24px 60px -52px #1a274440,
+    inset 0 1px 0 #ffffff;
+}
+.connections {
+  padding-block: 86px;
+}
+.section-heading {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  padding-bottom: 29px;
+}
+.section-heading .reveal::first-letter {
+  color: var(--accent);
+  font-style: italic;
+}
+.section-heading::before {
+  content: "";
+  position: absolute;
+  left: 1px;
+  bottom: 10px;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, #a8906599, #a890651a 65%, transparent);
+  transform-origin: left;
+}
+.section-heading::after,
+.hero-copy h1::after {
+  content: "";
+  background: url("/assets/title-flourish.svg") center / contain no-repeat;
+  pointer-events: none;
+}
+.section-heading::after {
+  position: absolute;
+  right: -5px;
+  bottom: -2px;
+  width: 132px;
+  height: 29px;
+}
+.hero-copy h1::after {
+  display: block;
+  width: 142px;
+  height: 29px;
+  margin-top: 23px;
+}
+.hero-copy .roles {
+  margin-top: 18px;
+}
+.is-arriving .section-heading::before {
+  animation: heading-rule 850ms var(--ease-out) both;
+}
+.is-arriving .section-heading::after {
+  animation: heading-detail 850ms var(--ease-out) both;
+}
+.motion-toggle {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  min-height: 44px;
+  padding: 9px 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+.motion-toggle:hover {
+  color: var(--accent);
+}
+.motion-symbol {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-left: 3px solid var(--accent);
+  border-right: 3px solid var(--accent);
+}
+.motion-toggle[aria-pressed="false"] .motion-symbol {
+  width: 0;
+  border: 5px solid transparent;
+  border-right: 0;
+  border-left: 8px solid var(--accent);
+}
+@keyframes heading-rule {
+  from {
+    transform: scaleX(0.2);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+@keyframes heading-detail {
+  from {
+    transform: translateX(-12px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+@media (max-width: 760px) {
+  .biography::before,
+  .contact-section::before {
+    inset: 10px -14px;
+    border-radius: 23px;
+  }
+  .connections {
+    padding-block: 58px;
+  }
+  .section-heading {
+    padding-bottom: 26px;
+  }
+  .section-heading::after {
+    width: 111px;
+    height: 24px;
+  }
+  .hero-copy h1::after {
+    width: 120px;
+    height: 26px;
+    margin-top: 17px;
+  }
+  .motion-toggle {
+    margin-right: auto;
+  }
+}
+@media (max-width: 359px) {
+  .biography::before,
+  .contact-section::before {
+    inset-inline: -7px;
   }
 }

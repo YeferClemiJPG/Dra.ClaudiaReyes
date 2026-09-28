@@ -1,5 +1,9 @@
 # Recursos visuales activos
 
+## Contornos y detalle botánico editorial
+
+`public/assets/editorial-contours.svg` es un dibujo vectorial original de diez curvas finas en azul marino y dorado, usado como fondo junto a gradientes CSS perla/marfil. `public/assets/title-flourish.svg` es un detalle lineal botánico original para títulos y portada. Ambos se dibujaron para esta interfaz, sin generación con IA, texto, personas, logos ni dependencias nuevas. Su uso mediante fondos CSS es decorativo y no modifica el contenido semántico de los títulos.
+
 ## Perfil personal de Instagram
 
 - **Archivo:** `public/assets/claudia-reyes-instagram.png`.

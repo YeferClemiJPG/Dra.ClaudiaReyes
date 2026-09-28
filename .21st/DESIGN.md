@@ -1,6 +1,16 @@
 # CLEMI · Contexto de diseño local
 
-## Dirección editorial aprobada · depuración en revisión
+## Etapa vigente · navegación y decoración editorial
+
+El usuario pidió desplazamiento animado entre secciones, títulos decorados y un fondo moderno y elegante; confirmó activar animaciones solo en esta landing. La etapa está implementada y validada. Conserva Times, contenido depurado, fotografías y logo. Añade gradientes perla/marfil/azul marino, contornos SVG originales, paneles translúcidos en Trayectoria y Contacto e inicial dorada cursiva con detalle botánico lineal en títulos y portada, sin texto adicional.
+
+Los enlaces internos recorren la página con RAF y curva cúbica de 460–1100 ms, conservando historial, cancelación y foco. La rueda sigue siendo nativa. La llegada anima la floritura durante 850 ms y la cabecera muestra el progreso. El botón «Activar/Pausar animaciones» guarda `clemi-motion` en el origen y controla `html[data-motion]`; respeta el sistema por defecto, admite la activación explícitamente autorizada y permite pausar sin modificar otras aplicaciones o sitios.
+
+Consulta MCP real: `scroll reveal elegant heading background lines`. Referencias de metadatos: [Rectangular Text Reveal](https://21st.dev/@hyperiux/components/rectangular-text-reveal), [TextReveal](https://21st.dev/@cnippet-dev/components/text-reveal) y [DualWipeReveal](https://21st.dev/@soralabs/components/dual-wipe-reveal). No se instalaron componentes ni dependencias ni se generaron imágenes con IA en esta etapa. `editorial-contours.svg` y `title-flourish.svg` son vectores originales; su procedencia está en `docs/RECURSOS_ACTIVOS.md`.
+
+`npm run verify` y `npm run export:preview` pasaron; navegador a 320/872/1440 px y exportación a 768 px sin desbordamiento. Ambos SVG están integrados en el CSS autónomo. Se activaron animaciones con el control autorizado: persistencia al recargar, pausa efectiva y reactivación comprobadas; queda modo activo. Se observó movimiento real entre secciones con foco y posición finales correctos, y selección por teclado con desenfoque de tarjetas hermanas. QR autónomo, Escape y retorno de foco comprobados, sin advertencias ni errores de consola. Pasaron quince diagnósticos nuevos, doce del diálogo y uno de reanudación de apariciones. El detalle está en `docs/CONTINUIDAD.md`; la limitación anterior de movimiento normal solo por arnés es histórica.
+
+## Base conservada · depuración editorial anterior
 
 El usuario aprobó el estilo editorial fotográfico y pidió depurarlo. La implementación mantiene Times New Roman, crema/perla, azul marino y dorado. La portada concentra nombre, cargos, retrato e ilustración; la fotografía queda a la derecha en escritorio y antes del nombre en móvil. Siguen Trayectoria con biografía y galería, Conexiones con tres tarjetas y Contacto al final. Se retiraron especialidad separada, llamadas a la acción de portada, QR de cabecera y fotografía, barra móvil fija y credencial alternativa.
 

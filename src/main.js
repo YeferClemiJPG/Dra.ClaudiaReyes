@@ -11,6 +11,8 @@ import {
 import { inView } from "motion";
 import { animate } from "motion/mini";
 import { initializeFocusSurfaces } from "./focus-surfaces.js";
+import { createMotionPreference } from "./motion-preference.js";
+import { initializeSectionNavigation } from "./section-navigation.js";
 
 createIcons({
   icons: {
@@ -25,7 +27,7 @@ createIcons({
   attrs: { "aria-hidden": "true", focusable: "false" },
 });
 
-const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const reducedMotion = createMotionPreference({ root: document, view: window });
 const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
 initializeFocusSurfaces({ root: document, reducedMotion, finePointer });
 const revealElements = [...document.querySelectorAll(".reveal, [data-reveal]")];
@@ -95,21 +97,36 @@ const reveal = (element) => {
     (duration + delay) * 1000,
   );
 };
-// Start the visible hero in this task, before waiting for viewport callbacks.
-// The HTML stays readable without JavaScript or if animation setup fails.
-if (!reducedMotion.matches) {
+let stopReveals = () => {};
+function observeReveals(skipCurrentView = false) {
+  stopReveals();
+  stopReveals = () => {};
+  if (reducedMotion.matches) return;
   for (const element of revealElements) {
     const bounds = element.getBoundingClientRect();
-    if (bounds.height && bounds.bottom > 0 && bounds.top < window.innerHeight)
+    if (skipCurrentView && bounds.top < window.innerHeight)
+      revealed.add(element);
+    else if (
+      bounds.height &&
+      bounds.bottom > 0 &&
+      bounds.top < window.innerHeight
+    )
       reveal(element);
   }
+  if ("IntersectionObserver" in window) {
+    stopReveals = inView(revealElements, reveal, { amount: 0.2 });
+  }
 }
-const stopReveals =
-  !reducedMotion.matches && "IntersectionObserver" in window
-    ? inView(revealElements, reveal, { amount: 0.2 })
-    : () => {};
+// Initial visible content animates once; resuming only observes future content.
+observeReveals();
 
 const header = document.querySelector(".site-header");
+initializeSectionNavigation({
+  root: document,
+  view: window,
+  header,
+  reducedMotion,
+});
 const navigationLinks = [
   ...document.querySelectorAll('.site-header nav a[href^="#"]'),
 ].filter((link) => document.getElementById(link.getAttribute("href").slice(1)));
@@ -120,6 +137,14 @@ let scrollFrame = 0;
 function updateNavigation() {
   scrollFrame = 0;
   header?.classList.toggle("is-scrolled", window.scrollY > 30);
+  const extent = Math.max(
+    0,
+    document.documentElement.scrollHeight - window.innerHeight,
+  );
+  const progress = extent
+    ? Math.max(0, Math.min(1, window.scrollY / extent))
+    : 0;
+  header?.style.setProperty("--page-progress", progress.toFixed(4));
   const marker = (header?.getBoundingClientRect().height || 0) + 48;
   let activeSection = sections[0];
   for (const section of sections) {
@@ -144,6 +169,7 @@ function scheduleNavigationUpdate() {
 window.addEventListener("scroll", scheduleNavigationUpdate, { passive: true });
 window.addEventListener("resize", scheduleNavigationUpdate);
 window.addEventListener("pageshow", scheduleNavigationUpdate);
+window.addEventListener("load", scheduleNavigationUpdate);
 updateNavigation();
 
 const interactiveSurfaces = [
@@ -397,7 +423,10 @@ if (photoPreview && typeof photoDialog.showModal === "function") {
 }
 
 function respectReducedMotion() {
-  if (!reducedMotion.matches) return;
+  if (!reducedMotion.matches) {
+    observeReveals(true);
+    return;
+  }
   stopReveals();
   for (const entrance of revealAnimations.values()) {
     clearTimeout(entrance.timer);
@@ -405,7 +434,8 @@ function respectReducedMotion() {
   }
   revealAnimations.clear();
   revealElements.forEach((element) => {
-    revealed.add(element);
+    if (element.getBoundingClientRect().top < window.innerHeight)
+      revealed.add(element);
     clearMotionStyles(element);
   });
   if (dialogState === "closing") finishDialogClose();
@@ -416,7 +446,7 @@ function respectReducedMotion() {
   interactiveSurfaces.forEach(resetPointer);
 }
 reducedMotion.addEventListener("change", respectReducedMotion);
-respectReducedMotion();
+if (reducedMotion.matches) respectReducedMotion();
 
 function copyWithSelection(text) {
   const previousFocus = document.activeElement;

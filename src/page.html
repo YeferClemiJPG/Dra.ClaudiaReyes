@@ -76,8 +76,12 @@
         aria-labelledby="biography-title"
       >
         <div class="biography-copy">
-          <h2 class="section-label title-mask" id="biography-title">
-            <span class="reveal" data-reveal-type="title">Trayectoria</span>
+          <h2 class="section-label section-heading" id="biography-title">
+            <span class="title-mask"
+              ><span class="reveal" data-reveal-type="title"
+                >Trayectoria</span
+              ></span
+            >
           </h2>
           <p class="biography-text reveal">{{biography}}</p>
         </div>
@@ -125,8 +129,12 @@
         id="conexiones"
         aria-labelledby="connections-title"
       >
-        <h2 class="section-label title-mask" id="connections-title">
-          <span class="reveal" data-reveal-type="title">Conexiones</span>
+        <h2 class="section-label section-heading" id="connections-title">
+          <span class="title-mask"
+            ><span class="reveal" data-reveal-type="title"
+              >Conexiones</span
+            ></span
+          >
         </h2>
         <div class="connection-grid focus-group" data-focus-group>
           <a
@@ -199,8 +207,10 @@
         id="contacto"
         aria-labelledby="contact-title"
       >
-        <h2 class="section-label title-mask" id="contact-title">
-          <span class="reveal" data-reveal-type="title">Contacto</span>
+        <h2 class="section-label section-heading" id="contact-title">
+          <span class="title-mask"
+            ><span class="reveal" data-reveal-type="title">Contacto</span></span
+          >
         </h2>
         <div class="contact-grid focus-group" data-focus-group>
           <a
@@ -307,6 +317,16 @@
             </p>
           </div>
         </details>
+        <button
+          class="motion-toggle"
+          type="button"
+          data-motion-toggle
+          aria-pressed="false"
+          hidden
+        >
+          <span class="motion-symbol" aria-hidden="true"></span>
+          <span data-motion-label>Activar animaciones</span>
+        </button>
         <a href="#perfil">Volver arriba<i data-lucide="arrow-up-right"></i></a>
       </div>
     </footer>

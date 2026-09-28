@@ -3,10 +3,10 @@
   "status": "approved_direction_refinements_for_review",
   "assistantRecommendation": null,
   "userSelection": "Dirección editorial fotográfica aprobada",
-  "implementedForReview": "Depuración editorial y movimiento",
+  "implementedForReview": "Navegación animada, títulos decorados y fondo editorial",
   "updatedAt": "2026-09-28",
   "stack": "Static HTML, CSS and JavaScript with Vite",
-  "currentInstruction": "El usuario aprobó la dirección editorial fotográfica y pidió depurar contenido y profesionalizar movimiento: portada de nombre y cargos, contacto al final, fuentes unificadas y selección visual en tarjetas.",
+  "currentInstruction": "Sobre la dirección editorial aprobada, añadir desplazamiento animado entre secciones, títulos decorados y fondo moderno elegante. El usuario confirmó activar animaciones solo en esta landing.",
   "sharedConstraints": {
     "typography": "Times New Roman; Times, Georgia y Cormorant Garamond local como respaldos",
     "colors": [
@@ -39,7 +39,10 @@
   "motionDurationMs": {
     "title": 750,
     "panel": 620,
-    "portrait": 900
+    "portrait": 900,
+    "sectionArrival": 850,
+    "anchorNavigationMin": 460,
+    "anchorNavigationMax": 1100
   },
   "currentComposition": {
     "hero": "Nombre, cargos, fotografía e ilustración de pie y libro; retrato a la derecha en escritorio y antes del nombre en móvil; sin CTA, QR ni especialidad separada",
@@ -47,7 +50,9 @@
     "gallery": "Adjunto editorial y retrato profesional con bata; preservar textos integrados; ambos ampliables mediante diálogo nativo con fondo difuminado, descripción accesible, cierre por Escape, botón o clic exterior y retorno de foco",
     "connections": "Tres tarjetas con imagen superior y títulos breves; sin reclamos ni nombres de usuario adicionales",
     "contact": "Última sección: guardar contacto, WhatsApp, QR, correo y teléfono; acceso desde navegación y enlace de salto",
-    "footer": "Lema exacto una vez y details nativo Fuentes y créditos",
+    "footer": "Lema exacto una vez, details nativo Fuentes y créditos y botón Activar/Pausar animaciones",
+    "background": "Gradientes perla, marfil y azul marino con editorial-contours.svg original; paneles translúcidos de borde fino en Trayectoria y Contacto",
+    "headings": "Inicial dorada cursiva y detalle botánico lineal title-flourish.svg, también en portada sin texto adicional; conservar jerarquía semántica",
     "removed": [
       "QR de portada y cabecera",
       "Barra móvil fija",
@@ -61,7 +66,21 @@
     "siblings": { "blurPx": 1.6, "opacity": 0.6 },
     "input": "Ratón de puntero fino y teclado, con prioridad de foco del teclado; toque sin selección persistente",
     "reducedMotion": "Limpia estados y elimina desplazamientos y desenfoque",
-    "titleReveal": "Desplazamiento vertical 100 % a 0 y desenfoque 3 a 0 px durante 750 ms, una sola vez"
+    "titleReveal": "Desplazamiento vertical 100 % a 0 y desenfoque 3 a 0 px durante 750 ms, una sola vez",
+    "anchorNavigation": "RAF con curva cúbica de 460–1100 ms según distancia; mantiene historial, foco de destino y cancelación ante entrada manual; sin interceptar la rueda",
+    "sectionArrival": "is-arriving anima la floritura durante 850 ms",
+    "scrollProgress": "Línea en el pseudoelemento after de la cabecera"
+  },
+  "motionPreference": {
+    "default": "Seguir prefers-reduced-motion del sistema",
+    "explicitAuthorization": "El usuario confirmó activar animaciones solo en esta landing",
+    "control": "Botón Activar/Pausar animaciones en el pie",
+    "storage": "localStorage clemi-motion, limitado al origen, valores full o reduce",
+    "effectiveMode": "html[data-motion] coordina CSS y JavaScript",
+    "pause": "La selección explícita reduce detiene movimiento incluso si el sistema lo permite",
+    "systemSettingsChanged": false,
+    "lastVerifiedLocalMode": "full",
+    "persistenceAndPauseVerified": true
   },
   "activeAssets": {
     "portrait": "assets/dra-claudia-reyes.jpeg",
@@ -71,6 +90,8 @@
     "institutionalPhoto": "assets/clemi-formacion.jpeg",
     "scienceIllustration": "assets/clemi-science-illustration.png",
     "researchIllustration": "assets/clemi-research-illustration.png",
+    "editorialContours": "assets/editorial-contours.svg",
+    "titleFlourish": "assets/title-flourish.svg",
     "contactIcons": [
       "assets/icons/contact-save.svg",
       "assets/icons/contact-qr.svg",
@@ -85,25 +106,24 @@
   "historicalAssets": ["assets/clemi-metallic-portfolio.png"],
   "validation": {
     "status": "checked_with_limits",
+    "commands": ["npm run verify", "npm run export:preview"],
+    "browserWidthsPx": [320, 872, 1440],
+    "standaloneExportWidthPx": 768,
+    "browserFindings": "Sin desbordamiento; títulos y fondo revisados; recorrido real intermedio y final con foco y posición correctos; selección por teclado en WhatsApp y desenfoque real de hermanas",
+    "motionPreference": "Activación explícita mediante control local autorizada; full persiste al recargar, pausa deja transiciones en 0s y elimina is-featured; reactivado y queda full",
+    "standaloneExport": "Ambos SVG integrados en CSS; QR abre, cierra con Escape y devuelve foco; consola sin errores ni advertencias",
     "diagnostics": {
-      "focus": 14,
+      "navigationAndPreference": 15,
       "dialog": 12,
-      "location": "Scratch fuera del repositorio",
+      "revealResume": 1,
       "result": "passed"
     },
-    "javascriptAndFormat": "passed",
-    "commands": ["npm run verify", "npm run export:preview"],
-    "browserWidthsPx": [320, 390, 768, 1440],
-    "browserFindings": "Sin desbordamiento ni imágenes con src rotas; portada de nombre y cargos sin acciones; ambas fotos amplían con proporción, fondo difuminado y bloqueo de desplazamiento; Escape, botón y clic exterior cierran y devuelven foco; QR, copia de correo y fuentes operativos",
-    "standaloneExport": "Imagen ampliada integrada y cargada, vCard data embebida, QR cargado con apertura y cierre comprobados; sin errores ni advertencias de consola",
-    "browserMotionPreference": "prefers-reduced-motion: reduce activo y respetado; entradas y selección animadas desactivadas",
-    "normalMotionValidation": "Validado por arnés; no observado en navegador",
     "pending": [
       "NFC físico, escaneo por cámara e importación vCard en iOS/Android"
     ],
     "historicalBaselineCommit": "afb2f47",
     "historicalResults": "docs/CONTINUIDAD.md",
-    "limits": "Diagnósticos simulados no equivalen a una prueba física de preferencias del sistema, NFC, cámara o importación de contactos"
+    "limits": "El movimiento normal se observó realmente mediante la preferencia local autorizada; la limitación anterior de pruebas solo por arnés es histórica. No se cambiaron preferencias del sistema ni se probaron dispositivos físicos"
   },
   "publication": {
     "robots": "noindex, nofollow",
@@ -147,8 +167,11 @@
     "https://21st.dev/@felipemenezes098/components/hero-07",
     "https://21st.dev/@kokonutd/components/bento-grid",
     "https://21st.dev/@cnippet-dev/components/text-reveal",
-    "https://21st.dev/@manuarora700/components/focus-cards"
+    "https://21st.dev/@manuarora700/components/focus-cards",
+    "https://21st.dev/@hyperiux/components/rectangular-text-reveal",
+    "https://21st.dev/@soralabs/components/dual-wipe-reveal"
   ],
+  "latestCatalogQuery": "scroll reveal elegant heading background lines",
   "catalogAccess": "Consulta MCP real de metadatos; sin instalar componentes. CLI 21st no instalado",
   "comparisonDeliverable": "Claudia_Reyes_Exploracion.html",
   "figma": {

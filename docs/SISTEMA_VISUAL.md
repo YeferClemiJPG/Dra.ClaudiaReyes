@@ -1,6 +1,12 @@
 # Dirección visual CLEMI
 
-## Dirección vigente · editorial aprobada y depuración
+## Dirección vigente · navegación y decoración editorial
+
+La nueva etapa implementada y validada incorpora un fondo de gradientes perla/marfil/azul marino con `editorial-contours.svg`, paneles translúcidos de borde fino en Trayectoria y Contacto, inicial dorada cursiva y un detalle botánico de `title-flourish.svg`. Este último aparece también en portada sin texto adicional. Ambos SVG son originales y no provienen de generación con IA. Los títulos conservan su jerarquía semántica; el detalle se anima durante 850 ms al llegar a una sección y una línea de cabecera indica el progreso de desplazamiento.
+
+La navegación por enlaces internos usa RAF y una curva cúbica de 460–1100 ms, con cancelación, historial y foco de destino; no altera la rueda. El usuario confirmó activar animaciones solo en esta landing. La preferencia parte del sistema y se puede cambiar mediante «Activar/Pausar animaciones» en el pie: `clemi-motion` guarda `full` o `reduce` para este origen y `html[data-motion]` coordina CSS y JavaScript. Se comprobó el movimiento real, persistencia al recargar, pausa sin transiciones ni selección de tarjetas y posterior reactivación; queda modo activo. Verificación y exportación pasaron, con navegador a 320/872/1440 px y exportación a 768 px sin desbordamiento. SVG autónomos, navegación con foco final y selección por teclado comprobados. Los detalles y límites están en `docs/CONTINUIDAD.md`.
+
+## Base conservada · editorial aprobada y depuración
 
 El usuario aprobó la dirección editorial fotográfica inspirada en la referencia adjunta y pidió depurar contenido y movimiento. Se mantienen crema/perla en las superficies, azul marino en texto y acciones, dorado en acentos y Times New Roman. Los ajustes actuales están implementados para revisión; la antigua regla de fondo oscuro ya no rige esta etapa.
 
@@ -36,7 +42,7 @@ Superficies crema/perla protagonistas; azul marino para texto y acciones; dorado
 - Espaciado consistente y contenido con margen suficiente; bordes finos de 1 px; radios compartidos mediante los tokens activos, reflejos discretos y sombras ligeras.
 - Portada de dos columnas en escritorio, con fotografía protagonista a la derecha; en móvil, una columna con fotografía antes del nombre. Los accesos se adaptan al ancho y conservan texto en flujo, sin alturas que recorten al ampliar.
 - Las acciones se presentan en tarjetas de Contacto, con etiquetas legibles, foco visible y reflujo al ampliar texto. La navegación mantiene acceso directo a Contacto y el enlace de salto permite omitir contenido previo. No reinstaurar la barra móvil fija.
-- Las ilustraciones autorizadas aportan el detalle científico de portada y portafolio. No añadir arcos, órbitas ni ondas repetidas. La credencial giratoria alternativa fue retirada de la interfaz.
+- Las ilustraciones autorizadas aportan el detalle científico de portada y portafolio. Los contornos y la floritura de la nueva etapa complementan esa dirección; no añadir otros ornamentos repetidos. La credencial giratoria alternativa fue retirada de la interfaz.
 - Logo activo: `public/assets/logo-clemi-oficial-sin-texto.svg`, exportado del AI oficial suministrado. Se muestra únicamente el símbolo sin texto; no agregar una palabra CLEMI redibujada. El original intacto está en `design/source/Logo_CLEMI_Oficial_Sin_Texto.ai`; los JPEG/PNG anteriores quedan como archivos históricos. El retrato suministrado está en `public/assets/dra-claudia-reyes.jpeg`; se conserva byte por byte. No recrear el logo ni usar otras personas como sustitutos.
 
 Motion se usa para las apariciones al desplazarse y apertura del diálogo. El contenido es visible antes de JavaScript; movimiento reducido desactiva animaciones CSS, evita las de Motion y limpia estilos transitorios. No hay animación perpetua. Las imágenes decorativas y pictogramas acompañan texto semántico y no reemplazan nombres accesibles.
