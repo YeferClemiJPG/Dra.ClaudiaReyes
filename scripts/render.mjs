@@ -98,6 +98,7 @@ Object.assign(values, {
   role2: escape(profile.roles[1]),
   whatsapp: `https://wa.me/${profile.phone.slice(1)}`,
   instagramPersonalUrl: `https://www.instagram.com/${profile.instagramPersonal.toLowerCase()}/`,
+  instagramPersonalHandle: `@${profile.instagramPersonal.toLowerCase()}`,
   instagramInstitutionalUrl: `https://www.instagram.com/${profile.instagramInstitutional.toLowerCase()}/`,
   robots: profile.publicUrl ? "index, follow" : "noindex, nofollow",
   canonical: profile.publicUrl

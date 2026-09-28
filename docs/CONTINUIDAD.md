@@ -1,6 +1,20 @@
 # Continuidad del proyecto · 28 de septiembre de 2026
 
-La etapa vigente incorpora el banner morado de Trayectoria, portafolio y contacto simplificado. Su validación final está completada con los límites documentados al final; los resultados anteriores se conservan por etapa.
+La etapa vigente corrige el encuadre de Trayectoria y recupera la identidad que se había retirado de la imagen. Los resultados anteriores se conservan por etapa y no sustituyen la comprobación del nuevo banner.
+
+## Etapa vigente · Identidad recuperada y segundo relleno generativo
+
+El usuario señaló que el banner anterior había eliminado el nombre y otros textos necesarios y que el retrato se recortaba abruptamente. Se generó `public/assets/claudia-trayectoria-banner-v2.png` (1774 × 887) desde el retrato editorial original, ampliando fondo y márgenes alrededor de cabeza y hombros. El original y la primera versión se conservan intactos; la nueva versión es una edición generativa autorizada, sin afirmar identidad de píxeles. `docs/RECURSOS_ACTIVOS.md` registra el prompt y la procedencia.
+
+`content/profile.json` apunta al banner v2 y agrega `editorialSpecialty`; `scripts/render.mjs` expone `instagramPersonalHandle`. La plantilla recupera «Dra. Claudia Reyes», «Cirujana de pie y tobillo» y el enlace «@draclaudiajreyes» como HTML. Se mantienen el título Trayectoria y la biografía; la cita anterior sigue ausente.
+
+El retrato ocupa aproximadamente el 8–44 % izquierdo del lienzo. En escritorio, la imagen usa anchura completa y altura automática y no se amplía cuando crece el texto. Hasta 900 px se usa una ventana 1:1, alineada arriba a la izquierda y limitada a 440 px, seguida del contenido dentro del mismo banner. Se retiran las alturas fijas y los desplazamientos anteriores; la nueva ventana conserva la mitad izquierda que contiene a la doctora. Las máscaras combinadas mediante `mask-composite: intersect` suavizan también los bordes laterales y funden el fondo con el panel.
+
+`npm run verify` y `npm run export:preview` pasaron tras la integración. Se revisó desarrollo en navegador a 1280, 1440, 320 y 768 px. Nombre, especialidad y usuario de Instagram están presentes y accesibles. No hay desbordamiento en 1280/320/768 px ni imágenes rotas en 1280/320 px; la revisión visual a 1440 px confirma la composición completa. A 768 px se comprobaron cabello, mano y hombros completos, unión lateral sin línea visible y consola sin errores ni advertencias.
+
+El HTML autónomo se regeneró y la copia de entrega coincide con la salida. Se verificaron el PNG integrado como base64 idéntico al activo y los tres textos recuperados. El navegador bloqueó la apertura automática mediante `file:`: esta corrección tiene validación del contenido exportado, no revisión visual del archivo autónomo. Las pruebas de descarga, QR y catorce diagnósticos de JavaScript descritas más abajo corresponden a la etapa anterior; no se han repetido porque el JavaScript de interacción no cambia. Contacto, Conexiones y lema se conservan. No se publica el sitio; NFC físico, cámara e importación móvil siguen pendientes.
+
+La revisión adicional de desarrollo a 1000 px confirmó la composición, ausencia de desbordamiento y ratio DOM exacto 2:1 de la imagen aunque el bloque de texto tenga mayor altura. No se amplía ni recorta el retrato para cubrir esa diferencia.
 
 ## Base recuperada
 

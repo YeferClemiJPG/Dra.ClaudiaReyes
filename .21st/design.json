@@ -3,10 +3,10 @@
   "status": "approved_direction_checked_with_limits",
   "assistantRecommendation": null,
   "userSelection": "Dirección editorial fotográfica aprobada",
-  "implementedForReview": "Banner de Trayectoria, portafolio y contacto simplificado",
+  "implementedForReview": "Trayectoria completa y encuadre ampliado con banner v2",
   "updatedAt": "2026-09-28",
   "stack": "Static HTML, CSS and JavaScript with Vite",
-  "currentInstruction": "La petición actual incorpora un banner morado ancho de Trayectoria, una carpeta de portafolio y una sola burbuja de WhatsApp con el SVG oficial superpuesto. Título y biografía son HTML a la derecha; en móvil, imagen arriba y texto abajo dentro del mismo panel. Se retiran la galería y su visor. Guardar contacto abre el diálogo QR con descarga y compartir dentro; Contacto conserva cuatro acciones. El pie muestra únicamente el lema exacto centrado, dorado y con animación finita, sin fuentes, créditos, botón de movimiento ni volver arriba.",
+  "currentInstruction": "Corregir el recorte del banner de Trayectoria mediante relleno generativo desde el original y recuperar Dra. Claudia Reyes, Cirujana de pie y tobillo y @draclaudiajreyes como HTML. Mantener biografía y título dentro del panel morado, con márgenes alrededor de cabeza y hombros. La cita anterior continúa retirada; Contacto, Conexiones y lema conservan la composición aprobada.",
   "sharedConstraints": {
     "typography": "Times New Roman; Times, Georgia y Cormorant Garamond local como respaldos",
     "colors": [
@@ -26,14 +26,14 @@
     "preserveOfficialLogoAndOriginalPhotos": "Logo y originales archivados intactos; banner derivado mediante edición generativa autorizada, sin afirmar preservación de píxeles",
     "instagramArtwork": "assets/claudia-reyes-instagram.png",
     "newAiGeneration": {
-      "authorizedScope": "Ilustraciones decorativas autorizadas, nueva carpeta y burbuja única; permiso expreso para relleno generativo del retrato editorial morado y retirada de textos impresos en un banner derivado. Sin logos ni QR ficticios.",
+      "authorizedScope": "Ilustraciones decorativas autorizadas, carpeta y burbuja única; permiso expreso para relleno generativo del retrato editorial morado, ampliación de márgenes y retirada de textos impresos en un banner derivado. Nombre, especialidad e Instagram se recuperan como HTML; cita retirada. Sin logos ni QR ficticios.",
       "assets": [
         "assets/clemi-science-illustration.png",
         "assets/contact-gold-waves.png",
         "assets/contact-save-sculpture.png",
         "assets/contact-mail-sculpture.png",
         "assets/contact-phone-sculpture-v2.png",
-        "assets/claudia-trayectoria-banner.png",
+        "assets/claudia-trayectoria-banner-v2.png",
         "assets/clemi-portfolio-sculpture.png",
         "assets/contact-whatsapp-sculpture-v2.png"
       ],
@@ -55,7 +55,8 @@
   },
   "currentComposition": {
     "hero": "h1.hero-name mayor y cargos de 18–25 px con filo dorado, gradientes legibles navy/oro; retrato e ilustración originales, sin acciones ni texto adicional",
-    "biography": "Banner morado 2:1 con edición generativa del retrato a la izquierda y título/biografía de 48 palabras como HTML a la derecha; imagen arriba y texto abajo en móvil, en un panel",
+    "biography": "Banner v2 morado 2:1 con margen sobre cabeza y hombros; retrato aproximadamente en el 8–44 % izquierdo. Título, Dra. Claudia Reyes, Cirujana de pie y tobillo, biografía de 48 palabras y enlace @draclaudiajreyes como HTML. La cita sigue ausente.",
+    "biographyResponsive": "Escritorio: imagen a anchura completa y altura automática dentro de la cuadrícula, sin ampliación según el texto. Hasta 900 px: ventana 1:1 alineada arriba a la izquierda, máximo 440 px, que muestra la mitad izquierda; texto debajo dentro del mismo panel y máscaras con mask-composite: intersect para una transición suave también lateral.",
     "gallery": "Retirada junto al visor; originales conservados como históricos",
     "connections": "Tres tarjetas con imagen superior y títulos breves; sin reclamos ni nombres de usuario adicionales",
     "contact": "Cuatro tarjetas: Guardar contacto, WhatsApp, Correo y Llamar. Guardar abre el diálogo QR con descarga y compartir; sin tarjeta QR separada.",
@@ -117,7 +118,7 @@
       "assets/contact-phone-sculpture-v2.png",
       "assets/contact-whatsapp-sculpture-v2.png"
     ],
-    "biographyBanner": "assets/claudia-trayectoria-banner.png",
+    "biographyBanner": "assets/claudia-trayectoria-banner-v2.png",
     "portfolioIllustration": "assets/clemi-portfolio-sculpture.png"
   },
   "illustrationPlacement": {
@@ -125,6 +126,7 @@
     "portfolioIllustration": "Solo portafolio"
   },
   "historicalAssets": [
+    "assets/claudia-trayectoria-banner.png",
     "assets/title-flourish.svg",
     "assets/contact-phone-sculpture.png",
     "assets/clemi-metallic-portfolio.png",
@@ -139,6 +141,19 @@
     "assets/contact-qr-sculpture.png"
   ],
   "validation": {
+    "status": "checked_with_limits",
+    "completed": "npm run verify y npm run export:preview pasaron tras integrar el banner v2, la identidad HTML y el nuevo encuadre responsive.",
+    "developmentBrowserWidthsPx": [1440, 1280, 1000, 768, 320],
+    "browserFindings": "Nombre, especialidad e Instagram presentes y accesibles. Composición revisada visualmente a 1440 px; sin desbordamiento en 1280/1000/768/320 px ni imágenes rotas en 1280/320 px. A 1000 px, ratio DOM 2:1 aunque el texto crezca; a 768 px, cabello/mano/hombros completos, unión lateral sin línea y consola limpia.",
+    "standaloneExport": "Contenido validado: copia de entrega exacta, PNG base64 idéntico al activo y tres textos recuperados presentes. Sin revisión visual del archivo autónomo porque el navegador bloqueó file:.",
+    "pending": [
+      "NFC físico, escaneo por cámara e importación vCard en iOS/Android"
+    ],
+    "unchangedInteractionChecks": "Las catorce pruebas de diálogo y las descargas VCF corresponden a la etapa anterior; no se han repetido porque el JavaScript de interacción no cambia.",
+    "historicalResults": "docs/CONTINUIDAD.md",
+    "limits": "Corrección de imagen, contenido y composición; no hay publicación."
+  },
+  "previousValidation": {
     "status": "checked_with_limits",
     "completed": "npm run verify y export:preview pasaron de nuevo tras los refinamientos finales; 14 pruebas de dialog-transition-check.mjs pasaron sobre el main actual.",
     "developmentBrowserWidthsPx": [1440, 320],

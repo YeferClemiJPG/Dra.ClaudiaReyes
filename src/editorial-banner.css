@@ -1,10 +1,10 @@
 /* One portrait, one story: the biography lives inside the purple banner. */
 .biography.biography-banner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.46fr 0.54fr;
   gap: 0;
-  min-height: 620px;
-  padding: 64px;
+  min-height: 0;
+  padding: 0;
   margin-block: 24px 36px;
   overflow: hidden;
   border: 1px solid #312339;
@@ -12,26 +12,27 @@
   background: #1c1425;
   box-shadow: 0 28px 65px -38px #21172e70;
 }
-.biography-banner .biography-backdrop {
-  position: absolute;
+.biography-banner .biography-art {
+  position: relative;
   z-index: 0;
-  inset: 0;
+  grid-area: 1 / 1 / 2 / -1;
+  align-self: center;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  overflow: hidden;
+}
+.biography-banner .biography-backdrop {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  mask-image: linear-gradient(transparent, #000 8%, #000 80%, transparent);
 }
 .biography-banner::before {
   z-index: 1;
   inset: 0;
   border: 0;
   border-radius: inherit;
-  background: linear-gradient(
-    90deg,
-    transparent 35%,
-    #1c14250d 47%,
-    #1c14253b 100%
-  );
+  background: linear-gradient(90deg, transparent 40%, #1c142512 54%, #1c142538);
   box-shadow: inset 0 1px 0 #ffffff18;
 }
 .biography-banner::after {
@@ -45,10 +46,23 @@
   position: relative;
   z-index: 2;
   grid-column: 2;
+  grid-row: 1;
   max-width: 100%;
-  padding-left: 22px;
+  padding: clamp(36px, 4vw, 60px) clamp(32px, 4.2vw, 64px)
+    clamp(36px, 4vw, 60px) 0;
 }
-.biography-banner .section-heading [data-reveal-type="title"] {
+.biography-banner .section-heading {
+  font-size: clamp(1.6rem, 2.3vw, 2rem);
+  padding-bottom: 30px;
+  margin-bottom: 24px;
+  letter-spacing: -0.025em;
+}
+.biography-banner .section-heading::after {
+  width: 145px;
+  height: 24px;
+}
+.biography-banner .section-heading [data-reveal-type="title"],
+.biography-banner .biography-name {
   --metal-base: linear-gradient(
     175deg,
     #f6ecd2 5%,
@@ -64,6 +78,53 @@
   );
   filter: none;
 }
+.biography-banner .biography-name {
+  color: #f1dfbb;
+  font-size: clamp(2.25rem, 3.9vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+.biography-name .biography-honorific {
+  display: block;
+  margin-bottom: 9px;
+  font-size: 1.0625rem;
+  letter-spacing: 0.07em;
+}
+.biography-name em {
+  font-weight: 400;
+}
+.biography-banner .biography-specialty {
+  margin-top: 14px;
+  color: #eadcc5;
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+.biography-banner .biography-instagram {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 12px;
+  color: #d7c5e6;
+  font-size: 0.9375rem;
+  text-decoration-color: #d7c5e655;
+  text-underline-offset: 5px;
+}
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .biography-banner .biography-name {
+    color: transparent;
+    background-image: var(--metal-glint), var(--metal-base);
+    background-size:
+      260% 100%,
+      100% 100%;
+    background-position:
+      100% center,
+      center;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+}
 @supports not ((background-clip: text) or (-webkit-background-clip: text)) {
   .biography-banner .section-heading [data-reveal-type="title"] {
     color: #ead6af;
@@ -77,10 +138,10 @@
 }
 .biography-banner .biography-text {
   color: #eee8f1;
-  font-size: clamp(1.1rem, 1.55vw, 1.35rem);
-  line-height: 1.7;
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  line-height: 1.65;
   max-width: 40ch;
-  margin-top: 25px;
+  margin-top: 22px;
   text-wrap: pretty;
 }
 .connection-portfolio .portfolio-image {
@@ -164,71 +225,55 @@
   }
 }
 @media (max-width: 1050px) {
-  .biography.biography-banner {
-    min-height: 560px;
-    padding: 45px 38px;
-  }
-  .biography-banner .biography-copy {
-    padding-left: 8px;
-  }
-  .biography-banner .biography-backdrop {
-    object-position: 20% center;
-  }
-  .biography-banner::before {
-    background: linear-gradient(
-      90deg,
-      transparent 30%,
-      #1c142540 42%,
-      #1c1425ee 57%
-    );
-  }
-  .biography-banner .biography-text {
-    font-size: 1.1rem;
-    line-height: 1.65;
-  }
-  .biography-banner .section-heading {
-    font-size: clamp(2.5rem, 4.5vw, 3.5rem);
-  }
   .contact-art-chat {
     width: 138px;
     height: 138px;
   }
 }
-@media (max-width: 720px) {
+@media (max-width: 900px) {
   .biography.biography-banner {
-    display: block;
+    display: flex;
+    flex-direction: column;
     min-height: 0;
     padding: 0;
     margin-block: 20px 28px;
     border-radius: 28px;
   }
+  .biography-banner .biography-art {
+    width: min(100%, 440px);
+    aspect-ratio: 1;
+    margin-inline: auto;
+    flex: none;
+  }
   .biography-banner .biography-backdrop {
-    height: 460px;
-    object-position: 16% center;
+    height: 100%;
+    object-fit: cover;
+    object-position: left top;
+    mask-image:
+      linear-gradient(90deg, transparent, #000 12%, #000 90%, transparent),
+      linear-gradient(transparent, #000 7%, #000 82%, transparent);
+    mask-composite: intersect;
   }
   .biography-banner::before {
-    background: linear-gradient(
-      180deg,
-      transparent 240px,
-      #1c142575 335px,
-      #1c1425 445px
-    );
+    background: none;
   }
   .biography-banner::after {
     width: 100%;
-    top: 350px;
+    top: 45%;
   }
   .biography-banner .biography-copy {
-    margin-top: 365px;
-    padding: 12px 30px 40px;
+    width: 100%;
+    max-width: 620px;
+    margin: -22px auto 0;
+    padding: 0 30px 38px;
   }
   .biography-banner .biography-text {
     margin-top: 18px;
     max-width: 46ch;
     font-size: 1.0625rem;
   }
-  .biography-banner .section-heading {
-    font-size: 2.75rem;
+  .biography-banner .biography-name {
+    font-size: clamp(2.35rem, 6.5vw, 3.5rem);
   }
 }
 @media (max-width: 760px) {
@@ -247,24 +292,8 @@
   }
 }
 @media (max-width: 359px) {
-  .biography-banner .biography-backdrop {
-    height: 390px;
-    object-position: 14% center;
-  }
-  .biography-banner::before {
-    background: linear-gradient(
-      180deg,
-      transparent 200px,
-      #1c142575 285px,
-      #1c1425 385px
-    );
-  }
   .biography-banner .biography-copy {
-    margin-top: 315px;
-    padding: 10px 22px 32px;
-  }
-  .biography-banner .section-heading {
-    font-size: 2.45rem;
+    padding: 0 22px 30px;
   }
   .biography-banner .biography-text {
     font-size: 1rem;

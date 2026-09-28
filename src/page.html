@@ -77,14 +77,16 @@
         id="trayectoria"
         aria-labelledby="biography-title"
       >
-        <img
-          class="biography-backdrop"
-          src="./{{biographyBanner}}"
-          alt="Retrato de {{fullName}}"
-          width="1774"
-          height="887"
-          loading="lazy"
-        />
+        <div class="biography-art">
+          <img
+            class="biography-backdrop"
+            src="./{{biographyBanner}}"
+            alt="Retrato de {{fullName}}"
+            width="1774"
+            height="887"
+            loading="lazy"
+          />
+        </div>
         <div class="biography-copy">
           <h2 class="section-label section-heading" id="biography-title">
             <span class="title-mask"
@@ -93,7 +95,19 @@
               ></span
             >
           </h2>
+          <h3 class="biography-name reveal" data-reveal-type="title">
+            <span class="biography-honorific">{{honorific}}</span>
+            {{givenName}} <em>{{familyName}}</em>
+          </h3>
+          <p class="biography-specialty reveal">{{editorialSpecialty}}</p>
           <p class="biography-text reveal">{{biography}}</p>
+          <a
+            class="biography-instagram reveal"
+            href="{{instagramPersonalUrl}}"
+            target="_blank"
+            rel="noopener noreferrer"
+            >{{instagramPersonalHandle}}</a
+          >
         </div>
       </section>
       <section

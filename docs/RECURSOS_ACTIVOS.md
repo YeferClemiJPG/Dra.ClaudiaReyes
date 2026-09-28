@@ -1,6 +1,26 @@
 # Recursos visuales activos
 
-## Etapa vigente · banner, portafolio y WhatsApp
+## Etapa vigente · Trayectoria corregida, identidad y encuadre
+
+Activo: `assets/claudia-trayectoria-banner-v2.png`, PNG opaco de 1774 × 887. Relleno generativo mediante la herramienta integrada image_gen a partir de `assets/claudia-reyes-editorial.png`; el original y el banner v1 se conservan. Salida copiada intacta desde `exec-ea93c69b-aee1-4835-87b1-379cb38a99c5.png`, sin posprocesado de imagen. La edición amplía el marco, deja margen por encima del cabello y alrededor de los hombros y suaviza la parte inferior sobre el fondo morado. No es una copia píxel a píxel de la fotografía.
+
+La identidad se recupera como HTML: Dra. Claudia Reyes, Cirujana de pie y tobillo y @draclaudiajreyes. La cita sigue retirada y la biografía se mantiene. En escritorio se respeta el ratio natural sin ampliar la foto para rellenar la altura del texto. Hasta 900 px, la ventana cuadrada muestra la mitad izquierda y conserva el retrato completo; el texto sigue debajo. El resto de recursos sigue activo según la etapa anterior.
+
+Entregables: Claudia_Trayectoria_Banner_v2.png y Claudia_Trayectoria_Banner_v2_Procedencia.md (modo integrado, ruta, origen y prompt exacto).
+
+### Prompt exacto de la corrección
+
+```text
+Use case: identity-preserve.
+Asset type: responsive editorial biography banner, 2:1 wide landscape.
+Edit target: the supplied original portrait of Dra. Claudia Reyes, with dark blouse, hand gently supporting cheek and violet backdrop.
+Primary request: use generative fill/outpainting to EXTEND the original frame above, below and to the left, and much farther to the right. Preserve her recognizable facial features, age, expression, hair, pose, jewelry, clothing and monochrome/plum photographic treatment. Do not crop the crown of her hair, her hand or her shoulders. Remove all existing printed words, quote, name, specialty, handle and arrow from the bitmap; these exact identifying details will be restored as accessible HTML on the website.
+CRITICAL framing: the entire visible seated upper-body portrait, including complete hair silhouette, both shoulder outlines and bent supporting arm, must sit within x=4% to x=38% of the full wide canvas, with at least 7% empty space above her hair and comfortable dark negative space on the left. The leftmost 40% of this 2:1 canvas will also function as a 4:5 mobile portrait crop; all important portrait anatomy MUST remain safely within that zone. Her body below the mid torso should dissolve gradually and photographically into the same deep purple backdrop across the bottom 15%, not end at a hard cut. No straight dividing seams.
+Right 55%: refined continuous dark aubergine/plum studio texture with calm empty negative space for a name and biography. Background and the lower outer edges smoothly converge to deep plum hex #1c1425. Create real photorealistic seamless fill, not a pasted rectangular photograph, not a blurred enlargement.
+Lighting: preserve soft dimensional light on the face and hand. Elegant formal editorial mood, no new props, people, decoration, logo or text. Opaque full-bleed 2:1 image with no border and no rounded frame inside the bitmap. Do not change her face or make her younger.
+```
+
+## Etapa anterior · banner, portafolio y WhatsApp
 
 La autorización explícita sustituye la restricción anterior de no editar generativamente retratos para este banner concreto. Se conserva visualmente la apariencia y pose de Claudia, pero no se afirma identidad de píxeles: es una edición generativa, no la fotografía original sin editar. El adjunto editorial original permanece intacto como histórico. El logo oficial, el retrato principal y el adjunto de Instagram no se modifican.
 

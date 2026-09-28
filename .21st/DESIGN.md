@@ -1,6 +1,18 @@
 # CLEMI · Contexto de diseño local
 
-## Etapa vigente · Banner de Trayectoria, portafolio y contacto simplificado
+## Etapa vigente · Trayectoria completa y encuadre ampliado
+
+La corrección solicitada recupera dentro de Trayectoria «Dra. Claudia Reyes», «Cirujana de pie y tobillo» y «@draclaudiajreyes» como texto HTML. El nombre tiene acabado dorado y el usuario de Instagram conserva su enlace. Se mantienen el título de sección y la biografía profesional; la cita «La cirugía es ciencia, arte y responsabilidad…» continúa retirada.
+
+El activo vigente es `biographyBanner` → `assets/claudia-trayectoria-banner-v2.png` (1774 × 887), editado mediante relleno generativo desde el adjunto editorial original. La nueva composición reserva margen sobre la cabeza y alrededor de los hombros; el retrato ocupa aproximadamente el 8–44 % izquierdo. El original y `claudia-trayectoria-banner.png` permanecen intactos como históricos. La edición conserva la identidad visual, sin afirmar igualdad de píxeles. Prompt y procedencia en `docs/RECURSOS_ACTIVOS.md`.
+
+En escritorio la imagen se muestra con anchura completa y altura automática dentro de la cuadrícula; no se amplía para cubrir la altura del texto. Hasta 900 px, una ventana cuadrada alineada arriba a la izquierda muestra la mitad izquierda del lienzo, con un máximo de 440 px, seguida del texto dentro del mismo banner redondeado. El fondo morado y las máscaras con `mask-composite: intersect` suavizan también los bordes laterales y unen retrato y contenido sin un corte anatómico abrupto. No reintroducir las alturas fijas ni los desplazamientos de recorte de la versión anterior.
+
+`npm run verify` y `npm run export:preview` pasaron tras esta corrección. Desarrollo revisado a 1280, 1440, 320 y 768 px: identidad accesible correcta, retrato con cabello, mano y hombros completos; sin desbordamiento en 1280/320/768 px ni imágenes rotas en 1280/320 px. A 768 px, unión lateral sin línea visible y consola sin errores ni advertencias. El HTML autónomo se regeneró y se comprobó por contenido: copia de entrega exacta, PNG integrado idéntico y tres textos recuperados presentes. No hubo revisión visual del archivo autónomo porque el navegador bloqueó `file:`. Las pruebas de diálogo y descargas de la etapa siguiente son históricas y no se repitieron; no cambia el JavaScript de interacción. Portafolio, Contacto y lema se conservan.
+
+También se revisó 1000 px: sin desbordamiento y con ratio real 2:1 de la imagen aunque el bloque de texto sea más alto, sin ampliación ni recorte adicional.
+
+## Etapa anterior · Banner de Trayectoria, portafolio y contacto simplificado
 
 La petición actual incorpora un banner morado ancho de Trayectoria, una carpeta de portafolio y una sola burbuja de WhatsApp con el SVG oficial superpuesto. Título y biografía son HTML a la derecha; en móvil, imagen arriba y texto abajo dentro del mismo panel. Se retiran la galería y su visor. Guardar contacto abre el diálogo QR con descarga y compartir dentro; Contacto conserva cuatro acciones. El pie muestra únicamente el lema exacto centrado, dorado y con animación finita, sin fuentes, créditos, botón de movimiento ni volver arriba.
 

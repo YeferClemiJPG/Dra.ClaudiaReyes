@@ -2,9 +2,9 @@
 
 Landing estática para la tarjeta NFC de la Dra. Claudia Reyes, primera de siete. HTML, CSS y JavaScript con Vite; Times New Roman, crema/perla, azul marino y oro, con banner morado de Trayectoria.
 
-La petición actual incorpora un banner morado ancho de Trayectoria, una carpeta de portafolio y una sola burbuja de WhatsApp con el SVG oficial superpuesto. Título y biografía son HTML a la derecha; en móvil, imagen arriba y texto abajo dentro del mismo panel. Se retiran la galería y su visor. Guardar contacto abre el diálogo QR con descarga y compartir dentro; Contacto conserva cuatro acciones. El pie muestra únicamente el lema exacto centrado, dorado y con animación finita, sin fuentes, créditos, botón de movimiento ni volver arriba.
+La corrección actual amplía el retrato de Trayectoria mediante relleno generativo y recupera «Dra. Claudia Reyes», «Cirujana de pie y tobillo» y «@draclaudiajreyes» como HTML, junto al título y la biografía. La cita anterior continúa retirada. El retrato tiene margen sobre la cabeza y alrededor de los hombros; la imagen y los textos permanecen dentro de un banner morado redondeado.
 
-Validación de esta etapa completada: npm run verify y export:preview pasaron tras los refinamientos finales, al igual que las 14 pruebas de dialog-transition-check.mjs sobre el main actual. Navegador administrado a 1440/320 px y HTML autónomo a 768 px sin desbordamiento ni imágenes rotas. Guardar contacto abre el QR; Escape cierra y devuelve el foco al botón en desarrollo y exportación. Las descargas VCF de ambos entornos coinciden por SHA-256 y texto con public/contacto.vcf. Los tres activos nuevos están integrados en el HTML autónomo; pie centrado y controles retirados comprobados. NFC físico, cámara e importación vCard en iOS/Android siguen pendientes; no se publica.
+`npm run verify` y `npm run export:preview` pasaron con la versión v2. Se revisó el encuadre en desarrollo a 1440, 1280, 1000, 768 y 320 px, con nombre, especialidad e Instagram recuperados y retrato completo. La exportación se comprobó por contenido e integridad; el navegador bloqueó su apertura visual mediante `file:`. Detalle y límites en `docs/CONTINUIDAD.md`. No se publica el sitio.
 
 ## Editar y revisar
 
@@ -12,11 +12,13 @@ Requiere Node 22.12 o superior. Usar npm ci y npm run dev con las dependencias e
 
 ## Composición y recursos
 
-La portada conserva únicamente nombre y cargos metalizados, retrato e ilustración de pie y libro; fotografía a la derecha en escritorio y antes del nombre en móvil. Trayectoria presenta la biografía de 48 palabras como HTML junto al banner, sin frase ni textos impresos. Conexiones mantiene tres tarjetas: Portafolio, Instagram y Fundación CLEMI.
+La portada conserva únicamente nombre y cargos metalizados, retrato e ilustración de pie y libro; fotografía a la derecha en escritorio y antes del nombre en móvil. Trayectoria presenta nombre, especialidad, enlace de Instagram y biografía de 48 palabras como HTML dentro del banner, sin cita ni textos impresos. Conexiones mantiene tres tarjetas: Portafolio, Instagram y Fundación CLEMI.
+
+En escritorio, la imagen de Trayectoria conserva su proporción natural con altura automática; no crece para cubrir la altura del texto. Hasta 900 px, una ventana cuadrada alineada arriba a la izquierda y limitada a 440 px muestra la mitad izquierda del lienzo, donde se sitúa el retrato con sus márgenes. El texto sigue debajo dentro del mismo panel y el fondo morado une ambas zonas con una transición suave también en los laterales.
 
 La autorización explícita sustituye la restricción anterior de no editar generativamente retratos para este banner concreto. Se conserva visualmente la apariencia y pose de Claudia, pero no se afirma identidad de píxeles: es una edición generativa, no la fotografía original sin editar. El adjunto editorial original permanece intacto como histórico. El logo oficial, el retrato principal y el adjunto de Instagram no se modifican.
 
-Activos nuevos: biographyBanner → assets/claudia-trayectoria-banner.png (1774 × 887), portfolioIllustration → assets/clemi-portfolio-sculpture.png (1254 × 1254) y assets/contact-whatsapp-sculpture-v2.png (1254 × 1254). La carpeta sustituye al microscopio y la burbuja única sustituye al soporte doble. Prompts y procedencia en docs/RECURSOS_ACTIVOS.md; entrega en CLEMI_Banner_Portafolio_WhatsApp.md.
+Activos vigentes: biographyBanner → assets/claudia-trayectoria-banner-v2.png (1774 × 887), portfolioIllustration → assets/clemi-portfolio-sculpture.png (1254 × 1254) y assets/contact-whatsapp-sculpture-v2.png (1254 × 1254). El retrato editorial original y el banner v1 se conservan como históricos. La carpeta sustituye al microscopio y la burbuja única sustituye al soporte doble. Prompts y procedencia en docs/RECURSOS_ACTIVOS.md; entrega en CLEMI_Banner_Portafolio_WhatsApp.md.
 
 scienceIllustration permanece solo en portada; institutionalPhoto conserva la foto oficial de formación, sin identificar a Claudia entre sus asistentes. El microscopio, retrato editorial original, retrato SCCOT, soporte doble y placa QR quedan como históricos. La biografía mantiene fuentes [AAOT](https://congresoaaot.org.ar/invitados/claudia-reyes/) y [SCCOT](https://sccot.org/wp-content/uploads/2025/01/Hoja-de-Vida-Claudia-Reyes.doc.pdf), solo con datos profesionales. Atribuciones y licencias permanecen en docs/THIRD_PARTY_NOTICES.md y documentación de recursos. El pie muestra únicamente «Entrenamos hoy, investigamos para el mañana, transformamos vidas».
 
@@ -30,7 +32,7 @@ Los títulos entran durante 950 ms, el brillo de texto dura 1150 ms y el resplan
 
 ## Comprobar y exportar
 
-Validación de esta etapa completada: npm run verify y export:preview pasaron tras los refinamientos finales, al igual que las 14 pruebas de dialog-transition-check.mjs sobre el main actual. Navegador administrado a 1440/320 px y HTML autónomo a 768 px sin desbordamiento ni imágenes rotas. Guardar contacto abre el QR; Escape cierra y devuelve el foco al botón en desarrollo y exportación. Las descargas VCF de ambos entornos coinciden por SHA-256 y texto con public/contacto.vcf. Los tres activos nuevos están integrados en el HTML autónomo; pie centrado y controles retirados comprobados. NFC físico, cámara e importación vCard en iOS/Android siguen pendientes; no se publica.
+La compilación, lint, formato y exportación de esta corrección pasaron. Desarrollo revisado a 1440/1280/1000/768/320 px: identidad accesible correcta, sin desbordamiento en 1280/1000/768/320 px y sin imágenes rotas en 1280/320 px; consola limpia a 768 px. A 1000 px, la imagen conserva ratio 2:1 aunque el texto ocupe más altura. La copia autónoma, su PNG integrado y los tres textos se comprobaron por contenido; no hubo revisión visual de `file:` por bloqueo del navegador. Las catorce pruebas de diálogo y las descargas VCF exactas son históricas y no se repitieron porque el JavaScript de interacción no cambia. NFC físico, cámara e importación móvil siguen pendientes.
 
 Ejecutar npm run verify y npm run export:preview. dist/ contiene la distribución estática; artifacts/Claudia_Reyes_Vista_Previa.html es el HTML autónomo con estilos, fuentes locales, imágenes, scripts, QR y vCard integrados. Algunos visores limitan descargas; la web utiliza contacto.vcf como archivo normal.
 
