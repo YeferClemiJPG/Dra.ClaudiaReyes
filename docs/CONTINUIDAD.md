@@ -1,6 +1,6 @@
 # Continuidad del proyecto · 28 de septiembre de 2026
 
-La etapa vigente añade navegación animada, títulos decorados y fondo editorial; su validación de navegador y exportación está terminada con los límites indicados al final. El usuario confirmó activar animaciones solo en esta landing y el control local queda activo. Los resultados anteriores se conservan por etapa.
+La etapa vigente incorpora Contacto con cristal líquido, ondas doradas, cinco recursos escultóricos, texto más cuidado y retirada de flechas. Sus recursos, navegador y exportación están comprobados con el alcance y los límites registrados al final. La autorización para generarlos amplía el alcance anterior. Los resultados previos se conservan por etapa.
 
 ## Base recuperada
 
@@ -109,7 +109,7 @@ La exportación autónoma se abrió y comprobó: imagen ampliada embebida y carg
 
 El navegador tiene `prefers-reduced-motion: reduce` activo y la interfaz lo respeta, desactivando entradas y selección animadas. El movimiento normal se validó por arnés, sin observarlo en ese navegador. Las comprobaciones de `afb2f47` documentadas arriba son históricas. Las simulaciones no equivalen a pruebas físicas del sistema operativo; NFC, cámara e importación vCard en iOS/Android siguen pendientes. No hay publicación y se mantiene `noindex, nofollow`.
 
-## Etapa actual: navegación y decoración editorial
+## Etapa anterior: navegación y decoración editorial
 
 El usuario pidió animación de desplazamiento entre secciones, títulos decorados y un fondo moderno y elegante, y confirmó activar animaciones solo en esta landing. Se añadieron gradientes perla/marfil/azul marino con contornos SVG originales, paneles translúcidos de borde fino en Trayectoria y Contacto e inicial dorada cursiva con floritura botánica en títulos y portada. `editorial-contours.svg` y `title-flourish.svg` no usan IA. Se mantienen fotografías, logo, contenido y jerarquía semántica.
 
@@ -122,3 +122,15 @@ La consulta MCP real `scroll reveal elegant heading background lines` devolvió 
 Se observó el recorrido animado intermedio y la llegada a posición correcta con foco en el título. Títulos y fondo se revisaron visualmente; el foco de teclado en WhatsApp mostró selección y desenfoque de hermanas con transición real. El QR autónomo abre, cierra con Escape y devuelve el foco; la consola de la exportación no mostró errores ni advertencias. Pasaron quince diagnósticos nuevos de navegación/preferencia, doce del diálogo y uno de reanudación de apariciones. Se actualizaron el HTML autónomo y las capturas `Claudia_Reyes_Acabado_Trayectoria.png` y `Claudia_Reyes_Acabado_Movil.png`.
 
 Esta etapa sí comprobó movimiento normal en navegador mediante la preferencia local autorizada; la limitación de la etapa anterior, validada solo por arnés, es histórica. No se modificaron preferencias del sistema. NFC físico, escaneo por cámara e importación vCard en iOS/Android siguen pendientes. No hay publicación y se mantiene `noindex, nofollow`.
+
+## Etapa actual: Contacto con cristal líquido
+
+El usuario solicitó ondas doradas de fondo, tarjetas con acabado de cristal, recursos generados en lugar de los pictogramas, texto más cuidado y eliminación de todas las flechas. Autorizó expresamente el fondo y cinco esculturas para guardar, conversación, correo, teléfono y soporte QR, ampliando el alcance anterior de IA. Fotografías, logo y datos permanecen intactos. WhatsApp conserva su marca oficial superpuesta y el soporte QR utiliza el código escaneable real, sin generarlo.
+
+El fondo `public/assets/contact-gold-waves.png` se generó con la herramienta integrada en una llamada, sin referencias y con fondo opaco. Las cinco esculturas transparentes finales miden 1254 × 1254 px. Los seis recursos se revisaron visualmente y sus copias coinciden con los originales en SHA-256. `CLEMI_Contacto_Recursos.md` reúne los seis PNG y sus tres registros de modo, prompt exacto e integridad.
+
+El cristal usa desenfoque de fondo de 19 px, saturación 1,35, bisel, reflejo de puntero y barrido de brillo de 950 ms. Los títulos combinan entrada de 950 ms con desplazamiento, rotación, desenfoque y máscara, brillo de 1150 ms y limpieza a 1200 ms más retraso. Para conservar las ondas en el HTML autónomo, se muestran como `<img class="contact-waves" alt="" loading="lazy">`; la exportación integra el recurso decorativo.
+
+La validación final de esta etapa pasó: `npm run verify` completó lint, formato y compilación; catorce comprobaciones JavaScript nuevas fueron correctas. Contacto se revisó a 1440 y 320 px en desarrollo y a 768 px en exportación, sin desbordamiento ni imágenes con `src` rotas. Se verificaron QR, copia de correo, cero flechas y consola sin errores ni advertencias. La captura de la exportación regenerada confirma el dorado y el cristal; el HTML y las capturas de escritorio y móvil están actualizados en los entregables. No se instalaron dependencias ni se publicó el sitio. NFC físico, cámara e importación móvil continúan pendientes.
+
+En el archivo autónomo se confirmó el PNG de ondas integrado como data URL y el QR con apertura, cierre por Escape y retorno de foco.

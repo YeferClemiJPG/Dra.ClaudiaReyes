@@ -60,26 +60,20 @@ for (const key of [
     await access(path.join(root, "public", profile[key]));
   }
 }
+for (const asset of [
+  "contact-save-sculpture.png",
+  "contact-chat-sculpture.png",
+  "contact-mail-sculpture.png",
+  "contact-phone-sculpture.png",
+  "contact-qr-sculpture.png",
+  "contact-gold-waves.png",
+]) {
+  await access(path.join(root, "public/assets", asset));
+}
 const values = Object.fromEntries(
   Object.entries(profile).map(([k, v]) => [k, escape(v ?? "")]),
 );
 Object.assign(values, {
-  contactMailIcon: await readFile(
-    path.join(root, "public/assets/icons/contact-mail.svg"),
-    "utf8",
-  ),
-  contactPhoneIcon: await readFile(
-    path.join(root, "public/assets/icons/contact-phone.svg"),
-    "utf8",
-  ),
-  contactSaveIcon: await readFile(
-    path.join(root, "public/assets/icons/contact-save.svg"),
-    "utf8",
-  ),
-  contactQrIcon: await readFile(
-    path.join(root, "public/assets/icons/contact-qr.svg"),
-    "utf8",
-  ),
   whatsappIcon: await readFile(
     path.join(root, "public/assets/icons/whatsapp.svg"),
     "utf8",

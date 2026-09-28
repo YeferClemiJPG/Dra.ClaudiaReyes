@@ -1,6 +1,14 @@
 # CLEMI · Contexto de diseño local
 
-## Etapa vigente · navegación y decoración editorial
+## Etapa vigente · Contacto con cristal y ondas doradas
+
+El usuario pidió un acabado de cristal líquido para Contacto, ondas doradas de fondo, recursos generados que sustituyan los pictogramas, texto más cuidado y eliminación de todas las flechas. El fondo y las cinco esculturas están terminados, revisados e integrados, con copias intactas. La autorización explícita amplía el alcance anterior de IA a estos seis recursos decorativos, sin retratos ni marcas generados.
+
+`src/liquid-glass.css` aporta desenfoque de fondo de 19 px, saturación 1,35, reflejo de puntero, bisel y barrido de brillo de 950 ms. Los títulos combinan entrada de 950 ms, máscara, rotación sutil y brillo de 1150 ms, con limpieza de estilos al terminar. Las ondas se muestran mediante una imagen decorativa `contact-waves` con `alt=""` y carga diferida, integrada en el HTML exportado. `npm run verify` y catorce diagnósticos JavaScript pasaron; Contacto se comprobó a 1440/320 px en desarrollo y 768 px en exportación sin desbordamiento ni imágenes con `src` rotas. QR, copia, cero flechas y consola sin errores ni advertencias verificados. La captura de la exportación regenerada confirma ondas y cristal; los entregables están actualizados.
+
+Las tarjetas mantienen etiquetas y acciones legibles. El QR escaneable real y el símbolo oficial de WhatsApp se superponen sobre sus soportes; las imágenes generadas no los sustituyen. Fotografías, datos, logo, tipografía y preferencia local de animación se conservan. No se instalan componentes ni dependencias y no se publica. Procedencia en `docs/RECURSOS_ACTIVOS.md`; las comprobaciones siguientes son de etapas anteriores.
+
+## Etapa anterior · navegación y decoración editorial
 
 El usuario pidió desplazamiento animado entre secciones, títulos decorados y un fondo moderno y elegante; confirmó activar animaciones solo en esta landing. La etapa está implementada y validada. Conserva Times, contenido depurado, fotografías y logo. Añade gradientes perla/marfil/azul marino, contornos SVG originales, paneles translúcidos en Trayectoria y Contacto e inicial dorada cursiva con detalle botánico lineal en títulos y portada, sin texto adicional.
 

@@ -1,13 +1,4 @@
-import {
-  createIcons,
-  ArrowUpRight,
-  Download,
-  Maximize2,
-  X,
-  Copy,
-  Check,
-  Share2,
-} from "lucide";
+import { createIcons, ZoomIn, X, Copy, Check, Share2 } from "lucide";
 import { inView } from "motion";
 import { animate } from "motion/mini";
 import { initializeFocusSurfaces } from "./focus-surfaces.js";
@@ -16,9 +7,7 @@ import { initializeSectionNavigation } from "./section-navigation.js";
 
 createIcons({
   icons: {
-    ArrowUpRight,
-    Download,
-    Maximize2,
+    ZoomIn,
     X,
     Copy,
     Check,
@@ -33,10 +22,18 @@ initializeFocusSurfaces({ root: document, reducedMotion, finePointer });
 const revealElements = [...document.querySelectorAll(".reveal, [data-reveal]")];
 const revealed = new WeakSet();
 const revealAnimations = new Map();
+const titleLights = new Map();
+function clearTitleLight(element) {
+  clearTimeout(titleLights.get(element));
+  titleLights.delete(element);
+  element.classList.remove("text-illuminated");
+  element.style.removeProperty("--title-delay");
+}
 const clearMotionStyles = (element) => {
   element.style.removeProperty("opacity");
   element.style.removeProperty("transform");
   element.style.removeProperty("filter");
+  element.style.removeProperty("clip-path");
 };
 function revealDelay(element) {
   const delay =
@@ -51,9 +48,13 @@ function revealDelay(element) {
 }
 const revealVariants = {
   title: {
-    duration: 0.75,
-    transform: ["translateY(100%)", "translateY(0%)"],
-    filter: ["blur(3px)", "blur(0px)"],
+    duration: 0.95,
+    transform: [
+      "translateY(65%) rotateX(12deg)",
+      "translateY(0%) rotateX(0deg)",
+    ],
+    filter: ["blur(4px)", "blur(0px)"],
+    clipPath: ["inset(0 0 85% 0)", "inset(0 0 0% 0)"],
   },
   panel: {
     duration: 0.62,
@@ -72,15 +73,24 @@ const reveal = (element) => {
   if (revealed.has(element)) return;
   revealed.add(element);
   if (reducedMotion.matches) return;
-  const { duration, transform, filter } =
+  const { duration, transform, filter, clipPath } =
     revealVariants[element.dataset.revealType] ?? revealVariants.default;
   const delay = revealDelay(element);
+  if (element.dataset.revealType === "title") {
+    element.style.setProperty("--title-delay", `${delay}s`);
+    element.classList.add("text-illuminated");
+    titleLights.set(
+      element,
+      setTimeout(() => clearTitleLight(element), (1.2 + delay) * 1000),
+    );
+  }
   const animation = animate(
     element,
     {
       opacity: [0, 1],
       transform,
       ...(filter ? { filter } : {}),
+      ...(clipPath ? { clipPath } : {}),
     },
     { duration, delay, ease: [0.16, 1, 0.3, 1] },
   );
@@ -433,6 +443,7 @@ function respectReducedMotion() {
     entrance.animation.stop();
   }
   revealAnimations.clear();
+  for (const element of titleLights.keys()) clearTitleLight(element);
   revealElements.forEach((element) => {
     if (element.getBoundingClientRect().top < window.innerHeight)
       revealed.add(element);

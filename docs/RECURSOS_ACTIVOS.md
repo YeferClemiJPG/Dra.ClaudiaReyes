@@ -1,5 +1,27 @@
 # Recursos visuales activos
 
+## Fondo de ondas doradas para Contacto
+
+`public/assets/contact-gold-waves.png` fue generado el 28 de septiembre de 2026 con `image_gen__imagegen`, por autorización explícita del usuario: una generación nueva, sin referencias y con `transparent_background: false`. Presenta cintas metálicas doradas y bordes refractados sobre marfil/perla, con centro luminoso. Es decoración abstracta, sin personas, texto ni logos; no modifica fotografías o marcas.
+
+PNG RGB opaco de 1672 × 941 px y 2 030 126 bytes. SHA-256 del original y las copias intactas: `6995200a15499d19c8e40638475d0aa8dd58579af27f92a9c6e2a65b060199da`. Entregables: `CLEMI_Contacto_Ondas_Doradas.png` y `CLEMI_Contacto_Ondas_Procedencia.md`; este último conserva el prompt exacto y modo de generación. La imagen se integra mediante `<img class="contact-waves" alt="" loading="lazy">`, conservando su carácter decorativo y carga diferida. Su presencia en la exportación autónoma se comprobó visualmente junto al cristal.
+
+## Cinco esculturas de contacto
+
+Recursos finales generados el 28 de septiembre de 2026 con la herramienta integrada, una llamada por imagen, sin referencias y con `transparent_background: true`. Los cinco PNG ARGB/RGBA de 32 bits miden 1254 × 1254 px y son copias intactas de los originales. Se revisaron visualmente y se comprobó transparencia. Los archivos de proyecto y entrega coinciden con sus originales en SHA-256.
+
+| Archivo en `public/assets/`   |     Bytes | SHA-256                                                            |
+| ----------------------------- | --------: | ------------------------------------------------------------------ |
+| `contact-save-sculpture.png`  | 1 595 829 | `fa02c319d46e729b163ad04cd8c3dc6e626d890660e7a4af59bb1e4b18f9fa90` |
+| `contact-chat-sculpture.png`  | 1 382 276 | `63df9999edbc24f283c96bb369c21d2fd506d5c35b62d01f7a5c2612f4814889` |
+| `contact-mail-sculpture.png`  | 1 298 753 | `c1e13f37cb223010d12224e9abf9fd3a166aa97337ba095c36a44cbc36592d15` |
+| `contact-phone-sculpture.png` |   920 242 | `f5b32857a96106ca9a3dfaf3166f990bd78a6c3e752541431e3a1742f337c63d` |
+| `contact-qr-sculpture.png`    | 1 265 747 | `692bd262147121a587e697962ab2743e60adf25fa19fe9a7b499954b4e65daf9` |
+
+La agenda muestra un relieve abstracto sin rasgos, no un retrato de la doctora. Las burbujas de mensajes y la placa QR están vacías: WhatsApp conserva su marca oficial superpuesta y el QR usa el código real del proyecto. No hay personas ni marcas generadas; estas piezas no son fotografías de objetos institucionales.
+
+Los prompts íntegros, modo y procedencia están en los entregables `CLEMI_Contacto_Agenda_Mensajes_Procedencia.md` y `CLEMI_Contacto_Correo_Telefono_QR_Procedencia.md`. El índice `CLEMI_Contacto_Recursos.md` enlaza los seis PNG y los tres registros de procedencia. La integración se comprobó a 1440/320 px en desarrollo y 768 px en exportación, sin desbordamiento ni imágenes con `src` rotas; los detalles de interacción están en `docs/CONTINUIDAD.md`.
+
 ## Contornos y detalle botánico editorial
 
 `public/assets/editorial-contours.svg` es un dibujo vectorial original de diez curvas finas en azul marino y dorado, usado como fondo junto a gradientes CSS perla/marfil. `public/assets/title-flourish.svg` es un detalle lineal botánico original para títulos y portada. Ambos se dibujaron para esta interfaz, sin generación con IA, texto, personas, logos ni dependencias nuevas. Su uso mediante fondos CSS es decorativo y no modifica el contenido semántico de los títulos.
@@ -79,9 +101,9 @@ Scene/backdrop: genuinely transparent background with preserved alpha, designed 
 Constraints: no text, no letters, no numbers, no logos, no watermarks, no people, no hands, no human portraits, no blood, no injury, no surgical tools. Do not copy any existing logo. No generic floating spheres, no abstract rings, no neon, no clipart, no basic flat geometry. Do not present this as medical instructional imagery.
 ```
 
-## Familia vectorial de contacto
+## Familia vectorial de contacto anterior
 
-`public/assets/icons/contact-mail.svg`, `contact-phone.svg`, `contact-save.svg` y `contact-qr.svg` forman una familia original de pictogramas vectoriales dibujados para esta interfaz el 28 de septiembre de 2026. Representan correo, llamada, libreta de contacto y acceso al QR con papel facetado, detalles de grabado y colores institucionales navy y dorado. Utilizan `viewBox="0 0 64 64"`, trazo de 1,5 unidades y clase `contact-glyph`; su tamaño final lo controla CSS.
+`public/assets/icons/contact-mail.svg`, `contact-phone.svg`, `contact-save.svg` y `contact-qr.svg` forman la familia anterior, sustituida por las esculturas en la etapa de cristal líquido. Fueron dibujados para esta interfaz el 28 de septiembre de 2026 y se conservan como antecedentes. Representan correo, llamada, libreta de contacto y acceso al QR con papel facetado, detalles de grabado y colores institucionales navy y dorado. Utilizan `viewBox="0 0 64 64"` y trazo de 1,5 unidades.
 
 Son recursos decorativos junto a etiquetas de acción, con `aria-hidden="true"` y `focusable="false"`. No incorporan texto, IDs, filtros, marcas ni dependencias nuevas. El pictograma QR es simbólico y no escaneable; el QR de contacto real se mantiene en `public/assets/contacto-qr.svg`. Los iconos oficiales de WhatsApp e Instagram se conservan intactos.
 

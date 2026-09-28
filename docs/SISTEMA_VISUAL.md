@@ -1,6 +1,14 @@
 # Dirección visual CLEMI
 
-## Dirección vigente · navegación y decoración editorial
+## Dirección vigente · Contacto con cristal y ondas doradas
+
+La nueva petición aplica a Contacto un acabado de cristal líquido sobre ondas doradas, con cinco imágenes escultóricas para las acciones, texto más cuidado y retirada de todas las flechas. Los seis recursos están terminados e integrados. Se conservan Times New Roman, datos, fotografías, logo y control local de movimiento. Las tarjetas mantienen nombres accesibles y acciones comprensibles; la validación de navegador y exportación está completada con el alcance descrito abajo.
+
+El cristal usa desenfoque de fondo de 19 px, saturación 1,35, reflejo de puntero, bisel y barrido de brillo de 950 ms. Los títulos entran durante 950 ms desde desplazamiento 65 %, rotación X 12°, desenfoque 4 px y máscara 85 %; el brillo dura 1150 ms y la limpieza ocurre a los 1200 ms más retraso. Las ondas usan una imagen decorativa `contact-waves` con texto alternativo vacío y carga diferida para integrarse en el HTML autónomo. Verificación y catorce comprobaciones JavaScript correctas; Contacto revisado a 1440/320 px en desarrollo y 768 px en exportación sin desbordamiento ni imágenes rotas, con QR, copia, cero flechas y consola limpia. La captura exportada confirma ondas y cristal.
+
+`contact-gold-waves.png` aporta oro cálido y bordes refractados sobre marfil/perla, con centro claro para las tarjetas. Los cinco soportes generados representan guardar, conversación, correo, teléfono y QR; el código escaneable y la marca oficial de WhatsApp se superponen como recursos originales. La generación está expresamente autorizada para estos recursos decorativos, sin personas ni logos generados. Los cuatro pictogramas SVG de contacto anteriores quedan como históricos. No se añaden dependencias ni publicación.
+
+## Base conservada · navegación y decoración editorial
 
 La nueva etapa implementada y validada incorpora un fondo de gradientes perla/marfil/azul marino con `editorial-contours.svg`, paneles translúcidos de borde fino en Trayectoria y Contacto, inicial dorada cursiva y un detalle botánico de `title-flourish.svg`. Este último aparece también en portada sin texto adicional. Ambos SVG son originales y no provienen de generación con IA. Los títulos conservan su jerarquía semántica; el detalle se anima durante 850 ms al llegar a una sección y una línea de cabecera indica el progreso de desplazamiento.
 
