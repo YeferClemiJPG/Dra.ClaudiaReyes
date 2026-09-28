@@ -196,14 +196,20 @@
   },
   "contactResourceDeliverable": "CLEMI_Banner_Portafolio_WhatsApp.md",
   "directContactValidation": {
-    "status": "pending",
+    "status": "published_checked_with_limits",
     "scope": "Enlace nativo, retirada del diálogo y compartir, exportación con vCard integrada; diseño y movimiento conservados",
-    "pending": [
-      "npm run verify y npm run export:preview",
-      "Enlace directo y vCard en la vista previa y el sitio público",
-      "Despliegue de la corrección en GitHub Pages",
-      "NFC físico e importación vCard en iOS/Android"
-    ],
+    "completed": "npm run verify: lint, siete pruebas de preferencia de movimiento, formato y build correctos; npm run export:preview aprobado.",
+    "developmentBrowser": "Un clic descargó claudia-reyes (7).vcf, exacto a public/contacto.vcf. Sin diálogo en DOM, modo full y copia de correo con etiqueta y toast correctos; sin errores ni advertencias.",
+    "buildAndExport": "HTML compilado con una acción data-contact-download, sin diálogo ni QR. Exportación con una vCard integrada exacta y download claudia-reyes.vcf; copia de entrega exacta.",
+    "deployment": {
+      "commit": "cb49399",
+      "workflowRun": "https://github.com/YeferClemiJPG/Dra.ClaudiaReyes/actions/runs/36488430582",
+      "conclusion": "success",
+      "loadedBundle": "assets/index-DLnrti_X.js"
+    },
+    "publicBrowser": "Un clic descargó claudia-reyes (8).vcf, exacto a public/contacto.vcf. Una acción, cero diálogos y ningún QR visible. Modo full; cinco imágenes de Contacto cargadas, sin desbordamiento ni errores o advertencias.",
+    "vcardSha256": "c313f6a01c31638b46e1c7cff05177c180a9104ec2ca622b2339a9bdae33682b",
+    "pending": ["NFC físico e importación vCard en iOS/Android"],
     "limits": "Abrir o descargar la vCard no confirma su importación en la agenda; el dispositivo puede pedir confirmación.",
     "historicalResults": "docs/CONTINUIDAD.md"
   },

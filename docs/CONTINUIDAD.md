@@ -8,7 +8,11 @@ El usuario pidió que Guardar contacto abra el contacto directamente en lugar de
 
 Se retiran el diálogo QR, su controlador de apertura/cierre, la función de compartir y la alternativa noscript duplicada. La copia de correo conserva su notificación. El archivo QR real y su generador permanecen como históricos. La exportación autónoma integra la vCard como data URL y hereda el atributo download de la plantilla, cuyo nombre procede del slug del perfil. El diseño aprobado y el modo de movimiento full se conservan.
 
-La descarga no confirma una escritura automática en la agenda: abrir e importar el archivo dependen del dispositivo y el sistema puede solicitar confirmación. Las pruebas y la compilación iniciales pasaron; la comprobación final de descarga con download, exportación y despliegue de esta corrección sigue pendiente al redactar la etapa. No se atribuyen a ella los resultados históricos. NFC físico e importación vCard en iOS/Android siguen pendientes.
+`npm run verify` completó lint, las siete pruebas de preferencia de movimiento, formato y compilación; `npm run export:preview` pasó. La revisión local descargó `claudia-reyes (7).vcf` con un clic y su contenido coincide exactamente con `public/contacto.vcf`. No queda diálogo en el DOM y el modo de movimiento sigue en full. Copiar correo cambia la etiqueta y muestra el toast, sin errores ni advertencias. El HTML compilado tiene una acción `data-contact-download`, sin diálogo ni QR; el HTML autónomo integra una vCard exacta con nombre de descarga `claudia-reyes.vcf`, y la copia de entrega coincide con la exportación.
+
+La corrección se publicó mediante el flujo [36488430582](https://github.com/YeferClemiJPG/Dra.ClaudiaReyes/actions/runs/36488430582), completado con éxito para `cb49399`. La página pública cargó `assets/index-DLnrti_X.js`; un clic en Guardar contacto descargó `claudia-reyes (8).vcf`. Su SHA-256, `c313f6a01c31638b46e1c7cff05177c180a9104ec2ca622b2339a9bdae33682b`, coincide con la vCard original. La revisión encontró una acción de descarga, cero diálogos y ningún QR visible. Se conservó el modo full, cargaron las cinco imágenes de Contacto y no se observaron desbordamiento ni errores o advertencias de consola.
+
+La descarga no confirma una escritura automática en la agenda: abrir e importar el archivo dependen del dispositivo y el sistema puede solicitar confirmación. Estas comprobaciones se realizaron en el navegador administrado. NFC físico e importación vCard en iOS/Android siguen pendientes.
 
 ## Etapa anterior · Animaciones en el origen público
 

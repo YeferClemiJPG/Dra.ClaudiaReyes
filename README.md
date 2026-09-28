@@ -2,7 +2,7 @@
 
 Landing estática para la tarjeta NFC de la Dra. Claudia Reyes, primera de siete. HTML, CSS y JavaScript con Vite; Times New Roman, crema/perla, azul marino y oro, con banner morado de Trayectoria.
 
-La corrección actual cambia Guardar contacto por una descarga directa de la vCard y retira el diálogo QR. El diseño y las animaciones se conservan. Comprobación final de descarga y publicación pendientes al redactar esta actualización; resultados y límites por etapa en `docs/CONTINUIDAD.md`.
+La corrección actual cambia Guardar contacto por una descarga directa de la vCard y retira el diálogo QR. El diseño y las animaciones se conservan. Verificación y exportación aprobadas; publicada mediante el flujo 36488430582 para cb49399. La descarga de un clic se comprobó en la página pública y coincide con la vCard original. Resultados y límites por etapa en `docs/CONTINUIDAD.md`.
 
 La corrección anterior recuperó las animaciones en GitHub Pages. La elección guardada en la vista previa local no se comparte con el origen público; al faltar allí, la preferencia reducida del sistema las desactivaba. Esta landing establece movimiento completo por defecto conforme a la autorización expresa del usuario, conservando la prioridad de una elección local guardada. En aquella etapa pasaron siete pruebas nuevas de preferencia, quince de navegación y catorce de diálogo, además de verificación y exportación. La reparación se publicó y comprobó en la URL pública.
 
@@ -38,7 +38,7 @@ motion-preference.js permanece activo sin botón visible. La función admite def
 
 ## Comprobar y exportar
 
-Las comprobaciones anteriores del banner, publicación y animaciones permanecen documentadas por etapa. Las pruebas del antiguo diálogo son históricas; el acceso directo a la vCard requiere una nueva comprobación de enlace, exportación y sitio público. NFC físico e importación móvil siguen pendientes.
+`npm run verify` completó lint, siete pruebas de preferencia de movimiento, formato y compilación; `npm run export:preview` pasó. Las descargas de un clic en desarrollo y producción coinciden con public/contacto.vcf. El HTML compilado tiene una sola acción de descarga, sin diálogo ni QR; la vCard integrada y el nombre claudia-reyes.vcf de la exportación son correctos. En producción se conservó el modo full, cargaron las cinco imágenes de Contacto y no se observaron desbordamiento ni errores o advertencias de consola. Las comprobaciones anteriores y pruebas del antiguo diálogo permanecen como históricas. NFC físico e importación móvil siguen pendientes.
 
 Ejecutar npm run verify y npm run export:preview. dist/ contiene la distribución estática; artifacts/Claudia_Reyes_Vista_Previa.html es el HTML autónomo con estilos, fuentes locales, imágenes, scripts y vCard integrados. Algunos visores limitan descargas; la web utiliza contacto.vcf como archivo normal.
 
