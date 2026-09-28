@@ -36,3 +36,11 @@ Tras recuperar la base, el usuario pidió mejorar ambas áreas. La propuesta se 
 La navegación refleja la sección actual. La copia presenta «Copiado» e icono de confirmación. El diálogo ofrece QR, descarga y compartir el archivo vCard solo si `navigator.canShare` lo permite. Se conservan Escape, retorno del foco, alternativas cuando falla la copia y movimiento reducido; las apariciones no se repiten al volver a desplazar la página.
 
 Revisión de navegador en 320, 390, 768 y 1440 píxeles: sin desbordamiento horizontal ni imágenes rotas; comprobados navegación activa, confirmación de copia, apertura/cierre del diálogo y retorno del foco. La precarga habilita compartir en este navegador; no se realizó ningún envío externo. La revisión de movimiento reducido se realizó sobre el código, sin emulación del sistema operativo. La prueba física de NFC, cámara e importación móvil continúa pendiente.
+
+## Segunda mejora: acabado gráfico y transiciones
+
+Se continúa en la misma rama y PR #1, todavía en borrador. La fotografía principal usa un marco rectangular de borde fino. El portafolio ocupa una tarjeta de mayor tamaño y las dos redes se apilan a su derecha; la vista móvil conserva tarjetas en una columna y acciones fijas. Se unifican radios, contenedores de iconos y tiempos de respuesta. El texto de navegación y acciones admite reflujo al crecer.
+
+La portada introduce cada línea del nombre, roles y botones de forma coordinada. El retrato entra con una escala mínima y las apariciones se ejecutan una sola vez. El diálogo QR tiene estados explícitos de apertura/cierre: Escape, botón y fondo comparten cierre de 180 ms, preservando el foco y el bloqueo de desplazamiento hasta finalizar. También se controlan cierre durante entrada, reapertura y cambio dinámico a movimiento reducido.
+
+La revisión vuelve a comprobar 320, 390, 768 y 1440 píxeles sin desbordamiento horizontal ni imágenes rotas; navegación, confirmación de copia, Escape y retorno de foco comprobados en navegador. Nueve comprobaciones con simulaciones de DOM/reloj, fuera del repositorio, cubren los casos de transición y movimiento reducido; no son pruebas de un sistema operativo real. Se mantienen pendientes NFC físico, escaneo por cámara e importación en iOS/Android. La consulta MCP de 21st funcionó; no se instalaron dependencias ni se generaron recursos nuevos con IA.

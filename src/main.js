@@ -42,30 +42,63 @@ createIcons({
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
-const revealElements = [...document.querySelectorAll(".reveal")];
+const revealElements = [...document.querySelectorAll(".reveal, [data-reveal]")];
 const revealed = new WeakSet();
 const revealAnimations = new Map();
 const clearMotionStyles = (element) => {
   element.style.removeProperty("opacity");
   element.style.removeProperty("transform");
 };
+function revealDelay(element) {
+  const delay =
+    element.dataset.revealDelay ??
+    getComputedStyle(element).getPropertyValue("--reveal-delay").trim();
+  const milliseconds =
+    Number.parseFloat(delay) *
+    (String(delay).endsWith("s") && !String(delay).endsWith("ms") ? 1000 : 1);
+  return Number.isFinite(milliseconds)
+    ? Math.max(0, Math.min(milliseconds, 700)) / 1000
+    : 0;
+}
 const reveal = (element) => {
   if (revealed.has(element)) return;
   revealed.add(element);
   if (reducedMotion.matches) return;
+  const portrait = element.dataset.revealType === "portrait";
+  const duration = portrait ? 0.68 : 0.48;
+  const delay = revealDelay(element);
   const animation = animate(
     element,
-    { opacity: [0, 1], transform: ["translateY(18px)", "translateY(0px)"] },
-    { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
+    {
+      opacity: [0, 1],
+      transform: portrait
+        ? ["scale(1.015)", "scale(1)"]
+        : ["translateY(20px)", "translateY(0px)"],
+    },
+    { duration, delay, ease: [0.16, 1, 0.3, 1] },
   );
-  revealAnimations.set(element, animation);
-  animation.then(() => {
-    if (revealAnimations.get(element) !== animation) return;
-    revealAnimations.delete(element);
-    // Let CSS hover/focus transforms work after the entrance finishes.
-    clearMotionStyles(element);
-  });
+  const entrance = { animation, timer: null };
+  revealAnimations.set(element, entrance);
+  entrance.timer = setTimeout(
+    () => {
+      if (revealAnimations.get(element) !== entrance) return;
+      animation.stop();
+      revealAnimations.delete(element);
+      // Let CSS hover/focus transforms work after the entrance finishes.
+      clearMotionStyles(element);
+    },
+    (duration + delay) * 1000,
+  );
 };
+// Start the visible hero in this task, before waiting for viewport callbacks.
+// The HTML stays readable without JavaScript or if animation setup fails.
+if (!reducedMotion.matches) {
+  for (const element of revealElements) {
+    const bounds = element.getBoundingClientRect();
+    if (bounds.height && bounds.bottom > 0 && bounds.top < window.innerHeight)
+      reveal(element);
+  }
+}
 const stopReveals =
   !reducedMotion.matches && "IntersectionObserver" in window
     ? inView(revealElements, reveal, { amount: 0.2 })
@@ -115,7 +148,8 @@ const interactiveSurfaces = [
 ];
 const pointerFrames = new Map();
 function resetPointer(surface) {
-  cancelAnimationFrame(pointerFrames.get(surface));
+  const pointer = pointerFrames.get(surface);
+  if (pointer) cancelAnimationFrame(pointer.frame);
   pointerFrames.delete(surface);
   surface.style.removeProperty("--pointer-x");
   surface.style.removeProperty("--pointer-y");
@@ -128,25 +162,29 @@ for (const surface of interactiveSurfaces) {
       event.pointerType === "touch"
     )
       return;
-    cancelAnimationFrame(pointerFrames.get(surface));
-    pointerFrames.set(
-      surface,
-      requestAnimationFrame(() => {
-        pointerFrames.delete(surface);
-        const rect = surface.getBoundingClientRect();
-        if (!rect.width || !rect.height) return;
-        const x = Math.max(
-          0,
-          Math.min(100, ((event.clientX - rect.left) / rect.width) * 100),
-        );
-        const y = Math.max(
-          0,
-          Math.min(100, ((event.clientY - rect.top) / rect.height) * 100),
-        );
-        surface.style.setProperty("--pointer-x", `${x}%`);
-        surface.style.setProperty("--pointer-y", `${y}%`);
-      }),
-    );
+    const pendingPointer = pointerFrames.get(surface);
+    if (pendingPointer) {
+      pendingPointer.x = event.clientX;
+      pendingPointer.y = event.clientY;
+      return;
+    }
+    const pointer = { x: event.clientX, y: event.clientY, frame: null };
+    pointerFrames.set(surface, pointer);
+    pointer.frame = requestAnimationFrame(() => {
+      pointerFrames.delete(surface);
+      const rect = surface.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      const x = Math.max(
+        0,
+        Math.min(100, ((pointer.x - rect.left) / rect.width) * 100),
+      );
+      const y = Math.max(
+        0,
+        Math.min(100, ((pointer.y - rect.top) / rect.height) * 100),
+      );
+      surface.style.setProperty("--pointer-x", `${x}%`);
+      surface.style.setProperty("--pointer-y", `${y}%`);
+    });
   });
   surface.addEventListener("pointerleave", () => resetPointer(surface));
   surface.addEventListener("pointercancel", () => resetPointer(surface));
@@ -196,43 +234,87 @@ function announce(message) {
   announcementTimer = setTimeout(clearAnnouncement, 6000);
 }
 let opener = null;
-let dialogAnimation = null;
-function stopDialogAnimation() {
-  dialogAnimation?.stop();
-  dialogAnimation = null;
-  if (dialog) clearMotionStyles(dialog);
+let dialogState = "closed";
+let dialogTransition = null;
+function stopDialogAnimation(clearStyles = true) {
+  if (dialogTransition) {
+    clearTimeout(dialogTransition.timer);
+    dialogTransition.animation.stop();
+    dialogTransition = null;
+  }
+  if (dialog && clearStyles) clearMotionStyles(dialog);
+}
+function animateDialog(keyframes, duration, ease, onComplete) {
+  const transition = {
+    animation: animate(dialog, keyframes, { duration, ease }),
+    timer: null,
+  };
+  dialogTransition = transition;
+  // An explicit cancellable completion avoids waiting on stopped animations.
+  transition.timer = setTimeout(() => {
+    if (dialogTransition === transition) onComplete();
+  }, duration * 1000);
+}
+function finishDialogClose() {
+  stopDialogAnimation();
+  dialogState = "closed";
+  dialog?.classList.remove("is-closing");
+  if (dialog?.open) dialog.close();
+}
+function requestDialogClose() {
+  if (!dialog?.open || dialogState === "closing") return;
+  stopDialogAnimation(false);
+  if (reducedMotion.matches) {
+    finishDialogClose();
+    return;
+  }
+  dialogState = "closing";
+  dialog.classList.add("is-closing");
+  animateDialog(
+    { opacity: [null, 0], transform: [null, "translateY(10px) scale(0.99)"] },
+    0.18,
+    [0.4, 0, 1, 1],
+    finishDialogClose,
+  );
 }
 if (dialog && typeof dialog.showModal === "function") {
   document.querySelectorAll("[data-open-contact]").forEach((button) => {
     button.addEventListener("click", () => {
-      if (dialog.open) return;
+      if (dialog.open && dialogState !== "closing") return;
+      const reversingClose = dialog.open && dialogState === "closing";
+      stopDialogAnimation(!reversingClose);
       opener = button;
       clearAnnouncement();
-      stopDialogAnimation();
-      dialog.showModal();
+      dialog.classList.remove("is-closing");
+      if (!dialog.open) dialog.showModal();
       document.body.classList.add("dialog-open");
       dialog.querySelector("[data-close-contact]")?.focus();
-      if (!reducedMotion.matches) {
-        const animation = animate(
-          dialog,
-          {
-            opacity: [0, 1],
-            transform: ["translateY(12px)", "translateY(0px)"],
-          },
-          { duration: 0.22 },
-        );
-        dialogAnimation = animation;
-        animation.then(() => {
-          if (dialogAnimation !== animation) return;
-          dialogAnimation = null;
-          clearMotionStyles(dialog);
-        });
+      if (reducedMotion.matches) {
+        dialogState = "open";
+        clearMotionStyles(dialog);
+        return;
       }
+      dialogState = "opening";
+      animateDialog(
+        {
+          opacity: [reversingClose ? null : 0, 1],
+          transform: [
+            reversingClose ? null : "translateY(18px) scale(0.985)",
+            "translateY(0px) scale(1)",
+          ],
+        },
+        0.32,
+        [0.16, 1, 0.3, 1],
+        () => {
+          stopDialogAnimation();
+          dialogState = "open";
+        },
+      );
     });
   });
   dialog
     .querySelector("[data-close-contact]")
-    ?.addEventListener("click", () => dialog.close());
+    ?.addEventListener("click", requestDialogClose);
   dialog.addEventListener("click", (event) => {
     if (event.target !== dialog) return;
     const rect = dialog.getBoundingClientRect();
@@ -242,11 +324,18 @@ if (dialog && typeof dialog.showModal === "function") {
       event.clientY < rect.top ||
       event.clientY > rect.bottom
     )
-      dialog.close();
+      requestDialogClose();
   });
-  dialog.addEventListener("cancel", stopDialogAnimation);
+  dialog.addEventListener("cancel", (event) => {
+    event.preventDefault();
+    requestDialogClose();
+  });
   dialog.addEventListener("close", () => {
+    // A queued close event from the previous opening must not close a new one.
+    if (dialog.open) return;
     stopDialogAnimation();
+    dialogState = "closed";
+    dialog.classList.remove("is-closing");
     clearAnnouncement();
     document.body.classList.remove("dialog-open");
     if (opener?.isConnected) opener.focus({ preventScroll: true });
@@ -257,13 +346,20 @@ if (dialog && typeof dialog.showModal === "function") {
 function respectReducedMotion() {
   if (!reducedMotion.matches) return;
   stopReveals();
-  for (const animation of revealAnimations.values()) animation.stop();
+  for (const entrance of revealAnimations.values()) {
+    clearTimeout(entrance.timer);
+    entrance.animation.stop();
+  }
   revealAnimations.clear();
   revealElements.forEach((element) => {
     revealed.add(element);
     clearMotionStyles(element);
   });
-  stopDialogAnimation();
+  if (dialogState === "closing") finishDialogClose();
+  else {
+    stopDialogAnimation();
+    if (dialog?.open) dialogState = "open";
+  }
   interactiveSurfaces.forEach(resetPointer);
 }
 reducedMotion.addEventListener("change", respectReducedMotion);

@@ -126,6 +126,7 @@ img {
 .header-inner {
   min-height: 94px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   gap: 24px;
@@ -142,11 +143,15 @@ img {
 }
 .header-navigation {
   display: flex;
+  min-width: 0;
+  max-width: 100%;
   align-items: center;
   gap: 34px;
 }
 .site-header nav {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 32px;
 }
 .site-header nav a {
@@ -177,16 +182,19 @@ img {
   transform: scaleX(1);
 }
 .header-qr {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 10px 16px;
   border: 1px solid #a8906566;
-  border-radius: 50%;
-  color: var(--gold-light);
+  border-radius: var(--radius-control);
+  color: var(--cream);
+  font-size: 0.875rem;
   transition:
-    background 200ms,
-    border-color 200ms;
+    background var(--motion-fast),
+    border-color var(--motion-fast);
 }
 .header-qr:is(:hover, :focus-visible) {
   background: #a890651a;
@@ -196,18 +204,17 @@ img {
 /* Editorial hierarchy without modifying the original photograph. */
 .hero {
   position: relative;
-  min-height: 600px;
   display: grid;
+  grid-template-columns: 1.18fr 1fr;
   align-items: center;
-  padding: 28px 0 80px;
+  gap: 72px;
+  padding: 36px 0 56px;
 }
 .hero-copy {
   position: relative;
   z-index: 2;
   min-width: 0;
-  width: 59%;
-  padding-left: 8px;
-  pointer-events: none;
+  padding-bottom: 12px;
 }
 .hero-copy a,
 .hero-copy button {
@@ -215,10 +222,10 @@ img {
 }
 h1 {
   font-family: var(--font-display);
-  font-size: clamp(6rem, 10.3vw, 9.4rem);
+  font-size: clamp(6rem, 10vw, 9rem);
   font-weight: 400;
-  line-height: 0.86;
-  letter-spacing: -0.052em;
+  line-height: 0.89;
+  letter-spacing: -0.055em;
 }
 h1 > span {
   display: block;
@@ -250,7 +257,7 @@ h1 .name-accent {
   display: flex;
   flex-wrap: wrap;
   gap: 4px 18px;
-  margin-top: 27px;
+  margin-top: 26px;
   font-size: 1.05rem;
   color: var(--neutral);
 }
@@ -261,9 +268,9 @@ h1 .name-accent {
 .hero-actions {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 25px;
   flex-wrap: wrap;
-  margin-top: 30px;
+  margin-top: 32px;
 }
 .button {
   display: inline-flex;
@@ -272,14 +279,14 @@ h1 .name-accent {
   gap: 12px;
   min-height: 52px;
   padding: 14px 23px;
-  border-radius: 6px;
+  border-radius: var(--radius-control);
   font-size: 1rem;
   line-height: 1.3;
   transition:
-    background-position 350ms,
-    border-color 200ms,
-    box-shadow 200ms,
-    transform 200ms;
+    background-position var(--motion-slow) var(--ease-out),
+    border-color var(--motion-fast),
+    box-shadow var(--motion-fast),
+    transform var(--motion-fast);
 }
 .button-primary {
   color: var(--navy);
@@ -341,44 +348,31 @@ a:is(:hover, :focus-visible) .link-arrow {
   transform: translate(2px, -2px);
 }
 .hero-visual {
-  position: absolute;
+  position: relative;
   z-index: 1;
-  top: 0;
-  bottom: 0;
-  right: -10px;
-  width: 56%;
+  min-width: 0;
   display: grid;
-  align-items: end;
-  pointer-events: none;
+  justify-items: end;
+  align-items: center;
 }
 .portrait-frame {
-  width: 100%;
-  height: 100%;
+  position: relative;
+  width: min(100%, 420px);
+  aspect-ratio: 0.83;
   overflow: hidden;
-  mask-image:
-    linear-gradient(
-      90deg,
-      transparent,
-      var(--navy) 28%,
-      var(--navy) 87%,
-      transparent
-    ),
-    linear-gradient(
-      0deg,
-      transparent,
-      var(--navy) 22%,
-      var(--navy) 89%,
-      transparent
-    );
-  mask-composite: intersect;
-  mask-mode: alpha;
+  border: 1px solid #a8906580;
+  border-radius: var(--radius-panel);
+  background: var(--navy-soft);
+  box-shadow: 0 20px 64px -30px #1a2744cc;
 }
 .portrait {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 8%;
+  object-position: 50% 12%;
+  transform: scale(1.16);
+  transform-origin: center top;
 }
 .has-portrait .hero-card {
   display: none;
@@ -393,7 +387,7 @@ a:is(:hover, :focus-visible) .link-arrow {
 .metal-surface {
   border: 1px solid #d4d1ca33;
   border-top-color: #f4efe44d;
-  border-radius: 12px;
+  border-radius: var(--radius-panel);
   background:
     linear-gradient(116deg, #6888b821, #f0ece405 42%, #f4efe40a 62%, #1a27441a),
     var(--navy-soft);
@@ -403,23 +397,27 @@ a:is(:hover, :focus-visible) .link-arrow {
   position: relative;
   z-index: 3;
   display: grid;
-  grid-template-columns: 1.65fr 1fr 0.85fr;
-  padding: 16px 6px;
+  grid-template-columns: 1.65fr 1fr 0.8fr;
+  padding: 12px 6px;
 }
 .band-item {
   min-width: 0;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 15px;
-  padding: 10px 24px;
+  gap: 14px;
+  padding: 10px 22px;
   font-size: 1.125rem;
   text-align: left;
   min-height: 78px;
-  transition: background 200ms;
+  transition: background var(--motion-fast);
 }
 .band-item + .band-item {
   border-left: 1px solid #d4d1ca26;
+}
+.band-item > span:not(.contact-icon) {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 .band-item > svg,
 .email-link > svg {
@@ -436,7 +434,7 @@ a:is(:hover, :focus-visible) .link-arrow {
 .email-link {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 14px;
   min-width: 0;
 }
 .email-link > span {
@@ -495,8 +493,8 @@ a:is(:hover, :focus-visible) .link-arrow {
 
 /* Existing destinations with restrained, pointer-driven light. */
 .connections {
-  padding-top: 56px;
-  padding-bottom: 52px;
+  padding-top: 48px;
+  padding-bottom: 48px;
 }
 .section-label {
   display: flex;
@@ -515,21 +513,22 @@ a:is(:hover, :focus-visible) .link-arrow {
 }
 .connection-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
+  grid-template-columns: 1.1fr 1fr;
   gap: 18px;
 }
 .connection-tile {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 96px 48px 25px 25px;
+  padding: 70px 48px 25px 28px;
   position: relative;
   overflow: hidden;
-  min-height: 340px;
+  min-width: 0;
+  min-height: 215px;
   isolation: isolate;
   transition:
-    border-color 240ms,
-    box-shadow 240ms;
+    border-color var(--motion-base),
+    box-shadow var(--motion-base);
 }
 .connection-tile::before {
   content: "";
@@ -577,22 +576,23 @@ a:is(:hover, :focus-visible) .link-arrow {
   z-index: -2;
 }
 .portfolio-image {
-  object-position: 65% 30%;
-  transition: transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  object-position: 62% 35%;
+  transition: transform var(--motion-slow) var(--ease-out);
 }
 .connection-portfolio:is(:hover, :focus-visible) .portfolio-image {
   transform: scale(1.035);
 }
 .personal-image {
-  object-position: 60% 14%;
-  width: 90%;
-  left: 10%;
-  height: 115%;
+  object-position: 50% 18%;
+  width: 54%;
+  left: 46%;
+  height: 134%;
   max-width: none;
-  mask-image: linear-gradient(90deg, transparent, var(--navy) 25%);
+  mask-image: linear-gradient(90deg, transparent, var(--navy) 38%);
+  transition: transform var(--motion-slow) var(--ease-out);
 }
 .connection-personal::after {
-  background: linear-gradient(0deg, #1a2744fa, #1a2744d9 21%, transparent 73%);
+  background: linear-gradient(90deg, #1a2744e6, #1a27444d 52%, transparent 80%);
 }
 .tile-content {
   position: relative;
@@ -610,13 +610,14 @@ a:is(:hover, :focus-visible) .link-arrow {
   margin-bottom: 7px;
 }
 .tile-content h3 {
-  font-size: 2.2rem;
-  line-height: 1.04;
+  font-size: 2rem;
+  line-height: 1.05;
   font-weight: 400;
   letter-spacing: -0.025em;
 }
 .connection-portfolio h3 {
-  font-size: 2.9rem;
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  letter-spacing: -0.04em;
 }
 .tile-action {
   display: inline-flex;
@@ -661,12 +662,12 @@ a:is(:hover, :focus-visible) .link-arrow {
 .app-mark {
   position: absolute;
   top: 22px;
-  left: 25px;
+  left: 28px;
   color: var(--gold-light);
 }
 .app-mark svg {
-  width: 27px;
-  height: 27px;
+  width: 22px;
+  height: 22px;
 }
 .connection-foundation {
   background:
@@ -675,8 +676,9 @@ a:is(:hover, :focus-visible) .link-arrow {
 }
 .foundation-logo {
   position: absolute;
-  right: 35px;
-  top: 42px;
+  right: 45px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .foundation-logo .card-logo {
   width: 102px;
@@ -776,6 +778,7 @@ dialog {
 dialog::backdrop {
   background: #1a2744c9;
   backdrop-filter: blur(9px);
+  animation: backdrop-in var(--motion-base) var(--ease-out) both;
 }
 .dialog-top {
   display: flex;
@@ -885,121 +888,196 @@ dialog .button {
   transform: translate(-50%, 0);
 }
 
+.header-qr svg {
+  width: 18px;
+  height: 18px;
+  color: var(--gold-light);
+}
+.contact-icon {
+  width: 42px;
+  height: 42px;
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  border: 1px solid #a890653d;
+  border-radius: var(--radius-control);
+  background: #a890650a;
+  color: var(--gold-light);
+  transition:
+    background var(--motion-fast),
+    border-color var(--motion-fast);
+}
+.contact-icon svg {
+  width: 20px;
+  height: 20px;
+}
+.band-item:is(:hover, :focus-visible) .contact-icon,
+.email-link:focus-visible .contact-icon {
+  border-color: #a8906580;
+  background: #a8906514;
+}
+.connection-portfolio {
+  grid-row: span 2;
+  min-height: 448px;
+  padding: 36px;
+}
+.connection-personal .tile-content,
+.connection-foundation .tile-content {
+  max-width: 65%;
+}
+.connection-personal:is(:hover, :focus-visible) .personal-image {
+  transform: scale(1.025);
+}
+dialog.is-closing::backdrop {
+  animation: backdrop-out var(--motion-fast) ease-in both;
+}
+@keyframes backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes backdrop-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 @media (max-width: 1100px) {
   .shell {
     width: calc(100% - 64px);
   }
   .hero {
-    min-height: 560px;
-  }
-  .hero-copy {
-    width: 64%;
-    padding-left: 0;
+    gap: 45px;
   }
   .roles {
-    max-width: 80%;
+    flex-direction: column;
     font-size: 1rem;
     gap: 3px;
   }
   .roles p + p {
+    padding: 0;
     border: 0;
-    padding-left: 0;
-    width: 100%;
-  }
-  .hero-visual {
-    width: 60%;
   }
   .hero-actions {
-    gap: 20px;
+    gap: 18px;
+  }
+  .button {
+    padding-inline: 18px;
   }
   .contact-band {
-    grid-template-columns: 1.6fr 1fr 0.75fr;
+    grid-template-columns: 1.65fr 1fr 0.8fr;
   }
   .band-item {
-    padding-inline: 17px;
-    gap: 12px;
+    padding-inline: 14px;
+    gap: 10px;
+    font-size: 1rem;
   }
   .email-link {
-    gap: 12px;
-  }
-  .phone-link {
-    font-size: 1rem;
+    gap: 10px;
   }
   .email-value {
     font-size: 0.9375rem;
   }
-  .email-link > svg {
+  .contact-icon {
+    width: 36px;
+    height: 40px;
+  }
+  .foundation-logo {
+    right: 30px;
+  }
+  .foundation-logo .card-logo {
+    width: 86px;
+  }
+}
+@media (min-width: 761px) and (max-width: 900px) {
+  .header-navigation {
+    gap: 24px;
+  }
+  .site-header nav {
+    gap: 24px;
+  }
+  .header-qr span {
     display: none;
   }
-  .connection-grid {
-    grid-template-columns: 1.1fr 1fr 1fr;
-    gap: 14px;
+  .header-qr {
+    width: 44px;
+    padding: 10px;
+  }
+  .hero {
+    grid-template-columns: 1.1fr 1fr;
+    gap: 28px;
+  }
+  h1 {
+    font-size: clamp(5.5rem, 10.6vw, 6.5rem);
+  }
+  .hero-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 22px;
+  }
+  .contact-band {
+    grid-template-columns: 1.6fr 1fr;
+    padding: 5px;
+  }
+  .qr-link {
+    grid-column: 1 / -1;
+    border-left: 0 !important;
+    border-top: 1px solid #d4d1ca26;
+    min-height: 60px;
+  }
+  .qr-link > span:not(.contact-icon) {
+    display: flex;
+    gap: 9px;
+    align-items: baseline;
   }
   .connection-tile {
-    min-height: 300px;
-    padding-inline: 20px 40px;
+    padding-left: 23px;
   }
-  .tile-content h3 {
-    font-size: 2rem;
-  }
-  .connection-portfolio h3 {
-    font-size: 2.5rem;
+  .connection-portfolio {
+    padding: 28px;
   }
   .app-mark {
-    left: 20px;
+    left: 23px;
+  }
+  .tile-content h3 {
+    font-size: 1.8rem;
+  }
+  .connection-portfolio h3 {
+    font-size: 3.7rem;
   }
   .foundation-logo {
     right: 20px;
   }
   .foundation-logo .card-logo {
-    width: 88px;
-  }
-}
-@media (min-width: 761px) and (max-width: 900px) {
-  .contact-band {
-    grid-template-columns: 1.4fr 1fr;
-    padding: 5px 0;
-  }
-  .contact-band .qr-link {
-    grid-column: 1 / -1;
-    border-left: 0;
-    border-top: 1px solid #d4d1ca26;
-    justify-content: center;
-    min-height: 56px;
-  }
-  .qr-link .band-label {
-    display: none;
-  }
-  .qr-link .link-arrow {
-    margin-left: 4px;
-  }
-  .connection-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .connection-portfolio {
-    grid-column: 1 / -1;
-    min-height: 240px;
+    width: 70px;
   }
 }
 @media (max-width: 760px) {
   html {
-    scroll-padding-top: 95px;
+    scroll-padding-top: 90px;
   }
   .shell {
-    width: calc(100% - 42px);
+    width: calc(100% - 40px);
   }
   .header-inner {
-    min-height: 76px;
-    gap: 12px;
+    min-height: 78px;
+    gap: 0 20px;
   }
   .official-logo {
     width: 38px;
   }
   .header-navigation {
-    gap: 20px;
+    gap: 0;
   }
   .site-header nav {
-    gap: 22px;
+    gap: 0 23px;
   }
   .site-header nav a {
     font-size: 0.875rem;
@@ -1008,219 +1086,49 @@ dialog .button {
     display: none;
   }
   .hero {
-    min-height: 470px;
-    padding: 30px 0 48px;
-  }
-  h1 {
-    font-size: clamp(5rem, 13.5vw, 7rem);
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 25px 0 32px;
   }
   .hero-copy {
-    width: 70%;
+    padding: 0;
   }
-  .hero-visual {
-    width: 61%;
-    right: -10px;
-    top: 10px;
+  h1 {
+    font-size: clamp(4.25rem, 10.4vw, 5.8rem);
+  }
+  h1 .honorific {
+    margin-bottom: 15px;
+    font-size: 1rem;
   }
   .roles {
-    max-width: 85%;
+    margin-top: 17px;
     font-size: 0.9375rem;
-    margin-top: 20px;
   }
   .hero-actions {
-    max-width: 86%;
-    gap: 12px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
     margin-top: 22px;
   }
-  .button {
-    padding-inline: 17px;
+  .hero-actions .button {
     font-size: 0.9375rem;
+    min-height: 48px;
+    padding: 12px 16px;
   }
   .whatsapp-link {
     font-size: 0.9375rem;
-  }
-  .contact-band {
-    grid-template-columns: 1.45fr 1fr;
-    padding: 5px 0;
-  }
-  .band-item {
-    padding: 15px 18px;
-  }
-  .contact-band .qr-link {
-    grid-column: 1 / -1;
-    border-left: 0;
-    border-top: 1px solid #d4d1ca26;
-    justify-content: center;
-    gap: 13px;
-    min-height: 56px;
-    padding-block: 10px;
-  }
-  .qr-link .band-label {
-    display: none;
-  }
-  .qr-link .link-arrow {
-    margin-left: 4px;
-  }
-  .connections {
-    padding-top: 40px;
-    padding-bottom: 38px;
-  }
-  .section-label {
-    font-size: 1.65rem;
-    margin-bottom: 18px;
-  }
-  .connection-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .connection-tile {
-    min-height: 260px;
-  }
-  .connection-portfolio {
-    grid-column: 1 / -1;
-    min-height: 230px;
-  }
-  .portfolio-image {
-    object-position: 75% 55%;
-  }
-  .institutional-statement {
-    padding: 30px 24px;
-    gap: 28px;
-  }
-  .institutional-motto {
-    font-size: 2rem;
-  }
-  .statement-signature {
-    padding: 0;
-  }
-  .statement-signature .card-logo {
-    width: 65px;
-  }
-  .site-footer {
-    padding-bottom: calc(110px + env(safe-area-inset-bottom));
-  }
-  .mobile-dock {
-    position: fixed;
-    bottom: calc(12px + env(safe-area-inset-bottom));
-    left: 16px;
-    right: 16px;
-    z-index: 25;
-    display: grid;
-    grid-template-columns: 1.1fr 1.15fr 0.8fr;
-    gap: 6px;
-    padding: 6px;
-    background: #1a2744f5;
-    border: 1px solid #a8906566;
-    border-radius: 13px;
-    box-shadow: 0 8px 32px #1a274480;
-    backdrop-filter: blur(14px);
-  }
-  .mobile-dock > * {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
-    min-height: 48px;
-    font-size: 0.875rem;
-    border-radius: 8px;
-    transition: background 180ms;
-  }
-  .mobile-dock > :first-child {
-    color: var(--navy);
-    background: var(--gold);
-  }
-  .mobile-dock > :first-child svg {
-    color: var(--navy);
-  }
-  .mobile-dock > :not(:first-child):is(:hover, :active, :focus-visible) {
-    background: #a890651a;
-  }
-  .mobile-dock svg {
-    width: 20px;
-    height: 20px;
-    color: var(--gold-light);
-  }
-  .toast {
-    bottom: calc(96px + env(safe-area-inset-bottom));
-    font-size: 0.9375rem;
-  }
-}
-@media (max-width: 520px) {
-  .shell {
-    width: calc(100% - 36px);
-  }
-  .site-header nav {
-    gap: 20px;
-  }
-  .hero {
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    padding: 28px 0 0;
-  }
-  .hero-copy {
-    width: 100%;
-  }
-  h1 {
-    font-size: clamp(5.4rem, 24vw, 7.5rem);
-    line-height: 0.84;
-    letter-spacing: -0.055em;
-  }
-  h1 .honorific {
-    margin-bottom: 18px;
-    font-size: 1rem;
-  }
-  h1 .name-accent {
-    margin-top: 1px;
-  }
-  .roles {
-    margin-top: 18px;
-    max-width: 100%;
-    gap: 2px;
-  }
-  .hero-actions {
-    max-width: 100%;
-    gap: 22px;
-    margin-top: 23px;
-  }
-  .hero-visual {
-    width: calc(100% + 36px);
-    position: relative;
-    right: auto;
-    top: auto;
-    bottom: auto;
-    margin-left: -18px;
-    height: 332px;
-    margin-top: 4px;
+    min-height: 44px;
   }
   .portrait-frame {
-    mask-image:
-      linear-gradient(
-        90deg,
-        transparent,
-        var(--navy) 18%,
-        var(--navy) 85%,
-        transparent
-      ),
-      linear-gradient(
-        0deg,
-        transparent,
-        var(--navy) 16%,
-        var(--navy) 90%,
-        transparent
-      );
-  }
-  .portrait {
-    object-position: 50% 16%;
+    aspect-ratio: 0.77;
   }
   .contact-band {
-    margin-top: -5px;
-    grid-template-columns: 1.06fr 1fr;
-    padding: 4px 0;
+    grid-template-columns: 1fr 1fr;
+    padding: 4px 10px;
   }
   .band-item {
-    padding: 14px 16px;
-    font-size: 1rem;
+    padding: 12px 10px;
+    min-height: 76px;
   }
   .email-row {
     grid-column: 1 / -1;
@@ -1229,107 +1137,299 @@ dialog .button {
   .email-link {
     flex: 1;
   }
+  .phone-link {
+    border-left: 0 !important;
+  }
+  .qr-link {
+    padding-left: 16px;
+  }
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .connections {
+    padding-block: 35px;
+  }
+  .section-label {
+    font-size: 1.6rem;
+    gap: 20px;
+    margin-bottom: 19px;
+  }
+  .connection-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .connection-portfolio {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    min-height: 290px;
+    padding: 28px;
+  }
+  .portfolio-image {
+    object-position: 50% 38%;
+  }
+  .connection-portfolio::after {
+    background: linear-gradient(90deg, #1a2744e6, #1a274433 85%);
+  }
+  .connection-portfolio h3 {
+    font-size: 3.8rem;
+  }
+  .connection-personal,
+  .connection-foundation {
+    min-height: 240px;
+    padding: 68px 36px 24px 22px;
+  }
+  .connection-personal .tile-content,
+  .connection-foundation .tile-content {
+    max-width: 100%;
+  }
+  .tile-content h3 {
+    font-size: 1.8rem;
+  }
+  .personal-image {
+    width: 85%;
+    left: 15%;
+    height: 110%;
+  }
+  .connection-personal::after {
+    background: linear-gradient(0deg, #1a2744f5, #1a274480 50%, transparent);
+  }
+  .app-mark {
+    left: 22px;
+    top: 22px;
+  }
+  .foundation-logo {
+    right: 20px;
+    top: 18px;
+    transform: none;
+  }
+  .foundation-logo .card-logo {
+    width: 63px;
+  }
+  .tile-arrow {
+    right: 16px;
+    bottom: 24px;
+    width: 18px;
+  }
+  .institutional-statement {
+    padding: 30px 18px;
+    gap: 24px;
+  }
+  .institutional-motto {
+    font-size: clamp(1.7rem, 4vw, 2rem);
+  }
+  .statement-signature {
+    padding: 0;
+  }
+  .statement-signature .card-logo {
+    width: 58px;
+  }
+  .site-footer {
+    padding-bottom: calc(110px + env(safe-area-inset-bottom));
+  }
+  .mobile-dock {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.15fr) minmax(0, 0.8fr);
+    gap: 6px;
+    padding: 6px;
+    position: fixed;
+    z-index: 25;
+    left: 16px;
+    right: 16px;
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    background: #1a2744f5;
+    border: 1px solid #a8906566;
+    border-radius: 13px;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 8px 35px #1a274466;
+  }
+  .mobile-dock > a,
+  .mobile-dock > button {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 48px;
+    padding: 9px 6px;
+    font-size: 0.875rem;
+    border-radius: 8px;
+    transition:
+      background var(--motion-fast),
+      transform var(--motion-fast);
+  }
+  .mobile-dock > a:first-child {
+    background: var(--gold);
+    color: var(--navy);
+  }
+  .mobile-dock > :is(a, button):active {
+    transform: scale(0.97);
+  }
+  .mobile-dock > :is(a, button):not(:first-child):is(:hover, :focus-visible) {
+    background: #a890651a;
+  }
+  .mobile-dock svg {
+    width: 20px;
+    height: 20px;
+  }
+  .mobile-dock span {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+  .mobile-dock > :not(:first-child) svg {
+    color: var(--gold-light);
+  }
+  .toast {
+    bottom: calc(96px + env(safe-area-inset-bottom));
+  }
+}
+@media (max-width: 520px) {
+  .shell {
+    width: calc(100% - 36px);
+  }
+  .header-inner {
+    min-height: 72px;
+  }
+  .site-header nav {
+    gap: 19px;
+  }
+  .official-logo {
+    width: 34px;
+  }
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    padding: 20px 0 28px;
+  }
+  h1 {
+    font-size: clamp(4.4rem, 20vw, 6.5rem);
+    line-height: 0.87;
+  }
+  h1 .honorific {
+    font-size: 0.875rem;
+    margin-bottom: 14px;
+  }
+  .roles {
+    margin-top: 17px;
+  }
+  .hero-actions {
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+    margin-top: 22px;
+  }
+  .hero-actions .button {
+    padding-inline: 17px;
+  }
+  .hero-visual {
+    justify-items: stretch;
+  }
+  .portrait-frame {
+    width: 100%;
+    height: 310px;
+    aspect-ratio: auto;
+    border-radius: 12px;
+  }
+  .portrait {
+    object-position: 50% 14%;
+  }
+  .contact-band {
+    padding-inline: 5px;
+  }
+  .band-item {
+    gap: 9px;
+    padding-inline: 10px;
+    font-size: 0.9375rem;
+  }
+  .contact-icon {
+    width: 34px;
+    height: 38px;
+  }
+  .contact-icon svg {
+    width: 18px;
+    height: 18px;
+  }
   .email-value {
     font-size: 0.875rem;
   }
-  .contact-band .phone-link {
-    border: 0;
-    padding-right: 6px;
-    font-size: 0.875rem;
-    gap: 10px;
+  .band-label {
+    font-size: 0.75rem;
   }
-  .contact-band .phone-link > svg {
-    width: 19px;
-    height: 19px;
+  .copy-control {
+    min-width: 46px;
   }
-  .contact-band .qr-link {
-    grid-column: auto;
-    border-top: 0;
-    border-left: 1px solid #d4d1ca26;
-    min-height: 70px;
-    font-size: 0.9375rem;
-    padding-inline: 12px;
-    gap: 10px;
-  }
-  .qr-link .band-label {
-    display: block;
+  .qr-link {
+    padding-left: 13px;
   }
   .qr-link .link-arrow {
-    display: none;
+    width: 15px;
   }
   .connection-grid {
     grid-template-columns: 1fr;
-    gap: 13px;
-  }
-  .connection-tile {
-    min-height: 196px;
-    padding: 80px 46px 22px 22px;
+    gap: 14px;
   }
   .connection-portfolio {
-    grid-column: auto;
-    min-height: 228px;
-  }
-  .tile-content h3 {
-    font-size: 2.05rem;
+    min-height: 236px;
+    padding: 26px;
   }
   .connection-portfolio h3 {
-    font-size: 2.65rem;
+    font-size: 3.5rem;
   }
-  .tile-handle {
-    margin-top: 8px;
-    font-size: 0.75rem;
+  .connection-personal,
+  .connection-foundation {
+    min-height: 202px;
+    padding: 63px 42px 24px 24px;
+  }
+  .connection-personal .tile-content,
+  .connection-foundation .tile-content {
+    max-width: 65%;
+  }
+  .tile-content h3 {
+    font-size: 1.875rem;
+  }
+  .personal-image {
+    width: 60%;
+    left: 40%;
+    height: 140%;
+    object-position: 50% 16%;
+  }
+  .connection-personal::after {
+    background: linear-gradient(90deg, #1a2744eb, #1a274433 65%, transparent);
+  }
+  .app-mark {
+    left: 24px;
+    top: 22px;
+  }
+  .foundation-logo {
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .foundation-logo .card-logo {
+    width: 90px;
   }
   .tile-arrow {
     right: 20px;
-    bottom: 23px;
   }
-  .app-mark {
-    top: 20px;
-    left: 22px;
-  }
-  .app-mark svg {
-    width: 24px;
-    height: 24px;
-  }
-  .foundation-logo {
-    right: 35px;
-    top: 23px;
-  }
-  .foundation-logo .card-logo {
-    width: 105px;
-  }
-  .personal-image {
-    object-position: 50% 16%;
-    width: 68%;
-    left: 32%;
-    height: 130%;
-  }
-  .connection-personal::after {
-    background:
-      linear-gradient(90deg, #1a2744f5, #1a2744c9 32%, #1a274433 65%),
-      linear-gradient(0deg, #1a2744e6, transparent 65%);
+  .tile-handle {
+    font-size: 0.75rem;
   }
   .institutional-statement {
-    padding: 28px 6px;
-    gap: 0;
+    padding: 28px 0;
+    gap: 18px;
   }
   .institutional-motto {
-    font-size: clamp(1.75rem, 7.8vw, 2.35rem);
-    line-height: 1.2;
+    font-size: 1.625rem;
   }
-  .statement-signature {
-    display: none;
+  .statement-signature .card-logo {
+    width: 48px;
   }
   dialog {
     padding: 20px;
-    border-radius: 14px;
   }
   dialog h2 {
-    font-size: 2.15rem;
-  }
-  .qr-paper {
-    width: min(100%, 246px);
-    margin-block: 20px;
+    font-size: 2.05rem;
   }
 }
 @media (max-width: 359px) {
@@ -1337,40 +1437,62 @@ dialog .button {
     width: calc(100% - 30px);
   }
   .site-header nav {
-    gap: 16px;
+    gap: 14px;
+  }
+  .site-header nav a {
+    font-size: 0.8125rem;
   }
   .hero-actions {
     gap: 13px;
   }
-  .button {
-    padding-inline: 13px;
+  .hero-actions .button {
     font-size: 0.875rem;
-  }
-  .whatsapp-link {
-    font-size: 0.875rem;
+    padding-inline: 12px;
     gap: 8px;
   }
-  .hero-visual {
-    width: calc(100% + 30px);
-    margin-left: -15px;
-    height: 308px;
-  }
-  .contact-band .band-item {
-    padding-inline: 12px;
-  }
-  .email-value {
-    font-size: 0.8125rem;
-  }
-  .contact-band .phone-link {
-    font-size: 0.8125rem;
+  .whatsapp-link {
     gap: 7px;
-  }
-  .contact-band .qr-link {
     font-size: 0.875rem;
+  }
+  .whatsapp-link .link-arrow {
+    display: none;
+  }
+  .portrait-frame {
+    height: 285px;
+  }
+  .contact-band .contact-icon {
+    width: 27px;
+    border: 0;
+    background: none;
+  }
+  .email-row {
+    gap: 6px;
+  }
+  .email-link {
+    gap: 8px;
+  }
+  .copy-control {
+    min-width: 44px;
+  }
+  .band-item {
+    padding-inline: 7px;
+  }
+  .qr-link {
+    padding-left: 10px;
+  }
+  .foundation-logo {
+    right: 24px;
+  }
+  .foundation-logo .card-logo {
+    width: 72px;
   }
   .mobile-dock {
     left: 10px;
     right: 10px;
+  }
+  .mobile-dock > a,
+  .mobile-dock > button {
+    gap: 7px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1382,13 +1504,14 @@ dialog .button {
   ::after {
     animation: none !important;
     transition: none !important;
-    scroll-behavior: auto !important;
   }
   .connection-portfolio:is(:hover, :focus-visible) .portfolio-image,
-  .button:active,
-  a:is(:hover, :focus-visible) .link-arrow,
+  .connection-personal:is(:hover, :focus-visible) .personal-image,
   .connection-tile:is(:hover, :focus-visible) > .tile-arrow,
-  .connection-portfolio:is(:hover, :focus-visible) .tile-action svg {
+  .connection-portfolio:is(:hover, :focus-visible) .tile-action svg,
+  a:is(:hover, :focus-visible) .link-arrow,
+  .button:active,
+  .mobile-dock > :is(a, button):active {
     transform: none;
   }
 }

@@ -28,9 +28,9 @@
             class="header-qr"
             type="button"
             data-open-contact
-            aria-label="Mostrar QR de contacto"
+            aria-label="Compartir contacto: mostrar QR"
           >
-            <i data-lucide="qr-code"></i>
+            <i data-lucide="qr-code"></i><span>Compartir contacto</span>
           </button>
         </div>
       </div>
@@ -38,16 +38,20 @@
     <main>
       <section class="hero shell" id="perfil" aria-labelledby="profile-name">
         <div class="hero-copy">
-          <h1 id="profile-name" class="reveal">
-            <span class="honorific">{{honorific}}</span
-            ><span>{{givenName}}</span
-            ><span class="name-accent">{{familyName}}</span>
+          <h1 id="profile-name">
+            <span class="honorific reveal" data-reveal-delay="0"
+              >{{honorific}}</span
+            >
+            <span class="reveal" data-reveal-delay="90">{{givenName}}</span>
+            <span class="name-accent reveal" data-reveal-delay="180"
+              >{{familyName}}</span
+            >
           </h1>
-          <div class="roles reveal">
+          <div class="roles reveal" data-reveal-delay="260">
             <p>{{role2}}</p>
             <p>{{role1}}</p>
           </div>
-          <div class="hero-actions reveal">
+          <div class="hero-actions reveal" data-reveal-delay="340">
             <a
               class="button button-primary"
               href="./contacto.vcf"
@@ -65,7 +69,11 @@
             ></a>
           </div>
         </div>
-        <div class="hero-visual reveal">
+        <div
+          class="hero-visual reveal"
+          data-reveal-type="portrait"
+          data-reveal-delay="120"
+        >
           {{portrait}}
           <div class="hero-card">
             <div class="card-perspective">
@@ -144,13 +152,14 @@
       </section>
       <section
         class="contact-band metal-surface shell reveal"
+        data-reveal-delay="80"
         id="contacto"
         aria-labelledby="contact-title"
       >
         <h2 class="sr-only" id="contact-title">Contacto</h2>
         <div class="band-item email-row">
           <a class="email-link" href="mailto:{{email}}"
-            ><i data-lucide="mail"></i
+            ><span class="contact-icon"><i data-lucide="mail"></i></span
             ><span
               ><span class="band-label">Correo</span
               ><span class="email-value">{{email}}</span></span
@@ -168,14 +177,14 @@
           </button>
         </div>
         <a class="band-item phone-link" href="tel:{{phone}}"
-          ><i data-lucide="phone"></i
+          ><span class="contact-icon"><i data-lucide="phone"></i></span
           ><span
             ><span class="band-label">Llamar</span
             ><span>{{phoneDisplay}}</span></span
           ></a
         >
         <button class="band-item qr-link" type="button" data-open-contact>
-          <i data-lucide="qr-code"></i
+          <span class="contact-icon"><i data-lucide="qr-code"></i></span
           ><span
             ><span class="band-label">Compartir</span><span>Ver QR</span></span
           ><i class="link-arrow" data-lucide="arrow-up-right"></i>
@@ -215,6 +224,7 @@
           </a>
           <a
             class="connection-tile connection-personal metal-surface reveal"
+            data-reveal-delay="80"
             href="{{instagramPersonalUrl}}"
             target="_blank"
             rel="noopener noreferrer"
@@ -231,6 +241,7 @@
           </a>
           <a
             class="connection-tile connection-foundation metal-surface reveal"
+            data-reveal-delay="160"
             href="{{instagramInstitutionalUrl}}"
             target="_blank"
             rel="noopener noreferrer"
