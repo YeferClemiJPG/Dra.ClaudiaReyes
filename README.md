@@ -2,7 +2,9 @@
 
 Landing editorial y fotográfica de la Dra. Claudia Reyes, primera de siete landings para tarjetas NFC. La petición actual toma como referencia la landing de nutricionista adjunta: más presencia de fotografías auténticas y menos texto, con una biografía profesional breve. Mantiene Times New Roman, superficies crema/perla, texto azul marino y detalles dorados. HTML, CSS y JavaScript con Vite; exportación estática para Hostinger u otro alojamiento de archivos.
 
-Estado: Contacto incorpora cristal líquido, ondas doradas y cinco recursos escultóricos generados por petición explícita del usuario, con texto más cuidado y retirada de todas las flechas. Los seis recursos están terminados y comprobados en navegador y exportación con el alcance documentado abajo. Las pruebas anteriores están separadas en `docs/CONTINUIDAD.md`. Se mantienen fotografías, logo, datos, Times New Roman y el control local de animación autorizado. El sitio no está publicado; procedencia de recursos en `docs/RECURSOS_ACTIVOS.md`.
+Estado: nombre y cargos metalizados, encabezados con cintas satinadas y resplandor breve, y teléfono corregido como smartphone, comprobados en navegador y exportación. Se conservan Contacto de cristal, fotografías, logo, datos, Times New Roman y control local de animación, que queda activo. Las pruebas y sus límites están separados por etapa en `docs/CONTINUIDAD.md`; el sitio no está publicado.
+
+`h1.hero-name` aumenta la presencia del nombre y los cargos usan 18–25 px con filo dorado. Gradientes azul marino/oro y `title-metalwork.svg`, vector original sin IA, reemplazan la decoración de hoja. El resplandor de secciones y encabezados dura 850 ms y el brillo de texto 1150 ms; se elimina la competencia de `text-arrival` con las transformaciones de Motion. `contact-phone-sculpture-v2.png` sustituye al auricular anterior, conservado como histórico; procedencia en `docs/RECURSOS_ACTIVOS.md`.
 
 ## Editar y revisar
 
@@ -43,7 +45,9 @@ La exploración independiente `Claudia_Reyes_Exploracion.html` conserva «Editor
 
 ## Comprobar y exportar
 
-`npm run verify` pasó, incluidos lint, formato y compilación, y catorce comprobaciones nuevas de JavaScript resultaron correctas. Contacto se validó a 1440 y 320 px en desarrollo y a 768 px en la exportación, sin desbordamiento ni imágenes con `src` rotas. QR y copia de correo funcionaron; se comprobaron cero flechas y consola sin errores ni advertencias. La exportación se regeneró y su captura confirma las ondas doradas integradas y el cristal. HTML y capturas de escritorio y móvil están actualizados en los entregables. `CLEMI_Contacto_Recursos.md` reúne los seis PNG y sus procedencias; el alcance por etapas está en `docs/CONTINUIDAD.md`.
+`npm run verify` y `npm run export:preview` pasaron. Desarrollo a 1440/320 px y exportación a 768 px no presentan desbordamiento ni imágenes rotas; la consola exportada no mostró errores ni advertencias. La auditoría de código calculó contraste mínimo de 3,69:1 para el apellido grande y 6,74:1 para cargos, legibles a 24,48/17,92 px. El relleno inferior de 0,14 em evita recortar descendentes y «Reyes» se revisó en móvil. El PNG del teléfono v2 y el SVG de cintas quedan integrados como datos en el HTML autónomo.
+
+Pausar en móvil establece `data-motion="reduce"` sin animaciones computadas, conservando el metal; se reactivó `full` al terminar. En la exportación se observó el resplandor real al navegar a Contacto, con animaciones de sección, título y texto y foco en `contact-title`. Esta etapa no cambió JavaScript ni repitió los catorce diagnósticos anteriores, que son históricos. `CLEMI_Contacto_Recursos.md` enlaza el teléfono v2 y conserva el anterior como histórico.
 
 Se conserva la transcripción accesible del adjunto editorial mediante `aria-describedby`. Las simulaciones no equivalen a pruebas físicas del sistema operativo. NFC, cámara e importación de contacto en iOS/Android continúan pendientes.
 

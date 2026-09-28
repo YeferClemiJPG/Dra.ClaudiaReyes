@@ -1,5 +1,11 @@
 # Recursos visuales activos
 
+## Teléfono corregido y cintas de los títulos
+
+El teléfono activo es `public/assets/contact-phone-sculpture-v2.png`: smartphone vertical reconocible en marfil, azul marino y oro, con pantalla vacía. Se obtuvo mediante edición autorizada con la herramienta integrada, usando el teléfono anterior como referencia de materiales y sustituyendo su geometría; `transparent_background: true`, sin CLI ni instalaciones. PNG RGBA de 1254 × 1254 px, 660 513 bytes; SHA-256 coincidente entre original, proyecto y entrega: `5ceabb9534f6bdafc12bfd8b4ed2ff7b5c246e5928d0803845cc16b6c76a2b1c`. Copia intacta, transparencia y apariencia revisadas, sin personas, marcas ni flechas. El archivo anterior se conserva como histórico. Entregables: `CLEMI_Contacto_Telefono_v2.png` y `CLEMI_Contacto_Telefono_v2_Procedencia.md`, con prompt exacto.
+
+`public/assets/title-metalwork.svg` es un vector original de cintas satinadas doradas, dibujado para títulos y portada sin IA, texto ni logos. Sustituye a `title-flourish.svg`, cuya hoja queda como antecedente histórico. Su uso es decorativo y no modifica nombres accesibles ni jerarquía de títulos. En la exportación a 768 px se comprobaron el SVG integrado en CSS como datos y el PNG del smartphone integrado y cargado a 1254 px naturales, sin imágenes rotas.
+
 ## Fondo de ondas doradas para Contacto
 
 `public/assets/contact-gold-waves.png` fue generado el 28 de septiembre de 2026 con `image_gen__imagegen`, por autorización explícita del usuario: una generación nueva, sin referencias y con `transparent_background: false`. Presenta cintas metálicas doradas y bordes refractados sobre marfil/perla, con centro luminoso. Es decoración abstracta, sin personas, texto ni logos; no modifica fotografías o marcas.
@@ -8,7 +14,7 @@ PNG RGB opaco de 1672 × 941 px y 2 030 126 bytes. SHA-256 del original y las co
 
 ## Cinco esculturas de contacto
 
-Recursos finales generados el 28 de septiembre de 2026 con la herramienta integrada, una llamada por imagen, sin referencias y con `transparent_background: true`. Los cinco PNG ARGB/RGBA de 32 bits miden 1254 × 1254 px y son copias intactas de los originales. Se revisaron visualmente y se comprobó transparencia. Los archivos de proyecto y entrega coinciden con sus originales en SHA-256.
+Esta tabla conserva la primera generación del 28 de septiembre de 2026; su teléfono fue sustituido por la versión 2 descrita arriba. Se usó la herramienta integrada, una llamada por imagen, sin referencias y con `transparent_background: true`. Los cinco PNG ARGB/RGBA de 32 bits miden 1254 × 1254 px y son copias intactas de los originales. Se revisaron visualmente y se comprobó transparencia; proyecto y entrega coinciden con sus originales en SHA-256.
 
 | Archivo en `public/assets/`   |     Bytes | SHA-256                                                            |
 | ----------------------------- | --------: | ------------------------------------------------------------------ |
@@ -20,11 +26,11 @@ Recursos finales generados el 28 de septiembre de 2026 con la herramienta integr
 
 La agenda muestra un relieve abstracto sin rasgos, no un retrato de la doctora. Las burbujas de mensajes y la placa QR están vacías: WhatsApp conserva su marca oficial superpuesta y el QR usa el código real del proyecto. No hay personas ni marcas generadas; estas piezas no son fotografías de objetos institucionales.
 
-Los prompts íntegros, modo y procedencia están en los entregables `CLEMI_Contacto_Agenda_Mensajes_Procedencia.md` y `CLEMI_Contacto_Correo_Telefono_QR_Procedencia.md`. El índice `CLEMI_Contacto_Recursos.md` enlaza los seis PNG y los tres registros de procedencia. La integración se comprobó a 1440/320 px en desarrollo y 768 px en exportación, sin desbordamiento ni imágenes con `src` rotas; los detalles de interacción están en `docs/CONTINUIDAD.md`.
+Los prompts íntegros, modo y procedencia originales están en `CLEMI_Contacto_Agenda_Mensajes_Procedencia.md` y `CLEMI_Contacto_Correo_Telefono_QR_Procedencia.md`. El índice `CLEMI_Contacto_Recursos.md` reúne los seis recursos activos, incluido el smartphone v2 y su registro adicional, y conserva el teléfono anterior como histórico. Las comprobaciones de cada etapa están diferenciadas en `docs/CONTINUIDAD.md`.
 
 ## Contornos y detalle botánico editorial
 
-`public/assets/editorial-contours.svg` es un dibujo vectorial original de diez curvas finas en azul marino y dorado, usado como fondo junto a gradientes CSS perla/marfil. `public/assets/title-flourish.svg` es un detalle lineal botánico original para títulos y portada. Ambos se dibujaron para esta interfaz, sin generación con IA, texto, personas, logos ni dependencias nuevas. Su uso mediante fondos CSS es decorativo y no modifica el contenido semántico de los títulos.
+`public/assets/editorial-contours.svg` es un dibujo vectorial original de diez curvas finas en azul marino y dorado, usado como fondo junto a gradientes CSS perla/marfil. `public/assets/title-flourish.svg` es el detalle botánico histórico, ahora sustituido por `title-metalwork.svg`. Todos se dibujaron para esta interfaz sin IA, texto, personas, logos ni dependencias nuevas. Su uso es decorativo y no modifica el contenido semántico de los títulos.
 
 ## Perfil personal de Instagram
 

@@ -1,6 +1,14 @@
 # CLEMI · Contexto de diseño local
 
-## Etapa vigente · Contacto con cristal y ondas doradas
+## Etapa vigente · protagonismo metalizado y teléfono corregido
+
+La petición actual da mayor presencia al nombre y los cargos, refina los encabezados y secciones con resplandor elegante y corrige el teléfono. `h1.hero-name` aumenta de tamaño, los cargos usan 18–25 px con filo dorado y los textos combinan gradientes legibles azul marino/oro. `title-metalwork.svg` aporta cintas satinadas originales sin IA y sustituye la hoja histórica. El smartphone transparente `contact-phone-sculpture-v2.png` reemplaza al auricular, que se conserva como antecedente.
+
+El resplandor finito de secciones y encabezados dura 850 ms al entrar o llegar mediante ancla; el brillo de texto mantiene 1150 ms. Se elimina el conflicto de `text-arrival` con `transform` y `filter` de Motion, conservando navegación y preferencia local. Verificación y exportación pasaron: desarrollo a 1440/320 px y archivo autónomo a 768 px sin desbordamiento ni imágenes rotas; consola exportada limpia, teléfono v2 y cintas integrados como datos. El relleno inferior de 0,14 em corrige descendentes. Pausa móvil sin animaciones y resplandor real de Contacto con foco en su título comprobados; quedó `full` reactivado. JavaScript no cambió y los catorce diagnósticos anteriores no se repitieron. Fotografías, logo, datos y ausencia de flechas se conservan.
+
+Consulta MCP real: `metallic text shimmer glow elegant heading`. Referencias: [Shimmering Text](https://21st.dev/@ElevenLabs-crawled/components/shimmering-text), [Animated Shiny Text](https://21st.dev/@dillionverma/components/animated-shiny-text) y [Shimmer Text](https://21st.dev/@tom_ui/components/shimmer-text), solo metadatos, sin instalar componentes.
+
+## Etapa anterior · Contacto con cristal y ondas doradas
 
 El usuario pidió un acabado de cristal líquido para Contacto, ondas doradas de fondo, recursos generados que sustituyan los pictogramas, texto más cuidado y eliminación de todas las flechas. El fondo y las cinco esculturas están terminados, revisados e integrados, con copias intactas. La autorización explícita amplía el alcance anterior de IA a estos seis recursos decorativos, sin retratos ni marcas generados.
 

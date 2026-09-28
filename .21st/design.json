@@ -3,10 +3,10 @@
   "status": "approved_direction_refinements_for_review",
   "assistantRecommendation": null,
   "userSelection": "Dirección editorial fotográfica aprobada",
-  "implementedForReview": "Contacto con cristal líquido, ondas doradas y recursos escultóricos",
+  "implementedForReview": "Nombre y cargos metalizados, resplandor de encabezados y teléfono corregido",
   "updatedAt": "2026-09-28",
   "stack": "Static HTML, CSS and JavaScript with Vite",
-  "currentInstruction": "Contacto con acabado de cristal líquido y ondas doradas, cinco recursos escultóricos generados, texto más cuidado y eliminación de todas las flechas. Recursos finales integrados y comprobados en navegador y exportación.",
+  "currentInstruction": "Encabezados y secciones más elegantes con resplandor, nombre y cargos metalizados con mayor protagonismo y smartphone reconocible que sustituye al teléfono anterior. Validación de navegador, exportación, pausa y resplandor real completada.",
   "sharedConstraints": {
     "typography": "Times New Roman; Times, Georgia y Cormorant Garamond local como respaldos",
     "colors": [
@@ -34,7 +34,7 @@
         "assets/contact-save-sculpture.png",
         "assets/contact-chat-sculpture.png",
         "assets/contact-mail-sculpture.png",
-        "assets/contact-phone-sculpture.png",
+        "assets/contact-phone-sculpture-v2.png",
         "assets/contact-qr-sculpture.png"
       ],
       "provenanceAndPrompt": "docs/RECURSOS_ACTIVOS.md"
@@ -54,7 +54,7 @@
     "anchorNavigationMax": 1100
   },
   "currentComposition": {
-    "hero": "Nombre, cargos, fotografía e ilustración de pie y libro; retrato a la derecha en escritorio y antes del nombre en móvil; sin CTA, QR ni especialidad separada",
+    "hero": "h1.hero-name mayor y cargos de 18–25 px con filo dorado, gradientes legibles navy/oro; retrato e ilustración originales, sin acciones ni texto adicional",
     "biography": "48 palabras basadas en AAOT y hoja de vida publicada por SCCOT; sin credenciales duplicadas",
     "gallery": "Adjunto editorial y retrato profesional con bata; preservar textos integrados; ambos ampliables mediante diálogo nativo con fondo difuminado, descripción accesible, cierre por Escape, botón o clic exterior y retorno de foco",
     "connections": "Tres tarjetas con imagen superior y títulos breves; sin reclamos ni nombres de usuario adicionales",
@@ -62,7 +62,7 @@
     "contactWavesIntegration": "Imagen decorativa contact-waves con alt vacío y loading lazy, integrada en el HTML autónomo",
     "footer": "Lema exacto una vez, details nativo Fuentes y créditos y botón Activar/Pausar animaciones",
     "background": "Gradientes perla, marfil y azul marino con editorial-contours.svg original; paneles translúcidos de borde fino en Trayectoria y Contacto",
-    "headings": "Inicial dorada cursiva y detalle botánico lineal title-flourish.svg, también en portada sin texto adicional; conservar jerarquía semántica",
+    "headings": "Gradientes metalizados navy/oro y cintas satinadas de title-metalwork.svg original sin IA; conservar jerarquía semántica",
     "removed": [
       "QR de portada y cabecera",
       "Barra móvil fija",
@@ -80,7 +80,8 @@
     "titleReveal": "Entrada de 950 ms desde desplazamiento vertical 65 %, rotación X 12°, desenfoque 4 px y máscara 85 %; brillo 1150 ms y limpieza a 1200 ms más retraso, una sola vez",
     "liquidGlass": "Desenfoque de fondo 19 px, saturación 1,35, bisel, reflejo según puntero y barrido de brillo 950 ms",
     "anchorNavigation": "RAF con curva cúbica de 460–1100 ms según distancia; mantiene historial, foco de destino y cancelación ante entrada manual; sin interceptar la rueda",
-    "sectionArrival": "is-arriving anima la floritura durante 850 ms",
+    "sectionArrival": "Resplandor finito de sección y encabezado de 850 ms al entrar o llegar mediante ancla",
+    "textAnimationOwnership": "text-arrival evita competir con Motion por transform y filter; mantiene brillo de 1150 ms",
     "scrollProgress": "Línea en el pseudoelemento after de la cabecera"
   },
   "motionPreference": {
@@ -103,13 +104,13 @@
     "scienceIllustration": "assets/clemi-science-illustration.png",
     "researchIllustration": "assets/clemi-research-illustration.png",
     "editorialContours": "assets/editorial-contours.svg",
-    "titleFlourish": "assets/title-flourish.svg",
+    "titleMetalwork": "assets/title-metalwork.svg",
     "contactGoldWaves": "assets/contact-gold-waves.png",
     "contactSculptures": [
       "assets/contact-save-sculpture.png",
       "assets/contact-chat-sculpture.png",
       "assets/contact-mail-sculpture.png",
-      "assets/contact-phone-sculpture.png",
+      "assets/contact-phone-sculpture-v2.png",
       "assets/contact-qr-sculpture.png"
     ]
   },
@@ -118,6 +119,8 @@
     "researchIllustration": "Solo portafolio"
   },
   "historicalAssets": [
+    "assets/title-flourish.svg",
+    "assets/contact-phone-sculpture.png",
     "assets/clemi-metallic-portfolio.png",
     "assets/icons/contact-save.svg",
     "assets/icons/contact-qr.svg",
@@ -126,17 +129,22 @@
   ],
   "validation": {
     "status": "checked_with_limits",
-    "completed": "Seis PNG finales e intactos; npm run verify correcto con lint, formato y compilación; catorce comprobaciones JavaScript nuevas correctas",
+    "completed": "npm run verify y export:preview correctos; teléfono v2 con transparencia y hashes coincidentes; cintas vectoriales originales incorporadas",
     "developmentBrowserWidthsPx": [1440, 320],
+    "developmentBrowserFindings": "Sin desbordamiento ni imágenes rotas; cargos de 24,48/17,92 px legibles; Reyes móvil sin recorte tras añadir 0,14 em inferior",
+    "codeAudit": "Contraste calculado mínimo 3,69:1 para apellido grande y 6,74:1 para cargos; sin conflicto de transformaciones y con prioridad de movimiento reducido",
     "standaloneExportWidthPx": 768,
-    "browserFindings": "Sin desbordamiento ni imágenes con src rotas; QR y copia de correo verificados, cero flechas, consola sin errores ni advertencias",
-    "standaloneExport": "Regenerada y comprobada; PNG de ondas integrado como data URL, captura confirma el dorado y el cristal. QR abre, cierra con Escape y devuelve foco. HTML y capturas de escritorio/móvil actualizados",
+    "standaloneExport": "Sin desbordamiento, imágenes rotas ni errores o advertencias de consola; smartphone data PNG cargado a 1254 px naturales y title-metalwork data SVG integrado en CSS",
+    "motionPause": "En móvil data-motion reduce sin animaciones computadas, conserva metal; reactivado full al terminar",
+    "observedGlow": "En exportación, navegación a Contacto activa is-arriving, section-radiance, heading-radiance y text-light con foco en contact-title; al terminar is-arriving desaparece y animationName queda none",
+    "javascriptChanges": false,
+    "diagnosticsScope": "Los catorce diagnósticos de la etapa anterior no se repitieron y permanecen históricos",
     "pending": [
       "NFC físico, escaneo por cámara e importación vCard en iOS/Android"
     ],
     "historicalBaselineCommit": "afb2f47",
     "historicalResults": "docs/CONTINUIDAD.md",
-    "limits": "Comprobaciones de navegador y arnés; no equivalen a escaneo por cámara, NFC físico o importación en dispositivos móviles. Las pruebas anteriores se conservan por etapa"
+    "limits": "Navegador y auditoría de código; sin prueba física de NFC, cámara o importación móvil. Las comprobaciones anteriores se conservan por etapa"
   },
   "contactResourceDeliverable": "CLEMI_Contacto_Recursos.md",
   "publication": {
@@ -183,9 +191,12 @@
     "https://21st.dev/@cnippet-dev/components/text-reveal",
     "https://21st.dev/@manuarora700/components/focus-cards",
     "https://21st.dev/@hyperiux/components/rectangular-text-reveal",
-    "https://21st.dev/@soralabs/components/dual-wipe-reveal"
+    "https://21st.dev/@soralabs/components/dual-wipe-reveal",
+    "https://21st.dev/@ElevenLabs-crawled/components/shimmering-text",
+    "https://21st.dev/@dillionverma/components/animated-shiny-text",
+    "https://21st.dev/@tom_ui/components/shimmer-text"
   ],
-  "latestCatalogQuery": "scroll reveal elegant heading background lines",
+  "latestCatalogQuery": "metallic text shimmer glow elegant heading",
   "catalogAccess": "Consulta MCP real de metadatos; sin instalar componentes. CLI 21st no instalado",
   "comparisonDeliverable": "Claudia_Reyes_Exploracion.html",
   "figma": {

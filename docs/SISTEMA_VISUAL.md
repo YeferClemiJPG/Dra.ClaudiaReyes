@@ -1,6 +1,12 @@
 # Dirección visual CLEMI
 
-## Dirección vigente · Contacto con cristal y ondas doradas
+## Dirección vigente · nombre y encabezados metalizados
+
+El nombre aumenta su presencia con `h1.hero-name`; cargos de 18–25 px y filo dorado acompañan gradientes legibles azul marino/oro. Las cintas satinadas de `title-metalwork.svg`, vector original sin IA, sustituyen la hoja histórica de `title-flourish.svg`. Secciones y encabezados reciben resplandor finito de 850 ms al entrar o llegar por ancla; el brillo de texto dura 1150 ms. `text-arrival` deja de competir con Motion por transformaciones y filtro, manteniendo navegación y preferencia local.
+
+El smartphone transparente `contact-phone-sculpture-v2.png` corrige la forma del teléfono anterior, que queda archivado como histórico. Verificación y exportación pasaron; desarrollo a 1440/320 px y archivo autónomo a 768 px sin desbordamiento ni imágenes rotas. La auditoría de las combinaciones evaluadas calculó mínimos de 3,69:1 para el apellido grande y 6,74:1 para cargos, legibles a 24,48/17,92 px. El relleno inferior de 0,14 em corrige descendentes en «Reyes» móvil. Teléfono y cintas quedan integrados como datos; consola exportada limpia. Pausa móvil sin animaciones y resplandor real al navegar a Contacto, con foco en su título, comprobados; se reactivó `full`. La etapa no cambió JavaScript ni repitió los catorce diagnósticos históricos. Datos, fotografías y logo permanecen intactos; procedencia en `docs/RECURSOS_ACTIVOS.md`.
+
+## Base conservada · Contacto con cristal y ondas doradas
 
 La nueva petición aplica a Contacto un acabado de cristal líquido sobre ondas doradas, con cinco imágenes escultóricas para las acciones, texto más cuidado y retirada de todas las flechas. Los seis recursos están terminados e integrados. Se conservan Times New Roman, datos, fotografías, logo y control local de movimiento. Las tarjetas mantienen nombres accesibles y acciones comprensibles; la validación de navegador y exportación está completada con el alcance descrito abajo.
 

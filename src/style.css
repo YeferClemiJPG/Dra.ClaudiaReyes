@@ -1722,7 +1722,7 @@ dialog .button {
   }
 }
 
-/* Pearl light and engraved botanical details continue the editorial identity. */
+/* Pearl light and satin metal continue the editorial identity. */
 .site-header::after {
   content: "";
   position: absolute;
@@ -1762,53 +1762,127 @@ dialog .button {
 .connections {
   padding-block: 86px;
 }
+.connections::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 20px -30px;
+  border-radius: 34px;
+  border-top: 1px solid #ffffffc9;
+  background: linear-gradient(135deg, #fffdf891, #f5f4ef1a 55%, #e6ebf35c);
+  pointer-events: none;
+}
 .section-heading {
   position: relative;
+  isolation: isolate;
   width: fit-content;
   max-width: 100%;
-  padding-bottom: 29px;
-}
-.section-heading .reveal::first-letter {
-  color: var(--accent);
-  font-style: italic;
+  padding-bottom: 40px;
+  font-size: clamp(2.65rem, 4.5vw, 4.25rem);
+  letter-spacing: -0.05em;
 }
 .section-heading::before {
   content: "";
   position: absolute;
-  left: 1px;
-  bottom: 10px;
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(90deg, #a8906599, #a890651a 65%, transparent);
-  transform-origin: left;
+  z-index: -1;
+  inset: -20px -22px 3px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    #dfc99455,
+    #fffefb38 52%,
+    transparent 74%
+  );
+  opacity: 0.25;
+  pointer-events: none;
 }
 .section-heading::after,
 .hero-copy h1::after {
   content: "";
-  background: url("/assets/title-flourish.svg") center / contain no-repeat;
+  background: url("/assets/title-metalwork.svg") center / contain no-repeat;
   pointer-events: none;
 }
 .section-heading::after {
   position: absolute;
-  right: -5px;
-  bottom: -2px;
-  width: 132px;
-  height: 29px;
+  left: 0;
+  bottom: 0;
+  width: min(220px, 100%);
+  height: 35px;
 }
 .hero-copy h1::after {
   display: block;
-  width: 142px;
-  height: 29px;
-  margin-top: 23px;
+  width: 235px;
+  max-width: 70%;
+  height: 38px;
+  margin-top: 22px;
 }
 .hero-copy .roles {
-  margin-top: 18px;
+  position: relative;
+  margin-top: 24px;
+  padding: 5px 0 5px 20px;
+  gap: 7px;
+  color: var(--navy);
+  font-size: clamp(1.12rem, 1.7vw, 1.55rem);
+  line-height: 1.4;
+  letter-spacing: 0.005em;
 }
-.is-arriving .section-heading::before {
-  animation: heading-rule 850ms var(--ease-out) both;
+.hero-copy .roles::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 0;
+  width: 3px;
+  border-radius: 4px;
+  background: linear-gradient(#eee2c4, #856838 43%, #cdb582 58%, #856838);
+  box-shadow: 1px 0 0 #ffffff;
 }
-.is-arriving .section-heading::after {
-  animation: heading-detail 850ms var(--ease-out) both;
+.hero-copy .roles p:first-child {
+  font-weight: 600;
+}
+.hero-name .honorific {
+  color: var(--accent);
+  font-size: clamp(1.15rem, 1.7vw, 1.5rem);
+  letter-spacing: 0.09em;
+  margin-bottom: 16px;
+}
+.hero {
+  isolation: isolate;
+}
+:is(.hero, .biography, .connections, .contact-section)::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: min(620px, 100%);
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 35% 45%,
+    #d8bc7d66,
+    #fff5d52b 44%,
+    transparent 70%
+  );
+  opacity: 0;
+  pointer-events: none;
+}
+:root[data-motion="full"]
+  :is(.hero, .biography, .connections, .contact-section):is(
+    :has(.text-illuminated),
+    .is-arriving
+  )::after {
+  animation: section-radiance 850ms var(--ease-out) both;
+}
+:root[data-motion="full"]
+  .section-heading:is(:has(.text-illuminated), :hover)::before,
+:root[data-motion="full"] .is-arriving .section-heading::before {
+  animation: heading-radiance 850ms var(--ease-out) both;
+}
+:root[data-motion="full"]
+  .section-heading:is(:has(.text-illuminated), :hover)::after,
+:root[data-motion="full"] .is-arriving .section-heading::after {
+  animation: metalwork-light 850ms var(--ease-out) both;
 }
 .motion-toggle {
   display: inline-flex;
@@ -1835,27 +1909,35 @@ dialog .button {
   border-right: 0;
   border-left: 8px solid var(--accent);
 }
-@keyframes heading-rule {
-  from {
-    transform: scaleX(0.2);
+@keyframes section-radiance {
+  0%,
+  100% {
     opacity: 0;
   }
-  to {
-    transform: scaleX(1);
+  40% {
+    opacity: 0.85;
+  }
+}
+@keyframes heading-radiance {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  45% {
     opacity: 1;
   }
 }
-@keyframes heading-detail {
-  from {
-    transform: translateX(-12px);
-    opacity: 0;
+@keyframes metalwork-light {
+  0%,
+  100% {
+    filter: drop-shadow(0 1px 0 #ffffff99);
   }
-  to {
-    transform: none;
-    opacity: 1;
+  45% {
+    filter: drop-shadow(0 0 7px #c7a35c99) brightness(1.12);
   }
 }
 @media (max-width: 760px) {
+  .connections::before,
   .biography::before,
   .contact-section::before {
     inset: 10px -14px;
@@ -1865,22 +1947,32 @@ dialog .button {
     padding-block: 58px;
   }
   .section-heading {
-    padding-bottom: 26px;
+    padding-bottom: 34px;
+    font-size: clamp(2.55rem, 6.2vw, 3.4rem);
   }
   .section-heading::after {
-    width: 111px;
-    height: 24px;
+    width: 182px;
+    height: 29px;
   }
   .hero-copy h1::after {
-    width: 120px;
-    height: 26px;
+    width: 185px;
+    height: 30px;
     margin-top: 17px;
+  }
+  .hero-copy .roles {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding-left: 15px;
+    margin-top: 16px;
+    gap: 4px;
+    font-size: 1.12rem;
   }
   .motion-toggle {
     margin-right: auto;
   }
 }
 @media (max-width: 359px) {
+  .connections::before,
   .biography::before,
   .contact-section::before {
     inset-inline: -7px;

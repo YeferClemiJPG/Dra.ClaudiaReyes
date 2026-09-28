@@ -1,6 +1,6 @@
 # Continuidad del proyecto · 28 de septiembre de 2026
 
-La etapa vigente incorpora Contacto con cristal líquido, ondas doradas, cinco recursos escultóricos, texto más cuidado y retirada de flechas. Sus recursos, navegador y exportación están comprobados con el alcance y los límites registrados al final. La autorización para generarlos amplía el alcance anterior. Los resultados previos se conservan por etapa.
+La etapa vigente refuerza nombre y cargos metalizados, encabezados con resplandor y teléfono corregido como smartphone. Su validación de navegador, exportación, pausa y resplandor real está completada con los límites indicados al final. Los resultados anteriores se conservan por etapa.
 
 ## Base recuperada
 
@@ -123,7 +123,7 @@ Se observó el recorrido animado intermedio y la llegada a posición correcta co
 
 Esta etapa sí comprobó movimiento normal en navegador mediante la preferencia local autorizada; la limitación de la etapa anterior, validada solo por arnés, es histórica. No se modificaron preferencias del sistema. NFC físico, escaneo por cámara e importación vCard en iOS/Android siguen pendientes. No hay publicación y se mantiene `noindex, nofollow`.
 
-## Etapa actual: Contacto con cristal líquido
+## Etapa anterior: Contacto con cristal líquido
 
 El usuario solicitó ondas doradas de fondo, tarjetas con acabado de cristal, recursos generados en lugar de los pictogramas, texto más cuidado y eliminación de todas las flechas. Autorizó expresamente el fondo y cinco esculturas para guardar, conversación, correo, teléfono y soporte QR, ampliando el alcance anterior de IA. Fotografías, logo y datos permanecen intactos. WhatsApp conserva su marca oficial superpuesta y el soporte QR utiliza el código escaneable real, sin generarlo.
 
@@ -134,3 +134,15 @@ El cristal usa desenfoque de fondo de 19 px, saturación 1,35, bisel, reflejo de
 La validación final de esta etapa pasó: `npm run verify` completó lint, formato y compilación; catorce comprobaciones JavaScript nuevas fueron correctas. Contacto se revisó a 1440 y 320 px en desarrollo y a 768 px en exportación, sin desbordamiento ni imágenes con `src` rotas. Se verificaron QR, copia de correo, cero flechas y consola sin errores ni advertencias. La captura de la exportación regenerada confirma el dorado y el cristal; el HTML y las capturas de escritorio y móvil están actualizados en los entregables. No se instalaron dependencias ni se publicó el sitio. NFC físico, cámara e importación móvil continúan pendientes.
 
 En el archivo autónomo se confirmó el PNG de ondas integrado como data URL y el QR con apertura, cierre por Escape y retorno de foco.
+
+## Etapa actual: protagonismo metalizado y teléfono corregido
+
+El usuario pidió encabezados y secciones más elegantes con resplandor, mayor protagonismo metalizado del nombre y los cargos y corrección del teléfono. `h1.hero-name` gana tamaño, los cargos usan 18–25 px con filo dorado y las cintas satinadas originales de `title-metalwork.svg` sustituyen la hoja histórica. El resplandor dura 850 ms y el brillo de texto 1150 ms; se elimina la competencia de `text-arrival` con transformaciones y filtro de Motion, manteniendo navegación y preferencia local.
+
+`contact-phone-sculpture-v2.png` es el smartphone transparente activo; el auricular anterior se conserva. Su prompt y procedencia están en `CLEMI_Contacto_Telefono_v2_Procedencia.md` y el índice de recursos enlaza la versión activa y marca la anterior como histórica. Se consultó realmente por MCP `metallic text shimmer glow elegant heading`; las tres referencias están en `.21st/DESIGN.md`, sin instalaciones. Fotografías, logo y datos permanecen intactos y el sitio no se publica.
+
+`npm run verify` y `npm run export:preview` pasaron. Desarrollo a 1440 y 320 px no muestra desbordamiento ni imágenes rotas; cargos de 24,48/17,92 px legibles. La auditoría independiente calculó mínimos de contraste de 3,69:1 para el apellido grande y 6,74:1 para cargos, sin conflicto de transformaciones y con prioridad de movimiento reducido conservada. El relleno inferior `padding-bottom: 0.14em` evita recortar descendentes; «Reyes» se revisó corregido en móvil.
+
+La exportación a 768 px se comprobó sin desbordamiento, imágenes rotas ni advertencias o errores de consola. El PNG del smartphone está integrado como datos y carga a 1254 px naturales; `title-metalwork.svg` está integrado como SVG de datos en el CSS. Pausar en móvil establece `data-motion="reduce"` sin animaciones computadas y conserva el acabado metalizado; se reactivó `full` al terminar.
+
+El resplandor real se comprobó en la exportación al pulsar Contacto en la cabecera: `.is-arriving` activo, `section-radiance` en `#contacto::after`, `heading-radiance` en `#contact-title::before` y `text-light` en el texto, con foco en `contact-title`. Al terminar desapareció `.is-arriving` y la animación quedó en `none`, confirmando su duración finita. La captura final a 1440 px conserva completa la descendente de «Reyes». Se actualizaron el HTML autónomo y `Claudia_Reyes_Metalizado_Portada.png`, `Claudia_Reyes_Metalizado_Movil.png` y `Claudia_Reyes_Metalizado_Contacto.png`. No hubo cambios JavaScript en esta etapa ni se repitieron los catorce diagnósticos anteriores; permanecen como históricos. NFC físico, cámara e importación móvil siguen pendientes. No hay publicación.

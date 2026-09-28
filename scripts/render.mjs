@@ -64,7 +64,7 @@ for (const asset of [
   "contact-save-sculpture.png",
   "contact-chat-sculpture.png",
   "contact-mail-sculpture.png",
-  "contact-phone-sculpture.png",
+  "contact-phone-sculpture-v2.png",
   "contact-qr-sculpture.png",
   "contact-gold-waves.png",
 ]) {
