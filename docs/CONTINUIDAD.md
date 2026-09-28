@@ -1,8 +1,18 @@
 # Continuidad del proyecto · 28 de septiembre de 2026
 
-La etapa vigente corrige el alcance del azul SCCOT: ondas de Contacto, con Conexiones restaurada. Los resultados anteriores se conservan por etapa.
+La etapa vigente prepara la publicación autorizada en GitHub Pages. Los resultados anteriores se conservan por etapa; sus referencias a repositorio privado, `publicUrl: null`, `noindex` o ausencia de publicación describen el estado de aquel momento y no son restricciones vigentes.
 
-## Etapa vigente · Azul SCCOT en las ondas de Contacto
+## Etapa vigente · Publicación autorizada en GitHub Pages
+
+El usuario pidió expresamente hacer pública la página dentro de GitHub. El repositorio `YeferClemiJPG/Dra.ClaudiaReyes` está confirmado como público y el destino configurado es https://yeferclemijpg.github.io/Dra.ClaudiaReyes/. Hostinger continúa pendiente para una migración posterior.
+
+La rama de publicación es `refine/interaction-visual`; no se necesita fusionar el PR con `main`. `.github/workflows/pages.yml` ejecuta `npm ci` y `npm run verify`, sube únicamente la salida `dist/` y despliega con GitHub Pages. El perfil establece esa URL en `publicUrl`, con canonical y `index, follow` generados; Vite conserva la base relativa `"./"`.
+
+La revisión previa de la distribución comprobó que sus referencias locales de HTML y CSS resuelven dentro de la ruta del proyecto. La salida contiene recursos estáticos, vCard y licencias; no contiene mapas de código ni archivos de entorno. Esta revisión de archivos no sustituye la comprobación del despliegue: faltan confirmar el resultado del flujo y la disponibilidad e interacción de la URL pública. No se declara todavía validado el sitio en producción.
+
+Esta autorización reemplaza las restricciones anteriores de vista previa sin publicación. No autoriza cambios de dominio, facturación ni despliegues sobre otros sitios. NFC físico, cámara e importación vCard en iOS/Android siguen pendientes.
+
+## Etapa anterior · Azul SCCOT en las ondas de Contacto
 
 El usuario corrigió la sección: el azul SCCOT debe aparecer en las ondas de la imagen de Contacto. Conexiones recupera exactamente el diseño anterior a los acentos azules (commit `1729671`), con sus colores CLEMI. `assets/contact-blue-waves.png` sustituye al fondo dorado mediante edición generativa; el original `contact-gold-waves.png` queda como histórico. Las tarjetas conservan el cristal y sus iconos dorados; no cambian contenido ni interacción. Se retiran los acentos añadidos en `df9d071`.
 
@@ -10,7 +20,7 @@ El usuario corrigió la sección: el azul SCCOT debe aparecer en las ondas de la
 
 El PNG opaco mide 1672 × 941 px y ocupa 2.088.185 bytes. SHA-256: `1eec18cc257be3702e1ce86153beb0ab2595eb2326aa0ad97ea492b83ef63b69`. El original dorado permanece intacto.
 
-`npm run verify` (lint, formato y build) y `npm run export:preview` pasaron. La copia de entrega es exacta y el nuevo PNG integrado coincide con el activo. Desarrollo revisado a 1280/320 px sin desbordamiento, con las cuatro tarjetas y el fondo azul cargado; móvil sin imágenes rotas ni errores o advertencias de consola. Las capturas confirman Conexiones sin franjas azules y Contacto azul con cristal y dorado legibles. `src/editorial-banner.css` y `src/tokens.css` coinciden con `1729671`. JavaScript no cambia; las pruebas VCF anteriores no se repitieron. La revisión visual corresponde a desarrollo; el HTML autónomo se comprobó por integridad de la copia y del recurso integrado. Las comprobaciones de las etapas siguientes son históricas; no hay publicación.
+`npm run verify` (lint, formato y build) y `npm run export:preview` pasaron. La copia de entrega es exacta y el nuevo PNG integrado coincide con el activo. Desarrollo revisado a 1280/320 px sin desbordamiento, con las cuatro tarjetas y el fondo azul cargado; móvil sin imágenes rotas ni errores o advertencias de consola. Las capturas confirman Conexiones sin franjas azules y Contacto azul con cristal y dorado legibles. `src/editorial-banner.css` y `src/tokens.css` coinciden con `1729671`. JavaScript no cambia; las pruebas VCF anteriores no se repitieron. La revisión visual corresponde a desarrollo; el HTML autónomo se comprobó por integridad de la copia y del recurso integrado. Las comprobaciones de las etapas siguientes son históricas; en esta etapa todavía no se había publicado.
 
 ## Etapa anterior · Identidad recuperada y segundo relleno generativo
 
@@ -22,7 +32,7 @@ El retrato ocupa aproximadamente el 8–44 % izquierdo del lienzo. En escritorio
 
 `npm run verify` y `npm run export:preview` pasaron tras la integración. Se revisó desarrollo en navegador a 1280, 1440, 320 y 768 px. Nombre, especialidad y usuario de Instagram están presentes y accesibles. No hay desbordamiento en 1280/320/768 px ni imágenes rotas en 1280/320 px; la revisión visual a 1440 px confirma la composición completa. A 768 px se comprobaron cabello, mano y hombros completos, unión lateral sin línea visible y consola sin errores ni advertencias.
 
-El HTML autónomo se regeneró y la copia de entrega coincide con la salida. Se verificaron el PNG integrado como base64 idéntico al activo y los tres textos recuperados. El navegador bloqueó la apertura automática mediante `file:`: esta corrección tiene validación del contenido exportado, no revisión visual del archivo autónomo. Las pruebas de descarga, QR y catorce diagnósticos de JavaScript descritas más abajo corresponden a la etapa anterior; no se han repetido porque el JavaScript de interacción no cambia. Contacto, Conexiones y lema se conservan. No se publica el sitio; NFC físico, cámara e importación móvil siguen pendientes.
+El HTML autónomo se regeneró y la copia de entrega coincide con la salida. Se verificaron el PNG integrado como base64 idéntico al activo y los tres textos recuperados. El navegador bloqueó la apertura automática mediante `file:`: esta corrección tiene validación del contenido exportado, no revisión visual del archivo autónomo. Las pruebas de descarga, QR y catorce diagnósticos de JavaScript descritas más abajo corresponden a la etapa anterior; no se han repetido porque el JavaScript de interacción no cambia. Contacto, Conexiones y lema se conservan. En esta etapa no se publicó el sitio; NFC físico, cámara e importación móvil seguían pendientes.
 
 La revisión adicional de desarrollo a 1000 px confirmó la composición, ausencia de desbordamiento y ratio DOM exacto 2:1 de la imagen aunque el bloque de texto tenga mayor altura. No se amplía ni recorta el retrato para cubrir esa diferencia.
 
@@ -45,15 +55,15 @@ La landing de Claudia es la primera de siete. Se mantiene la web estática con V
 
 Estas pruebas no equivalen a probar una tarjeta NFC física, escanear el QR con una cámara ni importar la vCard en iOS o Android. La disponibilidad de los destinos externos de redes y portafolio no se comprobó en esta recuperación.
 
-## Conexiones y próximos pasos
+## Conexiones y próximos pasos de la recuperación
 
 La búsqueda real por MCP de 21st funcionó en este chat. Las tres cabeceras encontradas son referencias disponibles, no una selección de rediseño ni componentes instalados.
 
 Los documentos anteriores conservan información histórica. En particular, Figma figura como pendiente en `REFERENCIA_VISUAL.md`, pero las notas posteriores de `SISTEMA_VISUAL.md` y `REVISION.md` documentan un archivo editable; no se ha comprobado de nuevo en esta recuperación. Las referencias a ramas anteriores corresponden al trabajo previo al ZIP.
 
-Pendientes: revisión visual del usuario, posible PNG transparente fiel al retrato original y definición de la URL permanente. `publicUrl` sigue siendo `null` y la página mantiene `noindex`.
+Al terminar la recuperación quedaban pendientes la revisión visual del usuario, un posible PNG transparente fiel al retrato original y la definición de la URL permanente. Entonces `publicUrl` era `null` y la página mantenía `noindex`.
 
-Hostinger es el destino previsto para una etapa posterior. No se han configurado alojamiento, dominio, rama de distribución ni publicación en producción. El contenido de `dist/` es la salida estática que se utilizará cuando se defina ese destino.
+Hostinger era el destino previsto para una etapa posterior. En la recuperación no se configuraron alojamiento, dominio, rama de distribución ni publicación en producción. Se identificó `dist/` como salida estática para el futuro destino.
 
 ## Mejora de interacción y gráficos
 
@@ -113,7 +123,7 @@ El HTML autónomo exportado integra catorce imágenes y la vCard, sin depender d
 
 No se emuló la preferencia de movimiento reducido del sistema operativo en esta etapa; las comprobaciones anteriores con DOM/reloj simulado conservan su carácter histórico. NFC físico, escaneo por cámara e importación vCard en iOS/Android continúan pendientes.
 
-No se ha publicado el sitio. `publicUrl` sigue en `null` y se mantiene `noindex, nofollow`. Hostinger, URL permanente y publicación requieren definición y autorización específica; esta actualización de documentación no los configura.
+En esta etapa no se había publicado el sitio. `publicUrl` seguía en `null` y se mantenía `noindex, nofollow`. Hostinger, URL permanente y publicación requerían definición y autorización específica; aquella actualización de documentación no los configuró.
 
 ## Etapa anterior: dirección aprobada y depuración
 
@@ -131,7 +141,7 @@ Las dos fotografías de Trayectoria incorporan ampliación mediante un diálogo 
 
 La exportación autónoma se abrió y comprobó: imagen ampliada embebida y cargada, vCard integrada como datos y QR cargado con apertura y cierre operativos. La consola no mostró errores ni advertencias. Se actualizaron la vista previa autónoma y las capturas `Claudia_Reyes_Depurada_Escritorio.png`, `Claudia_Reyes_Depurada_Conexiones.png`, `Claudia_Reyes_Depurada_Contacto.png` y `Claudia_Reyes_Depurada_Movil.png`.
 
-El navegador tiene `prefers-reduced-motion: reduce` activo y la interfaz lo respeta, desactivando entradas y selección animadas. El movimiento normal se validó por arnés, sin observarlo en ese navegador. Las comprobaciones de `afb2f47` documentadas arriba son históricas. Las simulaciones no equivalen a pruebas físicas del sistema operativo; NFC, cámara e importación vCard en iOS/Android siguen pendientes. No hay publicación y se mantiene `noindex, nofollow`.
+El navegador tiene `prefers-reduced-motion: reduce` activo y la interfaz lo respeta, desactivando entradas y selección animadas. El movimiento normal se validó por arnés, sin observarlo en ese navegador. Las comprobaciones de `afb2f47` documentadas arriba son históricas. Las simulaciones no equivalen a pruebas físicas del sistema operativo; NFC, cámara e importación vCard en iOS/Android siguen pendientes. En esa etapa no hubo publicación y se mantuvo `noindex, nofollow`.
 
 ## Etapa anterior: navegación y decoración editorial
 
@@ -145,7 +155,7 @@ La consulta MCP real `scroll reveal elegant heading background lines` devolvió 
 
 Se observó el recorrido animado intermedio y la llegada a posición correcta con foco en el título. Títulos y fondo se revisaron visualmente; el foco de teclado en WhatsApp mostró selección y desenfoque de hermanas con transición real. El QR autónomo abre, cierra con Escape y devuelve el foco; la consola de la exportación no mostró errores ni advertencias. Pasaron quince diagnósticos nuevos de navegación/preferencia, doce del diálogo y uno de reanudación de apariciones. Se actualizaron el HTML autónomo y las capturas `Claudia_Reyes_Acabado_Trayectoria.png` y `Claudia_Reyes_Acabado_Movil.png`.
 
-Esta etapa sí comprobó movimiento normal en navegador mediante la preferencia local autorizada; la limitación de la etapa anterior, validada solo por arnés, es histórica. No se modificaron preferencias del sistema. NFC físico, escaneo por cámara e importación vCard en iOS/Android siguen pendientes. No hay publicación y se mantiene `noindex, nofollow`.
+Esta etapa sí comprobó movimiento normal en navegador mediante la preferencia local autorizada; la limitación de la etapa anterior, validada solo por arnés, es histórica. No se modificaron preferencias del sistema. NFC físico, escaneo por cámara e importación vCard en iOS/Android siguen pendientes. En esa etapa no hubo publicación y se mantuvo `noindex, nofollow`.
 
 ## Etapa anterior: Contacto con cristal líquido
 
@@ -163,13 +173,13 @@ En el archivo autónomo se confirmó el PNG de ondas integrado como data URL y e
 
 El usuario pidió encabezados y secciones más elegantes con resplandor, mayor protagonismo metalizado del nombre y los cargos y corrección del teléfono. `h1.hero-name` gana tamaño, los cargos usan 18–25 px con filo dorado y las cintas satinadas originales de `title-metalwork.svg` sustituyen la hoja histórica. El resplandor dura 850 ms y el brillo de texto 1150 ms; se elimina la competencia de `text-arrival` con transformaciones y filtro de Motion, manteniendo navegación y preferencia local.
 
-`contact-phone-sculpture-v2.png` es el smartphone transparente activo; el auricular anterior se conserva. Su prompt y procedencia están en `CLEMI_Contacto_Telefono_v2_Procedencia.md` y el índice de recursos enlaza la versión activa y marca la anterior como histórica. Se consultó realmente por MCP `metallic text shimmer glow elegant heading`; las tres referencias están en `.21st/DESIGN.md`, sin instalaciones. Fotografías, logo y datos permanecen intactos y el sitio no se publica.
+`contact-phone-sculpture-v2.png` es el smartphone transparente activo; el auricular anterior se conserva. Su prompt y procedencia están en `CLEMI_Contacto_Telefono_v2_Procedencia.md` y el índice de recursos enlaza la versión activa y marca la anterior como histórica. Se consultó realmente por MCP `metallic text shimmer glow elegant heading`; las tres referencias están en `.21st/DESIGN.md`, sin instalaciones. Fotografías, logo y datos permanecieron intactos y el sitio no se publicó en esa etapa.
 
 `npm run verify` y `npm run export:preview` pasaron. Desarrollo a 1440 y 320 px no muestra desbordamiento ni imágenes rotas; cargos de 24,48/17,92 px legibles. La auditoría independiente calculó mínimos de contraste de 3,69:1 para el apellido grande y 6,74:1 para cargos, sin conflicto de transformaciones y con prioridad de movimiento reducido conservada. El relleno inferior `padding-bottom: 0.14em` evita recortar descendentes; «Reyes» se revisó corregido en móvil.
 
 La exportación a 768 px se comprobó sin desbordamiento, imágenes rotas ni advertencias o errores de consola. El PNG del smartphone está integrado como datos y carga a 1254 px naturales; `title-metalwork.svg` está integrado como SVG de datos en el CSS. Pausar en móvil establece `data-motion="reduce"` sin animaciones computadas y conserva el acabado metalizado; se reactivó `full` al terminar.
 
-El resplandor real se comprobó en la exportación al pulsar Contacto en la cabecera: `.is-arriving` activo, `section-radiance` en `#contacto::after`, `heading-radiance` en `#contact-title::before` y `text-light` en el texto, con foco en `contact-title`. Al terminar desapareció `.is-arriving` y la animación quedó en `none`, confirmando su duración finita. La captura final a 1440 px conserva completa la descendente de «Reyes». Se actualizaron el HTML autónomo y `Claudia_Reyes_Metalizado_Portada.png`, `Claudia_Reyes_Metalizado_Movil.png` y `Claudia_Reyes_Metalizado_Contacto.png`. No hubo cambios JavaScript en esta etapa ni se repitieron los catorce diagnósticos anteriores; permanecen como históricos. NFC físico, cámara e importación móvil siguen pendientes. No hay publicación.
+El resplandor real se comprobó en la exportación al pulsar Contacto en la cabecera: `.is-arriving` activo, `section-radiance` en `#contacto::after`, `heading-radiance` en `#contact-title::before` y `text-light` en el texto, con foco en `contact-title`. Al terminar desapareció `.is-arriving` y la animación quedó en `none`, confirmando su duración finita. La captura final a 1440 px conserva completa la descendente de «Reyes». Se actualizaron el HTML autónomo y `Claudia_Reyes_Metalizado_Portada.png`, `Claudia_Reyes_Metalizado_Movil.png` y `Claudia_Reyes_Metalizado_Contacto.png`. No hubo cambios JavaScript en esta etapa ni se repitieron los catorce diagnósticos anteriores; permanecen como históricos. NFC físico, cámara e importación móvil siguen pendientes. En esa etapa no hubo publicación.
 
 ## Banner de Trayectoria, portafolio y contacto simplificado · 28 de septiembre de 2026
 
@@ -183,6 +193,6 @@ Fuentes y licencias permanecen en docs/THIRD_PARTY_NOTICES.md. Consulta MCP real
 
 motion-preference.js permanece activo sin botón visible: aplica la preferencia local guardada en clemi-motion o, por defecto, la del sistema. No se cambian ajustes del sistema. Todas las animaciones son finitas y se conserva movimiento reducido.
 
-Validación de esta etapa completada: npm run verify y export:preview pasaron tras los refinamientos finales, al igual que las 14 pruebas de dialog-transition-check.mjs sobre el main actual. Navegador administrado a 1440/320 px y HTML autónomo a 768 px sin desbordamiento ni imágenes rotas. Guardar contacto abre el QR; Escape cierra y devuelve el foco al botón en desarrollo y exportación. Las descargas VCF de ambos entornos coinciden por SHA-256 y texto con public/contacto.vcf. Los tres activos nuevos están integrados en el HTML autónomo; pie centrado y controles retirados comprobados. NFC físico, cámara e importación vCard en iOS/Android siguen pendientes; no se publica.
+Validación de esta etapa completada: npm run verify y export:preview pasaron tras los refinamientos finales, al igual que las 14 pruebas de dialog-transition-check.mjs sobre el main actual. Navegador administrado a 1440/320 px y HTML autónomo a 768 px sin desbordamiento ni imágenes rotas. Guardar contacto abre el QR; Escape cierra y devuelve el foco al botón en desarrollo y exportación. Las descargas VCF de ambos entornos coinciden por SHA-256 y texto con public/contacto.vcf. Los tres activos nuevos están integrados en el HTML autónomo; pie centrado y controles retirados comprobados. NFC físico, cámara e importación vCard en iOS/Android seguían pendientes; no se publicó en esa etapa.
 
 La espera del evento de descarga del HTML autónomo agotó el tiempo de la herramienta, pero el archivo sí se descargó y se comprobó su SHA-256 y contenido exactos. No se observó un fallo funcional de descarga; esa comprobación no sustituye la importación física en un móvil.

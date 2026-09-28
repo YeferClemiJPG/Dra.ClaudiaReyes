@@ -4,7 +4,7 @@ Landing estática para la tarjeta NFC de la Dra. Claudia Reyes, primera de siete
 
 La corrección actual aplica azul SCCOT a las ondas del fondo de Contacto mediante edición generativa y restaura Conexiones al diseño anterior a los acentos azules. El cristal, los iconos dorados y las acciones de Contacto se conservan. Verificación y exportación aprobadas; revisión de desarrollo a 1280/320 px sin desbordamiento, con Contacto azul legible y Conexiones restaurada. El HTML autónomo integra el PNG exacto.
 
-La etapa anterior recuperó nombre, especialidad e Instagram como HTML dentro del banner morado v2 y amplió el retrato mediante relleno generativo. Su encuadre se revisó a 1440, 1280, 1000, 768 y 320 px; verificación y exportación pasaron entonces. Detalle y límites por etapa en `docs/CONTINUIDAD.md`. No se publica el sitio.
+La etapa anterior recuperó nombre, especialidad e Instagram como HTML dentro del banner morado v2 y amplió el retrato mediante relleno generativo. Su encuadre se revisó a 1440, 1280, 1000, 768 y 320 px; verificación y exportación pasaron entonces. Detalle y límites por etapa en `docs/CONTINUIDAD.md`.
 
 ## Editar y revisar
 
@@ -36,7 +36,15 @@ La compilación, lint, formato y exportación de la corrección anterior del ban
 
 Ejecutar npm run verify y npm run export:preview. dist/ contiene la distribución estática; artifacts/Claudia_Reyes_Vista_Previa.html es el HTML autónomo con estilos, fuentes locales, imágenes, scripts, QR y vCard integrados. Algunos visores limitan descargas; la web utiliza contacto.vcf como archivo normal.
 
-Mantener publicUrl: null y noindex, nofollow hasta confirmar el destino y autorizar publicación. Las validaciones por etapa están en docs/CONTINUIDAD.md; las tres maquetas y el Figma oscuro son históricos.
+Las validaciones por etapa están en docs/CONTINUIDAD.md; las tres maquetas y el Figma oscuro son históricos.
+
+## Publicar en GitHub Pages
+
+El usuario autorizó la publicación y el repositorio es público. El destino configurado es [la landing en GitHub Pages](https://yeferclemijpg.github.io/Dra.ClaudiaReyes/).
+
+La rama de publicación es `refine/interaction-visual`. El flujo `.github/workflows/pages.yml` instala las dependencias con `npm ci`, ejecuta `npm run verify`, sube únicamente `dist/` y despliega en GitHub Pages. No requiere fusionar la rama con `main`. Revisar el resultado del flujo y comprobar la URL antes de dar el despliegue por validado.
+
+`content/profile.json` usa `publicUrl: "https://yeferclemijpg.github.io/Dra.ClaudiaReyes/"`, que genera el canonical y `index, follow`; Vite conserva `base: "./"` para resolver los recursos dentro de la ruta del proyecto. La configuración anterior con `publicUrl: null` y `noindex, nofollow` correspondía a la etapa de vista previa.
 
 ## Publicar en Hostinger
 
@@ -47,10 +55,10 @@ Mantener publicUrl: null y noindex, nofollow hasta confirmar el destino y autori
 
 También es posible desplegar desde GitHub mediante la integración Git de Hostinger, si el plan lo admite. Esta integración estática no debe apuntar directamente a la raíz del repositorio fuente: usar una rama de distribución cuyo contenido sea `dist/`, o configurar una compilación y salida `dist` si se utiliza el producto de alojamiento de aplicaciones. La rama de distribución aún no se creó ni conectó.
 
-En Hostinger, revisar el sitio elegido → Advanced → Git → Connect with GitHub y limitar la autorización al repositorio de esta landing. No se configuró acceso a Hostinger, producción ni dominios en esta entrega.
+En Hostinger, revisar el sitio elegido → Advanced → Git → Connect with GitHub y limitar la autorización al repositorio de esta landing. La migración a Hostinger sigue pendiente: no se configuraron acceso, alojamiento ni dominio allí.
 
 Documentación oficial: https://www.hostinger.com/support/1583302-how-to-deploy-a-git-repository-in-hostinger/
 
 ## GitHub y conexiones
 
-Repositorio privado confirmado: [YeferClemiJPG/Dra.ClaudiaReyes](https://github.com/YeferClemiJPG/Dra.ClaudiaReyes). El código se recuperó del ZIP suministrado por el usuario el 28 de septiembre de 2026 y se vinculó a ese remoto. Consultar `docs/CONTINUIDAD.md` para el estado actual y `docs/INTEGRACIONES.md`, `docs/SISTEMA_VISUAL.md`, `docs/REVISION.md` y `docs/PLAN_SIETE_LANDINGS.md` para las decisiones y revisiones anteriores.
+Repositorio público confirmado: [YeferClemiJPG/Dra.ClaudiaReyes](https://github.com/YeferClemiJPG/Dra.ClaudiaReyes). Era privado durante la recuperación del ZIP suministrado por el usuario el 28 de septiembre de 2026. Consultar `docs/CONTINUIDAD.md` para el estado actual y `docs/INTEGRACIONES.md`, `docs/SISTEMA_VISUAL.md`, `docs/REVISION.md` y `docs/PLAN_SIETE_LANDINGS.md` para las decisiones y revisiones anteriores.
