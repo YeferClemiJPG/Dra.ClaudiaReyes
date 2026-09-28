@@ -1,8 +1,20 @@
 # Continuidad del proyecto · 28 de septiembre de 2026
 
-La etapa vigente completa la publicación autorizada en GitHub Pages. Los resultados anteriores se conservan por etapa; sus referencias a repositorio privado, `publicUrl: null`, `noindex` o ausencia de publicación describen el estado de aquel momento y no son restricciones vigentes.
+La etapa vigente repara las animaciones de la landing publicada en GitHub Pages. Los resultados anteriores se conservan por etapa; sus referencias a repositorio privado, `publicUrl: null`, `noindex`, preferencia del sistema por defecto o ausencia de publicación describen el estado de aquel momento y no son restricciones vigentes.
 
-## Etapa vigente · Publicación autorizada en GitHub Pages
+## Etapa vigente · Animaciones en el origen público
+
+El usuario señaló que las animaciones dejaron de funcionar en la página pública y pidió repararlas. Ya había autorizado «Habilitar animaciones en esta landing». La preferencia `clemi-motion: full` guardada durante la revisión local pertenece al origen de localhost y no se transfiere a GitHub Pages. En el origen público, sin una elección local guardada, el seguimiento predeterminado de `prefers-reduced-motion: reduce` volvía a desactivar las animaciones.
+
+La reparación añade `defaultPreference` a `createMotionPreference`, manteniendo `system` como valor genérico, y configura `full` desde `main.js` para esta landing. Una elección válida guardada en `clemi-motion`, `full` o `reduce`, conserva prioridad; una selección guardada `reduce` continúa deteniendo las animaciones. No se modifican preferencias del sistema ni se reintroduce un botón visible. Se mantienen los tiempos finitos, el diseño y las interacciones existentes.
+
+Pasaron siete pruebas nuevas de preferencia, junto con las quince comprobaciones existentes de navegación y las catorce de diálogo. Al ejecutar las nuevas pruebas contra el módulo original cargado en memoria, cuatro fallaron, confirmando que detectan el problema reparado. `npm run verify`, que ahora incluye las pruebas, y `npm run export:preview` completaron correctamente.
+
+La vista previa en el origen nuevo `http://127.0.0.1:4175/` mostró `data-motion="full"` mientras `prefers-reduced-motion: reduce` seguía activo. Al seleccionar Contacto, el desplazamiento progresó desde `scrollY: 0` tras el clic hasta `2075` y el foco llegó a `contact-title`. La entrada del diálogo se observó con opacidad intermedia `0.991646` y escala `0.999875`, antes de completarse. Estas observaciones corresponden a la vista previa, sin cambiar ajustes del sistema.
+
+La comprobación del despliegue público de esta reparación sigue pendiente. Registrar aquí la verificación de las animaciones en la URL pública antes de darla por completada; los resultados de publicación de la etapa anterior no validan todavía este cambio. NFC físico, cámara e importación vCard en iOS/Android siguen pendientes.
+
+## Etapa anterior · Publicación autorizada en GitHub Pages
 
 El usuario pidió expresamente hacer pública la página dentro de GitHub. El repositorio `YeferClemiJPG/Dra.ClaudiaReyes` está confirmado como público y el destino configurado es https://yeferclemijpg.github.io/Dra.ClaudiaReyes/. Hostinger continúa pendiente para una migración posterior.
 

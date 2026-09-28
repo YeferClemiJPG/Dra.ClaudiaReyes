@@ -1,6 +1,10 @@
 const preferenceKey = "clemi-motion";
 
-export function createMotionPreference({ root, view }) {
+export function createMotionPreference({
+  root,
+  view,
+  defaultPreference = "system",
+}) {
   const system = view.matchMedia("(prefers-reduced-motion: reduce)");
   const listeners = new Set();
   const toggle = root.querySelector("[data-motion-toggle]");
@@ -16,9 +20,10 @@ export function createMotionPreference({ root, view }) {
 
   const motion = {
     get matches() {
-      return (
-        preference === "reduce" || (preference !== "full" && system.matches)
-      );
+      const effective = preference ?? defaultPreference;
+      if (effective === "full") return false;
+      if (effective === "reduce") return true;
+      return system.matches;
     },
     addEventListener(type, listener) {
       if (type === "change") listeners.add(listener);

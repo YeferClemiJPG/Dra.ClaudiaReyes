@@ -3,10 +3,10 @@
   "status": "approved_direction_checked_with_limits",
   "assistantRecommendation": null,
   "userSelection": "Dirección editorial fotográfica aprobada",
-  "implementedForReview": "Ondas azul SCCOT en Contacto y Conexiones restaurada",
+  "implementedForReview": "Reparación de animaciones en el origen público de GitHub Pages",
   "updatedAt": "2026-09-28",
   "stack": "Static HTML, CSS and JavaScript with Vite",
-  "currentInstruction": "Corregir el alcance del azul SCCOT: editar la imagen de ondas doradas de Contacto a azul con referencia #04157F, conservar cristal e iconos dorados y restablecer Conexiones al diseño anterior de 1729671. Mantener banner v2, contenido e interacción.",
+  "currentInstruction": "Recuperar las animaciones de la página publicada, según la autorización expresa de habilitarlas en esta landing. Configurar full como preferencia inicial de la landing y conservar la prioridad de una elección local válida full o reduce, sin modificar ajustes del sistema ni añadir un botón visible. Mantener el diseño aprobado.",
   "sharedConstraints": {
     "sccotAccent": {
       "hex": "#04157F",
@@ -100,15 +100,16 @@
     "scrollProgress": "Línea en el pseudoelemento after de la cabecera"
   },
   "motionPreference": {
-    "default": "Seguir prefers-reduced-motion del sistema",
+    "default": "full para esta landing, configurado desde main.js; createMotionPreference conserva system como valor genérico de defaultPreference",
     "explicitAuthorization": "El usuario confirmó activar animaciones solo en esta landing",
-    "control": "Sin botón visible; se conserva preferencia guardada y seguimiento del sistema por defecto",
+    "control": "Sin botón visible; una preferencia guardada válida full o reduce tiene prioridad sobre el valor inicial configurado",
     "storage": "localStorage clemi-motion, limitado al origen, valores full o reduce",
     "effectiveMode": "html[data-motion] coordina CSS y JavaScript",
     "pause": "La selección explícita reduce detiene movimiento incluso si el sistema lo permite",
     "systemSettingsChanged": false,
     "lastVerifiedLocalMode": "full",
-    "persistenceAndPauseVerified": "Histórico; el control visible se retiró"
+    "persistenceAndPauseVerified": "Histórico; el control visible se retiró",
+    "publicOriginRepair": "La elección de localhost no se comparte con GitHub Pages. Sin elección guardada, la landing usa full conforme a la autorización del usuario; una elección guardada reduce sigue desactivando el movimiento."
   },
   "activeAssets": {
     "portrait": "assets/dra-claudia-reyes.jpeg",
@@ -192,10 +193,26 @@
   },
   "contactResourceDeliverable": "CLEMI_Banner_Portafolio_WhatsApp.md",
   "publication": {
-    "robots": "noindex, nofollow",
-    "publicUrl": null,
+    "robots": "index, follow",
+    "publicUrl": "https://yeferclemijpg.github.io/Dra.ClaudiaReyes/",
+    "provider": "GitHub Pages",
+    "branch": "refine/interaction-visual",
+    "workflow": ".github/workflows/pages.yml",
     "hostinger": "pending",
-    "requiresSpecificAuthorization": true
+    "requiresSpecificAuthorization": false,
+    "authorization": "El usuario autorizó publicar y reparar esta landing en GitHub Pages; no incluye otros sitios, dominios ni facturación."
+  },
+  "motionRepairValidation": {
+    "status": "preview_checked_public_verification_pending",
+    "cause": "El origen público no recibe la preferencia full guardada en localhost y seguía la preferencia reducida del sistema.",
+    "completed": "Siete pruebas nuevas de preferencia, quince existentes de navegación y catorce de diálogo correctas. npm run verify, incluidas las pruebas, y npm run export:preview pasaron.",
+    "regressionEvidence": "Cuatro pruebas nuevas fallan al cargar el módulo original en memoria, confirmando que detectan la regresión.",
+    "freshOriginPreview": "http://127.0.0.1:4175/: data-motion full con prefers-reduced-motion reduce activo. Contacto progresa de scrollY 0 tras el clic a 2075, con foco en contact-title. Entrada del diálogo observada con opacidad 0.991646 y escala 0.999875 antes de completarse.",
+    "pending": [
+      "Despliegue y comprobación de las animaciones en la URL pública"
+    ],
+    "historicalResults": "docs/CONTINUIDAD.md",
+    "limits": "La observación actual corresponde a la vista previa, no al sitio público. No se han cambiado ajustes del sistema. NFC físico, cámara e importación móvil siguen pendientes."
   },
   "historicalAssistantRecommendation": "Editorial luminosa",
   "directionsStatus": "historical_exploration",

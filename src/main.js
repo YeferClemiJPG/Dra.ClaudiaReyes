@@ -15,7 +15,12 @@ createIcons({
   attrs: { "aria-hidden": "true", focusable: "false" },
 });
 
-const reducedMotion = createMotionPreference({ root: document, view: window });
+const reducedMotion = createMotionPreference({
+  root: document,
+  view: window,
+  // Keep this landing's approved motion when its hostname changes on deployment.
+  defaultPreference: "full",
+});
 const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
 initializeFocusSurfaces({ root: document, reducedMotion, finePointer });
 const revealElements = [...document.querySelectorAll(".reveal, [data-reveal]")];

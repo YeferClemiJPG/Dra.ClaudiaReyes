@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "verify": "npm run lint && npm run format:check && npm run build",
+    "test": "node --test tools/tests/motion-preference.test.mjs",
+    "verify": "npm run lint && npm run test && npm run format:check && npm run build",
     "predev": "node scripts/render.mjs",
     "export:preview": "node scripts/export-preview.mjs"
   },

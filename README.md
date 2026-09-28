@@ -2,7 +2,9 @@
 
 Landing estática para la tarjeta NFC de la Dra. Claudia Reyes, primera de siete. HTML, CSS y JavaScript con Vite; Times New Roman, crema/perla, azul marino y oro, con banner morado de Trayectoria.
 
-La corrección actual aplica azul SCCOT a las ondas del fondo de Contacto mediante edición generativa y restaura Conexiones al diseño anterior a los acentos azules. El cristal, los iconos dorados y las acciones de Contacto se conservan. Verificación y exportación aprobadas; revisión de desarrollo a 1280/320 px sin desbordamiento, con Contacto azul legible y Conexiones restaurada. El HTML autónomo integra el PNG exacto.
+La corrección actual recupera las animaciones en GitHub Pages. La elección guardada en la vista previa local no se comparte con el origen público; al faltar allí, la preferencia reducida del sistema las desactivaba. Esta landing establece movimiento completo por defecto conforme a la autorización expresa del usuario, conservando la prioridad de una elección local guardada. Pasaron siete pruebas nuevas de preferencia, quince de navegación y catorce de diálogo, además de verificación y exportación. La vista previa en un origen nuevo confirma movimiento completo con sistema reducido y transiciones reales; la comprobación en la URL pública sigue pendiente.
+
+La corrección visual anterior aplicó azul SCCOT a las ondas del fondo de Contacto mediante edición generativa y restauró Conexiones al diseño anterior a los acentos azules. El cristal, los iconos dorados y las acciones de Contacto se conservan. Verificación y exportación aprobadas en aquella etapa; revisión de desarrollo a 1280/320 px sin desbordamiento, con Contacto azul legible y Conexiones restaurada. El HTML autónomo integra el PNG exacto.
 
 La etapa anterior recuperó nombre, especialidad e Instagram como HTML dentro del banner morado v2 y amplió el retrato mediante relleno generativo. Su encuadre se revisó a 1440, 1280, 1000, 768 y 320 px; verificación y exportación pasaron entonces. Detalle y límites por etapa en `docs/CONTINUIDAD.md`.
 
@@ -28,7 +30,9 @@ Contacto reúne Guardar contacto, WhatsApp, Correo y Llamar. Guardar abre el di�
 
 Las tarjetas de cristal conservan desenfoque de fondo de 19 px, saturación 1,35 y reflejos; las ondas azul SCCOT son la imagen decorativa `assets/contact-blue-waves.png`, con clase contact-waves, alt vacío y carga diferida. El original dorado se conserva como histórico. Copiar correo muestra confirmación. No quedan tarjeta QR separada ni flechas. Navegación y enlace de salto llevan a Contacto.
 
-Los títulos entran durante 950 ms, el brillo de texto dura 1150 ms y el resplandor de secciones 850 ms; paneles y retrato usan 620 y 900 ms. Selección por teclado o ratón fino, foco visible y movimiento reducido se conservan. Los enlaces internos usan RAF de 460–1100 ms, foco e historial, con cancelación manual y rueda nativa. motion-preference.js permanece activo sin botón visible: aplica la preferencia local guardada en clemi-motion o, por defecto, la del sistema. No se cambian ajustes del sistema. Todas las animaciones son finitas y se conserva movimiento reducido.
+Los títulos entran durante 950 ms, el brillo de texto dura 1150 ms y el resplandor de secciones 850 ms; paneles y retrato usan 620 y 900 ms. Selección por teclado o ratón fino, foco visible y movimiento reducido se conservan. Los enlaces internos usan RAF de 460–1100 ms, foco e historial, con cancelación manual y rueda nativa.
+
+motion-preference.js permanece activo sin botón visible. La función admite defaultPreference y sigue usando system por defecto; main.js configura full para esta landing, según la autorización explícita del usuario. La elección válida guardada en clemi-motion, full o reduce, tiene prioridad. Así, un origen nuevo activa las animaciones sin requerir la preferencia almacenada en localhost, mientras que una elección guardada reduce continúa deteniéndolas. No se cambian ajustes del sistema. Todas las animaciones son finitas.
 
 ## Comprobar y exportar
 
