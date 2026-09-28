@@ -12,7 +12,11 @@ Pasaron siete pruebas nuevas de preferencia, junto con las quince comprobaciones
 
 La vista previa en el origen nuevo `http://127.0.0.1:4175/` mostró `data-motion="full"` mientras `prefers-reduced-motion: reduce` seguía activo. Al seleccionar Contacto, el desplazamiento progresó desde `scrollY: 0` tras el clic hasta `2075` y el foco llegó a `contact-title`. La entrada del diálogo se observó con opacidad intermedia `0.991646` y escala `0.999875`, antes de completarse. Estas observaciones corresponden a la vista previa, sin cambiar ajustes del sistema.
 
-La comprobación del despliegue público de esta reparación sigue pendiente. Registrar aquí la verificación de las animaciones en la URL pública antes de darla por completada; los resultados de publicación de la etapa anterior no validan todavía este cambio. NFC físico, cámara e importación vCard en iOS/Android siguen pendientes.
+La reparación se publicó mediante el flujo [36485682536](https://github.com/YeferClemiJPG/Dra.ClaudiaReyes/actions/runs/36485682536), completado con éxito para el commit `4269a97`. La URL sigue siendo https://yeferclemijpg.github.io/Dra.ClaudiaReyes/. El navegador público cargó el paquete `assets/index-o8pPm7ii.js` y mostró `html[data-motion="full"]` mientras el sistema conservaba `prefers-reduced-motion: reduce`.
+
+En el sitio público de escritorio, la navegación a Contacto progresó desde `scrollY: 0` hasta `2075.2`, con foco final en `contact-title`. Se comprobaron activos los efectos calculados `text-light`, `heading-radiance` y `section-radiance`. El diálogo mostró entrada intermedia con opacidad `0.996028` y escala `0.99994`; Escape completó el cierre y devolvió el foco a Guardar contacto. No se observaron imágenes rotas, desbordamiento horizontal ni errores o advertencias de consola. La pestaña existente del usuario, con vista móvil, también mostró modo `full` y desplazamiento gradual, con `scrollY: 57.6` observado después del clic. Captura de la revisión: `outputs/Claudia_Reyes_Animaciones_Publicadas.png` en el directorio de entregables del chat.
+
+La reparación queda comprobada en el navegador administrado; no se cambiaron ajustes del sistema. NFC físico, cámara e importación vCard en iOS/Android siguen pendientes.
 
 ## Etapa anterior · Publicación autorizada en GitHub Pages
 

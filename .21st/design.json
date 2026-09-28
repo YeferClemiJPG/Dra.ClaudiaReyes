@@ -203,16 +203,25 @@
     "authorization": "El usuario autorizó publicar y reparar esta landing en GitHub Pages; no incluye otros sitios, dominios ni facturación."
   },
   "motionRepairValidation": {
-    "status": "preview_checked_public_verification_pending",
+    "status": "published_checked_with_limits",
     "cause": "El origen público no recibe la preferencia full guardada en localhost y seguía la preferencia reducida del sistema.",
     "completed": "Siete pruebas nuevas de preferencia, quince existentes de navegación y catorce de diálogo correctas. npm run verify, incluidas las pruebas, y npm run export:preview pasaron.",
     "regressionEvidence": "Cuatro pruebas nuevas fallan al cargar el módulo original en memoria, confirmando que detectan la regresión.",
     "freshOriginPreview": "http://127.0.0.1:4175/: data-motion full con prefers-reduced-motion reduce activo. Contacto progresa de scrollY 0 tras el clic a 2075, con foco en contact-title. Entrada del diálogo observada con opacidad 0.991646 y escala 0.999875 antes de completarse.",
+    "deployment": {
+      "commit": "4269a97",
+      "workflowRun": "https://github.com/YeferClemiJPG/Dra.ClaudiaReyes/actions/runs/36485682536",
+      "conclusion": "success",
+      "loadedBundle": "assets/index-o8pPm7ii.js"
+    },
+    "publicBrowser": "html[data-motion] full con sistema reducido activo. Contacto progresa de scrollY 0 a 2075.2, foco final en contact-title. Efectos text-light, heading-radiance y section-radiance activos. Diálogo con opacidad intermedia 0.996028 y escala 0.99994; Escape cierra y devuelve foco a Guardar contacto. Sin imágenes rotas, desbordamiento ni errores/advertencias de consola en escritorio.",
+    "existingMobileTab": "Modo full y desplazamiento gradual observados; scrollY 57.6 después del clic.",
+    "capture": "outputs/Claudia_Reyes_Animaciones_Publicadas.png en el directorio de entregables del chat",
     "pending": [
-      "Despliegue y comprobación de las animaciones en la URL pública"
+      "NFC físico, escaneo por cámara e importación vCard en iOS/Android"
     ],
     "historicalResults": "docs/CONTINUIDAD.md",
-    "limits": "La observación actual corresponde a la vista previa, no al sitio público. No se han cambiado ajustes del sistema. NFC físico, cámara e importación móvil siguen pendientes."
+    "limits": "Vista previa y sitio público comprobados en navegador administrado. No se han cambiado ajustes del sistema. NFC físico, cámara e importación móvil siguen pendientes."
   },
   "historicalAssistantRecommendation": "Editorial luminosa",
   "directionsStatus": "historical_exploration",
