@@ -31,7 +31,12 @@ if (new URL(profile.portfolio).protocol !== "https:")
   throw new Error("El portafolio debe usar HTTPS.");
 if (profile.publicUrl && new URL(profile.publicUrl).protocol !== "https:")
   throw new Error("La URL pública debe usar HTTPS.");
-for (const key of ["logo", "portrait", "portfolioArtwork"]) {
+for (const key of [
+  "logo",
+  "portrait",
+  "instagramPortrait",
+  "portfolioArtwork",
+]) {
   if (profile[key]) {
     if (!/^assets\/[a-zA-Z0-9/_-]+\.(svg|png|webp|jpe?g)$/.test(profile[key]))
       throw new Error(`Recurso local inválido: ${key}`);
@@ -75,6 +80,9 @@ Object.assign(values, {
     : "",
   portraitTile: profile.portrait
     ? `<img class="tile-image personal-image" src="./${escape(profile.portrait)}" alt="" width="${Number(profile.portraitWidth) || 768}" height="${Number(profile.portraitHeight) || 1024}" loading="lazy" />`
+    : "",
+  instagramPortrait: profile.instagramPortrait
+    ? `<img class="instagram-profile-image" src="./${escape(profile.instagramPortrait)}" alt="${escape(fullName)} · perfil personal de Instagram" width="${Number(profile.instagramPortraitWidth) || 1080}" height="${Number(profile.instagramPortraitHeight) || 1080}" loading="lazy" />`
     : "",
   mottoLines: String(profile.motto ?? "")
     .split(/,\s*/)

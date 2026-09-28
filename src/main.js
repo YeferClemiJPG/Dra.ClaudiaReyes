@@ -60,20 +60,36 @@ function revealDelay(element) {
     ? Math.max(0, Math.min(milliseconds, 700)) / 1000
     : 0;
 }
+const revealVariants = {
+  title: {
+    duration: 0.7,
+    transform: ["translateY(105%)", "translateY(0%)"],
+  },
+  panel: {
+    duration: 0.62,
+    transform: ["translateY(24px) scale(0.985)", "translateY(0px) scale(1)"],
+  },
+  portrait: {
+    duration: 0.9,
+    transform: ["scale(1.025)", "scale(1)"],
+  },
+  default: {
+    duration: 0.48,
+    transform: ["translateY(20px)", "translateY(0px)"],
+  },
+};
 const reveal = (element) => {
   if (revealed.has(element)) return;
   revealed.add(element);
   if (reducedMotion.matches) return;
-  const portrait = element.dataset.revealType === "portrait";
-  const duration = portrait ? 0.68 : 0.48;
+  const { duration, transform } =
+    revealVariants[element.dataset.revealType] ?? revealVariants.default;
   const delay = revealDelay(element);
   const animation = animate(
     element,
     {
       opacity: [0, 1],
-      transform: portrait
-        ? ["scale(1.015)", "scale(1)"]
-        : ["translateY(20px)", "translateY(0px)"],
+      transform,
     },
     { duration, delay, ease: [0.16, 1, 0.3, 1] },
   );

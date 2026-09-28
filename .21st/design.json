@@ -1,0 +1,76 @@
+{
+  "maintainedManually": true,
+  "status": "proposed",
+  "assistantRecommendation": "Editorial luminosa",
+  "userSelection": null,
+  "implementedForReview": "Editorial luminosa",
+  "updatedAt": "2026-09-28",
+  "stack": "Static HTML, CSS and JavaScript with Vite",
+  "currentInstruction": "Landing clara, elegante, formal y con detalles futuristas discretos; sustituye el fondo oscuro histórico.",
+  "sharedConstraints": {
+    "typography": "Times New Roman; Times, Georgia y Cormorant Garamond local como respaldos",
+    "colors": [
+      "#F6F5F1",
+      "#FFFFFF",
+      "#EEEFEC",
+      "#53627B",
+      "#856838",
+      "#F4EFE4",
+      "#F0ECE4",
+      "#1A2744",
+      "#28324F",
+      "#A89065",
+      "#D4B050",
+      "#594C31"
+    ],
+    "preserveOfficialLogoAndOriginalPhotos": true,
+    "instagramArtwork": "assets/claudia-reyes-instagram.png",
+    "newAiGeneration": false,
+    "componentInstallation": false
+  },
+  "motionDurationMs": {
+    "title": 700,
+    "panel": 620,
+    "portrait": 900
+  },
+  "directions": [
+    {
+      "name": "Editorial luminosa",
+      "status": "proposed",
+      "axes": [
+        "Nombre izquierda y fotografía 56 % derecha",
+        "Banda de contacto y accesos posteriores",
+        "Fotografía primero en móvil"
+      ]
+    },
+    {
+      "name": "Retrato inmersivo",
+      "status": "proposed",
+      "axes": [
+        "Fotografía ancha y nombre superpuesto",
+        "Navegación compacta",
+        "Banda de contacto azul"
+      ]
+    },
+    {
+      "name": "Galería modular",
+      "status": "proposed",
+      "axes": [
+        "Nombre y retrato centrales",
+        "Contacto lateral y paneles asimétricos",
+        "Módulos apilados en móvil"
+      ]
+    }
+  ],
+  "references": [
+    "https://21st.dev/@felipemenezes098/components/hero-04",
+    "https://21st.dev/@felipemenezes098/components/hero-07",
+    "https://21st.dev/@kokonutd/components/bento-grid",
+    "https://21st.dev/@cnippet-dev/components/text-reveal"
+  ],
+  "comparisonDeliverable": "Claudia_Reyes_Exploracion.html",
+  "figma": {
+    "syncStatus": "not_synced",
+    "historicalDirection": "dark"
+  }
+}

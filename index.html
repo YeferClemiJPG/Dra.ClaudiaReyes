@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#1A2744" />
+    <meta name="theme-color" content="#F6F5F1" />
     <meta
       name="description"
       content="Dra. Claudia Reyes. Vicepresidenta SCCOT · Directora CLEMI. Datos de contacto, redes sociales y portafolio CLEMI."
@@ -48,9 +48,21 @@
         <div class="hero-copy">
           <h1 id="profile-name">
             <span class="honorific reveal" data-reveal-delay="0">Dra.</span>
-            <span class="reveal" data-reveal-delay="90">Claudia</span>
-            <span class="name-accent reveal" data-reveal-delay="180"
-              >Reyes</span
+            <span class="title-mask"
+              ><span
+                class="reveal"
+                data-reveal-type="title"
+                data-reveal-delay="90"
+                >Claudia</span
+              ></span
+            >
+            <span class="title-mask"
+              ><span
+                class="name-accent reveal"
+                data-reveal-type="title"
+                data-reveal-delay="200"
+                >Reyes</span
+              ></span
             >
           </h1>
           <div class="roles reveal" data-reveal-delay="260">
@@ -85,6 +97,12 @@
               ><i class="link-arrow" data-lucide="arrow-up-right"></i
             ></a>
           </div>
+          <a
+            class="hero-explore reveal"
+            data-reveal-delay="420"
+            href="#conexiones"
+            ><span>Explorar conexiones</span><i data-lucide="arrow-down"></i
+          ></a>
         </div>
         <div
           class="hero-visual reveal"
@@ -101,6 +119,16 @@
               fetchpriority="high"
             />
           </div>
+          <button
+            class="portrait-contact"
+            type="button"
+            data-open-contact
+            aria-label="Contacto digital: ver QR"
+          >
+            <i data-lucide="qr-code"></i
+            ><span>Contacto digital<small>Ver QR</small></span
+            ><i class="link-arrow" data-lucide="arrow-up-right"></i>
+          </button>
           <div class="hero-card">
             <div class="card-perspective">
               <div class="digital-card" id="digital-card">
@@ -186,6 +214,7 @@
       </section>
       <section
         class="contact-band metal-surface shell reveal"
+        data-reveal-type="panel"
         data-reveal-delay="80"
         id="contacto"
         aria-labelledby="contact-title"
@@ -231,11 +260,17 @@
         id="conexiones"
         aria-labelledby="connections-title"
       >
-        <h2 class="section-label" id="connections-title">Conexiones</h2>
+        <div class="section-heading">
+          <h2 class="section-label title-mask" id="connections-title">
+            <span class="reveal" data-reveal-type="title">Conexiones</span>
+          </h2>
+          <span class="section-index" aria-hidden="true">01 — 03</span>
+        </div>
         <div class="connection-grid">
           <a
             id="portafolio"
             class="connection-tile connection-portfolio metal-surface reveal"
+            data-reveal-type="panel"
             href="https://clemi.pro/portafolio"
             target="_blank"
             rel="noopener noreferrer"
@@ -260,6 +295,7 @@
           </a>
           <a
             class="connection-tile connection-personal metal-surface reveal"
+            data-reveal-type="panel"
             data-reveal-delay="80"
             href="https://www.instagram.com/draclaudiajreyes/"
             target="_blank"
@@ -267,14 +303,16 @@
             aria-label="Instagram personal de Dra. Claudia Reyes"
             data-interactive-surface
           >
-            <img
-              class="tile-image personal-image"
-              src="./assets/dra-claudia-reyes.jpeg"
-              alt=""
-              width="768"
-              height="1024"
-              loading="lazy"
-            />
+            <div class="instagram-profile">
+              <img
+                class="instagram-profile-image"
+                src="./assets/claudia-reyes-instagram.png"
+                alt="Dra. Claudia Reyes · perfil personal de Instagram"
+                width="1080"
+                height="1080"
+                loading="lazy"
+              />
+            </div>
             <span class="app-mark"
               ><svg
                 aria-hidden="true"
@@ -296,6 +334,7 @@
           </a>
           <a
             class="connection-tile connection-foundation metal-surface reveal"
+            data-reveal-type="panel"
             data-reveal-delay="160"
             href="https://www.instagram.com/fundacionclemi/"
             target="_blank"
@@ -335,6 +374,7 @@
       </section>
       <section
         class="institutional-statement metal-surface shell reveal"
+        data-reveal-type="panel"
         aria-label="Lema CLEMI"
       >
         <p class="institutional-motto">
@@ -454,7 +494,7 @@
         .flip-control,
         .copy-control,
         [data-open-contact] {
-          display: none;
+          display: none !important;
         }
       </style></noscript
     >

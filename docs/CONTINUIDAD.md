@@ -44,3 +44,22 @@ Se continúa en la misma rama y PR #1, todavía en borrador. La fotografía prin
 La portada introduce cada línea del nombre, roles y botones de forma coordinada. El retrato entra con una escala mínima y las apariciones se ejecutan una sola vez. El diálogo QR tiene estados explícitos de apertura/cierre: Escape, botón y fondo comparten cierre de 180 ms, preservando el foco y el bloqueo de desplazamiento hasta finalizar. También se controlan cierre durante entrada, reapertura y cambio dinámico a movimiento reducido.
 
 La revisión vuelve a comprobar 320, 390, 768 y 1440 píxeles sin desbordamiento horizontal ni imágenes rotas; navegación, confirmación de copia, Escape y retorno de foco comprobados en navegador. Nueve comprobaciones con simulaciones de DOM/reloj, fuera del repositorio, cubren los casos de transición y movimiento reducido; no son pruebas de un sistema operativo real. Se mantienen pendientes NFC físico, escaneo por cámara e importación en iOS/Android. La consulta MCP de 21st funcionó; no se instalaron dependencias ni se generaron recursos nuevos con IA.
+
+## Nueva etapa: paleta clara y fotografía protagonista
+
+La nueva instrucción explícita del usuario pide una landing clara, elegante y formal con detalles futuristas discretos. Sustituye la exigencia histórica de fondo oscuro; se conserva la paleta institucional usando crema/perla en superficies, azul marino en texto y acciones y dorado en detalles. Times New Roman sigue siendo la familia principal.
+
+Se comparan tres composiciones en el entregable independiente `Claudia_Reyes_Exploracion.html`: «Editorial luminosa», «Retrato inmersivo» y «Galería modular». La primera es la recomendación del asistente y la base implementada para revisión; no se afirma que el usuario ya haya elegido. Estado registrado manualmente como `proposed` en `.21st/design.json`.
+
+La portada actual reserva aproximadamente el 56 % a la fotografía a la derecha en escritorio y la sitúa antes del nombre en móvil. El acceso QR flota sobre el retrato y abre un diálogo claro. La fotografía principal y el logo oficial siguen intactos. El adjunto de Instagram se conserva íntegro en `public/assets/claudia-reyes-instagram.png`, con su marca personal impresa; perfil y dimensiones centralizados en `content/profile.json`.
+
+Las entradas coordinadas usan títulos de 700 ms, paneles de 620 ms y retrato de 900 ms, una sola vez. Se mantienen Escape, retorno de foco, estados de apertura/cierre del diálogo y cancelación ante movimiento reducido. No se han añadido dependencias de prueba, instalaciones de componentes ni generación de IA nueva. Las consultas MCP de 21st fueron de metadatos; las referencias están en `.21st/DESIGN.md`. El Figma histórico oscuro no se ha sincronizado con esta etapa.
+
+Validación disponible al redactar esta actualización:
+
+- Navegador en 320, 390, 768 y 1440 px: sin desbordamiento horizontal ni imágenes rotas en las comprobaciones realizadas.
+- Diálogo abierto desde el control de la fotografía; cierre mediante Escape y retorno al control de origen comprobados.
+- Comparación autónoma: sus tres pestañas se probaron y revisaron visualmente; a 390 px no se observaron desbordamientos ni imágenes rotas. Capturas principales guardadas como `Claudia_Reyes_Clara_Escritorio.png` y `Claudia_Reyes_Clara_Movil.png`.
+- Once diagnósticos con DOM/reloj simulado cubren transiciones y movimiento reducido. No equivalen a cambiar la preferencia de un sistema operativo físico.
+- `npm run verify` y la exportación autónoma de esta etapa completados correctamente: lint, formato y compilación correctos. La exportación se abrió mediante HTTP; imagen de Instagram y vCard integradas, sin imágenes rotas, diálogo operativo y registros del navegador vacíos.
+- NFC físico, escaneo QR con cámara e importación vCard en iOS/Android siguen pendientes. No se realizaron envíos externos ni publicación en producción.

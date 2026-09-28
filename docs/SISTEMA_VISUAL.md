@@ -1,8 +1,16 @@
 # Dirección visual CLEMI
 
-Dirección actual: fondo azul oscuro continuo, título serif de gran escala, retrato integrado mediante encuadre y transición de bordes, banda de contacto y tres accesos gráficos diferenciados. La referencia reafirmada requiere superficies metálicas, filos sutiles y un cierre con reflejo diagonal. No añadir cifras o contenido ajeno para llenar sus secciones.
+## Dirección vigente · propuesta clara del 28 de septiembre de 2026
 
-## Paleta exclusiva
+La nueva instrucción explícita del usuario pide una landing clara, elegante, formal y con detalles futuristas discretos. Sustituye la regla histórica de fondo azul oscuro continuo: crema y perla pasan a las superficies principales; azul marino al texto y acciones; dorado a los acentos. No añadir cifras o contenido ajeno.
+
+La composición implementada para revisión es «Editorial luminosa», recomendada por el asistente entre tres exploraciones; no existe todavía una selección del usuario. El retrato ocupa aproximadamente el 56 % a la derecha en escritorio y abre la portada antes del nombre en móvil. Mantiene banda de contacto, tres destinos gráficos, lema exacto, acceso QR flotante sobre la fotografía y diálogo claro.
+
+El JPEG principal y el SVG oficial permanecen intactos. El adjunto de Instagram se incorpora íntegro como `public/assets/claudia-reyes-instagram.png`, con su marca personal impresa. Títulos, paneles y retrato usan entradas de 700, 620 y 900 ms, respectivamente, una sola vez y con cancelación ante movimiento reducido.
+
+La comparación autónoma `Claudia_Reyes_Exploracion.html` presenta también «Retrato inmersivo» y «Galería modular». Las decisiones y referencias están en `.21st/DESIGN.md`. El archivo Figma documentado más abajo corresponde a la etapa oscura: no se ha sincronizado ni se presenta como representación del diseño claro.
+
+## Paleta vigente y colores institucionales
 
 | Familia | Colores                                     |
 | ------- | ------------------------------------------- |
@@ -11,14 +19,16 @@ Dirección actual: fondo azul oscuro continuo, título serif de gran escala, ret
 | Verdes  | #344536, #425845, #303D2E, #546A52, #2D5A3A |
 | Neutros | #F0ECE4, #F4EFE4, #D4D1CA                   |
 
-Azul marino protagonista; dorado en líneas y detalles; verde conservado en la identidad oficial y como color de apoyo; crema en texto, reflejos y reverso QR. Usar combinaciones verificadas para texto: claro sobre azul 12.57:1, verde sobre crema 8.93:1, dorado sobre azul 4.83:1. Los tonos dorados claros no deben convertirse automáticamente en texto pequeño sobre crema.
+La nueva dirección clara incorpora los derivados activos de `src/tokens.css`: lienzo `#F6F5F1`, superficie `#FFFFFF`, superficie secundaria `#EEEFEC`, texto secundario `#53627B` y acento `#856838`. Complementan la paleta institucional anterior por la nueva instrucción; no deben confundirse con una obligación de mantener las superficies oscuras históricas.
+
+Superficies crema/perla protagonistas; azul marino para texto y acciones; dorado en líneas y detalles; verde conservado en el logo oficial y como apoyo. Las relaciones documentadas de etapas previas son claro sobre azul 12.57:1, verde sobre crema 8.93:1 y dorado sobre azul 4.83:1; no validan automáticamente otras combinaciones del diseño claro. No usar dorado claro para texto pequeño sobre crema sin comprobar contraste.
 
 ## Tipografía y estructura
 
 - Títulos, nombres y cuerpo: Times New Roman; respaldo Times y Georgia. Si el dispositivo no dispone de ellas, se usa Cormorant Garamond 400/600/700 alojada en el sitio bajo licencia OFL. No se consulta Google Fonts al abrir la página.
 - Cuerpo base 18 px, escalado con rem. Nombre grande fluido; etiquetas de apoyo a 12–14 px. Conservar lectura al ampliar texto al 200 %.
-- Espaciado basado en múltiplos de 4 px; contenido con margen suficiente; bordes finos de 1 px; controles de líneas rectas y paneles de 10 px de radio con brillo interior ligero; sin sombras pesadas.
-- Dos columnas en escritorio; una columna en cabecera por debajo de 520 px en portada; accesos de tres columnas a dos y luego una. En móvil, nombre y guardar contacto preceden los enlaces de comunicación.
+- Espaciado consistente y contenido con margen suficiente; bordes finos de 1 px; radios compartidos mediante los tokens activos, reflejos discretos y sombras ligeras.
+- Portada de dos columnas en escritorio, con fotografía protagonista a la derecha; en móvil, una columna con fotografía antes del nombre. Los accesos se adaptan al ancho y conservan texto en flujo, sin alturas que recorten al ampliar.
 - Acciones principales con altura de 49–52 px y barra móvil con controles de al menos 44 px; subrayado al pasar por enlaces, foco de 2 px, estados comprensibles más allá del color.
 - No añadir formas decorativas, arcos, órbitas ni ondas repetidas a la composición principal. La credencial alternativa sin fotografía conserva su diseño anterior y se organiza en `src/card.css`.
 - Logo activo: `public/assets/logo-clemi-oficial-sin-texto.svg`, exportado del AI oficial suministrado. Se muestra únicamente el símbolo sin texto; no agregar una palabra CLEMI redibujada. El original intacto está en `design/source/Logo_CLEMI_Oficial_Sin_Texto.ai`; los JPEG/PNG anteriores quedan como archivos históricos. El retrato suministrado está en `public/assets/dra-claudia-reyes.jpeg`; se conserva byte por byte. No recrear el logo ni usar otras personas como sustitutos.
@@ -27,9 +37,11 @@ Motion se usa para las apariciones al desplazarse y apertura del diálogo. El co
 
 El diálogo QR emplea HTML nativo; se evaluó la referencia shadcn y se evitó introducir React en esta arquitectura. Incluye foco inicial, cierre por Escape y retorno al control que lo abrió. El QR se genera a partir de la misma vCard descargable.
 
-La primera propuesta se construyó sin Figma, cuando la conexión y el archivo aún no estaban disponibles. Después de que el usuario conectara Figma se creó un archivo editable y se comprobó la escritura real. El estado actual se detalla a continuación; la dirección visual sigue pendiente de revisión del usuario antes de extenderla a las otras landings.
+## Registro histórico de la etapa oscura
 
-## Estado actual · sistema editable en Figma
+Las secciones siguientes conservan la trazabilidad de Figma, retrato, logo y superficies de la etapa anterior. Sus descripciones de fondo, máscaras o composición no sustituyen la dirección clara vigente. La primera propuesta se construyó sin Figma; después se creó un archivo editable y se comprobó la escritura real. Ese registro no acredita una sincronización con la nueva web clara.
+
+## Figma histórico · sistema editable de la etapa oscura
 
 Archivo de trabajo: https://www.figma.com/design/lAsbeIw1NxUMvHQCdNBXJh
 

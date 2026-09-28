@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#1A2744" />
+    <meta name="theme-color" content="#F6F5F1" />
     <meta name="description" content="{{description}}" />
     <meta name="robots" content="{{robots}}" />
     {{canonical}}
@@ -42,9 +42,21 @@
             <span class="honorific reveal" data-reveal-delay="0"
               >{{honorific}}</span
             >
-            <span class="reveal" data-reveal-delay="90">{{givenName}}</span>
-            <span class="name-accent reveal" data-reveal-delay="180"
-              >{{familyName}}</span
+            <span class="title-mask"
+              ><span
+                class="reveal"
+                data-reveal-type="title"
+                data-reveal-delay="90"
+                >{{givenName}}</span
+              ></span
+            >
+            <span class="title-mask"
+              ><span
+                class="name-accent reveal"
+                data-reveal-type="title"
+                data-reveal-delay="200"
+                >{{familyName}}</span
+              ></span
             >
           </h1>
           <div class="roles reveal" data-reveal-delay="260">
@@ -68,6 +80,12 @@
               ><i class="link-arrow" data-lucide="arrow-up-right"></i
             ></a>
           </div>
+          <a
+            class="hero-explore reveal"
+            data-reveal-delay="420"
+            href="#conexiones"
+            ><span>Explorar conexiones</span><i data-lucide="arrow-down"></i
+          ></a>
         </div>
         <div
           class="hero-visual reveal"
@@ -75,6 +93,16 @@
           data-reveal-delay="120"
         >
           {{portrait}}
+          <button
+            class="portrait-contact"
+            type="button"
+            data-open-contact
+            aria-label="Contacto digital: ver QR"
+          >
+            <i data-lucide="qr-code"></i
+            ><span>Contacto digital<small>Ver QR</small></span
+            ><i class="link-arrow" data-lucide="arrow-up-right"></i>
+          </button>
           <div class="hero-card">
             <div class="card-perspective">
               <div class="digital-card" id="digital-card">
@@ -152,6 +180,7 @@
       </section>
       <section
         class="contact-band metal-surface shell reveal"
+        data-reveal-type="panel"
         data-reveal-delay="80"
         id="contacto"
         aria-labelledby="contact-title"
@@ -195,11 +224,17 @@
         id="conexiones"
         aria-labelledby="connections-title"
       >
-        <h2 class="section-label" id="connections-title">Conexiones</h2>
+        <div class="section-heading">
+          <h2 class="section-label title-mask" id="connections-title">
+            <span class="reveal" data-reveal-type="title">Conexiones</span>
+          </h2>
+          <span class="section-index" aria-hidden="true">01 — 03</span>
+        </div>
         <div class="connection-grid">
           <a
             id="portafolio"
             class="connection-tile connection-portfolio metal-surface reveal"
+            data-reveal-type="panel"
             href="{{portfolio}}"
             target="_blank"
             rel="noopener noreferrer"
@@ -224,6 +259,7 @@
           </a>
           <a
             class="connection-tile connection-personal metal-surface reveal"
+            data-reveal-type="panel"
             data-reveal-delay="80"
             href="{{instagramPersonalUrl}}"
             target="_blank"
@@ -231,7 +267,7 @@
             aria-label="Instagram personal de {{fullName}}"
             data-interactive-surface
           >
-            {{portraitTile}}
+            <div class="instagram-profile">{{instagramPortrait}}</div>
             <span class="app-mark">{{instagramIcon}}</span>
             <div class="tile-content">
               <h3>Instagram<br />personal</h3>
@@ -241,6 +277,7 @@
           </a>
           <a
             class="connection-tile connection-foundation metal-surface reveal"
+            data-reveal-type="panel"
             data-reveal-delay="160"
             href="{{instagramInstitutionalUrl}}"
             target="_blank"
@@ -260,6 +297,7 @@
       </section>
       <section
         class="institutional-statement metal-surface shell reveal"
+        data-reveal-type="panel"
         aria-label="Lema CLEMI"
       >
         <p class="institutional-motto">{{mottoLines}}</p>
@@ -347,7 +385,7 @@
         .flip-control,
         .copy-control,
         [data-open-contact] {
-          display: none;
+          display: none !important;
         }
       </style></noscript
     >
