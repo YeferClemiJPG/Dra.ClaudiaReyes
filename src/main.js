@@ -1,4 +1,4 @@
-import { createIcons, ZoomIn, X, Copy, Check, Share2 } from "lucide";
+import { createIcons, X, Copy, Check, Share2 } from "lucide";
 import { inView } from "motion";
 import { animate } from "motion/mini";
 import { initializeFocusSurfaces } from "./focus-surfaces.js";
@@ -7,7 +7,6 @@ import { initializeSectionNavigation } from "./section-navigation.js";
 
 createIcons({
   icons: {
-    ZoomIn,
     X,
     Copy,
     Check,
@@ -359,76 +358,6 @@ if (dialog && typeof dialog.showModal === "function") {
     document.body.classList.remove("dialog-open");
     if (opener?.isConnected) opener.focus({ preventScroll: true });
     opener = null;
-  });
-}
-
-const photoDialog = document.getElementById("photo-dialog");
-const photoPreview = photoDialog?.querySelector("[data-photo-preview]");
-if (photoPreview && typeof photoDialog.showModal === "function") {
-  const photoDescription = photoDialog.querySelector(
-    "[data-photo-description]",
-  );
-  const closePhoto = photoDialog.querySelector("[data-close-photo]");
-  let photoOpener = null;
-  let backdropPointer = null;
-
-  function outsidePhoto(event) {
-    if (event.target !== photoDialog) return false;
-    const bounds = photoDialog.getBoundingClientRect();
-    return (
-      event.clientX < bounds.left ||
-      event.clientX > bounds.right ||
-      event.clientY < bounds.top ||
-      event.clientY > bounds.bottom
-    );
-  }
-
-  for (const trigger of document.querySelectorAll("[data-zoom-image]")) {
-    trigger.addEventListener("click", () => {
-      const source = trigger.querySelector("img");
-      if (!source || photoDialog.open) return;
-      photoOpener = trigger;
-      backdropPointer = null;
-      photoPreview.src = source.currentSrc || source.src;
-      photoPreview.alt = source.alt;
-      photoPreview.width = source.naturalWidth || source.width;
-      photoPreview.height = source.naturalHeight || source.height;
-      if (photoDescription) {
-        photoDescription.textContent = (
-          source.getAttribute("aria-describedby") || ""
-        )
-          .split(/\s+/)
-          .filter(Boolean)
-          .map((id) => document.getElementById(id)?.textContent.trim() || "")
-          .filter(Boolean)
-          .join(" ");
-      }
-      photoDialog.showModal();
-      document.body.classList.add("dialog-open");
-      closePhoto?.focus();
-    });
-  }
-
-  closePhoto?.addEventListener("click", () => photoDialog.close());
-  photoDialog.addEventListener("pointerdown", (event) => {
-    backdropPointer = outsidePhoto(event) ? event.pointerId : null;
-  });
-  photoDialog.addEventListener("pointerup", (event) => {
-    const closeFromBackdrop =
-      backdropPointer === event.pointerId && outsidePhoto(event);
-    backdropPointer = null;
-    if (closeFromBackdrop) photoDialog.close();
-  });
-  photoDialog.addEventListener("pointercancel", () => {
-    backdropPointer = null;
-  });
-  // Escape uses the native dialog cancellation and the same focus cleanup.
-  photoDialog.addEventListener("close", () => {
-    if (photoDialog.open) return;
-    backdropPointer = null;
-    document.body.classList.toggle("dialog-open", Boolean(dialog?.open));
-    if (photoOpener?.isConnected) photoOpener.focus({ preventScroll: true });
-    photoOpener = null;
   });
 }
 

@@ -1,12 +1,30 @@
 # Dirección visual CLEMI
 
-## Dirección vigente · nombre y encabezados metalizados
+## Etapa vigente · Banner de Trayectoria, portafolio y contacto simplificado
+
+La petición actual incorpora un banner morado ancho de Trayectoria, una carpeta de portafolio y una sola burbuja de WhatsApp con el SVG oficial superpuesto. Título y biografía son HTML a la derecha; en móvil, imagen arriba y texto abajo dentro del mismo panel. Se retiran la galería y su visor. Guardar contacto abre el diálogo QR con descarga y compartir dentro; Contacto conserva cuatro acciones. El pie muestra únicamente el lema exacto centrado, dorado y con animación finita, sin fuentes, créditos, botón de movimiento ni volver arriba.
+
+La autorización explícita sustituye la restricción anterior de no editar generativamente retratos para este banner concreto. Se conserva visualmente la apariencia y pose de Claudia, pero no se afirma identidad de píxeles: es una edición generativa, no la fotografía original sin editar. El adjunto editorial original permanece intacto como histórico. El logo oficial, el retrato principal y el adjunto de Instagram no se modifican.
+
+Activos nuevos: biographyBanner → assets/claudia-trayectoria-banner.png (1774 × 887), portfolioIllustration → assets/clemi-portfolio-sculpture.png (1254 × 1254) y assets/contact-whatsapp-sculpture-v2.png (1254 × 1254). La carpeta sustituye al microscopio y la burbuja única sustituye al soporte doble. Prompts y procedencia en docs/RECURSOS_ACTIVOS.md; entrega en CLEMI_Banner_Portafolio_WhatsApp.md.
+
+src/editorial-banner.css se carga después de src/liquid-glass.css. Las fuentes y licencias permanecen en docs/THIRD_PARTY_NOTICES.md.
+
+motion-preference.js permanece activo sin botón visible: aplica la preferencia local guardada en clemi-motion o, por defecto, la del sistema. No se cambian ajustes del sistema. Todas las animaciones son finitas y se conserva movimiento reducido.
+
+Consulta MCP real: portrait biography editorial banner. Referencias: [Hero 07](https://21st.dev/@felipemenezes098/components/hero-07), [Hero 04](https://21st.dev/@felipemenezes098/components/hero-04) y [Hero 05](https://21st.dev/@felipemenezes098/components/hero-05), solo metadatos y sin instalar componentes.
+
+Validación de esta etapa completada: npm run verify y export:preview pasaron tras los refinamientos finales, al igual que las 14 pruebas de dialog-transition-check.mjs sobre el main actual. Navegador administrado a 1440/320 px y HTML autónomo a 768 px sin desbordamiento ni imágenes rotas. Guardar contacto abre el QR; Escape cierra y devuelve el foco al botón en desarrollo y exportación. Las descargas VCF de ambos entornos coinciden por SHA-256 y texto con public/contacto.vcf. Los tres activos nuevos están integrados en el HTML autónomo; pie centrado y controles retirados comprobados. NFC físico, cámara e importación vCard en iOS/Android siguen pendientes; no se publica.
+
+Los controles de pie, galería, visor y cinco tarjetas descritos en etapas anteriores no corresponden a la interfaz vigente.
+
+## Etapa anterior · nombre y encabezados metalizados
 
 El nombre aumenta su presencia con `h1.hero-name`; cargos de 18–25 px y filo dorado acompañan gradientes legibles azul marino/oro. Las cintas satinadas de `title-metalwork.svg`, vector original sin IA, sustituyen la hoja histórica de `title-flourish.svg`. Secciones y encabezados reciben resplandor finito de 850 ms al entrar o llegar por ancla; el brillo de texto dura 1150 ms. `text-arrival` deja de competir con Motion por transformaciones y filtro, manteniendo navegación y preferencia local.
 
 El smartphone transparente `contact-phone-sculpture-v2.png` corrige la forma del teléfono anterior, que queda archivado como histórico. Verificación y exportación pasaron; desarrollo a 1440/320 px y archivo autónomo a 768 px sin desbordamiento ni imágenes rotas. La auditoría de las combinaciones evaluadas calculó mínimos de 3,69:1 para el apellido grande y 6,74:1 para cargos, legibles a 24,48/17,92 px. El relleno inferior de 0,14 em corrige descendentes en «Reyes» móvil. Teléfono y cintas quedan integrados como datos; consola exportada limpia. Pausa móvil sin animaciones y resplandor real al navegar a Contacto, con foco en su título, comprobados; se reactivó `full`. La etapa no cambió JavaScript ni repitió los catorce diagnósticos históricos. Datos, fotografías y logo permanecen intactos; procedencia en `docs/RECURSOS_ACTIVOS.md`.
 
-## Base conservada · Contacto con cristal y ondas doradas
+## Etapa anterior · Contacto con cristal y ondas doradas
 
 La nueva petición aplica a Contacto un acabado de cristal líquido sobre ondas doradas, con cinco imágenes escultóricas para las acciones, texto más cuidado y retirada de todas las flechas. Los seis recursos están terminados e integrados. Se conservan Times New Roman, datos, fotografías, logo y control local de movimiento. Las tarjetas mantienen nombres accesibles y acciones comprensibles; la validación de navegador y exportación está completada con el alcance descrito abajo.
 
@@ -14,13 +32,13 @@ El cristal usa desenfoque de fondo de 19 px, saturación 1,35, reflejo de punter
 
 `contact-gold-waves.png` aporta oro cálido y bordes refractados sobre marfil/perla, con centro claro para las tarjetas. Los cinco soportes generados representan guardar, conversación, correo, teléfono y QR; el código escaneable y la marca oficial de WhatsApp se superponen como recursos originales. La generación está expresamente autorizada para estos recursos decorativos, sin personas ni logos generados. Los cuatro pictogramas SVG de contacto anteriores quedan como históricos. No se añaden dependencias ni publicación.
 
-## Base conservada · navegación y decoración editorial
+## Etapa anterior · navegación y decoración editorial
 
 La nueva etapa implementada y validada incorpora un fondo de gradientes perla/marfil/azul marino con `editorial-contours.svg`, paneles translúcidos de borde fino en Trayectoria y Contacto, inicial dorada cursiva y un detalle botánico de `title-flourish.svg`. Este último aparece también en portada sin texto adicional. Ambos SVG son originales y no provienen de generación con IA. Los títulos conservan su jerarquía semántica; el detalle se anima durante 850 ms al llegar a una sección y una línea de cabecera indica el progreso de desplazamiento.
 
 La navegación por enlaces internos usa RAF y una curva cúbica de 460–1100 ms, con cancelación, historial y foco de destino; no altera la rueda. El usuario confirmó activar animaciones solo en esta landing. La preferencia parte del sistema y se puede cambiar mediante «Activar/Pausar animaciones» en el pie: `clemi-motion` guarda `full` o `reduce` para este origen y `html[data-motion]` coordina CSS y JavaScript. Se comprobó el movimiento real, persistencia al recargar, pausa sin transiciones ni selección de tarjetas y posterior reactivación; queda modo activo. Verificación y exportación pasaron, con navegador a 320/872/1440 px y exportación a 768 px sin desbordamiento. SVG autónomos, navegación con foco final y selección por teclado comprobados. Los detalles y límites están en `docs/CONTINUIDAD.md`.
 
-## Base conservada · editorial aprobada y depuración
+## Etapa anterior · editorial aprobada y depuración
 
 El usuario aprobó la dirección editorial fotográfica inspirada en la referencia adjunta y pidió depurar contenido y movimiento. Se mantienen crema/perla en las superficies, azul marino en texto y acciones, dorado en acentos y Times New Roman. Los ajustes actuales están implementados para revisión; la antigua regla de fondo oscuro ya no rige esta etapa.
 

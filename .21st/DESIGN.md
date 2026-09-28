@@ -1,6 +1,22 @@
 # CLEMI · Contexto de diseño local
 
-## Etapa vigente · protagonismo metalizado y teléfono corregido
+## Etapa vigente · Banner de Trayectoria, portafolio y contacto simplificado
+
+La petición actual incorpora un banner morado ancho de Trayectoria, una carpeta de portafolio y una sola burbuja de WhatsApp con el SVG oficial superpuesto. Título y biografía son HTML a la derecha; en móvil, imagen arriba y texto abajo dentro del mismo panel. Se retiran la galería y su visor. Guardar contacto abre el diálogo QR con descarga y compartir dentro; Contacto conserva cuatro acciones. El pie muestra únicamente el lema exacto centrado, dorado y con animación finita, sin fuentes, créditos, botón de movimiento ni volver arriba.
+
+La autorización explícita sustituye la restricción anterior de no editar generativamente retratos para este banner concreto. Se conserva visualmente la apariencia y pose de Claudia, pero no se afirma identidad de píxeles: es una edición generativa, no la fotografía original sin editar. El adjunto editorial original permanece intacto como histórico. El logo oficial, el retrato principal y el adjunto de Instagram no se modifican.
+
+Activos nuevos: biographyBanner → assets/claudia-trayectoria-banner.png (1774 × 887), portfolioIllustration → assets/clemi-portfolio-sculpture.png (1254 × 1254) y assets/contact-whatsapp-sculpture-v2.png (1254 × 1254). La carpeta sustituye al microscopio y la burbuja única sustituye al soporte doble. Prompts y procedencia en docs/RECURSOS_ACTIVOS.md; entrega en CLEMI_Banner_Portafolio_WhatsApp.md.
+
+src/editorial-banner.css se carga después de src/liquid-glass.css. Las fuentes y licencias permanecen en docs/THIRD_PARTY_NOTICES.md.
+
+motion-preference.js permanece activo sin botón visible: aplica la preferencia local guardada en clemi-motion o, por defecto, la del sistema. No se cambian ajustes del sistema. Todas las animaciones son finitas y se conserva movimiento reducido.
+
+Consulta MCP real: portrait biography editorial banner. Referencias: [Hero 07](https://21st.dev/@felipemenezes098/components/hero-07), [Hero 04](https://21st.dev/@felipemenezes098/components/hero-04) y [Hero 05](https://21st.dev/@felipemenezes098/components/hero-05), solo metadatos y sin instalar componentes.
+
+Validación de esta etapa completada: npm run verify y export:preview pasaron tras los refinamientos finales, al igual que las 14 pruebas de dialog-transition-check.mjs sobre el main actual. Navegador administrado a 1440/320 px y HTML autónomo a 768 px sin desbordamiento ni imágenes rotas. Guardar contacto abre el QR; Escape cierra y devuelve el foco al botón en desarrollo y exportación. Las descargas VCF de ambos entornos coinciden por SHA-256 y texto con public/contacto.vcf. Los tres activos nuevos están integrados en el HTML autónomo; pie centrado y controles retirados comprobados. NFC físico, cámara e importación vCard en iOS/Android siguen pendientes; no se publica.
+
+## Etapa anterior · protagonismo metalizado y teléfono corregido
 
 La petición actual da mayor presencia al nombre y los cargos, refina los encabezados y secciones con resplandor elegante y corrige el teléfono. `h1.hero-name` aumenta de tamaño, los cargos usan 18–25 px con filo dorado y los textos combinan gradientes legibles azul marino/oro. `title-metalwork.svg` aporta cintas satinadas originales sin IA y sustituye la hoja histórica. El smartphone transparente `contact-phone-sculpture-v2.png` reemplaza al auricular, que se conserva como antecedente.
 
@@ -26,7 +42,7 @@ Consulta MCP real: `scroll reveal elegant heading background lines`. Referencias
 
 `npm run verify` y `npm run export:preview` pasaron; navegador a 320/872/1440 px y exportación a 768 px sin desbordamiento. Ambos SVG están integrados en el CSS autónomo. Se activaron animaciones con el control autorizado: persistencia al recargar, pausa efectiva y reactivación comprobadas; queda modo activo. Se observó movimiento real entre secciones con foco y posición finales correctos, y selección por teclado con desenfoque de tarjetas hermanas. QR autónomo, Escape y retorno de foco comprobados, sin advertencias ni errores de consola. Pasaron quince diagnósticos nuevos, doce del diálogo y uno de reanudación de apariciones. El detalle está en `docs/CONTINUIDAD.md`; la limitación anterior de movimiento normal solo por arnés es histórica.
 
-## Base conservada · depuración editorial anterior
+## Etapa anterior · depuración editorial anterior
 
 El usuario aprobó el estilo editorial fotográfico y pidió depurarlo. La implementación mantiene Times New Roman, crema/perla, azul marino y dorado. La portada concentra nombre, cargos, retrato e ilustración; la fotografía queda a la derecha en escritorio y antes del nombre en móvil. Siguen Trayectoria con biografía y galería, Conexiones con tres tarjetas y Contacto al final. Se retiraron especialidad separada, llamadas a la acción de portada, QR de cabecera y fotografía, barra móvil fija y credencial alternativa.
 

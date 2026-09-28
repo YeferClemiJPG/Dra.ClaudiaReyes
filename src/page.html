@@ -10,6 +10,7 @@
     <title>{{fullName}} · CLEMI</title>
     <link rel="stylesheet" href="/src/style.css" />
     <link rel="stylesheet" href="/src/liquid-glass.css" />
+    <link rel="stylesheet" href="/src/editorial-banner.css" />
     <script type="module" src="/src/main.js"></script>
   </head>
   <body class="{{portraitClass}}">
@@ -72,10 +73,18 @@
         </div>
       </section>
       <section
-        class="biography shell"
+        class="biography biography-banner shell"
         id="trayectoria"
         aria-labelledby="biography-title"
       >
+        <img
+          class="biography-backdrop"
+          src="./{{biographyBanner}}"
+          alt="Retrato de {{fullName}}"
+          width="1774"
+          height="887"
+          loading="lazy"
+        />
         <div class="biography-copy">
           <h2 class="section-label section-heading" id="biography-title">
             <span class="title-mask"
@@ -85,44 +94,6 @@
             >
           </h2>
           <p class="biography-text reveal">{{biography}}</p>
-        </div>
-        <div class="biography-gallery">
-          <figure class="editorial-portrait reveal" data-reveal-type="portrait">
-            <button
-              class="photo-trigger"
-              type="button"
-              data-zoom-image
-              aria-label="Ampliar retrato editorial de la doctora"
-            >
-              {{editorialPortrait}}<span class="photo-zoom" aria-hidden="true"
-                ><i data-lucide="zoom-in"></i
-              ></span>
-            </button>
-            <figcaption class="sr-only" id="editorial-quote">
-              En el retrato facilitado de la Dra. Claudia Reyes: «La cirugía es
-              ciencia, arte y responsabilidad: mi compromiso es ejercerla con
-              excelencia, ética y precisión.» Cirujana de pie y tobillo.
-              Instagram: @draclaudiajreyes.
-            </figcaption>
-          </figure>
-          <figure
-            class="professional-portrait reveal"
-            data-reveal-type="panel"
-            data-reveal-delay="150"
-          >
-            <button
-              class="photo-trigger"
-              type="button"
-              data-zoom-image
-              aria-label="Ampliar fotografía profesional de la doctora"
-            >
-              {{professionalPortrait}}<span
-                class="photo-zoom"
-                aria-hidden="true"
-                ><i data-lucide="zoom-in"></i
-              ></span>
-            </button>
-          </figure>
         </div>
       </section>
       <section
@@ -150,10 +121,10 @@
           >
             <img
               class="portfolio-image"
-              src="./{{researchIllustration}}"
+              src="./{{portfolioIllustration}}"
               alt=""
-              width="1536"
-              height="1024"
+              width="1254"
+              height="1254"
               loading="lazy"
             />
             <div class="tile-content"><h3>Portafolio CLEMI</h3></div>
@@ -219,14 +190,15 @@
           >
         </h2>
         <div class="contact-grid focus-group" data-focus-group>
-          <a
-            class="contact-card focus-card reveal"
+          <button
+            class="contact-card contact-save focus-card reveal"
             data-interactive-surface
             data-focus-card
             data-reveal-type="panel"
-            href="./contacto.vcf"
-            download="{{slug}}.vcf"
-            data-contact-download
+            type="button"
+            data-open-contact
+            aria-haspopup="dialog"
+            aria-controls="contact-dialog"
           >
             <img
               class="contact-art contact-art-save"
@@ -236,7 +208,7 @@
               height="1254"
               loading="lazy"
             /><span class="contact-card-title">Guardar contacto</span>
-          </a>
+          </button>
           <a
             class="contact-card contact-whatsapp focus-card reveal"
             data-interactive-surface
@@ -250,7 +222,7 @@
             <span class="contact-art-wrap contact-art-chat" aria-hidden="true"
               ><img
                 class="contact-art"
-                src="./assets/contact-chat-sculpture.png"
+                src="./assets/contact-whatsapp-sculpture-v2.png"
                 alt=""
                 width="1254"
                 height="1254"
@@ -258,38 +230,12 @@
               /><span class="contact-brand-mark">{{whatsappIcon}}</span></span
             ><span class="contact-card-title">WhatsApp</span>
           </a>
-          <button
-            class="contact-card contact-qr focus-card reveal"
-            data-interactive-surface
-            data-focus-card
-            data-reveal-type="panel"
-            data-reveal-delay="120"
-            type="button"
-            data-open-contact
-            aria-label="Mostrar código QR de contacto"
-          >
-            <span class="contact-art-wrap contact-art-qr" aria-hidden="true"
-              ><img
-                class="contact-art"
-                src="./assets/contact-qr-sculpture.png"
-                alt=""
-                width="1254"
-                height="1254"
-                loading="lazy" /><img
-                class="contact-qr-overlay"
-                src="./assets/contacto-qr.svg"
-                alt=""
-                width="320"
-                height="320"
-                loading="lazy" /></span
-            ><span class="contact-card-title">Código QR</span>
-          </button>
           <div
             class="contact-card contact-email focus-card reveal"
             data-interactive-surface
             data-focus-card
             data-reveal-type="panel"
-            data-reveal-delay="180"
+            data-reveal-delay="120"
           >
             <a class="contact-email-link" href="mailto:{{email}}"
               ><img
@@ -322,7 +268,7 @@
             data-interactive-surface
             data-focus-card
             data-reveal-type="panel"
-            data-reveal-delay="240"
+            data-reveal-delay="180"
             href="tel:{{phone}}"
           >
             <img
@@ -338,65 +284,19 @@
             >
           </a>
         </div>
+        <noscript
+          ><a
+            class="button button-primary"
+            href="./contacto.vcf"
+            download="{{slug}}.vcf"
+            >Guardar contacto</a
+          ></noscript
+        >
       </section>
     </main>
     <footer class="site-footer shell">
-      <p class="footer-motto">{{motto}}.</p>
-      <div class="footer-meta">
-        <details class="source-notes">
-          <summary>Fuentes y créditos</summary>
-          <div>
-            <p>Trayectoria: {{biographySources}}</p>
-            <p>
-              Fotografías:
-              <a
-                href="https://sccot.org/wp-content/uploads/2020/04/Dra.-Claudia-Juliana-Reyes-Reyes.jpeg"
-                target="_blank"
-                rel="noopener noreferrer"
-                >SCCOT</a
-              >
-              ·
-              <a
-                href="https://new.clemi.edu.co/nosotros/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >CLEMI</a
-              >
-              y material facilitado.
-            </p>
-          </div>
-        </details>
-        <button
-          class="motion-toggle"
-          type="button"
-          data-motion-toggle
-          aria-pressed="false"
-          hidden
-        >
-          <span class="motion-symbol" aria-hidden="true"></span>
-          <span data-motion-label>Activar animaciones</span>
-        </button>
-        <a href="#perfil">Volver arriba</a>
-      </div>
+      <p class="footer-motto reveal" data-reveal-type="title">{{mottoLines}}</p>
     </footer>
-    <dialog
-      id="photo-dialog"
-      class="photo-dialog"
-      aria-label="Fotografía ampliada"
-      aria-describedby="photo-description"
-    >
-      <div class="photo-stage">
-        <button
-          class="icon-button photo-close"
-          type="button"
-          data-close-photo
-          aria-label="Cerrar fotografía"
-        >
-          <i data-lucide="x"></i></button
-        ><img data-photo-preview alt="" />
-        <p class="sr-only" id="photo-description" data-photo-description></p>
-      </div>
-    </dialog>
     <dialog
       id="contact-dialog"
       aria-labelledby="dialog-title"
@@ -416,7 +316,8 @@
       </div>
       <h2 id="dialog-title">{{honorific}} {{givenName}} {{familyName}}</h2>
       <p id="dialog-description">
-        Escanee este código para guardar el contacto en otro dispositivo.
+        Guarde el contacto en este dispositivo o escanee el código QR desde
+        otro.
       </p>
       <div class="qr-paper">
         <img
@@ -431,6 +332,7 @@
         class="button button-primary"
         href="./contacto.vcf"
         download="{{slug}}.vcf"
+        data-contact-download
         >Guardar contacto</a
       >
       <button
@@ -458,7 +360,6 @@
     <noscript
       ><style>
         .copy-control,
-        .photo-zoom,
         [data-open-contact] {
           display: none !important;
         }

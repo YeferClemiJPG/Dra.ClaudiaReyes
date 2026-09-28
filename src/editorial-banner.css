@@ -1,0 +1,279 @@
+/* One portrait, one story: the biography lives inside the purple banner. */
+.biography.biography-banner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: 620px;
+  padding: 64px;
+  margin-block: 24px 36px;
+  overflow: hidden;
+  border: 1px solid #312339;
+  border-radius: 36px;
+  background: #1c1425;
+  box-shadow: 0 28px 65px -38px #21172e70;
+}
+.biography-banner .biography-backdrop {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.biography-banner::before {
+  z-index: 1;
+  inset: 0;
+  border: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    transparent 35%,
+    #1c14250d 47%,
+    #1c14253b 100%
+  );
+  box-shadow: inset 0 1px 0 #ffffff18;
+}
+.biography-banner::after {
+  z-index: 1;
+  left: auto;
+  right: 0;
+  width: 50%;
+  background: radial-gradient(ellipse at 55% 45%, #d6b77c22, transparent 72%);
+}
+.biography-banner .biography-copy {
+  position: relative;
+  z-index: 2;
+  grid-column: 2;
+  max-width: 100%;
+  padding-left: 22px;
+}
+.biography-banner .section-heading [data-reveal-type="title"] {
+  --metal-base: linear-gradient(
+    175deg,
+    #f6ecd2 5%,
+    #c7a56a 42%,
+    #f2dfb6 53%,
+    #d6b87d 79%
+  );
+  --metal-glint: linear-gradient(
+    108deg,
+    transparent 35%,
+    #fff0ca 48%,
+    transparent 61%
+  );
+  filter: none;
+}
+@supports not ((background-clip: text) or (-webkit-background-clip: text)) {
+  .biography-banner .section-heading [data-reveal-type="title"] {
+    color: #ead6af;
+  }
+}
+.biography-banner .section-heading::before {
+  background: radial-gradient(ellipse, #c2a26826, transparent 74%);
+}
+.biography-banner .section-heading::after {
+  filter: brightness(1.2);
+}
+.biography-banner .biography-text {
+  color: #eee8f1;
+  font-size: clamp(1.1rem, 1.55vw, 1.35rem);
+  line-height: 1.7;
+  max-width: 40ch;
+  margin-top: 25px;
+  text-wrap: pretty;
+}
+.connection-portfolio .portfolio-image {
+  padding: 14px;
+  object-fit: contain;
+}
+
+/* Two principal actions above two compact contact methods. */
+.contact-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.contact-grid > .contact-card {
+  grid-column: auto;
+}
+.contact-grid > :is(.contact-save, .contact-whatsapp) {
+  min-height: 250px;
+}
+.contact-art-chat {
+  width: 150px;
+  height: 150px;
+  aspect-ratio: 1;
+}
+.contact-art-chat .contact-brand-mark {
+  left: 49.5%;
+  top: 45%;
+  width: 45%;
+  height: 45%;
+  color: var(--accent);
+  filter: drop-shadow(0 1px 0 #ffffff);
+}
+.contact-art-chat .contact-brand-mark svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* The exact institutional motto is the only visible footer content. */
+.site-footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  place-items: center;
+  padding: 54px 0 68px;
+  text-align: center;
+  border-top-color: #a8906533;
+}
+.site-footer .footer-motto {
+  max-width: 38ch;
+  margin-inline: auto;
+  color: #856838;
+  font-size: clamp(1.55rem, 2.8vw, 2.65rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.35;
+  letter-spacing: -0.018em;
+  text-wrap: balance;
+}
+.footer-motto > span {
+  display: block;
+}
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .site-footer .footer-motto {
+    color: transparent;
+    background-image:
+      linear-gradient(108deg, transparent 35%, #9a7943 48%, transparent 61%),
+      linear-gradient(
+        178deg,
+        #695028 5%,
+        #927344 31%,
+        #644a26 49%,
+        #947347 54%,
+        #76572e 90%
+      );
+    background-size:
+      260% 100%,
+      100% 100%;
+    background-position:
+      100% center,
+      center;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+}
+@media (max-width: 1050px) {
+  .biography.biography-banner {
+    min-height: 560px;
+    padding: 45px 38px;
+  }
+  .biography-banner .biography-copy {
+    padding-left: 8px;
+  }
+  .biography-banner .biography-backdrop {
+    object-position: 20% center;
+  }
+  .biography-banner::before {
+    background: linear-gradient(
+      90deg,
+      transparent 30%,
+      #1c142540 42%,
+      #1c1425ee 57%
+    );
+  }
+  .biography-banner .biography-text {
+    font-size: 1.1rem;
+    line-height: 1.65;
+  }
+  .biography-banner .section-heading {
+    font-size: clamp(2.5rem, 4.5vw, 3.5rem);
+  }
+  .contact-art-chat {
+    width: 138px;
+    height: 138px;
+  }
+}
+@media (max-width: 720px) {
+  .biography.biography-banner {
+    display: block;
+    min-height: 0;
+    padding: 0;
+    margin-block: 20px 28px;
+    border-radius: 28px;
+  }
+  .biography-banner .biography-backdrop {
+    height: 460px;
+    object-position: 16% center;
+  }
+  .biography-banner::before {
+    background: linear-gradient(
+      180deg,
+      transparent 240px,
+      #1c142575 335px,
+      #1c1425 445px
+    );
+  }
+  .biography-banner::after {
+    width: 100%;
+    top: 350px;
+  }
+  .biography-banner .biography-copy {
+    margin-top: 365px;
+    padding: 12px 30px 40px;
+  }
+  .biography-banner .biography-text {
+    margin-top: 18px;
+    max-width: 46ch;
+    font-size: 1.0625rem;
+  }
+  .biography-banner .section-heading {
+    font-size: 2.75rem;
+  }
+}
+@media (max-width: 760px) {
+  .contact-grid > :is(.contact-email, .contact-phone) {
+    grid-column: 1 / -1;
+  }
+  .contact-grid > :is(.contact-save, .contact-whatsapp) {
+    min-height: 225px;
+  }
+  .contact-art-chat {
+    width: 124px;
+    height: 124px;
+  }
+  .site-footer {
+    padding-block: 35px 48px;
+  }
+}
+@media (max-width: 359px) {
+  .biography-banner .biography-backdrop {
+    height: 390px;
+    object-position: 14% center;
+  }
+  .biography-banner::before {
+    background: linear-gradient(
+      180deg,
+      transparent 200px,
+      #1c142575 285px,
+      #1c1425 385px
+    );
+  }
+  .biography-banner .biography-copy {
+    margin-top: 315px;
+    padding: 10px 22px 32px;
+  }
+  .biography-banner .section-heading {
+    font-size: 2.45rem;
+  }
+  .biography-banner .biography-text {
+    font-size: 1rem;
+  }
+  .contact-grid > :is(.contact-save, .contact-whatsapp) {
+    min-height: 205px;
+  }
+  .contact-art-chat {
+    width: 110px;
+    height: 110px;
+  }
+}

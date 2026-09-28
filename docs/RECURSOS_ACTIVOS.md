@@ -1,5 +1,21 @@
 # Recursos visuales activos
 
+## Etapa vigente · banner, portafolio y WhatsApp
+
+La autorización explícita sustituye la restricción anterior de no editar generativamente retratos para este banner concreto. Se conserva visualmente la apariencia y pose de Claudia, pero no se afirma identidad de píxeles: es una edición generativa, no la fotografía original sin editar. El adjunto editorial original permanece intacto como histórico. El logo oficial, el retrato principal y el adjunto de Instagram no se modifican.
+
+| Recurso activo                                               | Formato y dimensiones                      | Procedencia y prompt                                                               |
+| ------------------------------------------------------------ | ------------------------------------------ | ---------------------------------------------------------------------------------- |
+| assets/claudia-trayectoria-banner.png (biographyBanner)      | PNG RGB opaco, 1774 × 887, 1.887.437 bytes | Edición integrada del adjunto editorial; Claudia_Trayectoria_Banner_Procedencia.md |
+| assets/clemi-portfolio-sculpture.png (portfolioIllustration) | PNG RGBA, 1254 × 1254, 1.847.233 bytes     | Nueva generación integrada; CLEMI_Portafolio_Procedencia.md                        |
+| assets/contact-whatsapp-sculpture-v2.png                     | PNG RGBA, 1254 × 1254, 1.332.750 bytes     | Edición integrada del soporte doble; CLEMI_WhatsApp_v2_Procedencia.md              |
+
+SHA-256 respectivos, coincidentes entre originales generados y copias: 7d00dcaca99b91818898a65b9d57235d6a0886e4cbbb934b9091931a2d9949c5, a77d881332f4f43c3380aac200b0a62ceba4231c284dca4037aeb70201141b45 y 7da4825389f564178692ead275914b294d9c8d41282542f679d4c63251cf9574. Las copias generadas no se posprocesaron; esto no convierte el banner en una copia píxel a píxel del retrato de referencia. Título y biografía se añaden como HTML. La marca oficial de WhatsApp se superpone como SVG independiente.
+
+La exportación autónoma a 768 px integra los tres activos nuevos y los carga sin imágenes rotas; también se revisaron desarrollo a 1440/320 px y el pie centrado. La verificación, exportación y las 14 pruebas del diálogo pasaron; el detalle y límites constan en docs/CONTINUIDAD.md.
+
+Índice de entrega vigente: CLEMI_Banner_Portafolio_WhatsApp.md. El retrato editorial original, retrato SCCOT, microscopio, burbuja doble y placa QR quedan como históricos fuera de la composición actual. El código real permanece en el diálogo de Guardar contacto. Fuentes y licencias están en docs/THIRD_PARTY_NOTICES.md, sin desplegable en el pie. Los registros siguientes conservan procedencia de etapas anteriores.
+
 ## Teléfono corregido y cintas de los títulos
 
 El teléfono activo es `public/assets/contact-phone-sculpture-v2.png`: smartphone vertical reconocible en marfil, azul marino y oro, con pantalla vacía. Se obtuvo mediante edición autorizada con la herramienta integrada, usando el teléfono anterior como referencia de materiales y sustituyendo su geometría; `transparent_background: true`, sin CLI ni instalaciones. PNG RGBA de 1254 × 1254 px, 660 513 bytes; SHA-256 coincidente entre original, proyecto y entrega: `5ceabb9534f6bdafc12bfd8b4ed2ff7b5c246e5928d0803845cc16b6c76a2b1c`. Copia intacta, transparencia y apariencia revisadas, sin personas, marcas ni flechas. El archivo anterior se conserva como histórico. Entregables: `CLEMI_Contacto_Telefono_v2.png` y `CLEMI_Contacto_Telefono_v2_Procedencia.md`, con prompt exacto.
@@ -26,7 +42,7 @@ Esta tabla conserva la primera generación del 28 de septiembre de 2026; su tel�
 
 La agenda muestra un relieve abstracto sin rasgos, no un retrato de la doctora. Las burbujas de mensajes y la placa QR están vacías: WhatsApp conserva su marca oficial superpuesta y el QR usa el código real del proyecto. No hay personas ni marcas generadas; estas piezas no son fotografías de objetos institucionales.
 
-Los prompts íntegros, modo y procedencia originales están en `CLEMI_Contacto_Agenda_Mensajes_Procedencia.md` y `CLEMI_Contacto_Correo_Telefono_QR_Procedencia.md`. El índice `CLEMI_Contacto_Recursos.md` reúne los seis recursos activos, incluido el smartphone v2 y su registro adicional, y conserva el teléfono anterior como histórico. Las comprobaciones de cada etapa están diferenciadas en `docs/CONTINUIDAD.md`.
+Los prompts íntegros, modo y procedencia originales están en `CLEMI_Contacto_Agenda_Mensajes_Procedencia.md` y `CLEMI_Contacto_Correo_Telefono_QR_Procedencia.md`. El índice histórico CLEMI_Contacto_Recursos.md conserva la etapa de seis recursos de Contacto y sus versiones previas. Las comprobaciones de cada etapa están diferenciadas en `docs/CONTINUIDAD.md`.
 
 ## Contornos y detalle botánico editorial
 
@@ -44,7 +60,7 @@ Los prompts íntegros, modo y procedencia originales están en `CLEMI_Contacto_A
 
 El retrato principal `public/assets/dra-claudia-reyes.jpeg` se conserva. El renderizador mantiene el marcador anterior `portraitTile` por compatibilidad.
 
-## Retrato editorial
+## Retrato editorial original · histórico
 
 - **Archivo:** `public/assets/claudia-reyes-editorial.png`.
 - **Procedencia:** nuevo adjunto del usuario en este chat el 28 de septiembre de 2026, recibido como `codex-clipboard-9fd566de-1d89-4eb5-929c-ba77141631e0.png`.
@@ -54,7 +70,7 @@ El retrato principal `public/assets/dra-claudia-reyes.jpeg` se conserva. El rend
 - **SHA-256 del original y la copia:** `98a9ce685fab1a8d248002ba75f5b335291948e753f112296d266704bdd3afdb`.
 - **Alcance de la comprobación:** se verificaron el formato, las dimensiones y la coincidencia de hashes. Los textos integrados en la imagen proceden del adjunto del usuario; no se comparó este recurso con el perfil de Instagram en vivo.
 
-## Retrato profesional publicado por SCCOT
+## Retrato profesional publicado por SCCOT · histórico
 
 - **Archivo:** `public/assets/claudia-reyes-sccot.jpeg`.
 - **Procedencia:** retrato de la Dra. Claudia Reyes con bata médica sobre fondo oscuro, publicado por SCCOT y recuperado para este proyecto el 28 de septiembre de 2026.
@@ -113,7 +129,7 @@ Constraints: no text, no letters, no numbers, no logos, no watermarks, no people
 
 Son recursos decorativos junto a etiquetas de acción, con `aria-hidden="true"` y `focusable="false"`. No incorporan texto, IDs, filtros, marcas ni dependencias nuevas. El pictograma QR es simbólico y no escaneable; el QR de contacto real se mantiene en `public/assets/contacto-qr.svg`. Los iconos oficiales de WhatsApp e Instagram se conservan intactos.
 
-## Ilustración de investigación para el portafolio
+## Ilustración de investigación para el portafolio · histórica
 
 - **Archivo y uso:** `public/assets/clemi-research-illustration.png`, mediante `researchIllustration`, solo en la tarjeta del portafolio. La composición de pie y libro permanece únicamente en la portada.
 - **Procedencia:** generación nueva autorizada por el usuario con `image_gen__imagegen` el 28 de septiembre de 2026, `transparent_background: true`, sin referencias. Microscopio escultórico en marfil, vidrio, azul marino y bronce, acompañado por una rama de laurel. No se utilizaron fotografías ni logos como material de generación.

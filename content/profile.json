@@ -44,5 +44,7 @@
   "logoWidth": 156,
   "logoHeight": 170,
   "portfolioArtwork": "assets/clemi-metallic-portfolio.png",
-  "researchIllustration": "assets/clemi-research-illustration.png"
+  "researchIllustration": "assets/clemi-research-illustration.png",
+  "biographyBanner": "assets/claudia-trayectoria-banner.png",
+  "portfolioIllustration": "assets/clemi-portfolio-sculpture.png"
 }

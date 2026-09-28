@@ -1,66 +1,40 @@
 # CLEMI · Dra. Claudia Reyes
 
-Landing editorial y fotográfica de la Dra. Claudia Reyes, primera de siete landings para tarjetas NFC. La petición actual toma como referencia la landing de nutricionista adjunta: más presencia de fotografías auténticas y menos texto, con una biografía profesional breve. Mantiene Times New Roman, superficies crema/perla, texto azul marino y detalles dorados. HTML, CSS y JavaScript con Vite; exportación estática para Hostinger u otro alojamiento de archivos.
+Landing estática para la tarjeta NFC de la Dra. Claudia Reyes, primera de siete. HTML, CSS y JavaScript con Vite; Times New Roman, crema/perla, azul marino y oro, con banner morado de Trayectoria.
 
-Estado: nombre y cargos metalizados, encabezados con cintas satinadas y resplandor breve, y teléfono corregido como smartphone, comprobados en navegador y exportación. Se conservan Contacto de cristal, fotografías, logo, datos, Times New Roman y control local de animación, que queda activo. Las pruebas y sus límites están separados por etapa en `docs/CONTINUIDAD.md`; el sitio no está publicado.
+La petición actual incorpora un banner morado ancho de Trayectoria, una carpeta de portafolio y una sola burbuja de WhatsApp con el SVG oficial superpuesto. Título y biografía son HTML a la derecha; en móvil, imagen arriba y texto abajo dentro del mismo panel. Se retiran la galería y su visor. Guardar contacto abre el diálogo QR con descarga y compartir dentro; Contacto conserva cuatro acciones. El pie muestra únicamente el lema exacto centrado, dorado y con animación finita, sin fuentes, créditos, botón de movimiento ni volver arriba.
 
-`h1.hero-name` aumenta la presencia del nombre y los cargos usan 18–25 px con filo dorado. Gradientes azul marino/oro y `title-metalwork.svg`, vector original sin IA, reemplazan la decoración de hoja. El resplandor de secciones y encabezados dura 850 ms y el brillo de texto 1150 ms; se elimina la competencia de `text-arrival` con las transformaciones de Motion. `contact-phone-sculpture-v2.png` sustituye al auricular anterior, conservado como histórico; procedencia en `docs/RECURSOS_ACTIVOS.md`.
+Validación de esta etapa completada: npm run verify y export:preview pasaron tras los refinamientos finales, al igual que las 14 pruebas de dialog-transition-check.mjs sobre el main actual. Navegador administrado a 1440/320 px y HTML autónomo a 768 px sin desbordamiento ni imágenes rotas. Guardar contacto abre el QR; Escape cierra y devuelve el foco al botón en desarrollo y exportación. Las descargas VCF de ambos entornos coinciden por SHA-256 y texto con public/contacto.vcf. Los tres activos nuevos están integrados en el HTML autónomo; pie centrado y controles retirados comprobados. NFC físico, cámara e importación vCard en iOS/Android siguen pendientes; no se publica.
 
 ## Editar y revisar
 
-Requiere Node 22.12 o superior; verificado con Node 24.19.0.
+Requiere Node 22.12 o superior. Usar npm ci y npm run dev con las dependencias existentes. Contenido en content/profile.json; composición en src/page.html; estilos en src/tokens.css, src/style.css, src/liquid-glass.css y src/editorial-banner.css, cargado después del cristal. No editar directamente index.html, public/contacto.vcf ni public/assets/contacto-qr.svg: son generados.
 
-```sh
-npm ci
-npm run dev
-```
+## Composición y recursos
 
-Cambiar `content/profile.json` y reiniciar el servidor para regenerar el HTML y la vCard. Editar la composición en `src/page.html`, estilos en `src/style.css` y colores en `src/tokens.css`. No editar `index.html`, `public/contacto.vcf` ni `public/assets/contacto-qr.svg` directamente.
+La portada conserva únicamente nombre y cargos metalizados, retrato e ilustración de pie y libro; fotografía a la derecha en escritorio y antes del nombre en móvil. Trayectoria presenta la biografía de 48 palabras como HTML junto al banner, sin frase ni textos impresos. Conexiones mantiene tres tarjetas: Portafolio, Instagram y Fundación CLEMI.
 
-Para incorporar logo y fotografía, colocar los archivos autorizados en `public/assets/` y asignar sus rutas relativas en `logo` y `portrait`. El logo activo es `assets/logo-clemi-oficial-sin-texto.svg`; su original intacto está en `design/source/Logo_CLEMI_Oficial_Sin_Texto.ai`. Es el símbolo oficial sin texto: no añadir una palabra CLEMI redibujada ni recolorear sus colores originales. El PNG anterior de Canva permanece archivado. `logoWidth` y `logoHeight` indican la proporción del SVG, que debe conservarse al mostrarlo.
+La autorización explícita sustituye la restricción anterior de no editar generativamente retratos para este banner concreto. Se conserva visualmente la apariencia y pose de Claudia, pero no se afirma identidad de píxeles: es una edición generativa, no la fotografía original sin editar. El adjunto editorial original permanece intacto como histórico. El logo oficial, el retrato principal y el adjunto de Instagram no se modifican.
 
-Las cuatro imágenes auténticas de Claudia se configuran con `portrait` (JPEG de portada), `instagramPortrait` (adjunto de Instagram), `editorialPortrait` (nuevo adjunto editorial) y `professionalPortrait` (retrato con bata publicado por SCCOT), junto a sus campos de dimensiones. Los archivos permanecen intactos. Los dos adjuntos conservan sus textos y marcas impresas completos; no se han regenerado rostros ni logos.
+Activos nuevos: biographyBanner → assets/claudia-trayectoria-banner.png (1774 × 887), portfolioIllustration → assets/clemi-portfolio-sculpture.png (1254 × 1254) y assets/contact-whatsapp-sculpture-v2.png (1254 × 1254). La carpeta sustituye al microscopio y la burbuja única sustituye al soporte doble. Prompts y procedencia en docs/RECURSOS_ACTIVOS.md; entrega en CLEMI_Banner_Portafolio_WhatsApp.md.
 
-`institutionalPhoto` utiliza `assets/clemi-formacion.jpeg`, fotografía oficial de formación de CLEMI; no se identifica a Claudia entre sus asistentes. Las ilustraciones transparentes autorizadas tienen usos separados: `scienceIllustration` (`assets/clemi-science-illustration.png`, pie y libro) aparece solo en portada; `researchIllustration` (`assets/clemi-research-illustration.png`, microscopio) solo en portafolio. Son decorativas, sin personas ni logos generados; no constituyen evidencia clínica ni representan equipamiento institucional verificado. Los prompts y procedencia están en `docs/RECURSOS_ACTIVOS.md`. El antiguo `portfolioArtwork` metálico es histórico y no se muestra.
+scienceIllustration permanece solo en portada; institutionalPhoto conserva la foto oficial de formación, sin identificar a Claudia entre sus asistentes. El microscopio, retrato editorial original, retrato SCCOT, soporte doble y placa QR quedan como históricos. La biografía mantiene fuentes [AAOT](https://congresoaaot.org.ar/invitados/claudia-reyes/) y [SCCOT](https://sccot.org/wp-content/uploads/2025/01/Hoja-de-Vida-Claudia-Reyes.doc.pdf), solo con datos profesionales. Atribuciones y licencias permanecen en docs/THIRD_PARTY_NOTICES.md y documentación de recursos. El pie muestra únicamente «Entrenamos hoy, investigamos para el mañana, transformamos vidas».
 
-La biografía de 48 palabras se edita en `biography`; `biographySources` enlaza [AAOT](https://congresoaaot.org.ar/invitados/claudia-reyes/) y la [hoja de vida publicada por SCCOT](https://sccot.org/wp-content/uploads/2025/01/Hoja-de-Vida-Claudia-Reyes.doc.pdf). Solo recoge formación y trayectoria profesional. El lema se edita en `motto` y se presenta una vez en el pie, con su texto exacto. Las fuentes profesionales y los créditos de fotografías se reúnen en el desplegable nativo «Fuentes y créditos» del pie.
+## Contacto y movimiento
 
-## Experiencia de contacto
+Contacto reúne Guardar contacto, WhatsApp, Correo y Llamar. Guardar abre el diálogo claro con QR real, descarga vCard y compartir cuando lo admite el navegador. Mantener Escape, cierre y retorno de foco. La descarga alternativa permanece disponible sin JavaScript. Importar y compartir dependen del dispositivo; no se han probado físicamente en iOS/Android.
 
-La portada muestra nombre, cargos, fotografía e ilustración; el retrato se sitúa a la derecha en escritorio y antes del nombre en móvil. Trayectoria combina biografía breve y galería editorial sin repetir credenciales. Conexiones presenta tres tarjetas de imagen superior y título breve: Portafolio CLEMI, Instagram y Fundación CLEMI. Contacto, al final del contenido, reúne guardar contacto, WhatsApp, QR, correo y teléfono. La navegación incluye Contacto y el enlace de salto lleva a esa sección. Se retiraron los botones de portada y cabecera, la barra móvil fija, la credencial giratoria y los reclamos redundantes. El lema exacto permanece en el pie.
+Las tarjetas de cristal conservan desenfoque de fondo de 19 px, saturación 1,35 y reflejos; las ondas son una imagen decorativa contact-waves, alt vacío y carga diferida. Copiar correo muestra confirmación. No quedan tarjeta QR separada ni flechas. Navegación y enlace de salto llevan a Contacto.
 
-El QR abre un diálogo claro y contiene la misma vCard descargable. Cuando el navegador permite compartir ese archivo, el panel ofrece «Compartir contacto» y lo prepara antes del clic. Escape y el botón de cierre devuelven el foco al control de origen. Guardar e importar contactos depende del dispositivo; enlaces y descarga siguen disponibles si JavaScript falla.
-
-Las dos fotografías de Trayectoria se pueden ampliar en un diálogo nativo con fondo difuminado. El visor conserva la descripción accesible, la proporción y los archivos originales; bloquea el desplazamiento mientras está abierto, se cierra con Escape, botón o clic exterior y devuelve el foco a la fotografía de origen. Estos comportamientos se comprobaron en navegador.
-
-La nueva sección Contacto sustituye los cuatro pictogramas anteriores por cinco imágenes escultóricas para guardar, conversación, correo, teléfono y soporte QR. `assets/contact-gold-waves.png` muestra ondas doradas sobre marfil/perla mediante una imagen decorativa `contact-waves`, con texto alternativo vacío y carga diferida; así queda integrada en el HTML autónomo. Las tarjetas de cristal preservan texto legible. El símbolo oficial de WhatsApp y el QR real se superponen a sus soportes, sin generarlos con IA. Se retiran todas las flechas conservando etiquetas y acciones. No se añaden dependencias. La navegación fija señala la sección activa y copiar correo conserva confirmación visible.
-
-Motion revela los títulos una vez durante 950 ms con desplazamiento, rotación sutil, desenfoque y máscara; un brillo gradual dura 1150 ms y los estilos se limpian a los 1200 ms más el retraso. Paneles y retrato usan 620 y 900 ms. Contacto añade cristal con desenfoque de fondo de 19 px, saturación 1,35, bisel y reflejo que sigue el puntero, con barrido de brillo de 950 ms. Los grupos conservan selección por teclado o ratón fino, y movimiento reducido limpia estados y animaciones. La referencia [Focus Cards](https://21st.dev/@manuarora700/components/focus-cards) se consultó por MCP como metadatos, sin instalar el componente. Texto y orden semántico permanecen disponibles.
-
-El fondo combina gradientes perla, marfil y azul marino con contornos vectoriales originales. Trayectoria y Contacto usan paneles translúcidos de borde fino. Los títulos incorporan inicial dorada cursiva y un detalle botánico lineal, presente también en la portada sin texto adicional. `editorial-contours.svg` y `title-flourish.svg` son dibujos SVG originales sin IA. La llegada a una sección anima el detalle durante 850 ms y la cabecera indica el progreso de desplazamiento.
-
-Los enlaces internos usan `section-navigation.js`: recorrido con RAF, curva cúbica y duración de 460–1100 ms según distancia, con foco de destino e historial. La entrada manual cancela el recorrido; la rueda conserva su comportamiento natural. `motion-preference.js` respeta la preferencia del sistema por defecto. «Activar/Pausar animaciones» en el pie permite una elección explícita, guardada como `clemi-motion` en el almacenamiento local de ese origen y aplicada con `html[data-motion="full"|"reduce"]`. El usuario autorizó activarla solo aquí; no se modifica la preferencia del sistema. La pausa explícita desactiva el movimiento.
-
-La exploración independiente `Claudia_Reyes_Exploracion.html` conserva «Editorial luminosa», «Retrato inmersivo» y «Galería modular» como alternativas históricas. La primera fue recomendada por el asistente; no se atribuye al usuario una selección entre ellas. Ninguna representa por completo la implementación fotográfica actual.
+Los títulos entran durante 950 ms, el brillo de texto dura 1150 ms y el resplandor de secciones 850 ms; paneles y retrato usan 620 y 900 ms. Selección por teclado o ratón fino, foco visible y movimiento reducido se conservan. Los enlaces internos usan RAF de 460–1100 ms, foco e historial, con cancelación manual y rueda nativa. motion-preference.js permanece activo sin botón visible: aplica la preferencia local guardada en clemi-motion o, por defecto, la del sistema. No se cambian ajustes del sistema. Todas las animaciones son finitas y se conserva movimiento reducido.
 
 ## Comprobar y exportar
 
-`npm run verify` y `npm run export:preview` pasaron. Desarrollo a 1440/320 px y exportación a 768 px no presentan desbordamiento ni imágenes rotas; la consola exportada no mostró errores ni advertencias. La auditoría de código calculó contraste mínimo de 3,69:1 para el apellido grande y 6,74:1 para cargos, legibles a 24,48/17,92 px. El relleno inferior de 0,14 em evita recortar descendentes y «Reyes» se revisó en móvil. El PNG del teléfono v2 y el SVG de cintas quedan integrados como datos en el HTML autónomo.
+Validación de esta etapa completada: npm run verify y export:preview pasaron tras los refinamientos finales, al igual que las 14 pruebas de dialog-transition-check.mjs sobre el main actual. Navegador administrado a 1440/320 px y HTML autónomo a 768 px sin desbordamiento ni imágenes rotas. Guardar contacto abre el QR; Escape cierra y devuelve el foco al botón en desarrollo y exportación. Las descargas VCF de ambos entornos coinciden por SHA-256 y texto con public/contacto.vcf. Los tres activos nuevos están integrados en el HTML autónomo; pie centrado y controles retirados comprobados. NFC físico, cámara e importación vCard en iOS/Android siguen pendientes; no se publica.
 
-Pausar en móvil establece `data-motion="reduce"` sin animaciones computadas, conservando el metal; se reactivó `full` al terminar. En la exportación se observó el resplandor real al navegar a Contacto, con animaciones de sección, título y texto y foco en `contact-title`. Esta etapa no cambió JavaScript ni repitió los catorce diagnósticos anteriores, que son históricos. `CLEMI_Contacto_Recursos.md` enlaza el teléfono v2 y conserva el anterior como histórico.
+Ejecutar npm run verify y npm run export:preview. dist/ contiene la distribución estática; artifacts/Claudia_Reyes_Vista_Previa.html es el HTML autónomo con estilos, fuentes locales, imágenes, scripts, QR y vCard integrados. Algunos visores limitan descargas; la web utiliza contacto.vcf como archivo normal.
 
-Se conserva la transcripción accesible del adjunto editorial mediante `aria-describedby`. Las simulaciones no equivalen a pruebas físicas del sistema operativo. NFC, cámara e importación de contacto en iOS/Android continúan pendientes.
-
-```sh
-npm run verify
-npm run export:preview
-```
-
-- `dist/`: archivos listos para alojamiento estático; no subir el código fuente a la raíz pública.
-- `artifacts/Claudia_Reyes_Vista_Previa.html`: vista previa autónoma para abrir como archivo, con CSS, iconos, fuentes locales, Motion, fotografías, ilustraciones y QR integrados. Incluye lema, diálogo y copia de correo. Su vCard usa un enlace de datos; algunos visores de archivos pueden bloquear descargas, pero la web desplegable utiliza `contacto.vcf` como archivo normal.
-- Contacto, redes y portafolio son enlaces reales. La descarga vCard permite importar los datos, sujeto al comportamiento de cada dispositivo.
-
-La propuesta está marcada `noindex, nofollow`. Cuando se confirme la URL final, ponerla en `publicUrl`, reconstruir y revisar: genera la URL canónica y permite indexación. No cambia ni registra el dominio.
+Mantener publicUrl: null y noindex, nofollow hasta confirmar el destino y autorizar publicación. Las validaciones por etapa están en docs/CONTINUIDAD.md; las tres maquetas y el Figma oscuro son históricos.
 
 ## Publicar en Hostinger
 
@@ -78,7 +52,3 @@ Documentación oficial: https://www.hostinger.com/support/1583302-how-to-deploy-
 ## GitHub y conexiones
 
 Repositorio privado confirmado: [YeferClemiJPG/Dra.ClaudiaReyes](https://github.com/YeferClemiJPG/Dra.ClaudiaReyes). El código se recuperó del ZIP suministrado por el usuario el 28 de septiembre de 2026 y se vinculó a ese remoto. Consultar `docs/CONTINUIDAD.md` para el estado actual y `docs/INTEGRACIONES.md`, `docs/SISTEMA_VISUAL.md`, `docs/REVISION.md` y `docs/PLAN_SIETE_LANDINGS.md` para las decisiones y revisiones anteriores.
-
-## Antecedente del retrato transparente
-
-La referencia oscura histórica presentaba un retrato separado de su fondo. Una edición automática anterior se descartó por cambios en detalles faciales y no está incluida. La composición actual conserva fotografías auténticas con su fondo; no depende de obtener ese recorte.

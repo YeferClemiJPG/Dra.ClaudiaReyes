@@ -1,6 +1,6 @@
 # Continuidad del proyecto · 28 de septiembre de 2026
 
-La etapa vigente refuerza nombre y cargos metalizados, encabezados con resplandor y teléfono corregido como smartphone. Su validación de navegador, exportación, pausa y resplandor real está completada con los límites indicados al final. Los resultados anteriores se conservan por etapa.
+La etapa vigente incorpora el banner morado de Trayectoria, portafolio y contacto simplificado. Su validación final está completada con los límites documentados al final; los resultados anteriores se conservan por etapa.
 
 ## Base recuperada
 
@@ -146,3 +146,19 @@ El usuario pidió encabezados y secciones más elegantes con resplandor, mayor p
 La exportación a 768 px se comprobó sin desbordamiento, imágenes rotas ni advertencias o errores de consola. El PNG del smartphone está integrado como datos y carga a 1254 px naturales; `title-metalwork.svg` está integrado como SVG de datos en el CSS. Pausar en móvil establece `data-motion="reduce"` sin animaciones computadas y conserva el acabado metalizado; se reactivó `full` al terminar.
 
 El resplandor real se comprobó en la exportación al pulsar Contacto en la cabecera: `.is-arriving` activo, `section-radiance` en `#contacto::after`, `heading-radiance` en `#contact-title::before` y `text-light` en el texto, con foco en `contact-title`. Al terminar desapareció `.is-arriving` y la animación quedó en `none`, confirmando su duración finita. La captura final a 1440 px conserva completa la descendente de «Reyes». Se actualizaron el HTML autónomo y `Claudia_Reyes_Metalizado_Portada.png`, `Claudia_Reyes_Metalizado_Movil.png` y `Claudia_Reyes_Metalizado_Contacto.png`. No hubo cambios JavaScript en esta etapa ni se repitieron los catorce diagnósticos anteriores; permanecen como históricos. NFC físico, cámara e importación móvil siguen pendientes. No hay publicación.
+
+## Banner de Trayectoria, portafolio y contacto simplificado · 28 de septiembre de 2026
+
+La petición actual incorpora un banner morado ancho de Trayectoria, una carpeta de portafolio y una sola burbuja de WhatsApp con el SVG oficial superpuesto. Título y biografía son HTML a la derecha; en móvil, imagen arriba y texto abajo dentro del mismo panel. Se retiran la galería y su visor. Guardar contacto abre el diálogo QR con descarga y compartir dentro; Contacto conserva cuatro acciones. El pie muestra únicamente el lema exacto centrado, dorado y con animación finita, sin fuentes, créditos, botón de movimiento ni volver arriba.
+
+La autorización explícita sustituye la restricción anterior de no editar generativamente retratos para este banner concreto. Se conserva visualmente la apariencia y pose de Claudia, pero no se afirma identidad de píxeles: es una edición generativa, no la fotografía original sin editar. El adjunto editorial original permanece intacto como histórico. El logo oficial, el retrato principal y el adjunto de Instagram no se modifican.
+
+Activos nuevos: biographyBanner → assets/claudia-trayectoria-banner.png (1774 × 887), portfolioIllustration → assets/clemi-portfolio-sculpture.png (1254 × 1254) y assets/contact-whatsapp-sculpture-v2.png (1254 × 1254). La carpeta sustituye al microscopio y la burbuja única sustituye al soporte doble. Prompts y procedencia en docs/RECURSOS_ACTIVOS.md; entrega en CLEMI_Banner_Portafolio_WhatsApp.md.
+
+Fuentes y licencias permanecen en docs/THIRD_PARTY_NOTICES.md. Consulta MCP real portrait biography editorial banner, referencias Hero 07, Hero 04 y Hero 05, sin instalar.
+
+motion-preference.js permanece activo sin botón visible: aplica la preferencia local guardada en clemi-motion o, por defecto, la del sistema. No se cambian ajustes del sistema. Todas las animaciones son finitas y se conserva movimiento reducido.
+
+Validación de esta etapa completada: npm run verify y export:preview pasaron tras los refinamientos finales, al igual que las 14 pruebas de dialog-transition-check.mjs sobre el main actual. Navegador administrado a 1440/320 px y HTML autónomo a 768 px sin desbordamiento ni imágenes rotas. Guardar contacto abre el QR; Escape cierra y devuelve el foco al botón en desarrollo y exportación. Las descargas VCF de ambos entornos coinciden por SHA-256 y texto con public/contacto.vcf. Los tres activos nuevos están integrados en el HTML autónomo; pie centrado y controles retirados comprobados. NFC físico, cámara e importación vCard en iOS/Android siguen pendientes; no se publica.
+
+La espera del evento de descarga del HTML autónomo agotó el tiempo de la herramienta, pero el archivo sí se descargó y se comprobó su SHA-256 y contenido exactos. No se observó un fallo funcional de descarga; esa comprobación no sustituye la importación física en un móvil.

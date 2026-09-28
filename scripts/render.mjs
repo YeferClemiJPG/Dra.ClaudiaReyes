@@ -53,6 +53,8 @@ for (const key of [
   "scienceIllustration",
   "researchIllustration",
   "portfolioArtwork",
+  "biographyBanner",
+  "portfolioIllustration",
 ]) {
   if (profile[key]) {
     if (!/^assets\/[a-zA-Z0-9/_-]+\.(svg|png|webp|jpe?g)$/.test(profile[key]))
@@ -62,10 +64,9 @@ for (const key of [
 }
 for (const asset of [
   "contact-save-sculpture.png",
-  "contact-chat-sculpture.png",
+  "contact-whatsapp-sculpture-v2.png",
   "contact-mail-sculpture.png",
   "contact-phone-sculpture-v2.png",
-  "contact-qr-sculpture.png",
   "contact-gold-waves.png",
 ]) {
   await access(path.join(root, "public/assets", asset));
