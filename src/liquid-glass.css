@@ -183,6 +183,10 @@
 .contact-email-link {
   gap: 17px;
 }
+.contact-phone {
+  justify-content: center;
+  text-align: center;
+}
 .contact-email .contact-art,
 .contact-phone .contact-art {
   width: 108px;
