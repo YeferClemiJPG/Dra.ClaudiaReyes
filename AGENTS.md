@@ -1,5 +1,7 @@
 # CLEMI · Landings de tarjetas NFC
 
+- Orden vigente solicitado el 30/09/2026: Perfil, Trayectoria, Contacto, Conexiones. Conservar diseño y animaciones al cambiar el orden.
+
 - El usuario autorizó expresamente publicar esta landing mediante GitHub Pages. El repositorio es público y el destino configurado es https://yeferclemijpg.github.io/Dra.ClaudiaReyes/. La rama de publicación es `refine/interaction-visual`; no es necesario fusionarla con `main`. `.github/workflows/pages.yml` instala con `npm ci`, ejecuta `npm run verify`, sube únicamente `dist/` y despliega con GitHub Pages. La configuración no equivale a una comprobación del sitio publicado: confirmar el resultado del despliegue y su URL antes de informar que está disponible.
 - La corrección vigente restaura Conexiones al diseño anterior a los acentos SCCOT (commit `1729671`). El azul SCCOT pertenece únicamente a las ondas de la imagen de Contacto: `assets/contact-blue-waves.png`, edición generativa de `contact-gold-waves.png`. Conservar el original dorado como histórico, el cristal de las tarjetas y el oro de sus iconos. `#04157F` es referencia cromática extraída del CSS oficial de SCCOT, no de un manual de marca. La referencia exacta está en .21st/DESIGN.md. Verificación, exportación y revisión de desarrollo a 1280/320 px aprobadas; Conexiones coincide con los estilos de `1729671`. Detalle en docs/CONTINUIDAD.md.
 
