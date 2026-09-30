@@ -1,42 +1,56 @@
 # CLEMI · Dra. Claudia Reyes
 
-Dirección visual oscura y metálica basada en la referencia reafirmada por el usuario, para la primera de siete landings para tarjetas NFC. HTML, CSS y JavaScript con Vite. Exportación estática para Hostinger u otro alojamiento de archivos.
+Landing estática para la tarjeta NFC de la Dra. Claudia Reyes, primera de siete. HTML, CSS y JavaScript con Vite; Times New Roman, crema/perla, azul marino y oro, con banner morado de Trayectoria.
 
-Estado: propuesta implementada y revisada localmente; no publicada. Usa el símbolo oficial sin texto exportado del archivo AI suministrado por el usuario, el retrato auténtico y el lema institucional exacto. No se recreó ni recoloreó el logo. Las comprobaciones históricas y la validación de la sustitución vectorial están en `docs/REVISION.md`. El enlace de portafolio se conserva exactamente según la información recibida; su disponibilidad externa no pudo confirmarse desde el buscador.
+La corrección actual cambia Guardar contacto por una descarga directa de la vCard y retira el diálogo QR. El diseño y las animaciones se conservan. Verificación y exportación aprobadas; publicada mediante el flujo 36488430582 para cb49399. La descarga de un clic se comprobó en la página pública y coincide con la vCard original. Resultados y límites por etapa en `docs/CONTINUIDAD.md`.
+
+La corrección anterior recuperó las animaciones en GitHub Pages. La elección guardada en la vista previa local no se comparte con el origen público; al faltar allí, la preferencia reducida del sistema las desactivaba. Esta landing establece movimiento completo por defecto conforme a la autorización expresa del usuario, conservando la prioridad de una elección local guardada. En aquella etapa pasaron siete pruebas nuevas de preferencia, quince de navegación y catorce de diálogo, además de verificación y exportación. La reparación se publicó y comprobó en la URL pública.
+
+La corrección visual anterior aplicó azul SCCOT a las ondas del fondo de Contacto mediante edición generativa y restauró Conexiones al diseño anterior a los acentos azules. El cristal, los iconos dorados y las acciones de Contacto se conservan. Verificación y exportación aprobadas en aquella etapa; revisión de desarrollo a 1280/320 px sin desbordamiento, con Contacto azul legible y Conexiones restaurada. El HTML autónomo integra el PNG exacto.
+
+La etapa anterior recuperó nombre, especialidad e Instagram como HTML dentro del banner morado v2 y amplió el retrato mediante relleno generativo. Su encuadre se revisó a 1440, 1280, 1000, 768 y 320 px; verificación y exportación pasaron entonces. Detalle y límites por etapa en `docs/CONTINUIDAD.md`.
 
 ## Editar y revisar
 
-Requiere Node 22.12 o superior; verificado con Node 24.19.0.
+Requiere Node 22.12 o superior. Usar npm ci y npm run dev con las dependencias existentes. Contenido en content/profile.json; composición en src/page.html; estilos en src/tokens.css, src/style.css, src/liquid-glass.css y src/editorial-banner.css, cargado después del cristal. No editar directamente index.html, public/contacto.vcf ni public/assets/contacto-qr.svg: son generados.
 
-```sh
-npm ci
-npm run dev
-```
+## Composición y recursos
 
-Cambiar `content/profile.json` y reiniciar el servidor para regenerar el HTML y la vCard. Editar la composición en `src/page.html`, estilos en `src/style.css` y colores en `src/tokens.css`. No editar `index.html`, `public/contacto.vcf` ni `public/assets/contacto-qr.svg` directamente.
+La portada conserva únicamente nombre y cargos metalizados, retrato e ilustración de pie y libro; fotografía a la derecha en escritorio y antes del nombre en móvil. Trayectoria presenta nombre, especialidad, enlace de Instagram y biografía de 48 palabras como HTML dentro del banner, sin cita ni textos impresos. Conexiones mantiene tres tarjetas: Portafolio, Instagram y Fundación CLEMI.
 
-Para incorporar logo y fotografía, colocar los archivos autorizados en `public/assets/` y asignar sus rutas relativas en `logo` y `portrait`. El logo activo es `assets/logo-clemi-oficial-sin-texto.svg`; su original intacto está en `design/source/Logo_CLEMI_Oficial_Sin_Texto.ai`. Es el símbolo oficial sin texto: no añadir una palabra CLEMI redibujada ni recolorear sus colores originales. El PNG anterior de Canva permanece archivado y no es el recurso activo. `logoWidth` y `logoHeight` indican la proporción del SVG; las seis reglas CSS que muestran el logo usan altura automática para conservarla.
+En escritorio, la imagen de Trayectoria conserva su proporción natural con altura automática; no crece para cubrir la altura del texto. Hasta 900 px, una ventana cuadrada alineada arriba a la izquierda y limitada a 440 px muestra la mitad izquierda del lienzo, donde se sitúa el retrato con sus márgenes. El texto sigue debajo dentro del mismo panel y el fondo morado une ambas zonas con una transición suave también en los laterales.
 
-Mantener `null` cuando no se hayan suministrado recursos. Si se añade `portrait`, la cabecera muestra esa fotografía en lugar de la credencial, sin filtros de color, con encuadre fotográfico y transición de los bordes hacia el fondo; se conservan los demás accesos al QR. No aplicar filtros de color a fotografías. `portraitWidth` y `portraitHeight` indican sus dimensiones originales. El arte abstracto de portafolio se edita mediante `portfolioArtwork`; es una imagen decorativa generada, no una fotografía de cursos ni una muestra de trabajos. El lema se edita una sola vez en `motto`; el render divide visualmente sus cláusulas sin cambiar el texto.
+La autorización explícita sustituye la restricción anterior de no editar generativamente retratos para este banner concreto. Se conserva visualmente la apariencia y pose de Claudia, pero no se afirma identidad de píxeles: es una edición generativa, no la fotografía original sin editar. El adjunto editorial original permanece intacto como histórico. El logo oficial, el retrato principal y el adjunto de Instagram no se modifican.
 
-## Experiencia de contacto
+Activos vigentes: biographyBanner → assets/claudia-trayectoria-banner-v2.png (1774 × 887), portfolioIllustration → assets/clemi-portfolio-sculpture.png (1254 × 1254) y assets/contact-whatsapp-sculpture-v2.png (1254 × 1254). El retrato editorial original y el banner v1 se conservan como históricos. La carpeta sustituye al microscopio y la burbuja única sustituye al soporte doble. Prompts y procedencia en docs/RECURSOS_ACTIVOS.md; entrega en CLEMI_Banner_Portafolio_WhatsApp.md.
 
-Composición oscura continua con Times New Roman y respaldo serif; retrato protagonista (credencial con frente y reverso como alternativa cuando no se proporciona fotografía); banda de contacto, tres accesos visuales diferenciados (portafolio, Instagram personal y Fundación CLEMI) y cierre con lema; QR de vCard generado durante la compilación; diálogo accesible con cierre por Escape; copia del correo y acciones fijas en móvil. El QR contiene los datos de contacto, no una dirección de publicación provisional. Guardar e importar contactos depende también del dispositivo.
+scienceIllustration permanece solo en portada; institutionalPhoto conserva la foto oficial de formación, sin identificar a Claudia entre sus asistentes. El microscopio, retrato editorial original, retrato SCCOT, soporte doble y placa QR quedan como históricos. La biografía mantiene fuentes [AAOT](https://congresoaaot.org.ar/invitados/claudia-reyes/) y [SCCOT](https://sccot.org/wp-content/uploads/2025/01/Hoja-de-Vida-Claudia-Reyes.doc.pdf), solo con datos profesionales. Atribuciones y licencias permanecen en docs/THIRD_PARTY_NOTICES.md y documentación de recursos. El pie muestra únicamente «Entrenamos hoy, investigamos para el mañana, transformamos vidas».
 
-Motion anima apariciones y apertura del diálogo con respeto por movimiento reducido. El giro usa CSS. Los enlaces y la descarga siguen disponibles si JavaScript falla. Lucide aporta los iconos funcionales; WhatsApp e Instagram usan SVG de Simple Icons 16.32.0 (CC0), incorporados como recursos locales y coloreados en dorado; no hay React ni bibliotecas duplicadas de diálogos.
+## Contacto y movimiento
+
+Contacto reúne Guardar contacto, WhatsApp, Correo y Llamar. Guardar es un enlace directo a `./contacto.vcf`, con tipo `text/vcard` y download con el slug del perfil para iniciar la descarga en un clic. Funciona sin JavaScript, sin QR ni diálogo intermedio. La exportación autónoma integra la vCard y conserva el mismo atributo download. Abrir e importar el archivo depende del dispositivo y puede requerir confirmación: no se afirma guardado automático ni se ha probado físicamente en iOS/Android. El QR y su generador se conservan como históricos.
+
+Las tarjetas de cristal conservan desenfoque de fondo de 19 px, saturación 1,35 y reflejos; las ondas azul SCCOT son la imagen decorativa `assets/contact-blue-waves.png`, con clase contact-waves, alt vacío y carga diferida. El original dorado se conserva como histórico. Copiar correo muestra confirmación. No quedan tarjeta QR separada ni flechas. Navegación y enlace de salto llevan a Contacto.
+
+Los títulos entran durante 950 ms, el brillo de texto dura 1150 ms y el resplandor de secciones 850 ms; paneles y retrato usan 620 y 900 ms. Selección por teclado o ratón fino, foco visible y movimiento reducido se conservan. Los enlaces internos usan RAF de 460–1100 ms, foco e historial, con cancelación manual y rueda nativa.
+
+motion-preference.js permanece activo sin botón visible. La función admite defaultPreference y sigue usando system por defecto; main.js configura full para esta landing, según la autorización explícita del usuario. La elección válida guardada en clemi-motion, full o reduce, tiene prioridad. Así, un origen nuevo activa las animaciones sin requerir la preferencia almacenada en localhost, mientras que una elección guardada reduce continúa deteniéndolas. No se cambian ajustes del sistema. Todas las animaciones son finitas.
 
 ## Comprobar y exportar
 
-```sh
-npm run verify
-npm run export:preview
-```
+`npm run verify` completó lint, siete pruebas de preferencia de movimiento, formato y compilación; `npm run export:preview` pasó. Las descargas de un clic en desarrollo y producción coinciden con public/contacto.vcf. El HTML compilado tiene una sola acción de descarga, sin diálogo ni QR; la vCard integrada y el nombre claudia-reyes.vcf de la exportación son correctos. En producción se conservó el modo full, cargaron las cinco imágenes de Contacto y no se observaron desbordamiento ni errores o advertencias de consola. Las comprobaciones anteriores y pruebas del antiguo diálogo permanecen como históricas. NFC físico e importación móvil siguen pendientes.
 
-- `dist/`: archivos listos para alojamiento estático; no subir el código fuente a la raíz pública.
-- `artifacts/Claudia_Reyes_Vista_Previa.html`: vista previa autónoma para abrir como archivo, con CSS, iconos, fuentes locales, Motion y QR integrados. Incluye retrato, lema, diálogo y copia de correo; el giro está disponible en la variante sin fotografía. Su vCard usa un enlace de datos; algunos visores de archivos pueden bloquear descargas, pero la web desplegable utiliza `contacto.vcf` como archivo normal.
-- Contacto, redes y portafolio son enlaces reales. La descarga vCard permite importar los datos, sujeto al comportamiento de cada dispositivo.
+Ejecutar npm run verify y npm run export:preview. dist/ contiene la distribución estática; artifacts/Claudia_Reyes_Vista_Previa.html es el HTML autónomo con estilos, fuentes locales, imágenes, scripts y vCard integrados. Algunos visores limitan descargas; la web utiliza contacto.vcf como archivo normal.
 
-La propuesta está marcada `noindex, nofollow`. Cuando se confirme la URL final, ponerla en `publicUrl`, reconstruir y revisar: genera la URL canónica y permite indexación. No cambia ni registra el dominio.
+Las validaciones por etapa están en docs/CONTINUIDAD.md; las tres maquetas y el Figma oscuro son históricos.
+
+## Publicar en GitHub Pages
+
+El usuario autorizó la publicación y el repositorio es público. El destino configurado es [la landing en GitHub Pages](https://yeferclemijpg.github.io/Dra.ClaudiaReyes/).
+
+La rama de publicación es `refine/interaction-visual`. El flujo `.github/workflows/pages.yml` instala las dependencias con `npm ci`, ejecuta `npm run verify`, sube únicamente `dist/` y despliega en GitHub Pages. No requiere fusionar la rama con `main`. Revisar el resultado del flujo y comprobar la URL antes de dar el despliegue por validado.
+
+`content/profile.json` usa `publicUrl: "https://yeferclemijpg.github.io/Dra.ClaudiaReyes/"`, que genera el canonical y `index, follow`; Vite conserva `base: "./"` para resolver los recursos dentro de la ruta del proyecto. La configuración anterior con `publicUrl: null` y `noindex, nofollow` correspondía a la etapa de vista previa.
 
 ## Publicar en Hostinger
 
@@ -47,14 +61,10 @@ La propuesta está marcada `noindex, nofollow`. Cuando se confirme la URL final,
 
 También es posible desplegar desde GitHub mediante la integración Git de Hostinger, si el plan lo admite. Esta integración estática no debe apuntar directamente a la raíz del repositorio fuente: usar una rama de distribución cuyo contenido sea `dist/`, o configurar una compilación y salida `dist` si se utiliza el producto de alojamiento de aplicaciones. La rama de distribución aún no se creó ni conectó.
 
-En Hostinger, revisar el sitio elegido → Advanced → Git → Connect with GitHub y limitar la autorización al repositorio de esta landing. No se configuró acceso a Hostinger, producción ni dominios en esta entrega.
+En Hostinger, revisar el sitio elegido → Advanced → Git → Connect with GitHub y limitar la autorización al repositorio de esta landing. La migración a Hostinger sigue pendiente: no se configuraron acceso, alojamiento ni dominio allí.
 
 Documentación oficial: https://www.hostinger.com/support/1583302-how-to-deploy-a-git-repository-in-hostinger/
 
 ## GitHub y conexiones
 
-Repositorio privado confirmado: [YeferClemiJPG/Dra.ClaudiaReyes](https://github.com/YeferClemiJPG/Dra.ClaudiaReyes). El código se recuperó del ZIP suministrado por el usuario el 28 de septiembre de 2026 y se vinculó a ese remoto. Consultar `docs/CONTINUIDAD.md` para el estado actual y `docs/INTEGRACIONES.md`, `docs/SISTEMA_VISUAL.md`, `docs/REVISION.md` y `docs/PLAN_SIETE_LANDINGS.md` para las decisiones y revisiones anteriores.
-
-## Recurso pendiente para completar la semejanza
-
-La referencia presenta un retrato separado de su fondo. Hace falta una versión PNG transparente fiel de la fotografía suministrada. Una edición automática se descartó por cambios en detalles faciales; no está incluida en los archivos entregados. La web conserva el JPEG original y aplica solo el encuadre y transición CSS. No se presenta ese resultado como un recorte real del sujeto.
+Repositorio público confirmado: [YeferClemiJPG/Dra.ClaudiaReyes](https://github.com/YeferClemiJPG/Dra.ClaudiaReyes). Era privado durante la recuperación del ZIP suministrado por el usuario el 28 de septiembre de 2026. Consultar `docs/CONTINUIDAD.md` para el estado actual y `docs/INTEGRACIONES.md`, `docs/SISTEMA_VISUAL.md`, `docs/REVISION.md` y `docs/PLAN_SIETE_LANDINGS.md` para las decisiones y revisiones anteriores.

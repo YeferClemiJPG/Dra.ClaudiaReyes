@@ -1,0 +1,174 @@
+# Recursos visuales activos
+
+## Etapa vigente · Contacto con ondas azul SCCOT
+
+El usuario corrigió el destino del color: Conexiones vuelve exactamente al estilo anterior a df9d071 y el azul se aplica a la imagen de ondas de Contacto. `assets/contact-blue-waves.png` reemplaza a `assets/contact-gold-waves.png`, conservada como histórico. Editada con image_gen integrado, desde el fondo dorado; sin nuevos iconos, logos ni personas. Se mantiene el centro perla, la composición y la textura metálica. El color #04157F fue la referencia azul del prompt, con reflejos y sombras naturales; no es una recoloración plana.
+
+PNG opaco 1672 × 941, 2.088.185 bytes. SHA-256: `1eec18cc257be3702e1ce86153beb0ab2595eb2326aa0ad97ea492b83ef63b69`. Copia intacta del archivo generado `exec-7ab9f5fd-22f3-49cd-b7ff-5d35c53c8434.png`. Se integra como imagen decorativa `contact-waves` con `alt=""` y carga diferida. Cristal, iconos dorados, QR y acciones se conservan.
+
+Entregables: CLEMI_Contacto_Ondas_Azules.png y CLEMI_Contacto_Ondas_Azules_Procedencia.md.
+
+### Prompt exacto
+
+```text
+Use case: precise-object-edit.
+Edit target: the attached existing abstract metallic wave background used behind the Contact section of a luxury medical landing page.
+Primary request: recolor the GOLD METALLIC RIBBONS/WAVES to SCCOT BLUE, using deep institutional royal blue #04157F as the dominant metal body color, with natural lighter blue highlights, rich blue shadows and fine silver-white reflections. Keep the same wave geometry, arrangement, satin brushed metal detail, translucent glass edges, lighting, smooth curves and 16:9 horizontal composition. The blue must be visibly blue, not violet, teal or neutral grey. All large gold/champagne metallic surfaces should become blue metal. Retain the bright pearl/ivory open central area for legible contact cards; only add subtle cool pale-blue reflected light there. Preserve sophisticated photorealistic polish and the generous calm center. Do not introduce any people, icons, logos, letters, cards, buttons, extra decorations or borders. This is a color correction of this specific background, not a new composition. Full-bleed opaque output, same wide landscape proportions.
+```
+
+## Etapa anterior · Trayectoria corregida, identidad y encuadre
+
+Activo: `assets/claudia-trayectoria-banner-v2.png`, PNG opaco de 1774 × 887. Relleno generativo mediante la herramienta integrada image_gen a partir de `assets/claudia-reyes-editorial.png`; el original y el banner v1 se conservan. Salida copiada intacta desde `exec-ea93c69b-aee1-4835-87b1-379cb38a99c5.png`, sin posprocesado de imagen. La edición amplía el marco, deja margen por encima del cabello y alrededor de los hombros y suaviza la parte inferior sobre el fondo morado. No es una copia píxel a píxel de la fotografía.
+
+La identidad se recupera como HTML: Dra. Claudia Reyes, Cirujana de pie y tobillo y @draclaudiajreyes. La cita sigue retirada y la biografía se mantiene. En escritorio se respeta el ratio natural sin ampliar la foto para rellenar la altura del texto. Hasta 900 px, la ventana cuadrada muestra la mitad izquierda y conserva el retrato completo; el texto sigue debajo. El resto de recursos sigue activo según la etapa anterior.
+
+Entregables: Claudia_Trayectoria_Banner_v2.png y Claudia_Trayectoria_Banner_v2_Procedencia.md (modo integrado, ruta, origen y prompt exacto).
+
+### Prompt exacto de la corrección
+
+```text
+Use case: identity-preserve.
+Asset type: responsive editorial biography banner, 2:1 wide landscape.
+Edit target: the supplied original portrait of Dra. Claudia Reyes, with dark blouse, hand gently supporting cheek and violet backdrop.
+Primary request: use generative fill/outpainting to EXTEND the original frame above, below and to the left, and much farther to the right. Preserve her recognizable facial features, age, expression, hair, pose, jewelry, clothing and monochrome/plum photographic treatment. Do not crop the crown of her hair, her hand or her shoulders. Remove all existing printed words, quote, name, specialty, handle and arrow from the bitmap; these exact identifying details will be restored as accessible HTML on the website.
+CRITICAL framing: the entire visible seated upper-body portrait, including complete hair silhouette, both shoulder outlines and bent supporting arm, must sit within x=4% to x=38% of the full wide canvas, with at least 7% empty space above her hair and comfortable dark negative space on the left. The leftmost 40% of this 2:1 canvas will also function as a 4:5 mobile portrait crop; all important portrait anatomy MUST remain safely within that zone. Her body below the mid torso should dissolve gradually and photographically into the same deep purple backdrop across the bottom 15%, not end at a hard cut. No straight dividing seams.
+Right 55%: refined continuous dark aubergine/plum studio texture with calm empty negative space for a name and biography. Background and the lower outer edges smoothly converge to deep plum hex #1c1425. Create real photorealistic seamless fill, not a pasted rectangular photograph, not a blurred enlargement.
+Lighting: preserve soft dimensional light on the face and hand. Elegant formal editorial mood, no new props, people, decoration, logo or text. Opaque full-bleed 2:1 image with no border and no rounded frame inside the bitmap. Do not change her face or make her younger.
+```
+
+## Etapa anterior · banner, portafolio y WhatsApp
+
+La autorización explícita sustituye la restricción anterior de no editar generativamente retratos para este banner concreto. Se conserva visualmente la apariencia y pose de Claudia, pero no se afirma identidad de píxeles: es una edición generativa, no la fotografía original sin editar. El adjunto editorial original permanece intacto como histórico. El logo oficial, el retrato principal y el adjunto de Instagram no se modifican.
+
+| Recurso activo                                               | Formato y dimensiones                      | Procedencia y prompt                                                               |
+| ------------------------------------------------------------ | ------------------------------------------ | ---------------------------------------------------------------------------------- |
+| assets/claudia-trayectoria-banner.png (biographyBanner)      | PNG RGB opaco, 1774 × 887, 1.887.437 bytes | Edición integrada del adjunto editorial; Claudia_Trayectoria_Banner_Procedencia.md |
+| assets/clemi-portfolio-sculpture.png (portfolioIllustration) | PNG RGBA, 1254 × 1254, 1.847.233 bytes     | Nueva generación integrada; CLEMI_Portafolio_Procedencia.md                        |
+| assets/contact-whatsapp-sculpture-v2.png                     | PNG RGBA, 1254 × 1254, 1.332.750 bytes     | Edición integrada del soporte doble; CLEMI_WhatsApp_v2_Procedencia.md              |
+
+SHA-256 respectivos, coincidentes entre originales generados y copias: 7d00dcaca99b91818898a65b9d57235d6a0886e4cbbb934b9091931a2d9949c5, a77d881332f4f43c3380aac200b0a62ceba4231c284dca4037aeb70201141b45 y 7da4825389f564178692ead275914b294d9c8d41282542f679d4c63251cf9574. Las copias generadas no se posprocesaron; esto no convierte el banner en una copia píxel a píxel del retrato de referencia. Título y biografía se añaden como HTML. La marca oficial de WhatsApp se superpone como SVG independiente.
+
+La exportación autónoma a 768 px integra los tres activos nuevos y los carga sin imágenes rotas; también se revisaron desarrollo a 1440/320 px y el pie centrado. La verificación, exportación y las 14 pruebas del diálogo pasaron; el detalle y límites constan en docs/CONTINUIDAD.md.
+
+Índice de entrega vigente: CLEMI_Banner_Portafolio_WhatsApp.md. El retrato editorial original, retrato SCCOT, microscopio, burbuja doble y placa QR quedan como históricos fuera de la composición actual. El código real permanece en el diálogo de Guardar contacto. Fuentes y licencias están en docs/THIRD_PARTY_NOTICES.md, sin desplegable en el pie. Los registros siguientes conservan procedencia de etapas anteriores.
+
+## Teléfono corregido y cintas de los títulos
+
+El teléfono activo es `public/assets/contact-phone-sculpture-v2.png`: smartphone vertical reconocible en marfil, azul marino y oro, con pantalla vacía. Se obtuvo mediante edición autorizada con la herramienta integrada, usando el teléfono anterior como referencia de materiales y sustituyendo su geometría; `transparent_background: true`, sin CLI ni instalaciones. PNG RGBA de 1254 × 1254 px, 660 513 bytes; SHA-256 coincidente entre original, proyecto y entrega: `5ceabb9534f6bdafc12bfd8b4ed2ff7b5c246e5928d0803845cc16b6c76a2b1c`. Copia intacta, transparencia y apariencia revisadas, sin personas, marcas ni flechas. El archivo anterior se conserva como histórico. Entregables: `CLEMI_Contacto_Telefono_v2.png` y `CLEMI_Contacto_Telefono_v2_Procedencia.md`, con prompt exacto.
+
+`public/assets/title-metalwork.svg` es un vector original de cintas satinadas doradas, dibujado para títulos y portada sin IA, texto ni logos. Sustituye a `title-flourish.svg`, cuya hoja queda como antecedente histórico. Su uso es decorativo y no modifica nombres accesibles ni jerarquía de títulos. En la exportación a 768 px se comprobaron el SVG integrado en CSS como datos y el PNG del smartphone integrado y cargado a 1254 px naturales, sin imágenes rotas.
+
+## Fondo de ondas doradas para Contacto
+
+`public/assets/contact-gold-waves.png` fue generado el 28 de septiembre de 2026 con `image_gen__imagegen`, por autorización explícita del usuario: una generación nueva, sin referencias y con `transparent_background: false`. Presenta cintas metálicas doradas y bordes refractados sobre marfil/perla, con centro luminoso. Es decoración abstracta, sin personas, texto ni logos; no modifica fotografías o marcas.
+
+PNG RGB opaco de 1672 × 941 px y 2 030 126 bytes. SHA-256 del original y las copias intactas: `6995200a15499d19c8e40638475d0aa8dd58579af27f92a9c6e2a65b060199da`. Entregables: `CLEMI_Contacto_Ondas_Doradas.png` y `CLEMI_Contacto_Ondas_Procedencia.md`; este último conserva el prompt exacto y modo de generación. La imagen se integra mediante `<img class="contact-waves" alt="" loading="lazy">`, conservando su carácter decorativo y carga diferida. Su presencia en la exportación autónoma se comprobó visualmente junto al cristal.
+
+## Cinco esculturas de contacto
+
+Esta tabla conserva la primera generación del 28 de septiembre de 2026; su teléfono fue sustituido por la versión 2 descrita arriba. Se usó la herramienta integrada, una llamada por imagen, sin referencias y con `transparent_background: true`. Los cinco PNG ARGB/RGBA de 32 bits miden 1254 × 1254 px y son copias intactas de los originales. Se revisaron visualmente y se comprobó transparencia; proyecto y entrega coinciden con sus originales en SHA-256.
+
+| Archivo en `public/assets/`   |     Bytes | SHA-256                                                            |
+| ----------------------------- | --------: | ------------------------------------------------------------------ |
+| `contact-save-sculpture.png`  | 1 595 829 | `fa02c319d46e729b163ad04cd8c3dc6e626d890660e7a4af59bb1e4b18f9fa90` |
+| `contact-chat-sculpture.png`  | 1 382 276 | `63df9999edbc24f283c96bb369c21d2fd506d5c35b62d01f7a5c2612f4814889` |
+| `contact-mail-sculpture.png`  | 1 298 753 | `c1e13f37cb223010d12224e9abf9fd3a166aa97337ba095c36a44cbc36592d15` |
+| `contact-phone-sculpture.png` |   920 242 | `f5b32857a96106ca9a3dfaf3166f990bd78a6c3e752541431e3a1742f337c63d` |
+| `contact-qr-sculpture.png`    | 1 265 747 | `692bd262147121a587e697962ab2743e60adf25fa19fe9a7b499954b4e65daf9` |
+
+La agenda muestra un relieve abstracto sin rasgos, no un retrato de la doctora. Las burbujas de mensajes y la placa QR están vacías: WhatsApp conserva su marca oficial superpuesta y el QR usa el código real del proyecto. No hay personas ni marcas generadas; estas piezas no son fotografías de objetos institucionales.
+
+Los prompts íntegros, modo y procedencia originales están en `CLEMI_Contacto_Agenda_Mensajes_Procedencia.md` y `CLEMI_Contacto_Correo_Telefono_QR_Procedencia.md`. El índice histórico CLEMI_Contacto_Recursos.md conserva la etapa de seis recursos de Contacto y sus versiones previas. Las comprobaciones de cada etapa están diferenciadas en `docs/CONTINUIDAD.md`.
+
+## Contornos y detalle botánico editorial
+
+`public/assets/editorial-contours.svg` es un dibujo vectorial original de diez curvas finas en azul marino y dorado, usado como fondo junto a gradientes CSS perla/marfil. `public/assets/title-flourish.svg` es el detalle botánico histórico, ahora sustituido por `title-metalwork.svg`. Todos se dibujaron para esta interfaz sin IA, texto, personas, logos ni dependencias nuevas. Su uso es decorativo y no modifica el contenido semántico de los títulos.
+
+## Perfil personal de Instagram
+
+- **Archivo:** `public/assets/claudia-reyes-instagram.png`.
+- **Procedencia:** imagen adjunta por el usuario en este chat el 28 de septiembre de 2026, recibida como `codex-clipboard-fc021a35-55b1-4de4-b096-fb50ebb3ba09.png`.
+- **Destino:** apartado de Instagram personal de la Dra. Claudia Reyes, mediante `instagramPortrait` en `content/profile.json` y el marcador `{{instagramPortrait}}` de la plantilla.
+- **Formato y dimensiones verificados:** PNG, 1080 × 1080 píxeles, 858 230 bytes.
+- **Integridad:** copia exacta del adjunto, sin editar, regenerar, recortar ni recolorear. Conserva íntegros el retrato, la marca CR y los textos incluidos en la imagen.
+- **SHA-256 del original y la copia:** `1bf15e548c7238dfdd579463b994cc7ca9e5050d925a00e0b267cedf1e50c34f`.
+- **Alcance de la comprobación:** se verificaron el archivo, sus dimensiones y la coincidencia de hashes. No se contrastó la imagen con el perfil de Instagram en vivo.
+
+El retrato principal `public/assets/dra-claudia-reyes.jpeg` se conserva. El renderizador mantiene el marcador anterior `portraitTile` por compatibilidad.
+
+## Retrato editorial original · histórico
+
+- **Archivo:** `public/assets/claudia-reyes-editorial.png`.
+- **Procedencia:** nuevo adjunto del usuario en este chat el 28 de septiembre de 2026, recibido como `codex-clipboard-9fd566de-1d89-4eb5-929c-ba77141631e0.png`.
+- **Destino:** sección editorial, mediante `editorialPortrait` en `content/profile.json` y el marcador `{{editorialPortrait}}` de la plantilla.
+- **Formato y dimensiones verificados:** PNG, 715 × 786 píxeles, 612 855 bytes.
+- **Integridad:** copia exacta del adjunto, sin editar, regenerar, recortar ni recolorear. Se conservan el retrato, los textos y el usuario de Instagram incluidos en el diseño original.
+- **SHA-256 del original y la copia:** `98a9ce685fab1a8d248002ba75f5b335291948e753f112296d266704bdd3afdb`.
+- **Alcance de la comprobación:** se verificaron el formato, las dimensiones y la coincidencia de hashes. Los textos integrados en la imagen proceden del adjunto del usuario; no se comparó este recurso con el perfil de Instagram en vivo.
+
+## Retrato profesional publicado por SCCOT · histórico
+
+- **Archivo:** `public/assets/claudia-reyes-sccot.jpeg`.
+- **Procedencia:** retrato de la Dra. Claudia Reyes con bata médica sobre fondo oscuro, publicado por SCCOT y recuperado para este proyecto el 28 de septiembre de 2026.
+- **Imagen de origen:** [archivo JPEG en SCCOT](https://sccot.org/wp-content/uploads/2020/04/Dra.-Claudia-Juliana-Reyes-Reyes.jpeg).
+- **Registro de procedencia:** [recurso 9801 de la API pública de SCCOT](https://sccot.org/wp-json/wp/v2/media/9801).
+- **Destino:** retrato profesional complementario, mediante `professionalPortrait` en `content/profile.json` y el marcador `{{professionalPortrait}}` de la plantilla.
+- **Formato y dimensiones verificados:** JPEG, 853 × 1280 píxeles, 273 849 bytes.
+- **Integridad:** copia exacta de la descarga original, sin editar, regenerar, recortar ni recolorear.
+- **SHA-256 de la descarga y la copia:** `e036b604f9e15d5db35cdf7ce4ac6956b0f8b1c52067e01fae091e7129e12771`.
+- **Licencia:** no se ha confirmado una licencia abierta para esta fotografía. La publicación en el sitio de SCCOT identifica su procedencia.
+
+## Biografía y especialidad
+
+La biografía incorporada en `content/profile.json` recoge formación profesional, especialidad y actividad clínica, docente y de formación quirúrgica. Sus enlaces de consulta son [AAOT](https://congresoaaot.org.ar/invitados/claudia-reyes/) y [la hoja de vida publicada por SCCOT](https://sccot.org/wp-content/uploads/2025/01/Hoja-de-Vida-Claudia-Reyes.doc.pdf). No se incorporaron direcciones personales del documento.
+
+La especialidad «Cirugía de pie y tobillo» también figura en las imágenes entregadas por el usuario. El renderizador valida HTTPS y escapa los nombres y destinos de las fuentes antes de generar sus enlaces.
+
+## Fotografía institucional de formación
+
+- **Archivo:** `public/assets/clemi-formacion.jpeg`.
+- **Procedencia:** fotografía publicada en [Nosotros, CLEMI](https://new.clemi.edu.co/nosotros/), recuperada para este proyecto el 28 de septiembre de 2026.
+- **Imagen de origen:** [MISION.jpeg en CLEMI](https://new.clemi.edu.co/wp-content/uploads/2021/06/MISION.jpeg).
+- **Destino:** contexto institucional de formación; ruta `institutionalPhoto` en `content/profile.json` y marcador `{{institutionalPhoto}}`.
+- **Formato y dimensiones verificados:** JPEG, 1280 × 960 píxeles, 71 605 bytes.
+- **Integridad:** copia exacta de la descarga, sin editar, regenerar, recortar ni recolorear.
+- **SHA-256 de la descarga y la copia:** `b7f950c7cb1079376986dfd3759d8881b9e0208a31b420fbde4b77f2e8c8cf3a`.
+- **Identificación:** imagen de una actividad institucional; no se identifica a la Dra. Claudia Reyes entre las personas fotografiadas.
+- **Licencia:** no se ha confirmado una licencia abierta. Se conserva la atribución de procedencia a CLEMI.
+
+## Ilustración científica decorativa
+
+- **Archivo:** `public/assets/clemi-science-illustration.png`.
+- **Procedencia:** generación nueva con `image_gen__imagegen` el 28 de septiembre de 2026, autorizada por el usuario para ilustraciones. Se utilizó `transparent_background: true`, sin imágenes de referencia.
+- **Destino vigente:** ilustración editorial decorativa únicamente en la portada, mediante la ruta `scienceIllustration` y el marcador `{{scienceIllustration}}`.
+- **Formato y dimensiones verificados:** PNG de 32 bits ARGB, 1536 × 1024 píxeles, 2 164 053 bytes. La copia conserva el canal alfa del archivo generado.
+- **SHA-256:** `26c543ac4faf4afac1d251efeb22cfdf968693d70aa84c6708d246093e5e766d`.
+- **Alcance:** composición artística alusiva a cirugía de pie y tobillo y educación; no es material de enseñanza anatómica ni evidencia clínica. No contiene rostros ni logos. No se editó ni regeneró ninguna fotografía de la doctora ni ninguna marca.
+
+Prompt original de generación, conservado desde el registro de trabajo `illustration-provenance.md`:
+
+```text
+Use case: stylized-concept.
+Asset type: premium decorative raster illustration for a light editorial landing page for an orthopedic surgeon and CLEMI scientific education foundation.
+Primary request: create one richly detailed, cohesive sculptural still life that evokes foot and ankle surgery, medical education, and thoughtful growth. The central sculptural object is an elegant translucent smoked-glass foot-and-ankle model with a porcelain-like inner articulated skeletal suggestion, resting at a natural oblique angle. It is a decorative art object, not a technical anatomical teaching diagram. Under and beside it sit gently fanned ivory open-book paper forms with convincing fine page edges, and two delicate branching laurel sprays with detailed antique-gold leaves. Use a few restrained deep navy accents within the book binding and glass shadows. The arrangement should feel curated, calm and accomplished, never a pile of unrelated props.
+Style/medium: exceptionally refined editorial 3D still-life, credible optical glass refraction, matte porcelain, fine paper and brushed antique gold. High-end museum-object photography meets contemporary healthcare branding.
+Composition/framing: landscape 3:2, central cohesive arrangement, three-quarter view, generous empty space around every side. All objects entirely within frame, no cut-off leaves, no extreme close-up. Objects occupy about 75 percent of the frame width and 76 percent of the frame height.
+Lighting/mood: soft warm directional studio lighting, subtle crisp highlights, graceful soft contact shadows, elegant and professional.
+Color palette: soft warm ivory #f6f5f1, porcelain white, muted antique gold #a89065, restrained deep navy #1a2744. No saturated bright colors.
+Scene/backdrop: genuinely transparent background with preserved alpha, designed to sit seamlessly on a light warm ivory web page. No horizon or room.
+Constraints: no text, no letters, no numbers, no logos, no watermarks, no people, no hands, no human portraits, no blood, no injury, no surgical tools. Do not copy any existing logo. No generic floating spheres, no abstract rings, no neon, no clipart, no basic flat geometry. Do not present this as medical instructional imagery.
+```
+
+## Familia vectorial de contacto anterior
+
+`public/assets/icons/contact-mail.svg`, `contact-phone.svg`, `contact-save.svg` y `contact-qr.svg` forman la familia anterior, sustituida por las esculturas en la etapa de cristal líquido. Fueron dibujados para esta interfaz el 28 de septiembre de 2026 y se conservan como antecedentes. Representan correo, llamada, libreta de contacto y acceso al QR con papel facetado, detalles de grabado y colores institucionales navy y dorado. Utilizan `viewBox="0 0 64 64"` y trazo de 1,5 unidades.
+
+Son recursos decorativos junto a etiquetas de acción, con `aria-hidden="true"` y `focusable="false"`. No incorporan texto, IDs, filtros, marcas ni dependencias nuevas. El pictograma QR es simbólico y no escaneable; el QR de contacto real se mantiene en `public/assets/contacto-qr.svg`. Los iconos oficiales de WhatsApp e Instagram se conservan intactos.
+
+## Ilustración de investigación para el portafolio · histórica
+
+- **Archivo y uso:** `public/assets/clemi-research-illustration.png`, mediante `researchIllustration`, solo en la tarjeta del portafolio. La composición de pie y libro permanece únicamente en la portada.
+- **Procedencia:** generación nueva autorizada por el usuario con `image_gen__imagegen` el 28 de septiembre de 2026, `transparent_background: true`, sin referencias. Microscopio escultórico en marfil, vidrio, azul marino y bronce, acompañado por una rama de laurel. No se utilizaron fotografías ni logos como material de generación.
+- **Integridad verificada:** PNG ARGB de 32 bits, 1536 × 1024 píxeles, 1 931 910 bytes; copia intacta del original, conservando transparencia. SHA-256: `02f4667be9941cfcff7d2e3d75bce2a1acbb64f7eb7633ac272077d6d3301bae`.
+- **Alcance:** recurso decorativo; no representa equipamiento institucional verificado ni material técnico educativo. No contiene texto, rostros ni marcas, y no altera retratos.
+- **Registro y prompt exacto:** [research-illustration-provenance.md](../../research-illustration-provenance.md), conservado en el directorio de trabajo de este proyecto. Solicita una composición editorial 3D de un microscopio completo y una rama de laurel, con materiales marfil, vidrio y bronce, fondo transparente, sin personas, anatomía, libros, letras ni logos.

@@ -71,5 +71,5 @@ await writeFile(
   html,
 );
 console.log(
-  "Vista autónoma exportada con fuentes, animaciones, QR y recursos integrados.",
+  "Vista autónoma exportada con fuentes, animaciones, contacto y recursos integrados.",
 );
